@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection;
 using System.Security.Cryptography;
 using System.Text;
+using System.Threading.Tasks;
 using Newtonsoft.Json;
 
 namespace LoginDemo.Commom
@@ -155,6 +156,7 @@ namespace LoginDemo.Commom
             var conditions = new StringBuilder();
             var properties =
                 t.GetType().GetProperties(BindingFlags.Public | BindingFlags.DeclaredOnly | BindingFlags.Instance);
+            #region foreach
             foreach (var property in from property in properties
                                      where property.GetValue(t, null) != null
                                      let des = property.GetCustomAttribute<IgnoreFieldAttribute>()
@@ -163,7 +165,18 @@ namespace LoginDemo.Commom
             {
                 conditions.Append(" AND " + property.Name + "=@" + property.Name + " ");
             }
-
+            #endregion
+            #region Parallel.ForEach
+            //var propertys = from property in properties
+            //                where property.GetValue(t, null) != null
+            //                let des = property.GetCustomAttribute<IgnoreFieldAttribute>()
+            //                where des == null
+            //                select property;
+            //Parallel.ForEach(propertys, (property) =>
+            //{
+            //    conditions.Append(" AND " + property.Name + "=@" + property.Name + " ");
+            //});
+            #endregion
             #region foreach
 
             //foreach (var property in properties)

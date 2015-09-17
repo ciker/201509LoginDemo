@@ -70,7 +70,7 @@ namespace Login.BLL.Test
             //});
             //1081ms  100
             #endregion
-            CodeTimer.Time("Register Parallel", 1000000, 15, Register);
+            //CodeTimer.Time("Register Parallel", 1000000, 15, Register);
             #endregion
 
             #region login
@@ -95,7 +95,7 @@ namespace Login.BLL.Test
             //CodeTimer.Time("GenerateCondition Parallel", 1000000, 15, GenerateCondition);
             //CodeTimer.Time("SelectUserList Parallel", 1000000, 15, SelectUserList);
 
-            CodeTimer.Time("SelectUserList Parallel", 1000000, 15, SelectUserList);
+            //CodeTimer.Time("SelectUserList Parallel", 1000000, 15, SelectUserList);
             #endregion
 
             #region TimeDelegate

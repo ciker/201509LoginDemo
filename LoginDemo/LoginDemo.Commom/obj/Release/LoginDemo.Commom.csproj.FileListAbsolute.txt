@@ -11,3 +11,4 @@ D:\LoginDemo\MyLoginDemo\LoginDemo\LoginDemo.Commom\bin\Release\ServiceStack.Red
 D:\LoginDemo\MyLoginDemo\LoginDemo\LoginDemo.Commom\bin\Release\ServiceStack.Text.xml
 D:\LoginDemo\MyLoginDemo\LoginDemo\LoginDemo.Commom\obj\Release\LoginDemo.Commom.dll
 D:\LoginDemo\MyLoginDemo\LoginDemo\LoginDemo.Commom\obj\Release\LoginDemo.Commom.pdb
+D:\LoginDemo\MyLoginDemo\LoginDemo\LoginDemo.Commom\obj\Release\LoginDemo.Commom.csprojResolveAssemblyReference.cache

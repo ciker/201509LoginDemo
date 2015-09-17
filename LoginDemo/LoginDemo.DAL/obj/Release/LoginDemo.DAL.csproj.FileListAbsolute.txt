@@ -18,5 +18,3 @@ D:\LoginDemo\MyLoginDemo\LoginDemo\LoginDemo.DAL\bin\Release\ServiceStack.Common
 D:\LoginDemo\MyLoginDemo\LoginDemo\LoginDemo.DAL\obj\Release\LoginDemo.DAL.csprojResolveAssemblyReference.cache
 D:\LoginDemo\MyLoginDemo\LoginDemo\LoginDemo.DAL\obj\Release\LoginDemo.DAL.dll
 D:\LoginDemo\MyLoginDemo\LoginDemo\LoginDemo.DAL\obj\Release\LoginDemo.DAL.pdb
-D:\LoginDemo\MyLoginDemo\LoginDemo\LoginDemo.DAL\bin\Release\LoginDemo.DAL.dll.CodeAnalysisLog.xml
-D:\LoginDemo\MyLoginDemo\LoginDemo\LoginDemo.DAL\bin\Release\LoginDemo.DAL.dll.lastcodeanalysissucceeded
