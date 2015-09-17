@@ -1,0 +1,9 @@
+.notify_bar{height: 30px;width:100%;text-align: center; border-radius: 5px;margin: 0px;position: relative; 
+	color:#ffffff;font-weight: 600;font-size: 13px;display: inline;}
+.notify_type_alert{background: #BF0F0F; margin: auto; text-align: center;padding: 5px;}
+.notify_type_success{background: #00981A; text-align: center;padding: 5px;}
+.notify_type_default{background: #00981A; text-align: center;padding: 5px;}
+
+.nofity_position_top{position: relative;margin: auto;top: 0px;display:inline; float: left;}
+.notify_message{width: 33%;text-align: center;padding: 5px;}
+
