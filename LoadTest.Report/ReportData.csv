@@ -1,0 +1,37 @@
+URI,POST /Users/User/RegisterUser
+Hit Count,11983
+
+Result Codes
+Code,Description,Count
+200,OK,11983
+
+Time to first byte (in milliseconds)
+Average,1.19
+Min,1.55
+25th Percentile,1.65
+50th Percentile,1.70
+75th Percentile,1.81
+Max,99.67
+
+Time to last byte (in milliseconds)
+Average,1.19
+Min,1.55
+25th Percentile,1.65
+50th Percentile,1.71
+75th Percentile,1.82
+Max,99.68
+
+Downloaded Content Length (in bytes)
+Min,65.00
+25th Percentile,65.00
+50th Percentile,65.00
+75th Percentile,65.00
+Max,65.00
+
+Socket Errors
+Connect,0
+Send,0
+Recv,0
+Timeouts,0
+
+Successful Authentications,0
