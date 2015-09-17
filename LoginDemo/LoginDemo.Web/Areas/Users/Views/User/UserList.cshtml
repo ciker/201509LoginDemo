@@ -1,0 +1,63 @@
+﻿@using LoginDemo.Entity;
+@using LoginDemo.Commom;
+@{
+    Layout = "~/Areas/Users/Views/Shared/_layoutView.cshtml";
+}
+@model ReturnResponse<Pager<User>>
+
+@section content{
+    <div style="float:right">
+        @*<span><a href="/user/users/Login">登录</a></span>*@
+        <span><a class="btn btn-success" href="/Users/User/Register">注册</a></span>
+    </div>
+    <div class="container">
+        <div class="panel panel-default">
+            <div class="panel-heading">用户列表</div>
+            <table class="table table-responsive">
+                <thead>
+                    <tr>
+                        <th>姓名</th>
+                        <th>邮箱</th>
+                        <th>手机</th>
+                        <th>创建时间</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model.Body.Items.Any())
+                    {
+                        foreach (var item in Model.Body.Items)
+                        {
+                            <tr>
+                                <td> @item.UserName</td>
+                                <td>@item.Email</td>
+                                <td>@item.Mobile</td>
+                                <td>@(item.CreateDateTime.HasValue ? item.CreateDateTime.Value.ToString("G") : "")</td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td class="nodata" colspan="3">暂无数据</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="pager">
+            <nav>
+                <ul class="pagination">
+                    @if (Model.Body.Pages > 0)
+                    {
+
+                        for (var i = 1; i <= Model.Body.Pages; i++)
+                        {
+                            <li><a href="/Users/User/UserList?pageIndex=@i">@(i)</a></li>
+                        }
+
+                    }
+                </ul>
+            </nav>
+        </div>
+    </div>
+}

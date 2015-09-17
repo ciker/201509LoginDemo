@@ -1,0 +1,31 @@
+﻿body {
+}
+
+table th, td {
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+}
+
+.error {
+    color: red;
+}
+
+thead th {
+    text-align: center;
+}
+
+table th:nth-child(1) {
+    border: none;
+}
+
+table td:nth-child(1) {
+    border: none;
+}
+
+table th:last-child {
+    border: none;
+}
+
+table td:last-child {
+    border: none;
+}

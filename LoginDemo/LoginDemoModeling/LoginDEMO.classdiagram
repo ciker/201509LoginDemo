@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="6f35619f-bcbf-4910-8e69-a9293fe1c6b6" name="LoginDEMO" linkedPackageId="23bacf15-50cf-44eb-8e30-565a95138610" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+  <profileInstances>
+    <packageHasProfileInstances Id="867223c3-9df0-44ac-a9f7-cf69dd0c7712">
+      <profileInstance Id="6ad7dccc-e7ae-4ab8-b3b3-7a4433366dbd" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="8b158213-8e31-43fc-9961-406568dd4ada">
+      <profileInstance Id="ddd07e91-b10f-47d8-ab93-ab9ffb02e02f" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="c75bb3b7-9da4-4a13-ad08-9eb1e75da827" name="UserBLL" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="a5def9a0-fc9d-4efc-87ab-5768cb0b36e4" />
+        <suppliersInternal>
+          <interfaceRealization Id="0a4bbf13-0df7-4a8f-a3ec-b8b92a369372">
+            <interfaceMoniker Id="08bfa3bf-17f7-46ab-bd04-3b1a803f734a" LastKnownName="IUserBLL" />
+            <elementDefinition Id="7dc214fd-843a-40a6-acc9-d886eb6604f0" />
+          </interfaceRealization>
+        </suppliersInternal>
+        <ownedOperationsInternal>
+          <operation Id="aeacb90c-f3ac-484a-83fb-74f6c3fae9b7" name="Register" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="5e98522c-c87f-40fb-bcc2-b5ebdbca01dd" />
+          </operation>
+          <operation Id="33847cdd-13f9-411f-ba67-434da75e2e6c" name="Login" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="c383a03b-a17b-4899-8fe9-06d294c60afb" />
+          </operation>
+          <operation Id="6483ca81-b442-420d-9ca1-09dd702bb791" name="GetUserListbyParameter" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="8f21ac7b-a8b3-4cdc-9330-05db67036449" />
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <Interface Id="08bfa3bf-17f7-46ab-bd04-3b1a803f734a" name="IUserBLL" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="bcbfba23-9c12-451d-9940-fb04139780ee" />
+        <ownedOperations>
+          <operation Id="5f6d995f-17d9-4731-9640-8611c6e3a884" name="Register" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="5518e209-d310-4605-adf6-19228a7ebd9e" />
+          </operation>
+          <operation Id="1885c241-d7a1-4697-95e2-d423a953e761" name="Login" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="4b9e00af-5677-44dd-8d32-97dfb067bba6" />
+          </operation>
+          <operation Id="e0e8b8c4-5ed6-48a3-82ae-f70546e3c332" name="GetUserListbyParameter" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="c2fa6e42-d4f6-4dc1-aa7d-01b9e3b90dcb" />
+          </operation>
+        </ownedOperations>
+      </Interface>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <Interface Id="6f5b0f5d-b458-463f-aa6a-7080a6caa961" name="IUserDAL" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="516c198b-12a0-42b8-afca-83b8fa82206b" />
+        <suppliersInternal>
+          <dependency Id="7298063c-d3ea-46af-8495-a25ef7c38fb0">
+            <interfaceMoniker Id="08bfa3bf-17f7-46ab-bd04-3b1a803f734a" LastKnownName="IUserBLL" />
+            <elementDefinition Id="396d8079-3476-4e43-92d8-4a4ff75b5012" />
+          </dependency>
+        </suppliersInternal>
+        <ownedOperations>
+          <operation Id="22e1f678-d5c4-4f17-8541-2f92a5cf3def" name="Delete" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="8be8f0ac-94f3-4c3f-9736-24ff7efa157a" />
+          </operation>
+          <operation Id="ebfe11f0-d596-43e5-bbf8-0ef60084e130" name="QueryUsersByParameter" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="cdb8445f-1bf2-4a5a-9682-f4ae35cb4d80" />
+          </operation>
+          <operation Id="3f1078ef-286e-4395-95f1-e8bc151a9ea4" name="Save" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="01d1eadb-d37a-4d77-8523-5c871a771f54" />
+          </operation>
+          <operation Id="8248dc1a-ea81-4f3d-886a-49997978182d" name="Update" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="657662b1-b805-453f-b749-f1eb7832de52" />
+          </operation>
+        </ownedOperations>
+      </Interface>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="956dd3f1-d91a-4c13-9fd8-f2cba96f6d5a" name="UserDAL" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="cf1be0d1-d868-49c0-84c1-df57edb084bf" />
+        <suppliersInternal>
+          <interfaceRealization Id="356cb2ec-88e9-4398-a56d-bc81c98d5ef7">
+            <interfaceMoniker Id="6f5b0f5d-b458-463f-aa6a-7080a6caa961" LastKnownName="IUserDAL" />
+            <elementDefinition Id="49bbba85-2760-498b-8a97-7783d60e5a30" />
+          </interfaceRealization>
+        </suppliersInternal>
+        <ownedOperationsInternal>
+          <operation Id="0e46e8c7-65a6-4d72-86c2-79660445d580" name="Delete" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="8c5856f3-1a2f-4e66-9045-d1fd0f6d2418" />
+          </operation>
+          <operation Id="e3484191-2cdf-4731-9153-98bf0dfdb59e" name="QueryUsersByParameter" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="9a9aae5e-4738-43f7-9a78-c98fe34eea7b" />
+          </operation>
+          <operation Id="d4f8ed05-2693-4032-b79b-3cee0e500af9" name="Save" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="f718be2d-4ef2-4b30-9f90-1f0b434681ec" />
+          </operation>
+          <operation Id="589b13d5-3f1f-4e60-ab76-5f4fcd198a2e" name="Update" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="96212113-d821-468d-bded-61025ff93399" />
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+  </packagedElements>
+  <package Id="23bacf15-50cf-44eb-8e30-565a95138610" name="LoginDemoModeling">
+    <elementDefinition Id="8c741881-ddfc-4447-b0d6-a019e9aa6e10" />
+  </package>
+</logicalClassDesignerModel>

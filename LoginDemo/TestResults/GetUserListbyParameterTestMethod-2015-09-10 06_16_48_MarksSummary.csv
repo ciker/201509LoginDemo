@@ -1,0 +1,8 @@
+标记 ID,标记名,时间戳,\Processor(_Total)\% Processor Time,\Memory\Pages/sec,\Processor(_Total)\% Privileged Time,\Processor(_Total)\% User Time,\.NET CLR Exceptions(vstest.executionengine.x86)\# of Exceps Thrown / sec,\.NET CLR Memory(vstest.executionengine.x86)\# Bytes in all Heaps,\.NET CLR Memory(vstest.executionengine.x86)\# Total committed bytes,\.NET CLR Memory(vstest.executionengine.x86)\# Gen 0 Collections,\.NET CLR Memory(vstest.executionengine.x86)\# Gen 1 Collections,\.NET CLR Memory(vstest.executionengine.x86)\# Gen 2 Collections,\.NET CLR Memory(vstest.executionengine.x86)\% Time in GC,\Process(vstest.executionengine.x86)\% Processor Time,\Process(vstest.executionengine.x86)\% Privileged Time,\Process(vstest.executionengine.x86)\% User Time,\Process(vstest.executionengine.x86)\Private Bytes,\.NET CLR LocksAndThreads(vstest.executionengine.x86)\Contention Rate / sec,\Process(vstest.executionengine.x86)\Working Set,
+0,"启动程序",0.00,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+1,"AutoMark",320.06,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+2,"AutoMark",864.14,34,"1,435",7,26,0,"1,125,468","2,498,560",2,1,0,0,0,0,0,"33,124,352",0,"83,144,704",
+3,"AutoMark","1,871.56",7,0,2,4,0,"1,125,468","2,498,560",2,1,0,0,0,0,0,"33,071,104",0,"83,132,416",
+4,"AutoMark","2,872.75",4,0,1,1,0,"1,125,468","2,498,560",2,1,0,0,0,0,0,"33,153,024",0,"83,210,240",
+"4,294,967,295","程序结束","3,378.37",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+5,"AutoMark","3,378.37",16,320,5,13,0,0,0,0,0,0,0,0,0,0,0,0,0,

@@ -1,0 +1,6 @@
+D:\LoginDemo\MyLoginDemo\LoginDemo\LoginDemo.Web.WebAndLoadTest\bin\Release\WebTest2.webtest
+D:\LoginDemo\MyLoginDemo\LoginDemo\LoginDemo.Web.WebAndLoadTest\bin\Release\LoginDemo.Web.WebAndLoadTest.dll
+D:\LoginDemo\MyLoginDemo\LoginDemo\LoginDemo.Web.WebAndLoadTest\bin\Release\LoginDemo.Web.WebAndLoadTest.pdb
+D:\LoginDemo\MyLoginDemo\LoginDemo\LoginDemo.Web.WebAndLoadTest\obj\Release\LoginDemo.Web.WebAndLoadTest.csprojResolveAssemblyReference.cache
+D:\LoginDemo\MyLoginDemo\LoginDemo\LoginDemo.Web.WebAndLoadTest\obj\Release\LoginDemo.Web.WebAndLoadTest.dll
+D:\LoginDemo\MyLoginDemo\LoginDemo\LoginDemo.Web.WebAndLoadTest\obj\Release\LoginDemo.Web.WebAndLoadTest.pdb

@@ -1,0 +1,16 @@
+D:\LoginDemo\MyLoginDemo\LoginDemo\LoginDemo.Entity\bin\Release\LoginDemo.Entity.dll
+D:\LoginDemo\MyLoginDemo\LoginDemo\LoginDemo.Entity\bin\Release\LoginDemo.Entity.pdb
+D:\LoginDemo\MyLoginDemo\LoginDemo\LoginDemo.Entity\bin\Release\LoginDemo.Commom.dll
+D:\LoginDemo\MyLoginDemo\LoginDemo\LoginDemo.Entity\bin\Release\ServiceStack.Redis.dll
+D:\LoginDemo\MyLoginDemo\LoginDemo\LoginDemo.Entity\bin\Release\ServiceStack.Interfaces.dll
+D:\LoginDemo\MyLoginDemo\LoginDemo\LoginDemo.Entity\bin\Release\Newtonsoft.Json.dll
+D:\LoginDemo\MyLoginDemo\LoginDemo\LoginDemo.Entity\bin\Release\ServiceStack.Text.dll
+D:\LoginDemo\MyLoginDemo\LoginDemo\LoginDemo.Entity\bin\Release\ServiceStack.Common.dll
+D:\LoginDemo\MyLoginDemo\LoginDemo\LoginDemo.Entity\bin\Release\LoginDemo.Commom.pdb
+D:\LoginDemo\MyLoginDemo\LoginDemo\LoginDemo.Entity\bin\Release\ServiceStack.Redis.xml
+D:\LoginDemo\MyLoginDemo\LoginDemo\LoginDemo.Entity\bin\Release\Newtonsoft.Json.xml
+D:\LoginDemo\MyLoginDemo\LoginDemo\LoginDemo.Entity\bin\Release\ServiceStack.Text.xml
+D:\LoginDemo\MyLoginDemo\LoginDemo\LoginDemo.Entity\bin\Release\ServiceStack.Common.xml
+D:\LoginDemo\MyLoginDemo\LoginDemo\LoginDemo.Entity\obj\Release\LoginDemo.Entity.csprojResolveAssemblyReference.cache
+D:\LoginDemo\MyLoginDemo\LoginDemo\LoginDemo.Entity\obj\Release\LoginDemo.Entity.dll
+D:\LoginDemo\MyLoginDemo\LoginDemo\LoginDemo.Entity\obj\Release\LoginDemo.Entity.pdb

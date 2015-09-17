@@ -1,0 +1,37 @@
+﻿@using LoginDemo.Entity;
+@{
+    Layout = "~/Areas/Users/Views/Shared/_layoutView.cshtml";
+}
+@model User
+sss
+@section content{
+    <form class="form-inline">
+        <div>
+            <dl class="input-group">
+                <dt class="input-group-addon">用户名:</dt>
+                <dd>@Html.TextBoxFor(a => a.UserName, new { required = "true", maxlength = "30", @class = "form-control" })</dd>
+            </dl>
+            <dl class="input-group">
+                <dt class="input-group-addon">密&nbsp;&nbsp;&nbsp;码:</dt>
+                <dd>@Html.PasswordFor(a => a.UserPWD, new { @class = "form-control", required = "true", maxlength = "30" })</dd>
+            </dl>
+            <dl class="input-group">
+                <dt class="input-group-addon">手机号:</dt>
+                <dd>@Html.TextBoxFor(a => a.Mobile, new { @class = "form-control", required = "true", maxlength = "11" })</dd>
+            </dl>
+
+            <dl class="input-group">
+                <dt class="input-group-addon">邮&nbsp;&nbsp;&nbsp;箱:</dt>
+                <dd>@Html.TextBoxFor(a => a.Email, new { @class = "form-control", required = "true", maxlength = "50", type = "email" }) </dd>
+            </dl>
+            <dl class="input-group">
+                <dd><button type="button" class="btn btn-primary register">注册</button><span>已有账号</span><a class="btn btn-success" href="/Users/User/Login">去登录</a></dd>
+            </dl>
+        </div>
+
+    </form>
+}
+
+@section scripts{
+<script src="~/Scripts/user/register.js"></script>
+}

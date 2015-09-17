@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="cfa08131-a5cb-49a2-be9e-2a24ca614a70" name="Administrator@WINDOWS-NET012 2015-09-10 19:05:04" runUser="WINDOWS-NET012\Administrator" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="本地" id="c6ce192d-70fe-4e52-ba5a-da7ab56ebd22">
+    <Description>这些设置为本地测试运行的默认测试设置。</Description>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+    <Deployment runDeploymentRoot="Administrator_WINDOWS-NET012 2015-09-10 19_05_04" />
+    <Properties />
+  </TestSettings>
+  <Times creation="2015-09-10T19:05:04.4429043+08:00" queuing="2015-09-10T19:05:04.8149256+08:00" start="2015-09-10T19:05:04.9799350+08:00" finish="2015-09-10T19:05:05.2299493+08:00" />
+  <ResultSummary outcome="Completed">
+    <Counters total="1" executed="1" passed="1" error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <WebTest name="WebTest1" storage="d:\logindemo\mylogindemo\logindemo\logindemo.web.webandloadtest\webtest1.webtest" id="ada88d21-d8eb-4365-b8a9-62532e7ad607" persistedWebTest="77u/PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/Pg0KPFdlYlRlc3QgTmFtZT0iV2ViVGVzdDEiIElkPSJhZGE4OGQyMS1kOGViLTQzNjUtYjhhOS02MjUzMmU3YWQ2MDciIE93bmVyPSIiIFByaW9yaXR5PSIyMTQ3NDgzNjQ3IiBFbmFibGVkPSJUcnVlIiBDc3NQcm9qZWN0U3RydWN0dXJlPSIiIENzc0l0ZXJhdGlvbj0iIiBUaW1lb3V0PSIwIiBXb3JrSXRlbUlkcz0iIiB4bWxucz0iaHR0cDovL21pY3Jvc29mdC5jb20vc2NoZW1hcy9WaXN1YWxTdHVkaW8vVGVhbVRlc3QvMjAxMCIgRGVzY3JpcHRpb249IiIgQ3JlZGVudGlhbFVzZXJOYW1lPSIiIENyZWRlbnRpYWxQYXNzd29yZD0iIiBQcmVBdXRoZW50aWNhdGU9IlRydWUiIFByb3h5PSJkZWZhdWx0IiBTdG9wT25FcnJvcj0iRmFsc2UiIFJlY29yZGVkUmVzdWx0RmlsZT0iIiBSZXN1bHRzTG9jYWxlPSIiIC8+">
+      <Execution id="0f3305ec-400a-4937-9af7-694c3b32aeea" />
+    </WebTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="列表中未列出的结果" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="所有已加载的结果" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry isTransparent="false" testId="ada88d21-d8eb-4365-b8a9-62532e7ad607" executionId="0f3305ec-400a-4937-9af7-694c3b32aeea" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <WebTestResult executionId="0f3305ec-400a-4937-9af7-694c3b32aeea" testId="ada88d21-d8eb-4365-b8a9-62532e7ad607" testName="WebTest1" computerName="WINDOWS-NET012" duration="00:00:00.0073443" startTime="2015-09-10T19:05:05.0679401+08:00" endTime="2015-09-10T19:05:05.1789464+08:00" testType="4e7599fa-5ecb-43e9-a887-cd63cf72d207" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0f3305ec-400a-4937-9af7-694c3b32aeea">
+      <ResultFiles>
+        <ResultFile path="WebTest1.webtestResult" />
+      </ResultFiles>
+      <TestSettings name="本地" id="c6ce192d-70fe-4e52-ba5a-da7ab56ebd22">
+        <Description>这些设置为本地测试运行的默认测试设置。</Description>
+        <Execution>
+          <TestTypeSpecific>
+            <WebTestRunConfiguration testTypeId="4e7599fa-5ecb-43e9-a887-cd63cf72d207">
+              <Browser name="Internet Explorer 9.0" MaxConnections="6">
+                <Headers>
+                  <Header name="User-Agent" value="Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)" />
+                  <Header name="Accept" value="*/*" />
+                  <Header name="Accept-Language" value="{{$IEAcceptLanguage}}" />
+                  <Header name="Accept-Encoding" value="GZIP" />
+                </Headers>
+              </Browser>
+            </WebTestRunConfiguration>
+          </TestTypeSpecific>
+          <AgentRule name="Execution Agents">
+          </AgentRule>
+        </Execution>
+        <Deployment runDeploymentRoot="Administrator_WINDOWS-NET012 2015-09-10 19_05_04" />
+        <Properties />
+      </TestSettings>
+      <WebTestResultFilePath>Administrator_WINDOWS-NET012 2015-09-10 19_05_04\In\0f3305ec-400a-4937-9af7-694c3b32aeea\WebTest1.webtestResult</WebTestResultFilePath>
+    </WebTestResult>
+  </Results>
+</TestRun>

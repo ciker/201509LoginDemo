@@ -1,0 +1,26 @@
+﻿@{
+    Layout = "~/Areas/Users/Views/Shared/_layoutView.cshtml";
+}
+
+<!DOCTYPE html>
+
+@section content{
+    <form class="form-inline">
+        <div>
+            <dl class="input-group">
+                <dt class="input-group-addon">用户名:</dt>
+                <dd><input type="text" class="form-control" required name="userName" /></dd>
+            </dl>
+
+            <dl class="input-group">
+                <dt class="input-group-addon">密&nbsp;&nbsp;&nbsp;码:</dt>
+                <dd><input type="password" class="form-control" required name="userPwd" /></dd>
+            </dl>
+            <button type="button" class="btn btn-primary login">登录</button><span>没有账号</span><a class="btn btn-success" href="/Users/User/Register">去注册</a>
+        </div>
+    </form>}
+
+@section scripts{
+
+    <script src="~/Scripts/user/login.js"></script>
+}

@@ -1,0 +1,645 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebTest Name="WebTest2" Id="8d274bfb-7f23-4a76-9359-8d14cb3dd4c0" Owner="" Priority="2147483647" Enabled="True" CssProjectStructure="" CssIteration="" Timeout="0" WorkItemIds="" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" Description="" CredentialUserName="" CredentialPassword="" PreAuthenticate="True" Proxy="default" StopOnError="False" RecordedResultFile="WebTest2.5b1f3072-c691-445d-8fd1-5f51458019ee.rec.webtestresult" ResultsLocale="">
+  <Items>
+    <Request Method="GET" Guid="5a06c72b-ec10-47eb-9cbb-da36c6fd3570" Version="1.1" Url="http://www.logindemo.com/users/user/userlist" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <CorrelationExtractionRules>
+        <ExtractionRule Classname="Microsoft.VisualStudio.TestTools.WebTesting.Rules.ExtractText, Microsoft.VisualStudio.QualityTools.WebTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" VariableName="QueryStringParam2.pageIndex" DisplayName="" Description="">
+          <RuleParameters>
+            <RuleParameter Name="StartsWith" Value="?pageIndex=" />
+            <RuleParameter Name="EndsWith" Value="&quot;" />
+            <RuleParameter Name="Index" Value="1" />
+            <RuleParameter Name="IgnoreCase" Value="False" />
+            <RuleParameter Name="UseRegularExpression" Value="False" />
+            <RuleParameter Name="HtmlDecode" Value="True" />
+            <RuleParameter Name="Required" Value="False" />
+          </RuleParameters>
+        </ExtractionRule>
+      </CorrelationExtractionRules>
+    </Request>
+    <Request Method="GET" Guid="c6a3fdc9-99cc-4885-b473-7cb2049b8a40" Version="1.1" Url="http://localhost:26171/5ef3ff3c9373452a81339f30ad9287b5/arterySignalR/negotiate" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://www.logindemo.com/users/user/userlist" />
+      </Headers>
+      <QueryStringParameters>
+        <QueryStringParameter Name="requestUrl" Value="http%3A%2F%2Fwww.logindemo.com%2Fusers%2Fuser%2Fuserlist" RecordedValue="http%3A%2F%2Fwww.logindemo.com%2Fusers%2Fuser%2Fuserlist" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="browserName" Value="InternetExplorer" RecordedValue="InternetExplorer" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="clientProtocol" Value="1.3" RecordedValue="1.3" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="callback" Value="jQuery182032914041176284175_1441883261788" RecordedValue="jQuery182032914041176284175_1441883261788" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="_" Value="1441883261847" RecordedValue="1441883261847" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+    <Request Method="GET" Guid="411e635c-ac18-4504-bb45-b402f54826cd" Version="1.1" Url="http://localhost:26171/5ef3ff3c9373452a81339f30ad9287b5/arterySignalR/connect" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://www.logindemo.com/users/user/userlist" />
+      </Headers>
+      <QueryStringParameters>
+        <QueryStringParameter Name="transport" Value="longPolling" RecordedValue="longPolling" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="connectionToken" Value="AQAAANCMnd8BFdERjHoAwE%2FCl%2BsBAAAAIojOp%2BqsVE%2BrF0uUT7tWgAAAAAACAAAAAAAQZgAAAAEAACAAAAABZV3ltZ3m44%2FJp7d6hNdMJMQhPULJ%2BFnBqaNhRmPMfAAAAAAOgAAAAAIAACAAAADH3RPau648IZ5EMb1NHpu4DdU3pdcWhO4vRWQhpz05WjAAAAASOb6C30cw5%2BL8ZJCNxhNHL%2BzXMfqxCo7bJNVarrnOf%2BoYrlLLWf4gpQ%2F9hCrqNxdAAAAA9zS74qGDt%2BUBpR%2BgPEKjIMDn7TLwdxTq%2Banr1UE7gictKAaqLezpdBpKNlIfPp552dlewHsoGvi6tDjDCY3EfQ%3D%3D" RecordedValue="AQAAANCMnd8BFdERjHoAwE%2FCl%2BsBAAAAIojOp%2BqsVE%2BrF0uUT7tWgAAAAAACAAAAAAAQZgAAAAEAACAAAAABZV3ltZ3m44%2FJp7d6hNdMJMQhPULJ%2BFnBqaNhRmPMfAAAAAAOgAAAAAIAACAAAADH3RPau648IZ5EMb1NHpu4DdU3pdcWhO4vRWQhpz05WjAAAAASOb6C30cw5%2BL8ZJCNxhNHL%2BzXMfqxCo7bJNVarrnOf%2BoYrlLLWf4gpQ%2F9hCrqNxdAAAAA9zS74qGDt%2BUBpR%2BgPEKjIMDn7TLwdxTq%2Banr1UE7gictKAaqLezpdBpKNlIfPp552dlewHsoGvi6tDjDCY3EfQ%3D%3D" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="requestUrl" Value="http%3A%2F%2Fwww.logindemo.com%2Fusers%2Fuser%2Fuserlist" RecordedValue="http%3A%2F%2Fwww.logindemo.com%2Fusers%2Fuser%2Fuserlist" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="browserName" Value="InternetExplorer" RecordedValue="InternetExplorer" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="tid" Value="9" RecordedValue="9" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="callback" Value="jQuery182032914041176284175_1441883261788" RecordedValue="jQuery182032914041176284175_1441883261788" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="_" Value="1441883262340" RecordedValue="1441883262340" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+    <Request Method="GET" Guid="34f48500-8dda-4174-a345-1765ce80be90" Version="1.1" Url="http://localhost:26171/5ef3ff3c9373452a81339f30ad9287b5/arterySignalR/send" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://www.logindemo.com/users/user/userlist" />
+      </Headers>
+      <QueryStringParameters>
+        <QueryStringParameter Name="transport" Value="longPolling" RecordedValue="longPolling" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="connectionToken" Value="AQAAANCMnd8BFdERjHoAwE%2FCl%2BsBAAAAIojOp%2BqsVE%2BrF0uUT7tWgAAAAAACAAAAAAAQZgAAAAEAACAAAAABZV3ltZ3m44%2FJp7d6hNdMJMQhPULJ%2BFnBqaNhRmPMfAAAAAAOgAAAAAIAACAAAADH3RPau648IZ5EMb1NHpu4DdU3pdcWhO4vRWQhpz05WjAAAAASOb6C30cw5%2BL8ZJCNxhNHL%2BzXMfqxCo7bJNVarrnOf%2BoYrlLLWf4gpQ%2F9hCrqNxdAAAAA9zS74qGDt%2BUBpR%2BgPEKjIMDn7TLwdxTq%2Banr1UE7gictKAaqLezpdBpKNlIfPp552dlewHsoGvi6tDjDCY3EfQ%3D%3D" RecordedValue="AQAAANCMnd8BFdERjHoAwE%2FCl%2BsBAAAAIojOp%2BqsVE%2BrF0uUT7tWgAAAAAACAAAAAAAQZgAAAAEAACAAAAABZV3ltZ3m44%2FJp7d6hNdMJMQhPULJ%2BFnBqaNhRmPMfAAAAAAOgAAAAAIAACAAAADH3RPau648IZ5EMb1NHpu4DdU3pdcWhO4vRWQhpz05WjAAAAASOb6C30cw5%2BL8ZJCNxhNHL%2BzXMfqxCo7bJNVarrnOf%2BoYrlLLWf4gpQ%2F9hCrqNxdAAAAA9zS74qGDt%2BUBpR%2BgPEKjIMDn7TLwdxTq%2Banr1UE7gictKAaqLezpdBpKNlIfPp552dlewHsoGvi6tDjDCY3EfQ%3D%3D" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="requestUrl" Value="http%3A%2F%2Fwww.logindemo.com%2Fusers%2Fuser%2Fuserlist" RecordedValue="http%3A%2F%2Fwww.logindemo.com%2Fusers%2Fuser%2Fuserlist" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="browserName" Value="InternetExplorer" RecordedValue="InternetExplorer" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="callback" Value="jQuery182032914041176284175_1441883261788" RecordedValue="jQuery182032914041176284175_1441883261788" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="data" Value="%7B%22name%22%3A%22Microsoft.VisualStudio.Web.BrowserLink.CoreExtensionFactory.connected%22%2C%22callbackId%22%3A1%7D" RecordedValue="%7B%22name%22%3A%22Microsoft.VisualStudio.Web.BrowserLink.CoreExtensionFactory.connected%22%2C%22callbackId%22%3A1%7D" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="_" Value="1441883262483" RecordedValue="1441883262483" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+    <Request Method="GET" Guid="97e68a85-8fcc-43b0-b8cd-7d6cb997d734" Version="1.1" Url="http://localhost:26171/5ef3ff3c9373452a81339f30ad9287b5/arterySignalR/poll" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://www.logindemo.com/users/user/userlist" />
+      </Headers>
+      <QueryStringParameters>
+        <QueryStringParameter Name="transport" Value="longPolling" RecordedValue="longPolling" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="connectionToken" Value="AQAAANCMnd8BFdERjHoAwE%2FCl%2BsBAAAAIojOp%2BqsVE%2BrF0uUT7tWgAAAAAACAAAAAAAQZgAAAAEAACAAAAABZV3ltZ3m44%2FJp7d6hNdMJMQhPULJ%2BFnBqaNhRmPMfAAAAAAOgAAAAAIAACAAAADH3RPau648IZ5EMb1NHpu4DdU3pdcWhO4vRWQhpz05WjAAAAASOb6C30cw5%2BL8ZJCNxhNHL%2BzXMfqxCo7bJNVarrnOf%2BoYrlLLWf4gpQ%2F9hCrqNxdAAAAA9zS74qGDt%2BUBpR%2BgPEKjIMDn7TLwdxTq%2Banr1UE7gictKAaqLezpdBpKNlIfPp552dlewHsoGvi6tDjDCY3EfQ%3D%3D" RecordedValue="AQAAANCMnd8BFdERjHoAwE%2FCl%2BsBAAAAIojOp%2BqsVE%2BrF0uUT7tWgAAAAAACAAAAAAAQZgAAAAEAACAAAAABZV3ltZ3m44%2FJp7d6hNdMJMQhPULJ%2BFnBqaNhRmPMfAAAAAAOgAAAAAIAACAAAADH3RPau648IZ5EMb1NHpu4DdU3pdcWhO4vRWQhpz05WjAAAAASOb6C30cw5%2BL8ZJCNxhNHL%2BzXMfqxCo7bJNVarrnOf%2BoYrlLLWf4gpQ%2F9hCrqNxdAAAAA9zS74qGDt%2BUBpR%2BgPEKjIMDn7TLwdxTq%2Banr1UE7gictKAaqLezpdBpKNlIfPp552dlewHsoGvi6tDjDCY3EfQ%3D%3D" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="messageId" Value="d-6645ED08-B%2C0%7CC%2C1%7CD%2C0" RecordedValue="d-6645ED08-B%2C0%7CC%2C1%7CD%2C0" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="requestUrl" Value="http%3A%2F%2Fwww.logindemo.com%2Fusers%2Fuser%2Fuserlist" RecordedValue="http%3A%2F%2Fwww.logindemo.com%2Fusers%2Fuser%2Fuserlist" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="browserName" Value="InternetExplorer" RecordedValue="InternetExplorer" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="tid" Value="7" RecordedValue="7" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="callback" Value="jQuery182032914041176284175_1441883261789" RecordedValue="jQuery182032914041176284175_1441883261789" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="_" Value="1441883262485" RecordedValue="1441883262485" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+    <Request Method="GET" Guid="c52dc691-fb8a-44bb-a451-f665cf05643b" Version="1.1" Url="http://localhost:26171/5ef3ff3c9373452a81339f30ad9287b5/arterySignalR/send" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://www.logindemo.com/users/user/userlist" />
+      </Headers>
+      <QueryStringParameters>
+        <QueryStringParameter Name="transport" Value="longPolling" RecordedValue="longPolling" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="connectionToken" Value="AQAAANCMnd8BFdERjHoAwE%2FCl%2BsBAAAAIojOp%2BqsVE%2BrF0uUT7tWgAAAAAACAAAAAAAQZgAAAAEAACAAAAABZV3ltZ3m44%2FJp7d6hNdMJMQhPULJ%2BFnBqaNhRmPMfAAAAAAOgAAAAAIAACAAAADH3RPau648IZ5EMb1NHpu4DdU3pdcWhO4vRWQhpz05WjAAAAASOb6C30cw5%2BL8ZJCNxhNHL%2BzXMfqxCo7bJNVarrnOf%2BoYrlLLWf4gpQ%2F9hCrqNxdAAAAA9zS74qGDt%2BUBpR%2BgPEKjIMDn7TLwdxTq%2Banr1UE7gictKAaqLezpdBpKNlIfPp552dlewHsoGvi6tDjDCY3EfQ%3D%3D" RecordedValue="AQAAANCMnd8BFdERjHoAwE%2FCl%2BsBAAAAIojOp%2BqsVE%2BrF0uUT7tWgAAAAAACAAAAAAAQZgAAAAEAACAAAAABZV3ltZ3m44%2FJp7d6hNdMJMQhPULJ%2BFnBqaNhRmPMfAAAAAAOgAAAAAIAACAAAADH3RPau648IZ5EMb1NHpu4DdU3pdcWhO4vRWQhpz05WjAAAAASOb6C30cw5%2BL8ZJCNxhNHL%2BzXMfqxCo7bJNVarrnOf%2BoYrlLLWf4gpQ%2F9hCrqNxdAAAAA9zS74qGDt%2BUBpR%2BgPEKjIMDn7TLwdxTq%2Banr1UE7gictKAaqLezpdBpKNlIfPp552dlewHsoGvi6tDjDCY3EfQ%3D%3D" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="requestUrl" Value="http%3A%2F%2Fwww.logindemo.com%2Fusers%2Fuser%2Fuserlist" RecordedValue="http%3A%2F%2Fwww.logindemo.com%2Fusers%2Fuser%2Fuserlist" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="browserName" Value="InternetExplorer" RecordedValue="InternetExplorer" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="callback" Value="jQuery182032914041176284175_1441883261789" RecordedValue="jQuery182032914041176284175_1441883261789" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="data" Value="%7B%22name%22%3A%22microsoft.visualstudio.web.browserlink.htmlmappingextensionfactory.resolveUrl%22%2C%22args%22%3A%5B%22~%2F__browserLink%2FrequestData%2Faddac9398b964b53b1e3aa4cca2e1c6d%22%5D%2C%22callbackId%22%3A2%7D" RecordedValue="%7B%22name%22%3A%22microsoft.visualstudio.web.browserlink.htmlmappingextensionfactory.resolveUrl%22%2C%22args%22%3A%5B%22~%2F__browserLink%2FrequestData%2Faddac9398b964b53b1e3aa4cca2e1c6d%22%5D%2C%22callbackId%22%3A2%7D" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="_" Value="1441883262553" RecordedValue="1441883262553" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+    <Request Method="GET" Guid="4aff69d5-831f-45ba-a303-05027d096b76" Version="1.1" Url="http://localhost:26171/5ef3ff3c9373452a81339f30ad9287b5/arterySignalR/poll" ThinkTime="6" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://www.logindemo.com/users/user/userlist" />
+      </Headers>
+      <QueryStringParameters>
+        <QueryStringParameter Name="transport" Value="longPolling" RecordedValue="longPolling" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="connectionToken" Value="AQAAANCMnd8BFdERjHoAwE%2FCl%2BsBAAAAIojOp%2BqsVE%2BrF0uUT7tWgAAAAAACAAAAAAAQZgAAAAEAACAAAAABZV3ltZ3m44%2FJp7d6hNdMJMQhPULJ%2BFnBqaNhRmPMfAAAAAAOgAAAAAIAACAAAADH3RPau648IZ5EMb1NHpu4DdU3pdcWhO4vRWQhpz05WjAAAAASOb6C30cw5%2BL8ZJCNxhNHL%2BzXMfqxCo7bJNVarrnOf%2BoYrlLLWf4gpQ%2F9hCrqNxdAAAAA9zS74qGDt%2BUBpR%2BgPEKjIMDn7TLwdxTq%2Banr1UE7gictKAaqLezpdBpKNlIfPp552dlewHsoGvi6tDjDCY3EfQ%3D%3D" RecordedValue="AQAAANCMnd8BFdERjHoAwE%2FCl%2BsBAAAAIojOp%2BqsVE%2BrF0uUT7tWgAAAAAACAAAAAAAQZgAAAAEAACAAAAABZV3ltZ3m44%2FJp7d6hNdMJMQhPULJ%2BFnBqaNhRmPMfAAAAAAOgAAAAAIAACAAAADH3RPau648IZ5EMb1NHpu4DdU3pdcWhO4vRWQhpz05WjAAAAASOb6C30cw5%2BL8ZJCNxhNHL%2BzXMfqxCo7bJNVarrnOf%2BoYrlLLWf4gpQ%2F9hCrqNxdAAAAA9zS74qGDt%2BUBpR%2BgPEKjIMDn7TLwdxTq%2Banr1UE7gictKAaqLezpdBpKNlIfPp552dlewHsoGvi6tDjDCY3EfQ%3D%3D" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="messageId" Value="d-6645ED08-B%2C0%7CC%2C2%7CD%2C0" RecordedValue="d-6645ED08-B%2C0%7CC%2C2%7CD%2C0" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="requestUrl" Value="http%3A%2F%2Fwww.logindemo.com%2Fusers%2Fuser%2Fuserlist" RecordedValue="http%3A%2F%2Fwww.logindemo.com%2Fusers%2Fuser%2Fuserlist" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="browserName" Value="InternetExplorer" RecordedValue="InternetExplorer" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="tid" Value="2" RecordedValue="2" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="callback" Value="jQuery182032914041176284175_1441883261788" RecordedValue="jQuery182032914041176284175_1441883261788" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="_" Value="1441883262554" RecordedValue="1441883262554" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+    <Request Method="GET" Guid="3c1ac464-cbfc-491a-a12d-4603d4680b42" Version="1.1" Url="http://www.logindemo.com/Users/User/UserList" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://www.logindemo.com/users/user/userlist" />
+      </Headers>
+      <CorrelationExtractionRules>
+        <ExtractionRule Classname="Microsoft.VisualStudio.TestTools.WebTesting.Rules.ExtractText, Microsoft.VisualStudio.QualityTools.WebTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" VariableName="QueryStringParam1.pageIndex" DisplayName="" Description="">
+          <RuleParameters>
+            <RuleParameter Name="StartsWith" Value="?pageIndex=" />
+            <RuleParameter Name="EndsWith" Value="&quot;" />
+            <RuleParameter Name="Index" Value="2" />
+            <RuleParameter Name="IgnoreCase" Value="False" />
+            <RuleParameter Name="UseRegularExpression" Value="False" />
+            <RuleParameter Name="HtmlDecode" Value="True" />
+            <RuleParameter Name="Required" Value="False" />
+          </RuleParameters>
+        </ExtractionRule>
+      </CorrelationExtractionRules>
+      <QueryStringParameters>
+        <QueryStringParameter Name="pageIndex" Value="2" RecordedValue="2" CorrelationBinding="{{QueryStringParam2.pageIndex}}" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+    <Request Method="GET" Guid="f0728631-3569-4725-8638-78d903778a14" Version="1.1" Url="http://localhost:26171/5ef3ff3c9373452a81339f30ad9287b5/arterySignalR/negotiate" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://www.logindemo.com/Users/User/UserList?pageIndex=2" />
+      </Headers>
+      <QueryStringParameters>
+        <QueryStringParameter Name="requestUrl" Value="http%3A%2F%2Fwww.logindemo.com%2FUsers%2FUser%2FUserList%3FpageIndex%3D2" RecordedValue="http%3A%2F%2Fwww.logindemo.com%2FUsers%2FUser%2FUserList%3FpageIndex%3D2" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="browserName" Value="InternetExplorer" RecordedValue="InternetExplorer" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="clientProtocol" Value="1.3" RecordedValue="1.3" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="callback" Value="jQuery18209555321874901677_1441883268219" RecordedValue="jQuery18209555321874901677_1441883268219" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="_" Value="1441883268258" RecordedValue="1441883268258" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+    <Request Method="GET" Guid="7bb2a5f3-7bea-464e-ac92-735ee962d773" Version="1.1" Url="http://localhost:26171/5ef3ff3c9373452a81339f30ad9287b5/arterySignalR/connect" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://www.logindemo.com/Users/User/UserList?pageIndex=2" />
+      </Headers>
+      <QueryStringParameters>
+        <QueryStringParameter Name="transport" Value="longPolling" RecordedValue="longPolling" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="connectionToken" Value="AQAAANCMnd8BFdERjHoAwE%2FCl%2BsBAAAAIojOp%2BqsVE%2BrF0uUT7tWgAAAAAACAAAAAAAQZgAAAAEAACAAAAApl%2BrH0vUEgyT2zrpNpdc7%2FFRuW%2Fr%2FZ6t9MxHpRo8e5gAAAAAOgAAAAAIAACAAAABxlAJHVXkUxMCkR2bLeQ09OmWxyVDoB3DdwhqfPCHlojAAAADsGg01UCPoNy4ok5sQugX%2B6Nrpzcx0HdAQHRVqpqIBj25koj4vHX4yFE2XfzTvfopAAAAA%2FJBi6HZcvFdKNyfsIatPB2uAz9SFx9hgSurQHYb5GAkH1DOSM2nhbO2HmgvazfKT%2FUC3pUq9SVlU9IOkp%2BCKGQ%3D%3D" RecordedValue="AQAAANCMnd8BFdERjHoAwE%2FCl%2BsBAAAAIojOp%2BqsVE%2BrF0uUT7tWgAAAAAACAAAAAAAQZgAAAAEAACAAAAApl%2BrH0vUEgyT2zrpNpdc7%2FFRuW%2Fr%2FZ6t9MxHpRo8e5gAAAAAOgAAAAAIAACAAAABxlAJHVXkUxMCkR2bLeQ09OmWxyVDoB3DdwhqfPCHlojAAAADsGg01UCPoNy4ok5sQugX%2B6Nrpzcx0HdAQHRVqpqIBj25koj4vHX4yFE2XfzTvfopAAAAA%2FJBi6HZcvFdKNyfsIatPB2uAz9SFx9hgSurQHYb5GAkH1DOSM2nhbO2HmgvazfKT%2FUC3pUq9SVlU9IOkp%2BCKGQ%3D%3D" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="requestUrl" Value="http%3A%2F%2Fwww.logindemo.com%2FUsers%2FUser%2FUserList%3FpageIndex%3D2" RecordedValue="http%3A%2F%2Fwww.logindemo.com%2FUsers%2FUser%2FUserList%3FpageIndex%3D2" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="browserName" Value="InternetExplorer" RecordedValue="InternetExplorer" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="tid" Value="5" RecordedValue="5" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="callback" Value="jQuery18209555321874901677_1441883268219" RecordedValue="jQuery18209555321874901677_1441883268219" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="_" Value="1441883268527" RecordedValue="1441883268527" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+    <Request Method="GET" Guid="d079410f-fc0e-4c64-b957-3c3576b9d5bf" Version="1.1" Url="http://localhost:26171/5ef3ff3c9373452a81339f30ad9287b5/arterySignalR/send" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://www.logindemo.com/Users/User/UserList?pageIndex=2" />
+      </Headers>
+      <QueryStringParameters>
+        <QueryStringParameter Name="transport" Value="longPolling" RecordedValue="longPolling" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="connectionToken" Value="AQAAANCMnd8BFdERjHoAwE%2FCl%2BsBAAAAIojOp%2BqsVE%2BrF0uUT7tWgAAAAAACAAAAAAAQZgAAAAEAACAAAAApl%2BrH0vUEgyT2zrpNpdc7%2FFRuW%2Fr%2FZ6t9MxHpRo8e5gAAAAAOgAAAAAIAACAAAABxlAJHVXkUxMCkR2bLeQ09OmWxyVDoB3DdwhqfPCHlojAAAADsGg01UCPoNy4ok5sQugX%2B6Nrpzcx0HdAQHRVqpqIBj25koj4vHX4yFE2XfzTvfopAAAAA%2FJBi6HZcvFdKNyfsIatPB2uAz9SFx9hgSurQHYb5GAkH1DOSM2nhbO2HmgvazfKT%2FUC3pUq9SVlU9IOkp%2BCKGQ%3D%3D" RecordedValue="AQAAANCMnd8BFdERjHoAwE%2FCl%2BsBAAAAIojOp%2BqsVE%2BrF0uUT7tWgAAAAAACAAAAAAAQZgAAAAEAACAAAAApl%2BrH0vUEgyT2zrpNpdc7%2FFRuW%2Fr%2FZ6t9MxHpRo8e5gAAAAAOgAAAAAIAACAAAABxlAJHVXkUxMCkR2bLeQ09OmWxyVDoB3DdwhqfPCHlojAAAADsGg01UCPoNy4ok5sQugX%2B6Nrpzcx0HdAQHRVqpqIBj25koj4vHX4yFE2XfzTvfopAAAAA%2FJBi6HZcvFdKNyfsIatPB2uAz9SFx9hgSurQHYb5GAkH1DOSM2nhbO2HmgvazfKT%2FUC3pUq9SVlU9IOkp%2BCKGQ%3D%3D" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="requestUrl" Value="http%3A%2F%2Fwww.logindemo.com%2FUsers%2FUser%2FUserList%3FpageIndex%3D2" RecordedValue="http%3A%2F%2Fwww.logindemo.com%2FUsers%2FUser%2FUserList%3FpageIndex%3D2" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="browserName" Value="InternetExplorer" RecordedValue="InternetExplorer" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="callback" Value="jQuery18209555321874901677_1441883268219" RecordedValue="jQuery18209555321874901677_1441883268219" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="data" Value="%7B%22name%22%3A%22Microsoft.VisualStudio.Web.BrowserLink.CoreExtensionFactory.connected%22%2C%22callbackId%22%3A1%7D" RecordedValue="%7B%22name%22%3A%22Microsoft.VisualStudio.Web.BrowserLink.CoreExtensionFactory.connected%22%2C%22callbackId%22%3A1%7D" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="_" Value="1441883268536" RecordedValue="1441883268536" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+    <Request Method="GET" Guid="0895800f-a271-4d08-a8b1-2714e9ca51e9" Version="1.1" Url="http://localhost:26171/5ef3ff3c9373452a81339f30ad9287b5/arterySignalR/poll" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://www.logindemo.com/Users/User/UserList?pageIndex=2" />
+      </Headers>
+      <QueryStringParameters>
+        <QueryStringParameter Name="transport" Value="longPolling" RecordedValue="longPolling" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="connectionToken" Value="AQAAANCMnd8BFdERjHoAwE%2FCl%2BsBAAAAIojOp%2BqsVE%2BrF0uUT7tWgAAAAAACAAAAAAAQZgAAAAEAACAAAAApl%2BrH0vUEgyT2zrpNpdc7%2FFRuW%2Fr%2FZ6t9MxHpRo8e5gAAAAAOgAAAAAIAACAAAABxlAJHVXkUxMCkR2bLeQ09OmWxyVDoB3DdwhqfPCHlojAAAADsGg01UCPoNy4ok5sQugX%2B6Nrpzcx0HdAQHRVqpqIBj25koj4vHX4yFE2XfzTvfopAAAAA%2FJBi6HZcvFdKNyfsIatPB2uAz9SFx9hgSurQHYb5GAkH1DOSM2nhbO2HmgvazfKT%2FUC3pUq9SVlU9IOkp%2BCKGQ%3D%3D" RecordedValue="AQAAANCMnd8BFdERjHoAwE%2FCl%2BsBAAAAIojOp%2BqsVE%2BrF0uUT7tWgAAAAAACAAAAAAAQZgAAAAEAACAAAAApl%2BrH0vUEgyT2zrpNpdc7%2FFRuW%2Fr%2FZ6t9MxHpRo8e5gAAAAAOgAAAAAIAACAAAABxlAJHVXkUxMCkR2bLeQ09OmWxyVDoB3DdwhqfPCHlojAAAADsGg01UCPoNy4ok5sQugX%2B6Nrpzcx0HdAQHRVqpqIBj25koj4vHX4yFE2XfzTvfopAAAAA%2FJBi6HZcvFdKNyfsIatPB2uAz9SFx9hgSurQHYb5GAkH1DOSM2nhbO2HmgvazfKT%2FUC3pUq9SVlU9IOkp%2BCKGQ%3D%3D" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="messageId" Value="d-6645ED08-B%2C0%7CE%2C1%7CF%2C0" RecordedValue="d-6645ED08-B%2C0%7CE%2C1%7CF%2C0" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="requestUrl" Value="http%3A%2F%2Fwww.logindemo.com%2FUsers%2FUser%2FUserList%3FpageIndex%3D2" RecordedValue="http%3A%2F%2Fwww.logindemo.com%2FUsers%2FUser%2FUserList%3FpageIndex%3D2" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="browserName" Value="InternetExplorer" RecordedValue="InternetExplorer" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="tid" Value="6" RecordedValue="6" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="callback" Value="jQuery18209555321874901677_1441883268220" RecordedValue="jQuery18209555321874901677_1441883268220" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="_" Value="1441883268538" RecordedValue="1441883268538" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+    <Request Method="GET" Guid="115a1b42-29e5-4d8e-8be1-f6a646c14e9c" Version="1.1" Url="http://localhost:26171/5ef3ff3c9373452a81339f30ad9287b5/arterySignalR/send" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://www.logindemo.com/Users/User/UserList?pageIndex=2" />
+      </Headers>
+      <QueryStringParameters>
+        <QueryStringParameter Name="transport" Value="longPolling" RecordedValue="longPolling" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="connectionToken" Value="AQAAANCMnd8BFdERjHoAwE%2FCl%2BsBAAAAIojOp%2BqsVE%2BrF0uUT7tWgAAAAAACAAAAAAAQZgAAAAEAACAAAAApl%2BrH0vUEgyT2zrpNpdc7%2FFRuW%2Fr%2FZ6t9MxHpRo8e5gAAAAAOgAAAAAIAACAAAABxlAJHVXkUxMCkR2bLeQ09OmWxyVDoB3DdwhqfPCHlojAAAADsGg01UCPoNy4ok5sQugX%2B6Nrpzcx0HdAQHRVqpqIBj25koj4vHX4yFE2XfzTvfopAAAAA%2FJBi6HZcvFdKNyfsIatPB2uAz9SFx9hgSurQHYb5GAkH1DOSM2nhbO2HmgvazfKT%2FUC3pUq9SVlU9IOkp%2BCKGQ%3D%3D" RecordedValue="AQAAANCMnd8BFdERjHoAwE%2FCl%2BsBAAAAIojOp%2BqsVE%2BrF0uUT7tWgAAAAAACAAAAAAAQZgAAAAEAACAAAAApl%2BrH0vUEgyT2zrpNpdc7%2FFRuW%2Fr%2FZ6t9MxHpRo8e5gAAAAAOgAAAAAIAACAAAABxlAJHVXkUxMCkR2bLeQ09OmWxyVDoB3DdwhqfPCHlojAAAADsGg01UCPoNy4ok5sQugX%2B6Nrpzcx0HdAQHRVqpqIBj25koj4vHX4yFE2XfzTvfopAAAAA%2FJBi6HZcvFdKNyfsIatPB2uAz9SFx9hgSurQHYb5GAkH1DOSM2nhbO2HmgvazfKT%2FUC3pUq9SVlU9IOkp%2BCKGQ%3D%3D" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="requestUrl" Value="http%3A%2F%2Fwww.logindemo.com%2FUsers%2FUser%2FUserList%3FpageIndex%3D2" RecordedValue="http%3A%2F%2Fwww.logindemo.com%2FUsers%2FUser%2FUserList%3FpageIndex%3D2" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="browserName" Value="InternetExplorer" RecordedValue="InternetExplorer" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="callback" Value="jQuery18209555321874901677_1441883268220" RecordedValue="jQuery18209555321874901677_1441883268220" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="data" Value="%7B%22name%22%3A%22microsoft.visualstudio.web.browserlink.htmlmappingextensionfactory.resolveUrl%22%2C%22args%22%3A%5B%22~%2F__browserLink%2FrequestData%2F6f3ca850fb8147819eee88151169747b%22%5D%2C%22callbackId%22%3A2%7D" RecordedValue="%7B%22name%22%3A%22microsoft.visualstudio.web.browserlink.htmlmappingextensionfactory.resolveUrl%22%2C%22args%22%3A%5B%22~%2F__browserLink%2FrequestData%2F6f3ca850fb8147819eee88151169747b%22%5D%2C%22callbackId%22%3A2%7D" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="_" Value="1441883268562" RecordedValue="1441883268562" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+    <Request Method="GET" Guid="9b57867f-4e58-45ee-aa54-f2b68e3d68ae" Version="1.1" Url="http://localhost:26171/5ef3ff3c9373452a81339f30ad9287b5/arterySignalR/poll" ThinkTime="1" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://www.logindemo.com/Users/User/UserList?pageIndex=2" />
+      </Headers>
+      <QueryStringParameters>
+        <QueryStringParameter Name="transport" Value="longPolling" RecordedValue="longPolling" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="connectionToken" Value="AQAAANCMnd8BFdERjHoAwE%2FCl%2BsBAAAAIojOp%2BqsVE%2BrF0uUT7tWgAAAAAACAAAAAAAQZgAAAAEAACAAAAApl%2BrH0vUEgyT2zrpNpdc7%2FFRuW%2Fr%2FZ6t9MxHpRo8e5gAAAAAOgAAAAAIAACAAAABxlAJHVXkUxMCkR2bLeQ09OmWxyVDoB3DdwhqfPCHlojAAAADsGg01UCPoNy4ok5sQugX%2B6Nrpzcx0HdAQHRVqpqIBj25koj4vHX4yFE2XfzTvfopAAAAA%2FJBi6HZcvFdKNyfsIatPB2uAz9SFx9hgSurQHYb5GAkH1DOSM2nhbO2HmgvazfKT%2FUC3pUq9SVlU9IOkp%2BCKGQ%3D%3D" RecordedValue="AQAAANCMnd8BFdERjHoAwE%2FCl%2BsBAAAAIojOp%2BqsVE%2BrF0uUT7tWgAAAAAACAAAAAAAQZgAAAAEAACAAAAApl%2BrH0vUEgyT2zrpNpdc7%2FFRuW%2Fr%2FZ6t9MxHpRo8e5gAAAAAOgAAAAAIAACAAAABxlAJHVXkUxMCkR2bLeQ09OmWxyVDoB3DdwhqfPCHlojAAAADsGg01UCPoNy4ok5sQugX%2B6Nrpzcx0HdAQHRVqpqIBj25koj4vHX4yFE2XfzTvfopAAAAA%2FJBi6HZcvFdKNyfsIatPB2uAz9SFx9hgSurQHYb5GAkH1DOSM2nhbO2HmgvazfKT%2FUC3pUq9SVlU9IOkp%2BCKGQ%3D%3D" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="messageId" Value="d-6645ED08-B%2C0%7CE%2C2%7CF%2C0" RecordedValue="d-6645ED08-B%2C0%7CE%2C2%7CF%2C0" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="requestUrl" Value="http%3A%2F%2Fwww.logindemo.com%2FUsers%2FUser%2FUserList%3FpageIndex%3D2" RecordedValue="http%3A%2F%2Fwww.logindemo.com%2FUsers%2FUser%2FUserList%3FpageIndex%3D2" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="browserName" Value="InternetExplorer" RecordedValue="InternetExplorer" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="tid" Value="1" RecordedValue="1" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="callback" Value="jQuery18209555321874901677_1441883268219" RecordedValue="jQuery18209555321874901677_1441883268219" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="_" Value="1441883268563" RecordedValue="1441883268563" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+    <Request Method="GET" Guid="10dbf761-d524-4e48-a09d-eebc26d72494" Version="1.1" Url="http://www.logindemo.com/Users/User/UserList" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://www.logindemo.com/Users/User/UserList?pageIndex=2" />
+      </Headers>
+      <QueryStringParameters>
+        <QueryStringParameter Name="pageIndex" Value="3" RecordedValue="3" CorrelationBinding="{{QueryStringParam1.pageIndex}}" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+    <Request Method="GET" Guid="4e68fd26-f06d-4ed0-9281-5a21eb0f54ba" Version="1.1" Url="http://localhost:26171/5ef3ff3c9373452a81339f30ad9287b5/arterySignalR/negotiate" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://www.logindemo.com/Users/User/UserList?pageIndex=3" />
+      </Headers>
+      <QueryStringParameters>
+        <QueryStringParameter Name="requestUrl" Value="http%3A%2F%2Fwww.logindemo.com%2FUsers%2FUser%2FUserList%3FpageIndex%3D3" RecordedValue="http%3A%2F%2Fwww.logindemo.com%2FUsers%2FUser%2FUserList%3FpageIndex%3D3" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="browserName" Value="InternetExplorer" RecordedValue="InternetExplorer" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="clientProtocol" Value="1.3" RecordedValue="1.3" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="callback" Value="jQuery18206852059478692996_1441883269501" RecordedValue="jQuery18206852059478692996_1441883269501" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="_" Value="1441883269539" RecordedValue="1441883269539" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+    <Request Method="GET" Guid="ef9ff098-3122-4245-b607-1d720df0f7b4" Version="1.1" Url="http://localhost:26171/5ef3ff3c9373452a81339f30ad9287b5/arterySignalR/connect" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://www.logindemo.com/Users/User/UserList?pageIndex=3" />
+      </Headers>
+      <QueryStringParameters>
+        <QueryStringParameter Name="transport" Value="longPolling" RecordedValue="longPolling" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="connectionToken" Value="AQAAANCMnd8BFdERjHoAwE%2FCl%2BsBAAAAIojOp%2BqsVE%2BrF0uUT7tWgAAAAAACAAAAAAAQZgAAAAEAACAAAABT7NKBnMJJ%2BYHBxSFTj86bwUaAakztqTeu9Evlci4ldwAAAAAOgAAAAAIAACAAAACVS%2FBn6v5h7e7Qsc6AhfKcRKLb%2BWmXK%2F9kfHJspKQ6ajAAAAC7ETuEQoOMRrPERZ3DA8ALU5YZ5MuaIYTb4vspRA8yOAPiwS%2B%2BMYL8KzB0iTQsznxAAAAApphJ8ANchcjyEEONW4yDJPJ3lNxxli8qx9KLXTpPpjY4Klg457SAMe%2FVvw23FDvcLzPBAF9L7UxWCx0dU%2Fn7lQ%3D%3D" RecordedValue="AQAAANCMnd8BFdERjHoAwE%2FCl%2BsBAAAAIojOp%2BqsVE%2BrF0uUT7tWgAAAAAACAAAAAAAQZgAAAAEAACAAAABT7NKBnMJJ%2BYHBxSFTj86bwUaAakztqTeu9Evlci4ldwAAAAAOgAAAAAIAACAAAACVS%2FBn6v5h7e7Qsc6AhfKcRKLb%2BWmXK%2F9kfHJspKQ6ajAAAAC7ETuEQoOMRrPERZ3DA8ALU5YZ5MuaIYTb4vspRA8yOAPiwS%2B%2BMYL8KzB0iTQsznxAAAAApphJ8ANchcjyEEONW4yDJPJ3lNxxli8qx9KLXTpPpjY4Klg457SAMe%2FVvw23FDvcLzPBAF9L7UxWCx0dU%2Fn7lQ%3D%3D" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="requestUrl" Value="http%3A%2F%2Fwww.logindemo.com%2FUsers%2FUser%2FUserList%3FpageIndex%3D3" RecordedValue="http%3A%2F%2Fwww.logindemo.com%2FUsers%2FUser%2FUserList%3FpageIndex%3D3" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="browserName" Value="InternetExplorer" RecordedValue="InternetExplorer" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="tid" Value="5" RecordedValue="5" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="callback" Value="jQuery18206852059478692996_1441883269501" RecordedValue="jQuery18206852059478692996_1441883269501" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="_" Value="1441883269807" RecordedValue="1441883269807" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+    <Request Method="GET" Guid="5cc0e32d-166c-4d5b-99d9-bbb118b26781" Version="1.1" Url="http://localhost:26171/5ef3ff3c9373452a81339f30ad9287b5/arterySignalR/send" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://www.logindemo.com/Users/User/UserList?pageIndex=3" />
+      </Headers>
+      <QueryStringParameters>
+        <QueryStringParameter Name="transport" Value="longPolling" RecordedValue="longPolling" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="connectionToken" Value="AQAAANCMnd8BFdERjHoAwE%2FCl%2BsBAAAAIojOp%2BqsVE%2BrF0uUT7tWgAAAAAACAAAAAAAQZgAAAAEAACAAAABT7NKBnMJJ%2BYHBxSFTj86bwUaAakztqTeu9Evlci4ldwAAAAAOgAAAAAIAACAAAACVS%2FBn6v5h7e7Qsc6AhfKcRKLb%2BWmXK%2F9kfHJspKQ6ajAAAAC7ETuEQoOMRrPERZ3DA8ALU5YZ5MuaIYTb4vspRA8yOAPiwS%2B%2BMYL8KzB0iTQsznxAAAAApphJ8ANchcjyEEONW4yDJPJ3lNxxli8qx9KLXTpPpjY4Klg457SAMe%2FVvw23FDvcLzPBAF9L7UxWCx0dU%2Fn7lQ%3D%3D" RecordedValue="AQAAANCMnd8BFdERjHoAwE%2FCl%2BsBAAAAIojOp%2BqsVE%2BrF0uUT7tWgAAAAAACAAAAAAAQZgAAAAEAACAAAABT7NKBnMJJ%2BYHBxSFTj86bwUaAakztqTeu9Evlci4ldwAAAAAOgAAAAAIAACAAAACVS%2FBn6v5h7e7Qsc6AhfKcRKLb%2BWmXK%2F9kfHJspKQ6ajAAAAC7ETuEQoOMRrPERZ3DA8ALU5YZ5MuaIYTb4vspRA8yOAPiwS%2B%2BMYL8KzB0iTQsznxAAAAApphJ8ANchcjyEEONW4yDJPJ3lNxxli8qx9KLXTpPpjY4Klg457SAMe%2FVvw23FDvcLzPBAF9L7UxWCx0dU%2Fn7lQ%3D%3D" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="requestUrl" Value="http%3A%2F%2Fwww.logindemo.com%2FUsers%2FUser%2FUserList%3FpageIndex%3D3" RecordedValue="http%3A%2F%2Fwww.logindemo.com%2FUsers%2FUser%2FUserList%3FpageIndex%3D3" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="browserName" Value="InternetExplorer" RecordedValue="InternetExplorer" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="callback" Value="jQuery18206852059478692996_1441883269501" RecordedValue="jQuery18206852059478692996_1441883269501" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="data" Value="%7B%22name%22%3A%22Microsoft.VisualStudio.Web.BrowserLink.CoreExtensionFactory.connected%22%2C%22callbackId%22%3A1%7D" RecordedValue="%7B%22name%22%3A%22Microsoft.VisualStudio.Web.BrowserLink.CoreExtensionFactory.connected%22%2C%22callbackId%22%3A1%7D" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="_" Value="1441883269814" RecordedValue="1441883269814" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+    <Request Method="GET" Guid="6e4d1aa1-b2f7-4eca-8e4c-409042899863" Version="1.1" Url="http://localhost:26171/5ef3ff3c9373452a81339f30ad9287b5/arterySignalR/poll" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://www.logindemo.com/Users/User/UserList?pageIndex=3" />
+      </Headers>
+      <QueryStringParameters>
+        <QueryStringParameter Name="transport" Value="longPolling" RecordedValue="longPolling" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="connectionToken" Value="AQAAANCMnd8BFdERjHoAwE%2FCl%2BsBAAAAIojOp%2BqsVE%2BrF0uUT7tWgAAAAAACAAAAAAAQZgAAAAEAACAAAABT7NKBnMJJ%2BYHBxSFTj86bwUaAakztqTeu9Evlci4ldwAAAAAOgAAAAAIAACAAAACVS%2FBn6v5h7e7Qsc6AhfKcRKLb%2BWmXK%2F9kfHJspKQ6ajAAAAC7ETuEQoOMRrPERZ3DA8ALU5YZ5MuaIYTb4vspRA8yOAPiwS%2B%2BMYL8KzB0iTQsznxAAAAApphJ8ANchcjyEEONW4yDJPJ3lNxxli8qx9KLXTpPpjY4Klg457SAMe%2FVvw23FDvcLzPBAF9L7UxWCx0dU%2Fn7lQ%3D%3D" RecordedValue="AQAAANCMnd8BFdERjHoAwE%2FCl%2BsBAAAAIojOp%2BqsVE%2BrF0uUT7tWgAAAAAACAAAAAAAQZgAAAAEAACAAAABT7NKBnMJJ%2BYHBxSFTj86bwUaAakztqTeu9Evlci4ldwAAAAAOgAAAAAIAACAAAACVS%2FBn6v5h7e7Qsc6AhfKcRKLb%2BWmXK%2F9kfHJspKQ6ajAAAAC7ETuEQoOMRrPERZ3DA8ALU5YZ5MuaIYTb4vspRA8yOAPiwS%2B%2BMYL8KzB0iTQsznxAAAAApphJ8ANchcjyEEONW4yDJPJ3lNxxli8qx9KLXTpPpjY4Klg457SAMe%2FVvw23FDvcLzPBAF9L7UxWCx0dU%2Fn7lQ%3D%3D" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="messageId" Value="d-6645ED08-B%2C0%7CG%2C1%7CH%2C0" RecordedValue="d-6645ED08-B%2C0%7CG%2C1%7CH%2C0" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="requestUrl" Value="http%3A%2F%2Fwww.logindemo.com%2FUsers%2FUser%2FUserList%3FpageIndex%3D3" RecordedValue="http%3A%2F%2Fwww.logindemo.com%2FUsers%2FUser%2FUserList%3FpageIndex%3D3" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="browserName" Value="InternetExplorer" RecordedValue="InternetExplorer" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="tid" Value="0" RecordedValue="0" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="callback" Value="jQuery18206852059478692996_1441883269502" RecordedValue="jQuery18206852059478692996_1441883269502" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="_" Value="1441883269815" RecordedValue="1441883269815" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+    <Request Method="GET" Guid="5a8b14d6-3cf2-4684-9a70-2b5576ed9d71" Version="1.1" Url="http://localhost:26171/5ef3ff3c9373452a81339f30ad9287b5/arterySignalR/send" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://www.logindemo.com/Users/User/UserList?pageIndex=3" />
+      </Headers>
+      <QueryStringParameters>
+        <QueryStringParameter Name="transport" Value="longPolling" RecordedValue="longPolling" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="connectionToken" Value="AQAAANCMnd8BFdERjHoAwE%2FCl%2BsBAAAAIojOp%2BqsVE%2BrF0uUT7tWgAAAAAACAAAAAAAQZgAAAAEAACAAAABT7NKBnMJJ%2BYHBxSFTj86bwUaAakztqTeu9Evlci4ldwAAAAAOgAAAAAIAACAAAACVS%2FBn6v5h7e7Qsc6AhfKcRKLb%2BWmXK%2F9kfHJspKQ6ajAAAAC7ETuEQoOMRrPERZ3DA8ALU5YZ5MuaIYTb4vspRA8yOAPiwS%2B%2BMYL8KzB0iTQsznxAAAAApphJ8ANchcjyEEONW4yDJPJ3lNxxli8qx9KLXTpPpjY4Klg457SAMe%2FVvw23FDvcLzPBAF9L7UxWCx0dU%2Fn7lQ%3D%3D" RecordedValue="AQAAANCMnd8BFdERjHoAwE%2FCl%2BsBAAAAIojOp%2BqsVE%2BrF0uUT7tWgAAAAAACAAAAAAAQZgAAAAEAACAAAABT7NKBnMJJ%2BYHBxSFTj86bwUaAakztqTeu9Evlci4ldwAAAAAOgAAAAAIAACAAAACVS%2FBn6v5h7e7Qsc6AhfKcRKLb%2BWmXK%2F9kfHJspKQ6ajAAAAC7ETuEQoOMRrPERZ3DA8ALU5YZ5MuaIYTb4vspRA8yOAPiwS%2B%2BMYL8KzB0iTQsznxAAAAApphJ8ANchcjyEEONW4yDJPJ3lNxxli8qx9KLXTpPpjY4Klg457SAMe%2FVvw23FDvcLzPBAF9L7UxWCx0dU%2Fn7lQ%3D%3D" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="requestUrl" Value="http%3A%2F%2Fwww.logindemo.com%2FUsers%2FUser%2FUserList%3FpageIndex%3D3" RecordedValue="http%3A%2F%2Fwww.logindemo.com%2FUsers%2FUser%2FUserList%3FpageIndex%3D3" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="browserName" Value="InternetExplorer" RecordedValue="InternetExplorer" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="callback" Value="jQuery18206852059478692996_1441883269502" RecordedValue="jQuery18206852059478692996_1441883269502" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="data" Value="%7B%22name%22%3A%22microsoft.visualstudio.web.browserlink.htmlmappingextensionfactory.resolveUrl%22%2C%22args%22%3A%5B%22~%2F__browserLink%2FrequestData%2F6b2da1298b43419d9a87828e35671470%22%5D%2C%22callbackId%22%3A2%7D" RecordedValue="%7B%22name%22%3A%22microsoft.visualstudio.web.browserlink.htmlmappingextensionfactory.resolveUrl%22%2C%22args%22%3A%5B%22~%2F__browserLink%2FrequestData%2F6b2da1298b43419d9a87828e35671470%22%5D%2C%22callbackId%22%3A2%7D" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="_" Value="1441883269841" RecordedValue="1441883269841" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+    <Request Method="GET" Guid="6181df1b-b67d-4fd5-9f04-c0b7baadff53" Version="1.1" Url="http://localhost:26171/5ef3ff3c9373452a81339f30ad9287b5/arterySignalR/poll" ThinkTime="3" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://www.logindemo.com/Users/User/UserList?pageIndex=3" />
+      </Headers>
+      <QueryStringParameters>
+        <QueryStringParameter Name="transport" Value="longPolling" RecordedValue="longPolling" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="connectionToken" Value="AQAAANCMnd8BFdERjHoAwE%2FCl%2BsBAAAAIojOp%2BqsVE%2BrF0uUT7tWgAAAAAACAAAAAAAQZgAAAAEAACAAAABT7NKBnMJJ%2BYHBxSFTj86bwUaAakztqTeu9Evlci4ldwAAAAAOgAAAAAIAACAAAACVS%2FBn6v5h7e7Qsc6AhfKcRKLb%2BWmXK%2F9kfHJspKQ6ajAAAAC7ETuEQoOMRrPERZ3DA8ALU5YZ5MuaIYTb4vspRA8yOAPiwS%2B%2BMYL8KzB0iTQsznxAAAAApphJ8ANchcjyEEONW4yDJPJ3lNxxli8qx9KLXTpPpjY4Klg457SAMe%2FVvw23FDvcLzPBAF9L7UxWCx0dU%2Fn7lQ%3D%3D" RecordedValue="AQAAANCMnd8BFdERjHoAwE%2FCl%2BsBAAAAIojOp%2BqsVE%2BrF0uUT7tWgAAAAAACAAAAAAAQZgAAAAEAACAAAABT7NKBnMJJ%2BYHBxSFTj86bwUaAakztqTeu9Evlci4ldwAAAAAOgAAAAAIAACAAAACVS%2FBn6v5h7e7Qsc6AhfKcRKLb%2BWmXK%2F9kfHJspKQ6ajAAAAC7ETuEQoOMRrPERZ3DA8ALU5YZ5MuaIYTb4vspRA8yOAPiwS%2B%2BMYL8KzB0iTQsznxAAAAApphJ8ANchcjyEEONW4yDJPJ3lNxxli8qx9KLXTpPpjY4Klg457SAMe%2FVvw23FDvcLzPBAF9L7UxWCx0dU%2Fn7lQ%3D%3D" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="messageId" Value="d-6645ED08-B%2C0%7CG%2C2%7CH%2C0" RecordedValue="d-6645ED08-B%2C0%7CG%2C2%7CH%2C0" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="requestUrl" Value="http%3A%2F%2Fwww.logindemo.com%2FUsers%2FUser%2FUserList%3FpageIndex%3D3" RecordedValue="http%3A%2F%2Fwww.logindemo.com%2FUsers%2FUser%2FUserList%3FpageIndex%3D3" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="browserName" Value="InternetExplorer" RecordedValue="InternetExplorer" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="tid" Value="5" RecordedValue="5" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="callback" Value="jQuery18206852059478692996_1441883269501" RecordedValue="jQuery18206852059478692996_1441883269501" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="_" Value="1441883269843" RecordedValue="1441883269843" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+    <Request Method="GET" Guid="bd0eb981-8d3b-405d-b504-20c78147a227" Version="1.1" Url="http://www.logindemo.com/Users/User/Regist" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://www.logindemo.com/Users/User/UserList?pageIndex=3" />
+      </Headers>
+    </Request>
+    <Request Method="GET" Guid="13c5e320-9ccf-4a08-8754-e15ffd1ad8ae" Version="1.1" Url="http://localhost:26171/5ef3ff3c9373452a81339f30ad9287b5/arterySignalR/negotiate" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://www.logindemo.com/Users/User/Regist" />
+      </Headers>
+      <QueryStringParameters>
+        <QueryStringParameter Name="requestUrl" Value="http%3A%2F%2Fwww.logindemo.com%2FUsers%2FUser%2FRegist" RecordedValue="http%3A%2F%2Fwww.logindemo.com%2FUsers%2FUser%2FRegist" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="browserName" Value="InternetExplorer" RecordedValue="InternetExplorer" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="clientProtocol" Value="1.3" RecordedValue="1.3" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="callback" Value="jQuery18206146803517629871_1441883272844" RecordedValue="jQuery18206146803517629871_1441883272844" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="_" Value="1441883273157" RecordedValue="1441883273157" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+    <Request Method="GET" Guid="4d470809-c541-4ad7-a54b-172258e95054" Version="1.1" Url="http://localhost:26171/5ef3ff3c9373452a81339f30ad9287b5/arterySignalR/connect" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://www.logindemo.com/Users/User/Regist" />
+      </Headers>
+      <QueryStringParameters>
+        <QueryStringParameter Name="transport" Value="longPolling" RecordedValue="longPolling" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="connectionToken" Value="AQAAANCMnd8BFdERjHoAwE%2FCl%2BsBAAAAIojOp%2BqsVE%2BrF0uUT7tWgAAAAAACAAAAAAAQZgAAAAEAACAAAADeh2%2F0OuTPJGsGPHq%2Bz3v7M51JWUtXu2tlQbqF6X%2B9cQAAAAAOgAAAAAIAACAAAABI5GhWnM%2BMgqXrkC%2BNhd7TEpp3aKWR8ezqLjKQblFQMjAAAACcIjzp%2BgvBithageFacUllS9O3yOyM6T8NK7v4ueceugjVbfntCgvqldVD%2FnHMcjtAAAAA0Uur3eiBB8l6a2LuyXGSvRRjRfol6a9pXDo6KGAfqKovBP9dAiz%2Bxv7BXEIWdp39OXqmp%2FfnxCfhTSPcYPe8MQ%3D%3D" RecordedValue="AQAAANCMnd8BFdERjHoAwE%2FCl%2BsBAAAAIojOp%2BqsVE%2BrF0uUT7tWgAAAAAACAAAAAAAQZgAAAAEAACAAAADeh2%2F0OuTPJGsGPHq%2Bz3v7M51JWUtXu2tlQbqF6X%2B9cQAAAAAOgAAAAAIAACAAAABI5GhWnM%2BMgqXrkC%2BNhd7TEpp3aKWR8ezqLjKQblFQMjAAAACcIjzp%2BgvBithageFacUllS9O3yOyM6T8NK7v4ueceugjVbfntCgvqldVD%2FnHMcjtAAAAA0Uur3eiBB8l6a2LuyXGSvRRjRfol6a9pXDo6KGAfqKovBP9dAiz%2Bxv7BXEIWdp39OXqmp%2FfnxCfhTSPcYPe8MQ%3D%3D" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="requestUrl" Value="http%3A%2F%2Fwww.logindemo.com%2FUsers%2FUser%2FRegist" RecordedValue="http%3A%2F%2Fwww.logindemo.com%2FUsers%2FUser%2FRegist" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="browserName" Value="InternetExplorer" RecordedValue="InternetExplorer" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="tid" Value="7" RecordedValue="7" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="callback" Value="jQuery18206146803517629871_1441883272844" RecordedValue="jQuery18206146803517629871_1441883272844" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="_" Value="1441883273442" RecordedValue="1441883273442" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+    <Request Method="GET" Guid="3bf36d39-d9a0-47ab-a9ce-6ee1708c2b8e" Version="1.1" Url="http://localhost:26171/5ef3ff3c9373452a81339f30ad9287b5/arterySignalR/send" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://www.logindemo.com/Users/User/Regist" />
+      </Headers>
+      <QueryStringParameters>
+        <QueryStringParameter Name="transport" Value="longPolling" RecordedValue="longPolling" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="connectionToken" Value="AQAAANCMnd8BFdERjHoAwE%2FCl%2BsBAAAAIojOp%2BqsVE%2BrF0uUT7tWgAAAAAACAAAAAAAQZgAAAAEAACAAAADeh2%2F0OuTPJGsGPHq%2Bz3v7M51JWUtXu2tlQbqF6X%2B9cQAAAAAOgAAAAAIAACAAAABI5GhWnM%2BMgqXrkC%2BNhd7TEpp3aKWR8ezqLjKQblFQMjAAAACcIjzp%2BgvBithageFacUllS9O3yOyM6T8NK7v4ueceugjVbfntCgvqldVD%2FnHMcjtAAAAA0Uur3eiBB8l6a2LuyXGSvRRjRfol6a9pXDo6KGAfqKovBP9dAiz%2Bxv7BXEIWdp39OXqmp%2FfnxCfhTSPcYPe8MQ%3D%3D" RecordedValue="AQAAANCMnd8BFdERjHoAwE%2FCl%2BsBAAAAIojOp%2BqsVE%2BrF0uUT7tWgAAAAAACAAAAAAAQZgAAAAEAACAAAADeh2%2F0OuTPJGsGPHq%2Bz3v7M51JWUtXu2tlQbqF6X%2B9cQAAAAAOgAAAAAIAACAAAABI5GhWnM%2BMgqXrkC%2BNhd7TEpp3aKWR8ezqLjKQblFQMjAAAACcIjzp%2BgvBithageFacUllS9O3yOyM6T8NK7v4ueceugjVbfntCgvqldVD%2FnHMcjtAAAAA0Uur3eiBB8l6a2LuyXGSvRRjRfol6a9pXDo6KGAfqKovBP9dAiz%2Bxv7BXEIWdp39OXqmp%2FfnxCfhTSPcYPe8MQ%3D%3D" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="requestUrl" Value="http%3A%2F%2Fwww.logindemo.com%2FUsers%2FUser%2FRegist" RecordedValue="http%3A%2F%2Fwww.logindemo.com%2FUsers%2FUser%2FRegist" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="browserName" Value="InternetExplorer" RecordedValue="InternetExplorer" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="callback" Value="jQuery18206146803517629871_1441883272844" RecordedValue="jQuery18206146803517629871_1441883272844" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="data" Value="%7B%22name%22%3A%22Microsoft.VisualStudio.Web.BrowserLink.CoreExtensionFactory.connected%22%2C%22callbackId%22%3A1%7D" RecordedValue="%7B%22name%22%3A%22Microsoft.VisualStudio.Web.BrowserLink.CoreExtensionFactory.connected%22%2C%22callbackId%22%3A1%7D" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="_" Value="1441883273449" RecordedValue="1441883273449" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+    <Request Method="GET" Guid="38a8c0a0-929b-4f77-89f0-e004626551c1" Version="1.1" Url="http://localhost:26171/5ef3ff3c9373452a81339f30ad9287b5/arterySignalR/poll" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://www.logindemo.com/Users/User/Regist" />
+      </Headers>
+      <QueryStringParameters>
+        <QueryStringParameter Name="transport" Value="longPolling" RecordedValue="longPolling" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="connectionToken" Value="AQAAANCMnd8BFdERjHoAwE%2FCl%2BsBAAAAIojOp%2BqsVE%2BrF0uUT7tWgAAAAAACAAAAAAAQZgAAAAEAACAAAADeh2%2F0OuTPJGsGPHq%2Bz3v7M51JWUtXu2tlQbqF6X%2B9cQAAAAAOgAAAAAIAACAAAABI5GhWnM%2BMgqXrkC%2BNhd7TEpp3aKWR8ezqLjKQblFQMjAAAACcIjzp%2BgvBithageFacUllS9O3yOyM6T8NK7v4ueceugjVbfntCgvqldVD%2FnHMcjtAAAAA0Uur3eiBB8l6a2LuyXGSvRRjRfol6a9pXDo6KGAfqKovBP9dAiz%2Bxv7BXEIWdp39OXqmp%2FfnxCfhTSPcYPe8MQ%3D%3D" RecordedValue="AQAAANCMnd8BFdERjHoAwE%2FCl%2BsBAAAAIojOp%2BqsVE%2BrF0uUT7tWgAAAAAACAAAAAAAQZgAAAAEAACAAAADeh2%2F0OuTPJGsGPHq%2Bz3v7M51JWUtXu2tlQbqF6X%2B9cQAAAAAOgAAAAAIAACAAAABI5GhWnM%2BMgqXrkC%2BNhd7TEpp3aKWR8ezqLjKQblFQMjAAAACcIjzp%2BgvBithageFacUllS9O3yOyM6T8NK7v4ueceugjVbfntCgvqldVD%2FnHMcjtAAAAA0Uur3eiBB8l6a2LuyXGSvRRjRfol6a9pXDo6KGAfqKovBP9dAiz%2Bxv7BXEIWdp39OXqmp%2FfnxCfhTSPcYPe8MQ%3D%3D" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="messageId" Value="d-6645ED08-B%2C0%7CI%2C1%7CJ%2C0" RecordedValue="d-6645ED08-B%2C0%7CI%2C1%7CJ%2C0" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="requestUrl" Value="http%3A%2F%2Fwww.logindemo.com%2FUsers%2FUser%2FRegist" RecordedValue="http%3A%2F%2Fwww.logindemo.com%2FUsers%2FUser%2FRegist" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="browserName" Value="InternetExplorer" RecordedValue="InternetExplorer" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="tid" Value="9" RecordedValue="9" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="callback" Value="jQuery18206146803517629871_1441883272845" RecordedValue="jQuery18206146803517629871_1441883272845" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="_" Value="1441883273451" RecordedValue="1441883273451" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+    <Request Method="GET" Guid="465033fe-cd69-4a9b-89a5-27a2a8d5ea89" Version="1.1" Url="http://localhost:26171/5ef3ff3c9373452a81339f30ad9287b5/arterySignalR/send" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://www.logindemo.com/Users/User/Regist" />
+      </Headers>
+      <QueryStringParameters>
+        <QueryStringParameter Name="transport" Value="longPolling" RecordedValue="longPolling" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="connectionToken" Value="AQAAANCMnd8BFdERjHoAwE%2FCl%2BsBAAAAIojOp%2BqsVE%2BrF0uUT7tWgAAAAAACAAAAAAAQZgAAAAEAACAAAADeh2%2F0OuTPJGsGPHq%2Bz3v7M51JWUtXu2tlQbqF6X%2B9cQAAAAAOgAAAAAIAACAAAABI5GhWnM%2BMgqXrkC%2BNhd7TEpp3aKWR8ezqLjKQblFQMjAAAACcIjzp%2BgvBithageFacUllS9O3yOyM6T8NK7v4ueceugjVbfntCgvqldVD%2FnHMcjtAAAAA0Uur3eiBB8l6a2LuyXGSvRRjRfol6a9pXDo6KGAfqKovBP9dAiz%2Bxv7BXEIWdp39OXqmp%2FfnxCfhTSPcYPe8MQ%3D%3D" RecordedValue="AQAAANCMnd8BFdERjHoAwE%2FCl%2BsBAAAAIojOp%2BqsVE%2BrF0uUT7tWgAAAAAACAAAAAAAQZgAAAAEAACAAAADeh2%2F0OuTPJGsGPHq%2Bz3v7M51JWUtXu2tlQbqF6X%2B9cQAAAAAOgAAAAAIAACAAAABI5GhWnM%2BMgqXrkC%2BNhd7TEpp3aKWR8ezqLjKQblFQMjAAAACcIjzp%2BgvBithageFacUllS9O3yOyM6T8NK7v4ueceugjVbfntCgvqldVD%2FnHMcjtAAAAA0Uur3eiBB8l6a2LuyXGSvRRjRfol6a9pXDo6KGAfqKovBP9dAiz%2Bxv7BXEIWdp39OXqmp%2FfnxCfhTSPcYPe8MQ%3D%3D" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="requestUrl" Value="http%3A%2F%2Fwww.logindemo.com%2FUsers%2FUser%2FRegist" RecordedValue="http%3A%2F%2Fwww.logindemo.com%2FUsers%2FUser%2FRegist" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="browserName" Value="InternetExplorer" RecordedValue="InternetExplorer" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="callback" Value="jQuery18206146803517629871_1441883272845" RecordedValue="jQuery18206146803517629871_1441883272845" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="data" Value="%7B%22name%22%3A%22microsoft.visualstudio.web.browserlink.htmlmappingextensionfactory.resolveUrl%22%2C%22args%22%3A%5B%22~%2F__browserLink%2FrequestData%2Fc4d46684c53e4ed5ae83b1a24f7eaf97%22%5D%2C%22callbackId%22%3A2%7D" RecordedValue="%7B%22name%22%3A%22microsoft.visualstudio.web.browserlink.htmlmappingextensionfactory.resolveUrl%22%2C%22args%22%3A%5B%22~%2F__browserLink%2FrequestData%2Fc4d46684c53e4ed5ae83b1a24f7eaf97%22%5D%2C%22callbackId%22%3A2%7D" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="_" Value="1441883273458" RecordedValue="1441883273458" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+    <Request Method="GET" Guid="0d1e5aa1-66c7-4aa2-a6b9-2099a41bd979" Version="1.1" Url="http://localhost:26171/5ef3ff3c9373452a81339f30ad9287b5/arterySignalR/poll" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://www.logindemo.com/Users/User/Regist" />
+      </Headers>
+      <QueryStringParameters>
+        <QueryStringParameter Name="transport" Value="longPolling" RecordedValue="longPolling" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="connectionToken" Value="AQAAANCMnd8BFdERjHoAwE%2FCl%2BsBAAAAIojOp%2BqsVE%2BrF0uUT7tWgAAAAAACAAAAAAAQZgAAAAEAACAAAADeh2%2F0OuTPJGsGPHq%2Bz3v7M51JWUtXu2tlQbqF6X%2B9cQAAAAAOgAAAAAIAACAAAABI5GhWnM%2BMgqXrkC%2BNhd7TEpp3aKWR8ezqLjKQblFQMjAAAACcIjzp%2BgvBithageFacUllS9O3yOyM6T8NK7v4ueceugjVbfntCgvqldVD%2FnHMcjtAAAAA0Uur3eiBB8l6a2LuyXGSvRRjRfol6a9pXDo6KGAfqKovBP9dAiz%2Bxv7BXEIWdp39OXqmp%2FfnxCfhTSPcYPe8MQ%3D%3D" RecordedValue="AQAAANCMnd8BFdERjHoAwE%2FCl%2BsBAAAAIojOp%2BqsVE%2BrF0uUT7tWgAAAAAACAAAAAAAQZgAAAAEAACAAAADeh2%2F0OuTPJGsGPHq%2Bz3v7M51JWUtXu2tlQbqF6X%2B9cQAAAAAOgAAAAAIAACAAAABI5GhWnM%2BMgqXrkC%2BNhd7TEpp3aKWR8ezqLjKQblFQMjAAAACcIjzp%2BgvBithageFacUllS9O3yOyM6T8NK7v4ueceugjVbfntCgvqldVD%2FnHMcjtAAAAA0Uur3eiBB8l6a2LuyXGSvRRjRfol6a9pXDo6KGAfqKovBP9dAiz%2Bxv7BXEIWdp39OXqmp%2FfnxCfhTSPcYPe8MQ%3D%3D" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="messageId" Value="d-6645ED08-B%2C0%7CI%2C2%7CJ%2C0" RecordedValue="d-6645ED08-B%2C0%7CI%2C2%7CJ%2C0" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="requestUrl" Value="http%3A%2F%2Fwww.logindemo.com%2FUsers%2FUser%2FRegist" RecordedValue="http%3A%2F%2Fwww.logindemo.com%2FUsers%2FUser%2FRegist" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="browserName" Value="InternetExplorer" RecordedValue="InternetExplorer" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="tid" Value="0" RecordedValue="0" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="callback" Value="jQuery18206146803517629871_1441883272844" RecordedValue="jQuery18206146803517629871_1441883272844" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="_" Value="1441883273460" RecordedValue="1441883273460" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+    <Request Method="GET" Guid="9d37f177-7281-45a9-bf0f-d60ba7256377" Version="1.1" Url="http://localhost:26171/5ef3ff3c9373452a81339f30ad9287b5/arterySignalR/poll" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://www.logindemo.com/Users/User/Regist" />
+      </Headers>
+      <QueryStringParameters>
+        <QueryStringParameter Name="transport" Value="longPolling" RecordedValue="longPolling" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="connectionToken" Value="AQAAANCMnd8BFdERjHoAwE%2FCl%2BsBAAAAIojOp%2BqsVE%2BrF0uUT7tWgAAAAAACAAAAAAAQZgAAAAEAACAAAADeh2%2F0OuTPJGsGPHq%2Bz3v7M51JWUtXu2tlQbqF6X%2B9cQAAAAAOgAAAAAIAACAAAABI5GhWnM%2BMgqXrkC%2BNhd7TEpp3aKWR8ezqLjKQblFQMjAAAACcIjzp%2BgvBithageFacUllS9O3yOyM6T8NK7v4ueceugjVbfntCgvqldVD%2FnHMcjtAAAAA0Uur3eiBB8l6a2LuyXGSvRRjRfol6a9pXDo6KGAfqKovBP9dAiz%2Bxv7BXEIWdp39OXqmp%2FfnxCfhTSPcYPe8MQ%3D%3D" RecordedValue="AQAAANCMnd8BFdERjHoAwE%2FCl%2BsBAAAAIojOp%2BqsVE%2BrF0uUT7tWgAAAAAACAAAAAAAQZgAAAAEAACAAAADeh2%2F0OuTPJGsGPHq%2Bz3v7M51JWUtXu2tlQbqF6X%2B9cQAAAAAOgAAAAAIAACAAAABI5GhWnM%2BMgqXrkC%2BNhd7TEpp3aKWR8ezqLjKQblFQMjAAAACcIjzp%2BgvBithageFacUllS9O3yOyM6T8NK7v4ueceugjVbfntCgvqldVD%2FnHMcjtAAAAA0Uur3eiBB8l6a2LuyXGSvRRjRfol6a9pXDo6KGAfqKovBP9dAiz%2Bxv7BXEIWdp39OXqmp%2FfnxCfhTSPcYPe8MQ%3D%3D" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="messageId" Value="d-6645ED08-B%2C0%7CI%2C3%7CJ%2C0" RecordedValue="d-6645ED08-B%2C0%7CI%2C3%7CJ%2C0" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="requestUrl" Value="http%3A%2F%2Fwww.logindemo.com%2FUsers%2FUser%2FRegist" RecordedValue="http%3A%2F%2Fwww.logindemo.com%2FUsers%2FUser%2FRegist" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="browserName" Value="InternetExplorer" RecordedValue="InternetExplorer" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="tid" Value="0" RecordedValue="0" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="callback" Value="jQuery18206146803517629871_1441883272844" RecordedValue="jQuery18206146803517629871_1441883272844" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="_" Value="1441883273466" RecordedValue="1441883273466" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+    <Request Method="GET" Guid="0516a532-99f4-4413-8cb2-f3f6ac857372" Version="1.1" Url="http://localhost:26171/5ef3ff3c9373452a81339f30ad9287b5/arterySignalR/poll" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://www.logindemo.com/Users/User/Regist" />
+      </Headers>
+      <QueryStringParameters>
+        <QueryStringParameter Name="transport" Value="longPolling" RecordedValue="longPolling" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="connectionToken" Value="AQAAANCMnd8BFdERjHoAwE%2FCl%2BsBAAAAIojOp%2BqsVE%2BrF0uUT7tWgAAAAAACAAAAAAAQZgAAAAEAACAAAADeh2%2F0OuTPJGsGPHq%2Bz3v7M51JWUtXu2tlQbqF6X%2B9cQAAAAAOgAAAAAIAACAAAABI5GhWnM%2BMgqXrkC%2BNhd7TEpp3aKWR8ezqLjKQblFQMjAAAACcIjzp%2BgvBithageFacUllS9O3yOyM6T8NK7v4ueceugjVbfntCgvqldVD%2FnHMcjtAAAAA0Uur3eiBB8l6a2LuyXGSvRRjRfol6a9pXDo6KGAfqKovBP9dAiz%2Bxv7BXEIWdp39OXqmp%2FfnxCfhTSPcYPe8MQ%3D%3D" RecordedValue="AQAAANCMnd8BFdERjHoAwE%2FCl%2BsBAAAAIojOp%2BqsVE%2BrF0uUT7tWgAAAAAACAAAAAAAQZgAAAAEAACAAAADeh2%2F0OuTPJGsGPHq%2Bz3v7M51JWUtXu2tlQbqF6X%2B9cQAAAAAOgAAAAAIAACAAAABI5GhWnM%2BMgqXrkC%2BNhd7TEpp3aKWR8ezqLjKQblFQMjAAAACcIjzp%2BgvBithageFacUllS9O3yOyM6T8NK7v4ueceugjVbfntCgvqldVD%2FnHMcjtAAAAA0Uur3eiBB8l6a2LuyXGSvRRjRfol6a9pXDo6KGAfqKovBP9dAiz%2Bxv7BXEIWdp39OXqmp%2FfnxCfhTSPcYPe8MQ%3D%3D" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="messageId" Value="d-6645ED08-B%2C0%7CI%2C3%7CJ%2C0" RecordedValue="d-6645ED08-B%2C0%7CI%2C3%7CJ%2C0" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="requestUrl" Value="http%3A%2F%2Fwww.logindemo.com%2FUsers%2FUser%2FRegist" RecordedValue="http%3A%2F%2Fwww.logindemo.com%2FUsers%2FUser%2FRegist" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="browserName" Value="InternetExplorer" RecordedValue="InternetExplorer" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="tid" Value="8" RecordedValue="8" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="callback" Value="jQuery18206146803517629871_1441883272844" RecordedValue="jQuery18206146803517629871_1441883272844" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="_" Value="1441883279583" RecordedValue="1441883279583" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+    <Request Method="GET" Guid="77ed49e8-f66c-46d1-a7d8-bc5bc8eccaed" Version="1.1" Url="http://localhost:26171/5ef3ff3c9373452a81339f30ad9287b5/arterySignalR/poll" ThinkTime="2" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://www.logindemo.com/Users/User/Regist" />
+      </Headers>
+      <QueryStringParameters>
+        <QueryStringParameter Name="transport" Value="longPolling" RecordedValue="longPolling" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="connectionToken" Value="AQAAANCMnd8BFdERjHoAwE%2FCl%2BsBAAAAIojOp%2BqsVE%2BrF0uUT7tWgAAAAAACAAAAAAAQZgAAAAEAACAAAADeh2%2F0OuTPJGsGPHq%2Bz3v7M51JWUtXu2tlQbqF6X%2B9cQAAAAAOgAAAAAIAACAAAABI5GhWnM%2BMgqXrkC%2BNhd7TEpp3aKWR8ezqLjKQblFQMjAAAACcIjzp%2BgvBithageFacUllS9O3yOyM6T8NK7v4ueceugjVbfntCgvqldVD%2FnHMcjtAAAAA0Uur3eiBB8l6a2LuyXGSvRRjRfol6a9pXDo6KGAfqKovBP9dAiz%2Bxv7BXEIWdp39OXqmp%2FfnxCfhTSPcYPe8MQ%3D%3D" RecordedValue="AQAAANCMnd8BFdERjHoAwE%2FCl%2BsBAAAAIojOp%2BqsVE%2BrF0uUT7tWgAAAAAACAAAAAAAQZgAAAAEAACAAAADeh2%2F0OuTPJGsGPHq%2Bz3v7M51JWUtXu2tlQbqF6X%2B9cQAAAAAOgAAAAAIAACAAAABI5GhWnM%2BMgqXrkC%2BNhd7TEpp3aKWR8ezqLjKQblFQMjAAAACcIjzp%2BgvBithageFacUllS9O3yOyM6T8NK7v4ueceugjVbfntCgvqldVD%2FnHMcjtAAAAA0Uur3eiBB8l6a2LuyXGSvRRjRfol6a9pXDo6KGAfqKovBP9dAiz%2Bxv7BXEIWdp39OXqmp%2FfnxCfhTSPcYPe8MQ%3D%3D" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="messageId" Value="d-6645ED08-B%2C0%7CI%2C3%7CJ%2C0" RecordedValue="d-6645ED08-B%2C0%7CI%2C3%7CJ%2C0" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="requestUrl" Value="http%3A%2F%2Fwww.logindemo.com%2FUsers%2FUser%2FRegist" RecordedValue="http%3A%2F%2Fwww.logindemo.com%2FUsers%2FUser%2FRegist" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="browserName" Value="InternetExplorer" RecordedValue="InternetExplorer" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="tid" Value="9" RecordedValue="9" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="callback" Value="jQuery18206146803517629871_1441883272844" RecordedValue="jQuery18206146803517629871_1441883272844" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="_" Value="1441883285665" RecordedValue="1441883285665" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+    <Request Method="POST" Guid="51559930-9005-440e-9618-9399c538f492" Version="1.1" Url="http://www.logindemo.com/Users/User/RegistUser" ThinkTime="1" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Accept" Value="application/json, text/javascript, */*; q=0.01" />
+        <Header Name="X-Requested-With" Value="XMLHttpRequest" />
+        <Header Name="Referer" Value="http://www.logindemo.com/Users/User/Regist" />
+      </Headers>
+      <FormPostHttpBody>
+        <FormPostParameter Name="UserName" Value="user" RecordedValue="user" CorrelationBinding="" UrlEncode="True" />
+        <FormPostParameter Name="UserPWD" Value="user" RecordedValue="user" CorrelationBinding="" UrlEncode="True" />
+        <FormPostParameter Name="Mobile" Value="18000000000" RecordedValue="18000000000" CorrelationBinding="" UrlEncode="True" />
+        <FormPostParameter Name="Email" Value="18000000000@qq.com" RecordedValue="18000000000@qq.com" CorrelationBinding="" UrlEncode="True" />
+      </FormPostHttpBody>
+    </Request>
+    <Request Method="GET" Guid="44acc73b-327e-44c2-8b9d-2510b9daec78" Version="1.1" Url="http://www.logindemo.com/Users/User/Login" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://www.logindemo.com/Users/User/Regist" />
+      </Headers>
+    </Request>
+    <Request Method="GET" Guid="5582f9ae-1701-4eb3-89e6-bc765476bdbe" Version="1.1" Url="http://localhost:26171/5ef3ff3c9373452a81339f30ad9287b5/arterySignalR/negotiate" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://www.logindemo.com/Users/User/Login" />
+      </Headers>
+      <QueryStringParameters>
+        <QueryStringParameter Name="requestUrl" Value="http%3A%2F%2Fwww.logindemo.com%2FUsers%2FUser%2FLogin" RecordedValue="http%3A%2F%2Fwww.logindemo.com%2FUsers%2FUser%2FLogin" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="browserName" Value="InternetExplorer" RecordedValue="InternetExplorer" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="clientProtocol" Value="1.3" RecordedValue="1.3" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="callback" Value="jQuery182044175759266758885_1441883295602" RecordedValue="jQuery182044175759266758885_1441883295602" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="_" Value="1441883295643" RecordedValue="1441883295643" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+    <Request Method="GET" Guid="9f4b16d5-8cf0-413b-817f-86c8ae7d91be" Version="1.1" Url="http://localhost:26171/5ef3ff3c9373452a81339f30ad9287b5/arterySignalR/connect" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://www.logindemo.com/Users/User/Login" />
+      </Headers>
+      <QueryStringParameters>
+        <QueryStringParameter Name="transport" Value="longPolling" RecordedValue="longPolling" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="connectionToken" Value="AQAAANCMnd8BFdERjHoAwE%2FCl%2BsBAAAAIojOp%2BqsVE%2BrF0uUT7tWgAAAAAACAAAAAAAQZgAAAAEAACAAAAAC1OKnaAkA6WcIbe9nJkMIKhPUfcUdkwyELe8zk89ysAAAAAAOgAAAAAIAACAAAACaurDfY%2BZkoAeU1C5MMscXNoAhEUhFBY0OzIT9fppBSzAAAAAHjfx585maP5iqdawBXYWuCK9x2s8Bsv7seSSxSr3U4VCgDVsxBNn3LaPBDDJOCmxAAAAAKymopt%2FjZHGgKnobteB10xEmBb98Ue%2BLopJXNImAG9W41iG3uZfAnsA14r1%2FBZKYstYUGr%2F%2FW2ULnaQmbewuGA%3D%3D" RecordedValue="AQAAANCMnd8BFdERjHoAwE%2FCl%2BsBAAAAIojOp%2BqsVE%2BrF0uUT7tWgAAAAAACAAAAAAAQZgAAAAEAACAAAAAC1OKnaAkA6WcIbe9nJkMIKhPUfcUdkwyELe8zk89ysAAAAAAOgAAAAAIAACAAAACaurDfY%2BZkoAeU1C5MMscXNoAhEUhFBY0OzIT9fppBSzAAAAAHjfx585maP5iqdawBXYWuCK9x2s8Bsv7seSSxSr3U4VCgDVsxBNn3LaPBDDJOCmxAAAAAKymopt%2FjZHGgKnobteB10xEmBb98Ue%2BLopJXNImAG9W41iG3uZfAnsA14r1%2FBZKYstYUGr%2F%2FW2ULnaQmbewuGA%3D%3D" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="requestUrl" Value="http%3A%2F%2Fwww.logindemo.com%2FUsers%2FUser%2FLogin" RecordedValue="http%3A%2F%2Fwww.logindemo.com%2FUsers%2FUser%2FLogin" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="browserName" Value="InternetExplorer" RecordedValue="InternetExplorer" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="tid" Value="2" RecordedValue="2" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="callback" Value="jQuery182044175759266758885_1441883295602" RecordedValue="jQuery182044175759266758885_1441883295602" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="_" Value="1441883295924" RecordedValue="1441883295924" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+    <Request Method="GET" Guid="bdd76339-5847-43ed-a95c-5b6025e25311" Version="1.1" Url="http://localhost:26171/5ef3ff3c9373452a81339f30ad9287b5/arterySignalR/send" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://www.logindemo.com/Users/User/Login" />
+      </Headers>
+      <QueryStringParameters>
+        <QueryStringParameter Name="transport" Value="longPolling" RecordedValue="longPolling" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="connectionToken" Value="AQAAANCMnd8BFdERjHoAwE%2FCl%2BsBAAAAIojOp%2BqsVE%2BrF0uUT7tWgAAAAAACAAAAAAAQZgAAAAEAACAAAAAC1OKnaAkA6WcIbe9nJkMIKhPUfcUdkwyELe8zk89ysAAAAAAOgAAAAAIAACAAAACaurDfY%2BZkoAeU1C5MMscXNoAhEUhFBY0OzIT9fppBSzAAAAAHjfx585maP5iqdawBXYWuCK9x2s8Bsv7seSSxSr3U4VCgDVsxBNn3LaPBDDJOCmxAAAAAKymopt%2FjZHGgKnobteB10xEmBb98Ue%2BLopJXNImAG9W41iG3uZfAnsA14r1%2FBZKYstYUGr%2F%2FW2ULnaQmbewuGA%3D%3D" RecordedValue="AQAAANCMnd8BFdERjHoAwE%2FCl%2BsBAAAAIojOp%2BqsVE%2BrF0uUT7tWgAAAAAACAAAAAAAQZgAAAAEAACAAAAAC1OKnaAkA6WcIbe9nJkMIKhPUfcUdkwyELe8zk89ysAAAAAAOgAAAAAIAACAAAACaurDfY%2BZkoAeU1C5MMscXNoAhEUhFBY0OzIT9fppBSzAAAAAHjfx585maP5iqdawBXYWuCK9x2s8Bsv7seSSxSr3U4VCgDVsxBNn3LaPBDDJOCmxAAAAAKymopt%2FjZHGgKnobteB10xEmBb98Ue%2BLopJXNImAG9W41iG3uZfAnsA14r1%2FBZKYstYUGr%2F%2FW2ULnaQmbewuGA%3D%3D" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="requestUrl" Value="http%3A%2F%2Fwww.logindemo.com%2FUsers%2FUser%2FLogin" RecordedValue="http%3A%2F%2Fwww.logindemo.com%2FUsers%2FUser%2FLogin" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="browserName" Value="InternetExplorer" RecordedValue="InternetExplorer" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="callback" Value="jQuery182044175759266758885_1441883295602" RecordedValue="jQuery182044175759266758885_1441883295602" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="data" Value="%7B%22name%22%3A%22Microsoft.VisualStudio.Web.BrowserLink.CoreExtensionFactory.connected%22%2C%22callbackId%22%3A1%7D" RecordedValue="%7B%22name%22%3A%22Microsoft.VisualStudio.Web.BrowserLink.CoreExtensionFactory.connected%22%2C%22callbackId%22%3A1%7D" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="_" Value="1441883295932" RecordedValue="1441883295932" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+    <Request Method="GET" Guid="1783cc2c-aa71-48ae-872a-6a2736c4e640" Version="1.1" Url="http://localhost:26171/5ef3ff3c9373452a81339f30ad9287b5/arterySignalR/poll" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://www.logindemo.com/Users/User/Login" />
+      </Headers>
+      <QueryStringParameters>
+        <QueryStringParameter Name="transport" Value="longPolling" RecordedValue="longPolling" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="connectionToken" Value="AQAAANCMnd8BFdERjHoAwE%2FCl%2BsBAAAAIojOp%2BqsVE%2BrF0uUT7tWgAAAAAACAAAAAAAQZgAAAAEAACAAAAAC1OKnaAkA6WcIbe9nJkMIKhPUfcUdkwyELe8zk89ysAAAAAAOgAAAAAIAACAAAACaurDfY%2BZkoAeU1C5MMscXNoAhEUhFBY0OzIT9fppBSzAAAAAHjfx585maP5iqdawBXYWuCK9x2s8Bsv7seSSxSr3U4VCgDVsxBNn3LaPBDDJOCmxAAAAAKymopt%2FjZHGgKnobteB10xEmBb98Ue%2BLopJXNImAG9W41iG3uZfAnsA14r1%2FBZKYstYUGr%2F%2FW2ULnaQmbewuGA%3D%3D" RecordedValue="AQAAANCMnd8BFdERjHoAwE%2FCl%2BsBAAAAIojOp%2BqsVE%2BrF0uUT7tWgAAAAAACAAAAAAAQZgAAAAEAACAAAAAC1OKnaAkA6WcIbe9nJkMIKhPUfcUdkwyELe8zk89ysAAAAAAOgAAAAAIAACAAAACaurDfY%2BZkoAeU1C5MMscXNoAhEUhFBY0OzIT9fppBSzAAAAAHjfx585maP5iqdawBXYWuCK9x2s8Bsv7seSSxSr3U4VCgDVsxBNn3LaPBDDJOCmxAAAAAKymopt%2FjZHGgKnobteB10xEmBb98Ue%2BLopJXNImAG9W41iG3uZfAnsA14r1%2FBZKYstYUGr%2F%2FW2ULnaQmbewuGA%3D%3D" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="messageId" Value="d-6645ED08-B%2C0%7CK%2C1%7CL%2C0" RecordedValue="d-6645ED08-B%2C0%7CK%2C1%7CL%2C0" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="requestUrl" Value="http%3A%2F%2Fwww.logindemo.com%2FUsers%2FUser%2FLogin" RecordedValue="http%3A%2F%2Fwww.logindemo.com%2FUsers%2FUser%2FLogin" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="browserName" Value="InternetExplorer" RecordedValue="InternetExplorer" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="tid" Value="3" RecordedValue="3" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="callback" Value="jQuery182044175759266758885_1441883295603" RecordedValue="jQuery182044175759266758885_1441883295603" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="_" Value="1441883295934" RecordedValue="1441883295934" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+    <Request Method="GET" Guid="f0af53c5-5a7b-42ac-85d7-26f2f4400ce5" Version="1.1" Url="http://localhost:26171/5ef3ff3c9373452a81339f30ad9287b5/arterySignalR/send" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://www.logindemo.com/Users/User/Login" />
+      </Headers>
+      <QueryStringParameters>
+        <QueryStringParameter Name="transport" Value="longPolling" RecordedValue="longPolling" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="connectionToken" Value="AQAAANCMnd8BFdERjHoAwE%2FCl%2BsBAAAAIojOp%2BqsVE%2BrF0uUT7tWgAAAAAACAAAAAAAQZgAAAAEAACAAAAAC1OKnaAkA6WcIbe9nJkMIKhPUfcUdkwyELe8zk89ysAAAAAAOgAAAAAIAACAAAACaurDfY%2BZkoAeU1C5MMscXNoAhEUhFBY0OzIT9fppBSzAAAAAHjfx585maP5iqdawBXYWuCK9x2s8Bsv7seSSxSr3U4VCgDVsxBNn3LaPBDDJOCmxAAAAAKymopt%2FjZHGgKnobteB10xEmBb98Ue%2BLopJXNImAG9W41iG3uZfAnsA14r1%2FBZKYstYUGr%2F%2FW2ULnaQmbewuGA%3D%3D" RecordedValue="AQAAANCMnd8BFdERjHoAwE%2FCl%2BsBAAAAIojOp%2BqsVE%2BrF0uUT7tWgAAAAAACAAAAAAAQZgAAAAEAACAAAAAC1OKnaAkA6WcIbe9nJkMIKhPUfcUdkwyELe8zk89ysAAAAAAOgAAAAAIAACAAAACaurDfY%2BZkoAeU1C5MMscXNoAhEUhFBY0OzIT9fppBSzAAAAAHjfx585maP5iqdawBXYWuCK9x2s8Bsv7seSSxSr3U4VCgDVsxBNn3LaPBDDJOCmxAAAAAKymopt%2FjZHGgKnobteB10xEmBb98Ue%2BLopJXNImAG9W41iG3uZfAnsA14r1%2FBZKYstYUGr%2F%2FW2ULnaQmbewuGA%3D%3D" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="requestUrl" Value="http%3A%2F%2Fwww.logindemo.com%2FUsers%2FUser%2FLogin" RecordedValue="http%3A%2F%2Fwww.logindemo.com%2FUsers%2FUser%2FLogin" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="browserName" Value="InternetExplorer" RecordedValue="InternetExplorer" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="callback" Value="jQuery182044175759266758885_1441883295603" RecordedValue="jQuery182044175759266758885_1441883295603" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="data" Value="%7B%22name%22%3A%22microsoft.visualstudio.web.browserlink.htmlmappingextensionfactory.resolveUrl%22%2C%22args%22%3A%5B%22~%2F__browserLink%2FrequestData%2Ff1a00239e20e454d8b62513a2727d5fd%22%5D%2C%22callbackId%22%3A2%7D" RecordedValue="%7B%22name%22%3A%22microsoft.visualstudio.web.browserlink.htmlmappingextensionfactory.resolveUrl%22%2C%22args%22%3A%5B%22~%2F__browserLink%2FrequestData%2Ff1a00239e20e454d8b62513a2727d5fd%22%5D%2C%22callbackId%22%3A2%7D" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="_" Value="1441883295942" RecordedValue="1441883295942" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+    <Request Method="GET" Guid="fe14b661-125c-450c-b683-9a61949897e1" Version="1.1" Url="http://localhost:26171/5ef3ff3c9373452a81339f30ad9287b5/arterySignalR/poll" ThinkTime="3" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://www.logindemo.com/Users/User/Login" />
+      </Headers>
+      <QueryStringParameters>
+        <QueryStringParameter Name="transport" Value="longPolling" RecordedValue="longPolling" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="connectionToken" Value="AQAAANCMnd8BFdERjHoAwE%2FCl%2BsBAAAAIojOp%2BqsVE%2BrF0uUT7tWgAAAAAACAAAAAAAQZgAAAAEAACAAAAAC1OKnaAkA6WcIbe9nJkMIKhPUfcUdkwyELe8zk89ysAAAAAAOgAAAAAIAACAAAACaurDfY%2BZkoAeU1C5MMscXNoAhEUhFBY0OzIT9fppBSzAAAAAHjfx585maP5iqdawBXYWuCK9x2s8Bsv7seSSxSr3U4VCgDVsxBNn3LaPBDDJOCmxAAAAAKymopt%2FjZHGgKnobteB10xEmBb98Ue%2BLopJXNImAG9W41iG3uZfAnsA14r1%2FBZKYstYUGr%2F%2FW2ULnaQmbewuGA%3D%3D" RecordedValue="AQAAANCMnd8BFdERjHoAwE%2FCl%2BsBAAAAIojOp%2BqsVE%2BrF0uUT7tWgAAAAAACAAAAAAAQZgAAAAEAACAAAAAC1OKnaAkA6WcIbe9nJkMIKhPUfcUdkwyELe8zk89ysAAAAAAOgAAAAAIAACAAAACaurDfY%2BZkoAeU1C5MMscXNoAhEUhFBY0OzIT9fppBSzAAAAAHjfx585maP5iqdawBXYWuCK9x2s8Bsv7seSSxSr3U4VCgDVsxBNn3LaPBDDJOCmxAAAAAKymopt%2FjZHGgKnobteB10xEmBb98Ue%2BLopJXNImAG9W41iG3uZfAnsA14r1%2FBZKYstYUGr%2F%2FW2ULnaQmbewuGA%3D%3D" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="messageId" Value="d-6645ED08-B%2C0%7CK%2C2%7CL%2C0" RecordedValue="d-6645ED08-B%2C0%7CK%2C2%7CL%2C0" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="requestUrl" Value="http%3A%2F%2Fwww.logindemo.com%2FUsers%2FUser%2FLogin" RecordedValue="http%3A%2F%2Fwww.logindemo.com%2FUsers%2FUser%2FLogin" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="browserName" Value="InternetExplorer" RecordedValue="InternetExplorer" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="tid" Value="6" RecordedValue="6" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="callback" Value="jQuery182044175759266758885_1441883295602" RecordedValue="jQuery182044175759266758885_1441883295602" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="_" Value="1441883295944" RecordedValue="1441883295944" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+    <Request Method="POST" Guid="18c89ee2-c2b9-4b95-987c-83e853d8ef9f" Version="1.1" Url="http://www.logindemo.com/Users/User/Login" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Accept" Value="application/json, text/javascript, */*; q=0.01" />
+        <Header Name="X-Requested-With" Value="XMLHttpRequest" />
+        <Header Name="Referer" Value="http://www.logindemo.com/Users/User/Login" />
+      </Headers>
+      <FormPostHttpBody>
+        <FormPostParameter Name="userName" Value="user" RecordedValue="user" CorrelationBinding="" UrlEncode="True" />
+        <FormPostParameter Name="userPwd" Value="user" RecordedValue="user" CorrelationBinding="" UrlEncode="True" />
+      </FormPostHttpBody>
+    </Request>
+    <Request Method="GET" Guid="0b034942-9dad-4f96-8df7-267ba93998ea" Version="1.1" Url="http://www.logindemo.com/Users/User/UserList" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://www.logindemo.com/Users/User/Login" />
+      </Headers>
+    </Request>
+    <Request Method="GET" Guid="5b581ac8-98e1-4528-9692-dbda1809e2e7" Version="1.1" Url="http://localhost:26171/5ef3ff3c9373452a81339f30ad9287b5/arterySignalR/negotiate" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://www.logindemo.com/Users/User/UserList" />
+      </Headers>
+      <QueryStringParameters>
+        <QueryStringParameter Name="requestUrl" Value="http%3A%2F%2Fwww.logindemo.com%2FUsers%2FUser%2FUserList" RecordedValue="http%3A%2F%2Fwww.logindemo.com%2FUsers%2FUser%2FUserList" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="browserName" Value="InternetExplorer" RecordedValue="InternetExplorer" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="clientProtocol" Value="1.3" RecordedValue="1.3" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="callback" Value="jQuery182015247981565574808_1441883299359" RecordedValue="jQuery182015247981565574808_1441883299359" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="_" Value="1441883299396" RecordedValue="1441883299396" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+    <Request Method="GET" Guid="4c24ac54-4248-4975-8d8c-ee2983083184" Version="1.1" Url="http://localhost:26171/5ef3ff3c9373452a81339f30ad9287b5/arterySignalR/connect" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://www.logindemo.com/Users/User/UserList" />
+      </Headers>
+      <QueryStringParameters>
+        <QueryStringParameter Name="transport" Value="longPolling" RecordedValue="longPolling" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="connectionToken" Value="AQAAANCMnd8BFdERjHoAwE%2FCl%2BsBAAAAIojOp%2BqsVE%2BrF0uUT7tWgAAAAAACAAAAAAAQZgAAAAEAACAAAADSo7venJCf8FJI1gg30RWXkNh%2BD4zG13bZ8EWnR0XCXQAAAAAOgAAAAAIAACAAAADa9JaYONx2ODKd%2Ff7vVuQk6CHEO3%2FgDv9%2BAuZbabJKsjAAAABBFCS6vVvaGO%2FQFkkS%2F9WH9K4drOjuGRN%2BWkto2kFVXj2nFiG6HNL62EZF2tc3Na9AAAAAtO04e8Kh0k0kvDiHZSynP5xIh3trWrSQxIAFz%2F8%2Fqpyk%2FSPtkLMTbzyZH2vM0B8XABnEoNM7QoQ6v%2BX9hjPtNw%3D%3D" RecordedValue="AQAAANCMnd8BFdERjHoAwE%2FCl%2BsBAAAAIojOp%2BqsVE%2BrF0uUT7tWgAAAAAACAAAAAAAQZgAAAAEAACAAAADSo7venJCf8FJI1gg30RWXkNh%2BD4zG13bZ8EWnR0XCXQAAAAAOgAAAAAIAACAAAADa9JaYONx2ODKd%2Ff7vVuQk6CHEO3%2FgDv9%2BAuZbabJKsjAAAABBFCS6vVvaGO%2FQFkkS%2F9WH9K4drOjuGRN%2BWkto2kFVXj2nFiG6HNL62EZF2tc3Na9AAAAAtO04e8Kh0k0kvDiHZSynP5xIh3trWrSQxIAFz%2F8%2Fqpyk%2FSPtkLMTbzyZH2vM0B8XABnEoNM7QoQ6v%2BX9hjPtNw%3D%3D" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="requestUrl" Value="http%3A%2F%2Fwww.logindemo.com%2FUsers%2FUser%2FUserList" RecordedValue="http%3A%2F%2Fwww.logindemo.com%2FUsers%2FUser%2FUserList" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="browserName" Value="InternetExplorer" RecordedValue="InternetExplorer" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="tid" Value="9" RecordedValue="9" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="callback" Value="jQuery182015247981565574808_1441883299359" RecordedValue="jQuery182015247981565574808_1441883299359" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="_" Value="1441883299685" RecordedValue="1441883299685" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+    <Request Method="GET" Guid="611ce913-baf4-424b-8c0d-7ad3978316b6" Version="1.1" Url="http://localhost:26171/5ef3ff3c9373452a81339f30ad9287b5/arterySignalR/send" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://www.logindemo.com/Users/User/UserList" />
+      </Headers>
+      <QueryStringParameters>
+        <QueryStringParameter Name="transport" Value="longPolling" RecordedValue="longPolling" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="connectionToken" Value="AQAAANCMnd8BFdERjHoAwE%2FCl%2BsBAAAAIojOp%2BqsVE%2BrF0uUT7tWgAAAAAACAAAAAAAQZgAAAAEAACAAAADSo7venJCf8FJI1gg30RWXkNh%2BD4zG13bZ8EWnR0XCXQAAAAAOgAAAAAIAACAAAADa9JaYONx2ODKd%2Ff7vVuQk6CHEO3%2FgDv9%2BAuZbabJKsjAAAABBFCS6vVvaGO%2FQFkkS%2F9WH9K4drOjuGRN%2BWkto2kFVXj2nFiG6HNL62EZF2tc3Na9AAAAAtO04e8Kh0k0kvDiHZSynP5xIh3trWrSQxIAFz%2F8%2Fqpyk%2FSPtkLMTbzyZH2vM0B8XABnEoNM7QoQ6v%2BX9hjPtNw%3D%3D" RecordedValue="AQAAANCMnd8BFdERjHoAwE%2FCl%2BsBAAAAIojOp%2BqsVE%2BrF0uUT7tWgAAAAAACAAAAAAAQZgAAAAEAACAAAADSo7venJCf8FJI1gg30RWXkNh%2BD4zG13bZ8EWnR0XCXQAAAAAOgAAAAAIAACAAAADa9JaYONx2ODKd%2Ff7vVuQk6CHEO3%2FgDv9%2BAuZbabJKsjAAAABBFCS6vVvaGO%2FQFkkS%2F9WH9K4drOjuGRN%2BWkto2kFVXj2nFiG6HNL62EZF2tc3Na9AAAAAtO04e8Kh0k0kvDiHZSynP5xIh3trWrSQxIAFz%2F8%2Fqpyk%2FSPtkLMTbzyZH2vM0B8XABnEoNM7QoQ6v%2BX9hjPtNw%3D%3D" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="requestUrl" Value="http%3A%2F%2Fwww.logindemo.com%2FUsers%2FUser%2FUserList" RecordedValue="http%3A%2F%2Fwww.logindemo.com%2FUsers%2FUser%2FUserList" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="browserName" Value="InternetExplorer" RecordedValue="InternetExplorer" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="callback" Value="jQuery182015247981565574808_1441883299359" RecordedValue="jQuery182015247981565574808_1441883299359" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="data" Value="%7B%22name%22%3A%22Microsoft.VisualStudio.Web.BrowserLink.CoreExtensionFactory.connected%22%2C%22callbackId%22%3A1%7D" RecordedValue="%7B%22name%22%3A%22Microsoft.VisualStudio.Web.BrowserLink.CoreExtensionFactory.connected%22%2C%22callbackId%22%3A1%7D" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="_" Value="1441883299692" RecordedValue="1441883299692" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+    <Request Method="GET" Guid="dbfb49fb-3414-44c6-b7eb-86d297caf886" Version="1.1" Url="http://localhost:26171/5ef3ff3c9373452a81339f30ad9287b5/arterySignalR/poll" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://www.logindemo.com/Users/User/UserList" />
+      </Headers>
+      <QueryStringParameters>
+        <QueryStringParameter Name="transport" Value="longPolling" RecordedValue="longPolling" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="connectionToken" Value="AQAAANCMnd8BFdERjHoAwE%2FCl%2BsBAAAAIojOp%2BqsVE%2BrF0uUT7tWgAAAAAACAAAAAAAQZgAAAAEAACAAAADSo7venJCf8FJI1gg30RWXkNh%2BD4zG13bZ8EWnR0XCXQAAAAAOgAAAAAIAACAAAADa9JaYONx2ODKd%2Ff7vVuQk6CHEO3%2FgDv9%2BAuZbabJKsjAAAABBFCS6vVvaGO%2FQFkkS%2F9WH9K4drOjuGRN%2BWkto2kFVXj2nFiG6HNL62EZF2tc3Na9AAAAAtO04e8Kh0k0kvDiHZSynP5xIh3trWrSQxIAFz%2F8%2Fqpyk%2FSPtkLMTbzyZH2vM0B8XABnEoNM7QoQ6v%2BX9hjPtNw%3D%3D" RecordedValue="AQAAANCMnd8BFdERjHoAwE%2FCl%2BsBAAAAIojOp%2BqsVE%2BrF0uUT7tWgAAAAAACAAAAAAAQZgAAAAEAACAAAADSo7venJCf8FJI1gg30RWXkNh%2BD4zG13bZ8EWnR0XCXQAAAAAOgAAAAAIAACAAAADa9JaYONx2ODKd%2Ff7vVuQk6CHEO3%2FgDv9%2BAuZbabJKsjAAAABBFCS6vVvaGO%2FQFkkS%2F9WH9K4drOjuGRN%2BWkto2kFVXj2nFiG6HNL62EZF2tc3Na9AAAAAtO04e8Kh0k0kvDiHZSynP5xIh3trWrSQxIAFz%2F8%2Fqpyk%2FSPtkLMTbzyZH2vM0B8XABnEoNM7QoQ6v%2BX9hjPtNw%3D%3D" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="messageId" Value="d-6645ED08-B%2C0%7CM%2C1%7CN%2C0" RecordedValue="d-6645ED08-B%2C0%7CM%2C1%7CN%2C0" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="requestUrl" Value="http%3A%2F%2Fwww.logindemo.com%2FUsers%2FUser%2FUserList" RecordedValue="http%3A%2F%2Fwww.logindemo.com%2FUsers%2FUser%2FUserList" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="browserName" Value="InternetExplorer" RecordedValue="InternetExplorer" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="tid" Value="7" RecordedValue="7" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="callback" Value="jQuery182015247981565574808_1441883299360" RecordedValue="jQuery182015247981565574808_1441883299360" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="_" Value="1441883299694" RecordedValue="1441883299694" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+    <Request Method="GET" Guid="8b26053b-7d53-47c7-96ce-97404a371179" Version="1.1" Url="http://localhost:26171/5ef3ff3c9373452a81339f30ad9287b5/arterySignalR/send" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://www.logindemo.com/Users/User/UserList" />
+      </Headers>
+      <QueryStringParameters>
+        <QueryStringParameter Name="transport" Value="longPolling" RecordedValue="longPolling" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="connectionToken" Value="AQAAANCMnd8BFdERjHoAwE%2FCl%2BsBAAAAIojOp%2BqsVE%2BrF0uUT7tWgAAAAAACAAAAAAAQZgAAAAEAACAAAADSo7venJCf8FJI1gg30RWXkNh%2BD4zG13bZ8EWnR0XCXQAAAAAOgAAAAAIAACAAAADa9JaYONx2ODKd%2Ff7vVuQk6CHEO3%2FgDv9%2BAuZbabJKsjAAAABBFCS6vVvaGO%2FQFkkS%2F9WH9K4drOjuGRN%2BWkto2kFVXj2nFiG6HNL62EZF2tc3Na9AAAAAtO04e8Kh0k0kvDiHZSynP5xIh3trWrSQxIAFz%2F8%2Fqpyk%2FSPtkLMTbzyZH2vM0B8XABnEoNM7QoQ6v%2BX9hjPtNw%3D%3D" RecordedValue="AQAAANCMnd8BFdERjHoAwE%2FCl%2BsBAAAAIojOp%2BqsVE%2BrF0uUT7tWgAAAAAACAAAAAAAQZgAAAAEAACAAAADSo7venJCf8FJI1gg30RWXkNh%2BD4zG13bZ8EWnR0XCXQAAAAAOgAAAAAIAACAAAADa9JaYONx2ODKd%2Ff7vVuQk6CHEO3%2FgDv9%2BAuZbabJKsjAAAABBFCS6vVvaGO%2FQFkkS%2F9WH9K4drOjuGRN%2BWkto2kFVXj2nFiG6HNL62EZF2tc3Na9AAAAAtO04e8Kh0k0kvDiHZSynP5xIh3trWrSQxIAFz%2F8%2Fqpyk%2FSPtkLMTbzyZH2vM0B8XABnEoNM7QoQ6v%2BX9hjPtNw%3D%3D" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="requestUrl" Value="http%3A%2F%2Fwww.logindemo.com%2FUsers%2FUser%2FUserList" RecordedValue="http%3A%2F%2Fwww.logindemo.com%2FUsers%2FUser%2FUserList" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="browserName" Value="InternetExplorer" RecordedValue="InternetExplorer" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="callback" Value="jQuery182015247981565574808_1441883299360" RecordedValue="jQuery182015247981565574808_1441883299360" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="data" Value="%7B%22name%22%3A%22microsoft.visualstudio.web.browserlink.htmlmappingextensionfactory.resolveUrl%22%2C%22args%22%3A%5B%22~%2F__browserLink%2FrequestData%2Fd93d3ece4a29468190b3339b4dc969af%22%5D%2C%22callbackId%22%3A2%7D" RecordedValue="%7B%22name%22%3A%22microsoft.visualstudio.web.browserlink.htmlmappingextensionfactory.resolveUrl%22%2C%22args%22%3A%5B%22~%2F__browserLink%2FrequestData%2Fd93d3ece4a29468190b3339b4dc969af%22%5D%2C%22callbackId%22%3A2%7D" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="_" Value="1441883299724" RecordedValue="1441883299724" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+    <Request Method="GET" Guid="b70de5e9-c268-4d44-801f-131713b91dee" Version="1.1" Url="http://localhost:26171/5ef3ff3c9373452a81339f30ad9287b5/arterySignalR/poll" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://www.logindemo.com/Users/User/UserList" />
+      </Headers>
+      <QueryStringParameters>
+        <QueryStringParameter Name="transport" Value="longPolling" RecordedValue="longPolling" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="connectionToken" Value="AQAAANCMnd8BFdERjHoAwE%2FCl%2BsBAAAAIojOp%2BqsVE%2BrF0uUT7tWgAAAAAACAAAAAAAQZgAAAAEAACAAAADSo7venJCf8FJI1gg30RWXkNh%2BD4zG13bZ8EWnR0XCXQAAAAAOgAAAAAIAACAAAADa9JaYONx2ODKd%2Ff7vVuQk6CHEO3%2FgDv9%2BAuZbabJKsjAAAABBFCS6vVvaGO%2FQFkkS%2F9WH9K4drOjuGRN%2BWkto2kFVXj2nFiG6HNL62EZF2tc3Na9AAAAAtO04e8Kh0k0kvDiHZSynP5xIh3trWrSQxIAFz%2F8%2Fqpyk%2FSPtkLMTbzyZH2vM0B8XABnEoNM7QoQ6v%2BX9hjPtNw%3D%3D" RecordedValue="AQAAANCMnd8BFdERjHoAwE%2FCl%2BsBAAAAIojOp%2BqsVE%2BrF0uUT7tWgAAAAAACAAAAAAAQZgAAAAEAACAAAADSo7venJCf8FJI1gg30RWXkNh%2BD4zG13bZ8EWnR0XCXQAAAAAOgAAAAAIAACAAAADa9JaYONx2ODKd%2Ff7vVuQk6CHEO3%2FgDv9%2BAuZbabJKsjAAAABBFCS6vVvaGO%2FQFkkS%2F9WH9K4drOjuGRN%2BWkto2kFVXj2nFiG6HNL62EZF2tc3Na9AAAAAtO04e8Kh0k0kvDiHZSynP5xIh3trWrSQxIAFz%2F8%2Fqpyk%2FSPtkLMTbzyZH2vM0B8XABnEoNM7QoQ6v%2BX9hjPtNw%3D%3D" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="messageId" Value="d-6645ED08-B%2C0%7CM%2C2%7CN%2C0" RecordedValue="d-6645ED08-B%2C0%7CM%2C2%7CN%2C0" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="requestUrl" Value="http%3A%2F%2Fwww.logindemo.com%2FUsers%2FUser%2FUserList" RecordedValue="http%3A%2F%2Fwww.logindemo.com%2FUsers%2FUser%2FUserList" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="browserName" Value="InternetExplorer" RecordedValue="InternetExplorer" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="tid" Value="1" RecordedValue="1" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="callback" Value="jQuery182015247981565574808_1441883299359" RecordedValue="jQuery182015247981565574808_1441883299359" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="_" Value="1441883299726" RecordedValue="1441883299726" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+  </Items>
+  <ValidationRules>
+    <ValidationRule Classname="Microsoft.VisualStudio.TestTools.WebTesting.Rules.ValidateResponseUrl, Microsoft.VisualStudio.QualityTools.WebTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" DisplayName="响应 URL" Description="验证在执行重定向之后响应 URL 是否与所记录的响应 URL 相同。  QueryString 参数将被忽略。" Level="Low" ExectuionOrder="BeforeDependents" />
+    <ValidationRule Classname="Microsoft.VisualStudio.TestTools.WebTesting.Rules.ValidationRuleResponseTimeGoal, Microsoft.VisualStudio.QualityTools.WebTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" DisplayName="响应时间目标" Description="确认请求的响应时间小于或等于对请求指定的响应时间目标。  将忽略响应时间目标零。" Level="Low" ExectuionOrder="AfterDependents">
+      <RuleParameters>
+        <RuleParameter Name="Tolerance" Value="0" />
+      </RuleParameters>
+    </ValidationRule>
+  </ValidationRules>
+</WebTest>
