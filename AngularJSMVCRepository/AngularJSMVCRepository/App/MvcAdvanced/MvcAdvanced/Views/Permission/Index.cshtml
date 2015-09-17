@@ -1,0 +1,53 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<div ng-controller="AngularCtrlRole">
+     <a href="/employee">Employee</a>
+    <p ng-model="mahsa"> ID of selected LastName is : {{selectedItem.ID}} </p>
+   
+        <select data-ng-Model="selectedItem" ng-options="item.LastName for item in items">
+      </select>
+
+    <p> ID of selected Role is : {{selectedItemRole.ID}} </p>
+   
+     <select ng-model="selectedItemRole" ng-options="roleitem.Role for roleitem in roleitems">
+      </select>
+
+     <input type="button" value="Save Permission" ng-click="SavePermission()" />
+
+    
+        <table cellpadding="12">
+            <tr>
+                <td><b>ID</b></td>
+                <td><b>First Name</b></td>
+                <td><b>Last Name</b></td>
+                <td><b>User Name</b></td>
+                <td><b>Role Name</b></td>
+            </tr>
+            <tr ng-repeat="view in views ">
+               
+                <td>
+                    {{view.ID}}
+                </td>
+                <td>
+                    {{view.FirstName}}
+                </td>
+                <td>
+                    {{view.LastName}}
+                </td>
+                <td>
+                    {{view.UserName}}
+                </td>
+                <td>
+                    {{view.Role}}
+                </td>
+           
+              
+            </tr>
+           
+        </table>
+
+     
+    </div>

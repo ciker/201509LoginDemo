@@ -1,0 +1,81 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+ 
+<h2>Index</h2>
+<div ng-controller="AngularCtrl">
+    <a href="/permission">Permission</a><br />
+    
+  Filter: <input type="text" value="Name" ng-model="FilterByFirstName" />
+  <br />
+     
+  
+    <br />
+     <input type="button" value="Add" ng-click="add()" />
+        <table cellpadding="12">
+            <tr>
+                <td><b>ID</b></td>
+                <td><b>FirstName</b></td>
+                <td><b>LastName</b></td>
+                <td><b>UserName</b></td>
+                <td><b>Operation</b></td>
+            </tr>
+            <tr ng-repeat="employee in employees | filter:FilterByFirstName ">
+               
+                <td>
+                    {{employee.ID}}
+                </td>
+                <td>
+                    {{employee.FirstName}}
+                </td>
+                <td>
+                    {{employee.LastName}}
+                </td>
+                <td>
+                    {{employee.UserName}}
+                </td>
+               <td>
+                     <input type="button" value="Edit" ng-click="edit(employee)" />
+                     <input type="button" value="Delete" ng-click="delete(employee)" />
+                    
+                </td>
+              
+            </tr>
+           
+        </table>
+     <div ng-show="divEmpModification">
+        <p>{{Operation}} Employee</p>
+        <table>
+            <tr>
+               
+                <td>
+                    <input type="text" style="width:20px;"  disabled="disabled" ng-model="ID" />
+                </td>
+            
+               
+                <td>
+                    <input type="text" style="width:94px;" ng-model="FirstName" />
+                </td>
+            
+              
+                <td>
+                    <input type="text" style="width:94px;" ng-model="LastName" />
+                </td>
+           
+               
+                <td>
+                    <input type="text" style="width:94px;" ng-model="UserName" />
+                </td>
+               
+                <td colspan="2">
+                    <input type="button"  value="Save" ng-click="Save()" />
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    </div>
+ 
+ 
+  
+
