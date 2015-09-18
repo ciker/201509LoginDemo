@@ -71,6 +71,9 @@
     <Report>
       <Path>Console.BLL.Test150917.vsp</Path>
     </Report>
+    <Report>
+      <Path>Console.BLL.Test150918.vsp</Path>
+    </Report>
   </Reports>
   <Launches>
     <ProjBinary>

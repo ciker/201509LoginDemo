@@ -2,10 +2,12 @@
 using System.Configuration;
 using System.Linq;
 using System.Reflection;
+//using System.Reflection.Emit;
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
+//using System.Threading.Tasks;
 using Newtonsoft.Json;
+//using ServiceStack;
 
 namespace LoginDemo.Commom
 {
@@ -154,17 +156,28 @@ namespace LoginDemo.Commom
         public static string GenerateCondition(this string str, object t, bool ignorePageInfo = true)
         {
             var conditions = new StringBuilder();
-            var properties =
-                t.GetType().GetProperties(BindingFlags.Public | BindingFlags.DeclaredOnly | BindingFlags.Instance);
-            #region foreach
-            foreach (var property in from property in properties
-                                     where property.GetValue(t, null) != null
-                                     let des = property.GetCustomAttribute<IgnoreFieldAttribute>()
-                                     where des == null
-                                     select property)
+            var properties = t.GetType().GetProperties(BindingFlags.Public | BindingFlags.DeclaredOnly | BindingFlags.Instance);
+
+
+            (from property in properties
+             where property.GetValue(t, null) != null
+             //let des = property.GetCustomAttribute<IgnoreFieldAttribute>()
+             let des = property.IsDefined(typeof(IgnoreFieldAttribute)) //optimizate GetCustomAttribute by IsDefined
+             //where des == null
+             where des == false
+             select property).Each<PropertyInfo>(property =>
             {
-                conditions.Append(" AND " + property.Name + "=@" + property.Name + " ");
-            }
+                conditions.Append(" AND ").Append(property.Name).Append("=@").Append(property.Name);
+            });
+            #region foreach
+            //foreach (var property in from property in properties
+            //                         where property.GetValue(t, null) != null
+            //                         let des = property.GetCustomAttribute<IgnoreFieldAttribute>()
+            //                         where des == null
+            //                         select property)
+            //{
+            //    conditions.Append(" AND ").Append(property.Name).Append("=@").Append(property.Name);
+            //}
             #endregion
             #region Parallel.ForEach
             //var propertys = from property in properties

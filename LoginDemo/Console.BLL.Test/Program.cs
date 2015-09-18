@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Diagnostics;
+using System.Runtime.InteropServices;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Timers;
@@ -40,6 +41,8 @@ namespace Login.BLL.Test
             //////aTimer.Enabled = true;
             #endregion
 
+            //Msg();
+            //asynctest();
             RegisterParallelTest();// register parallel test 
 
             read();
@@ -70,7 +73,7 @@ namespace Login.BLL.Test
             //});
             //1081ms  100
             #endregion
-            //CodeTimer.Time("Register Parallel", 1000000, 15, Register);
+            CodeTimer.Time("Register Parallel", 1000000, 15, Register);
             #endregion
 
             #region login
@@ -95,7 +98,7 @@ namespace Login.BLL.Test
             //CodeTimer.Time("GenerateCondition Parallel", 1000000, 15, GenerateCondition);
             //CodeTimer.Time("SelectUserList Parallel", 1000000, 15, SelectUserList);
 
-            //CodeTimer.Time("SelectUserList Parallel", 1000000, 15, SelectUserList);
+            CodeTimer.Time("SelectUserList Parallel", 1000000, 15, SelectUserList);
             #endregion
 
             #region TimeDelegate
@@ -379,6 +382,29 @@ namespace Login.BLL.Test
         private static void read()
         {
             System.Console.ReadLine();
+        }
+
+        private static void Msg()
+        {
+            MessageBox(IntPtr.Zero, "您的操作已经到了极限，请停下来歇一歇，就可以并行处理了。", "系统提示", 0);
+        }
+
+        [DllImport("User32.dll")]
+        internal static extern int MessageBox(IntPtr hwnd, string text, string caption, uint type);
+
+
+        private async static void asynctest()
+        {
+            var i = 0;
+            var task = Task.Run(() =>
+            {
+                Write("here shows ");
+                i++;
+                Thread.Sleep(1000);
+                return "hello word ,time " + i + "\t\r";
+            });
+            var str = await task;
+            Write(str);
         }
 
         private static string GenerareRandomString()

@@ -1,4 +1,7 @@
-﻿using Newtonsoft.Json;
+﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace LoginDemo.Commom
 {
@@ -13,6 +16,11 @@ namespace LoginDemo.Commom
         public static string SerializeObj2String<T>(this T t)
         {
             return JsonConvert.SerializeObject(t);
+        }
+
+        public static void Each<T>(this IEnumerable<T> t, Action<T> action)
+        {
+            Parallel.ForEach(t, action);
         }
     }
 }

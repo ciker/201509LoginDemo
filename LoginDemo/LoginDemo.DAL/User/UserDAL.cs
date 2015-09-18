@@ -28,18 +28,18 @@ namespace LoginDemo.DAL
                   ,[Email]
                   ,[CreateDateTime]   
                   ,[Mobile] FROM [USER]  WHERE 1 = 1  ");
-            var conditions = StringExt.GenerateCondition(string.Empty, para);
+            var conditions = string.Empty.GenerateCondition(para);
             sqlText.Append(conditions);
-            sqlText.Append("ORDER BY Id DESC  OFFSET  ");
-            sqlText.Append(((para.PageIndex - 1) * para.PageSize).ToString());
+            sqlText.Append(" ORDER BY Id DESC  OFFSET  ");
+            sqlText.Append(((para.Skip) * para.Take).ToString());
             sqlText.Append(" ROWS  FETCH NEXT ");
-            sqlText.Append(para.PageSize.ToString());
+            sqlText.Append(para.Take.ToString());
             sqlText.Append(" ROWS ONLY;");
             if (para.IsPage)
             {
-                sqlText.Append(" SELECT  COUNT(1) AS Total ,CEILING((COUNT(1)+0.0)/"
-                                + para.PageSize.ToString()
-                                + ") AS Pages FROM [USER] WHERE 1 =1  ")
+                sqlText.Append(" SELECT  COUNT(1) AS Total ,CEILING((COUNT(1)+0.0)/")
+                                .Append(para.Take.ToString())
+                                .Append(") AS Pages FROM [USER] WHERE 1 =1  ")
                                 .Append(conditions + ";");
             }
             #endregion

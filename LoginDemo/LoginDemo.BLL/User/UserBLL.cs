@@ -68,7 +68,7 @@ namespace LoginDemo.BLL
             }
             user.UserPWD = user.UserPWD.Md5Compute32();
 
-            var usersRes = GetUserListbyParameter(new UserQueryParameter() { UserName = user.UserName, IsLogin = true, PageIndex = 1, PageSize = 1, IsPage = false });
+            var usersRes = GetUserListbyParameter(new UserQueryParameter() { UserName = user.UserName, Skip = 0, Take = 1, IsPage = false });
 
             if (usersRes.ResponseCode == 1 && usersRes.Body.Items.Any())
             {
@@ -101,7 +101,7 @@ namespace LoginDemo.BLL
         public ReturnResponse<User> Login(User user)
         {
             var response = new ReturnResponse<User>();
-            var para = new UserQueryParameter() { UserName = user.UserName, UserPWD = user.UserPWD.Md5Compute32(), PageIndex = 1, PageSize = 1, IsLogin = true, IsPage = false };
+            var para = new UserQueryParameter() { UserName = user.UserName, UserPWD = user.UserPWD.Md5Compute32(), Skip = 0, Take = 1, IsPage = false };
             var res = GetUserListbyParameter(para);
             if (res.ResponseCode == 1 && res.Body.Items.Any())
             {
@@ -161,8 +161,17 @@ namespace LoginDemo.BLL
 
         public ReturnResponse<Pager<User>> GetUserListbyParameter(UserQueryParameter para)
         {
-            var response = new ReturnResponse<Pager<User>>();
+            para.Skip = para.PageIndex - 1;
+            para.Take = para.PageSize;
+            return new ReturnResponse<Pager<User>>
+            {
+                Body = _iUserDal.QueryUsersByParameter(para),
+                ResponseCode = 1,
+                Message = "Success"
+            };
+
             #region get from redis
+
             //if (para != null && !para.IsLogin)
             //    using (var client = RedisManager.GetClient())
             //    {
@@ -175,19 +184,21 @@ namespace LoginDemo.BLL
             //            return response;
             //        }
             //    }
+
             #endregion
-            var data = _iUserDal.QueryUsersByParameter(para); //_IContainer.Resolve<IUserDAL>().QueryUsersByParameter(para);
+
+            //_IContainer.Resolve<IUserDAL>().QueryUsersByParameter(para);
+
             #region set redis
+
             //if (para != null && !para.IsLogin)
             //    using (var redisClient = RedisManager.GetClient())
             //    {
             //        redisClient.Set("UsersDataPager_" + para.PageIndex, data);
             //    }
+
             #endregion
-            response.Body = data;
-            response.ResponseCode = 1;
-            response.Message = "Success";
-            return response;
+
         }
 
         /// <summary>

@@ -31,6 +31,11 @@ namespace LoginDemo.Entity
             }
         }
 
+        [IgnoreField]
+        public int Skip { get; set; }
+
+        [IgnoreField]
+        public int Take { get; set; }
         public string SearchKeyWord { get; set; }
     }
 }
