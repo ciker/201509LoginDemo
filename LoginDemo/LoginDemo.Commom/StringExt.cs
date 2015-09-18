@@ -2,9 +2,12 @@
 using System.Configuration;
 using System.Linq;
 using System.Reflection;
+using System.Text;
 //using System.Reflection.Emit;
 using System.Security.Cryptography;
+using System.Security.Permissions;
 using System.Text;
+using System.Text.RegularExpressions;
 //using System.Threading.Tasks;
 using Newtonsoft.Json;
 //using ServiceStack;
@@ -203,6 +206,28 @@ namespace LoginDemo.Commom
             //}
             #endregion
             return conditions.ToString();
+        }
+
+        /// <summary>
+        /// regular mobile number
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
+        public static bool IsMobile(this string str)
+        {
+            Regex regex = new Regex(@"^[1][3-8]\d{9}$");
+            return regex.IsMatch(str);
+        }
+
+        /// <summary>
+        /// regular email 
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
+        public static bool IsEmail(this string str)
+        {
+            Regex regex = new Regex("^\\s*([A-Za-z0-9_-]+(\\.\\w+)*@(\\w+\\.)+\\w{2,5})\\s*$");
+            return regex.IsMatch(str);
         }
     }
 }

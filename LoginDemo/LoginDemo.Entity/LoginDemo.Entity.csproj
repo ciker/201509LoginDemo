@@ -44,6 +44,9 @@
     <Compile Include="BaseQueryParameter.cs" />
     <Compile Include="PagerParameter.cs" />
     <Compile Include="Pager.cs" />
+    <Compile Include="UserAccount\QueryParameter\UserInfoQueryParameter.cs" />
+    <Compile Include="UserAccount\UserAccountTypeMapping.cs" />
+    <Compile Include="UserAccount\UserInfo.cs" />
     <Compile Include="User\QueryParameter\UserQueryParameter.cs" />
     <Compile Include="User\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
