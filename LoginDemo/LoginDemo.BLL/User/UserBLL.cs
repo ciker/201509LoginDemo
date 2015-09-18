@@ -1,13 +1,14 @@
-﻿using LoginDemo.BLL.Interface;
-using LoginDemo.Commom;
-using LoginDemo.DAL.Interface;
-using LoginDemo.Entity;
-using System;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace LoginDemo.BLL
+﻿namespace LoginDemo.BLL
 {
+    #region Using
+    using Interface;
+    using Commom;
+    using DAL.Interface;
+    using Entity;
+    using System;
+    using System.Linq;
+    using System.Threading.Tasks;
+    #endregion
     public class UserBLL : IUserBLL
     {
         #region properties
@@ -70,7 +71,7 @@ namespace LoginDemo.BLL
 
             var usersRes = GetUserListbyParameter(new UserQueryParameter() { UserName = user.UserName, Skip = 0, Take = 1, IsPage = false });
 
-            if (usersRes.ResponseCode == 1 && usersRes.Body.Items.Any())
+            if (usersRes.IsSuccess && usersRes.Body.Items.Any())
             {
                 response.Body = new User();
                 response.ResponseCode = 400;
@@ -103,7 +104,7 @@ namespace LoginDemo.BLL
             var response = new ReturnResponse<User>();
             var para = new UserQueryParameter() { UserName = user.UserName, UserPWD = user.UserPWD.Md5Compute32(), Skip = 0, Take = 1, IsPage = false };
             var res = GetUserListbyParameter(para);
-            if (res.ResponseCode == 1 && res.Body.Items.Any())
+            if (res.IsSuccess && res.Body.Items.Any())
             {
                 response.Body = res.Body.Items.FirstOrDefault();
                 if (response.Body != null && response.Body.DataStatus == 1)
@@ -134,7 +135,7 @@ namespace LoginDemo.BLL
                         var response = new ReturnResponse<User>();
                         var paras = new UserQueryParameter() { UserName = user.UserName, UserPWD = user.UserPWD.Md5Compute32() };
                         var res = GetUserListbyParameter(paras);
-                        if (res.ResponseCode == 1 && res.Body.Total > 0)
+                        if (res.IsSuccess && res.Body.Items.Any())
                         {
                             response.Body = res.Body.Items.FirstOrDefault();
                             if (response.Body.DataStatus == 1)
