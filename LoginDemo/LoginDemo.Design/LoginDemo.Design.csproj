@@ -41,7 +41,11 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Design.doc\Create_UserInfo_Table.sql" />
+    <Content Include="Design.doc\Create_User_Table.sql" />
+    <Content Include="Design.doc\Insert_UserInfo_AndUserAccountType_Mapping.sql" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Design.doc\LoginDemo_DB_Design.xlsx" />
     <None Include="Design.doc\登录.mmap" />
