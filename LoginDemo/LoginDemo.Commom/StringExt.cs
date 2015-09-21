@@ -156,7 +156,7 @@ namespace LoginDemo.Commom
         /// <param name="t"></param>
         /// <param name="ignorePageInfo">whether ignore the page properties</param>
         /// <returns></returns>
-        public static string GenerateCondition(this string str, object t, bool ignorePageInfo = true)
+        public static string GenerateCondition(this string str, object t)
         {
             var conditions = new StringBuilder();
             var properties = t.GetType().GetProperties(BindingFlags.Public | BindingFlags.DeclaredOnly | BindingFlags.Instance);

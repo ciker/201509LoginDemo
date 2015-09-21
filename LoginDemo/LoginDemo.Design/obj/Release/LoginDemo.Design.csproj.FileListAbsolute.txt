@@ -1,5 +1,4 @@
 D:\201509LoginDemo\LoginDemo\LoginDemo.Design\bin\Release\LoginDemo.Design.dll
 D:\201509LoginDemo\LoginDemo\LoginDemo.Design\bin\Release\LoginDemo.Design.pdb
-D:\201509LoginDemo\LoginDemo\LoginDemo.Design\obj\Release\LoginDemo.Design.csprojResolveAssemblyReference.cache
 D:\201509LoginDemo\LoginDemo\LoginDemo.Design\obj\Release\LoginDemo.Design.dll
 D:\201509LoginDemo\LoginDemo\LoginDemo.Design\obj\Release\LoginDemo.Design.pdb

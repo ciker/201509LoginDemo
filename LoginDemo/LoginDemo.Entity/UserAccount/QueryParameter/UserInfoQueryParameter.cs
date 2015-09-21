@@ -1,4 +1,6 @@
 ﻿using System;
+using LoginDemo.Commom;
+
 namespace LoginDemo.Entity.UserAccount.QueryParameter
 {
     public class UserInfoQueryParameter : BaseQueryParameter
@@ -7,7 +9,9 @@ namespace LoginDemo.Entity.UserAccount.QueryParameter
 
         public string Password { get; set; }
 
-        public int UserAccountType { get; set; }
+        public int? UserAccount_Type { get; set; }
+
+        [IgnoreField]
         public bool IsPage { get; set; }
 
     }

@@ -13,7 +13,8 @@
         public long UserInfoID { get; set; }
 
         /// <summary>
-        /// user account type 
+        /// user account type
+        ///  mean   1：mobile 2：emial 0：username 
         /// </summary>
         public int UserAccountType { get; set; }
     }

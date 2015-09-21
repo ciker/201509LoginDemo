@@ -22,10 +22,31 @@ namespace LoginDemo.BLL.UserAccount
             _userAccountDal = userAccountDal;
         }
         #endregion
-        public ReturnResponse<UserInfo> Login(UserInfo user)
+        public ReturnResponse<UserInfo> Login(UserInfo userInfo)
         {
             var response = new ReturnResponse<UserInfo>();
-            var para = new UserInfoQueryParameter() { Account = user.Account, Password = user.Password.Md5Compute32(), Skip = 0, Take = 1, IsPage = false };
+
+            if (userInfo.Account.IsMobile())
+            {
+                userInfo.AccountType = 1;
+            }
+            else if (userInfo.Account.IsEmail())
+            {
+                userInfo.AccountType = 2;
+            }
+            else
+            {
+                userInfo.AccountType = 0;
+            }
+            var para = new UserInfoQueryParameter()
+            {
+                Account = userInfo.Account,
+                //Password = userInfo.Password.Md5Compute32(),
+                UserAccount_Type = userInfo.AccountType,
+                Skip = 0,
+                Take = 1,
+                IsPage = false
+            };
             var res = Query(para);
             if (res.IsSuccess && res.Body.Items.Any())
             {
@@ -34,6 +55,11 @@ namespace LoginDemo.BLL.UserAccount
                 {
                     response.ResponseCode = 403;
                     response.Message = "user has been forbidden";
+                }
+                else if (response.Body != null && !userInfo.Password.Md5Compute32().Equals(response.Body.Password))
+                {
+                    response.ResponseCode = 400;
+                    response.Message = "user name or password error";
                 }
                 else
                 {
@@ -44,7 +70,7 @@ namespace LoginDemo.BLL.UserAccount
             else
             {
                 response.ResponseCode = 400;
-                response.Message = "user name or password error";
+                response.Message = "user name doesn't exist";
             }
             return response;
         }
@@ -65,6 +91,19 @@ namespace LoginDemo.BLL.UserAccount
                 response.ResponseCode = 100;
                 response.Message = "UserPWD can't be empty";
                 return response;
+            }
+
+            if (userInfo.Account.IsMobile())
+            {
+                userInfo.AccountType = 1;
+            }
+            else if (userInfo.Account.IsEmail())
+            {
+                userInfo.AccountType = 2;
+            }
+            else
+            {
+                userInfo.AccountType = 0;
             }
             userInfo.Password = userInfo.Password.Md5Compute32();
 

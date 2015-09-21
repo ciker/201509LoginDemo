@@ -164,6 +164,8 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Areas\UserInfo\Controllers\UserInfoController.cs" />
+    <Compile Include="Areas\UserInfo\UserInfoAreaRegistration.cs" />
     <Compile Include="Areas\Users\Controllers\UserController.cs" />
     <Compile Include="Areas\Users\UserAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -190,7 +192,11 @@
     <Content Include="Areas\Users\Views\User\UserList.cshtml" />
     <Content Include="Areas\Users\Views\User\_EditUser.cshtml" />
     <Content Include="Areas\Users\Views\User\_login.cshtml" />
-    <Content Include="Areas\Users\Views\Shared\_layoutView.cshtml" />
+    <Content Include="Areas\Users\Views\Shared\_ArealayoutView.cshtml" />
+    <Content Include="Areas\UserInfo\Views\web.config" />
+    <Content Include="Areas\UserInfo\Views\UserInfo\Index.cshtml" />
+    <Content Include="Areas\UserInfo\Views\UserInfo\_login.cshtml" />
+    <Content Include="Areas\UserInfo\Views\UserInfo\_register.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -203,6 +209,8 @@
     <Content Include="Scripts\public\utils.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\userInfo\login.js" />
+    <Content Include="Scripts\userInfo\register.js" />
     <Content Include="Scripts\user\login.js" />
     <Content Include="Scripts\user\register.js" />
     <Content Include="Scripts\_references.js" />
@@ -231,9 +239,12 @@
     <Content Include="Views\Account\Manage.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Shared\_ArealayoutView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\UserInfo\Models\" />
+    <Folder Include="Areas\UserInfo\Views\Shared\" />
     <Folder Include="Areas\Users\Models\" />
     <Folder Include="Views\Base\" />
   </ItemGroup>

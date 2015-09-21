@@ -1,4 +1,6 @@
-﻿namespace LoginDemo.Entity.UserAccount
+﻿using LoginDemo.Commom;
+
+namespace LoginDemo.Entity.UserAccount
 {
     public class UserInfo : BaseEntity
     {
@@ -41,6 +43,15 @@
         /// remark
         /// </summary>
         public string Remark { get; set; }
+
+        /// <summary>
+        /// account type ,not include into UserInfo table 
+        /// the field of UserAccountTypeMapping
+        /// mean   1：mobile 2：emial 0：username
+        /// </summary>
+
+        [IgnoreField]
+        public int AccountType { get; set; }
 
     }
 }
