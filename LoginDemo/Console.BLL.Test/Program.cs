@@ -1,14 +1,16 @@
 ﻿using System;
-using System.Collections;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Timers;
 using LoginDemo.BLL;
+using LoginDemo.BLL.UserAccount;
 using LoginDemo.Commom;
 using LoginDemo.DAL;
+using LoginDemo.DAL.UserAccount;
 using LoginDemo.Entity;
+using LoginDemo.Entity.UserAccount;
+using LoginDemo.Entity.UserAccount.QueryParameter;
 using Console = System.Console;
 
 namespace Login.BLL.Test
@@ -17,6 +19,7 @@ namespace Login.BLL.Test
     {
         #region properties
         private static readonly UserBLL UserBll = new UserBLL(new UserDAL());
+        private static readonly UserAccountBLL UserinfoBll = new UserAccountBLL(new UserAccountDAL());
         private const int ParallelNum = 8000;//parallel num
         private const int ParallelMaxThreadNum = 180;//parallel max thread num
         private const int NormalMaxThreadNum = 185;//normal max thread num 
@@ -41,11 +44,13 @@ namespace Login.BLL.Test
             //////aTimer.Enabled = true;
             #endregion
 
+
+            UserInfoParallelTest();
+            read();
+
             //Msg();
             //asynctest();
-            RegisterParallelTest();// register parallel test 
-
-            read();
+            //UserParallelTest();// register parallel test 
         }
 
         #region Test
@@ -53,7 +58,7 @@ namespace Login.BLL.Test
         /// <summary>
         /// total  
         /// </summary>
-        private static void RegisterParallelTest()
+        private static void UserParallelTest()
         {
             CodeTimer.Initialize();
             #region register
@@ -311,6 +316,18 @@ namespace Login.BLL.Test
             Write("============test login end===========" + "\r\t");
         }
 
+        private static void UserInfoParallelTest()
+        {
+
+            CodeTimer.Time("Register Parallel", 100, 15, UserInfoRegister);
+
+
+            //CodeTimer.Time("Register Parallel", 1000000, 15, UserInfoLogin);
+
+
+            //CodeTimer.Time("Register Parallel", 1000000, 15, SelectUserInfoList);
+        }
+
 
         #endregion
 
@@ -323,6 +340,11 @@ namespace Login.BLL.Test
         private static void SelectUserList()
         {
             UserBll.GetUserListbyParameter(new UserQueryParameter() { PageIndex = 1, PageSize = 10 });
+        }
+
+        private static void SelectUserInfoList()
+        {
+            UserinfoBll.Query(new UserInfoQueryParameter() { PageIndex = 1, PageSize = 10 });
         }
         private static void Register()
         {
@@ -338,6 +360,20 @@ namespace Login.BLL.Test
             UserBll.Register(user);
         }
 
+        private static void UserInfoRegister()
+        {
+            var num = Guid.NewGuid().ToString();// GenerareRandomString();//  new Random().Next();// Guid.NewGuid().ToString();////DateTime.Now.ToString("ddHHmmssfffff");//new Random().Next(0, int.MaxValue);//CodeTimer.GetCurrentThreadTimes();
+            var userInfo = new UserInfo()
+            {
+                Account = "1_Unit_Test" + num,
+                Password = ("1_Unit_Test" + num),
+                CompanyName = "东方航空集团航空公司",
+                Address = "上海市长宁区绥宁路388号"
+            };
+
+            UserinfoBll.Register(userInfo);
+        }
+
         private static void Login()
         {
             //var num = new Random().Next(0, int.MaxValue);
@@ -348,6 +384,17 @@ namespace Login.BLL.Test
                //UserName = "1_Unit_Test" + num,
                //UserPWD = ("1_Unit_Test" + num),
            });
+        }
+
+        private static void UserInfoLogin()
+        {
+            UserBll.Login(new User()
+          {
+              UserName = "1_Unit_Test31983c30-66c5-4210-8695-61ae1eb25f9f",
+              UserPWD = "1_Unit_Test31983c30-66c5-4210-8695-61ae1eb25f9f"
+              //UserName = "1_Unit_Test" + num,
+              //UserPWD = ("1_Unit_Test" + num),
+          });
         }
 
         private static void RandomNum()
