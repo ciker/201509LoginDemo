@@ -318,13 +318,18 @@ namespace Login.BLL.Test
 
         private static void UserInfoParallelTest()
         {
-            CodeTimer.Time("Register Parallel", 100000, 15, UserInfoRegister);
+            //CodeTimer.Time("Register Parallel", 1000000, 15, UserInfoRegister);
 
 
             //CodeTimer.Time("Register Parallel", 1000000, 15, UserInfoLogin);
-
-
-            //CodeTimer.Time("Register Parallel", 1000000, 15, SelectUserInfoList);
+            try
+            {
+                CodeTimer.Time("SelectUserInfoList Parallel", 100, 15, SelectUserInfoList);
+            }
+            catch (AggregateException ex)
+            {
+                throw ex;
+            }
         }
 
 
@@ -343,7 +348,7 @@ namespace Login.BLL.Test
 
         private static void SelectUserInfoList()
         {
-            UserinfoBll.Query(new UserInfoQueryParameter() { PageIndex = 1, PageSize = 10 });
+            UserinfoBll.Query(new UserInfoQueryParameter() { PageIndex = 1, PageSize = 10, IsPage = true });
         }
         private static void Register()
         {
