@@ -1,0 +1,60 @@
+﻿@using LoginDemo.Entity;
+@using LoginDemo.Commom;
+@{
+    Layout = "~/Views/Shared/_ArealayoutView.cshtml";
+}
+@model ReturnResponse<Pager<LoginDemo.Entity.UserAccount.UserInfo>>
+
+@section content{
+    <div style="float:right">
+        <span><a class="btn btn-success" href="/UserInfo/UserInfo/Register">注册</a></span>
+    </div>
+    <div class="container">
+        <div class="panel panel-default">
+            <div class="panel-heading">用户列表</div>
+            <table class="table table-responsive">
+                <thead>
+                    <tr>
+                        <th>账号</th>
+                        <th>公司</th>
+                        <th>地址</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model.Body.Items.Any())
+                    {
+                        foreach (var item in Model.Body.Items)
+                        {
+                            <tr>
+                                <td> @item.Account</td>
+                                <td>@item.CompanyName</td>
+                                <td>@item.Address</td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td class="nodata" colspan="3">暂无数据</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="pager">
+            <nav>
+                <ul class="pagination">
+                    @if (Model.Body.Pages > 0)
+                    {
+
+                        for (var i = 1; i <= Model.Body.Pages; i++)
+                        {
+                            <li><a href="/UserInfo/UserInfo/Index?pageIndex=@i">@(i)</a></li>
+                        }
+
+                    }
+                </ul>
+            </nav>
+        </div>
+    </div>
+}
