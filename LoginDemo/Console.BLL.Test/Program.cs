@@ -318,8 +318,7 @@ namespace Login.BLL.Test
 
         private static void UserInfoParallelTest()
         {
-
-            CodeTimer.Time("Register Parallel", 100, 15, UserInfoRegister);
+            CodeTimer.Time("Register Parallel", 100000, 15, UserInfoRegister);
 
 
             //CodeTimer.Time("Register Parallel", 1000000, 15, UserInfoLogin);

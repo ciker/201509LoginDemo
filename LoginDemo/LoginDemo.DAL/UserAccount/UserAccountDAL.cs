@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -44,7 +45,7 @@ namespace LoginDemo.DAL.UserAccount
             {
                 sqlText.Append(" SELECT  COUNT(1) AS Total ,CEILING((COUNT(1)+0.0)/")
                                 .Append(para.Take.ToString())
-                                .Append(") AS Pages FROM [USER] WHERE 1 =1  ")
+                                .Append(") AS Pages FROM USERINFO WHERE 1 =1  ")
                                 .Append(conditions + ";");
             }
             using (var conn = SqlServerDB.GetSqlConnection())
@@ -70,27 +71,75 @@ namespace LoginDemo.DAL.UserAccount
         {
             UserInfo retUser = null;
             #region sql
+            #region sqlText
             const string sqlText = @" INSERT INTO [dbo].[UserInfo]
-			                            ([ACCOUNT]
-			                               ,[PASSWORD]
-			                               ,[NICKNAME]
-			                               ,[GENDER]
-			                               ,[COMPANYNAME]
-			                               ,[ADDRESS]
-			                               ,[REMARK])
-                                            OUTPUT INSERTED.*
-                                            VALUES(
-                                            @ACCOUNT
-                                            ,@PASSWORD
-                                            ,@NICKNAME
-                                            ,@GENDER
-                                            ,@COMPANYNAME
-                                            ,@ADDRESS
-                                            ,@REMARK
-                                            ); ";
+            			                            ([ACCOUNT]
+            			                               ,[PASSWORD]
+            			                               ,[NICKNAME]
+            			                               ,[GENDER]
+            			                               ,[COMPANYNAME]
+            			                               ,[ADDRESS]
+            			                               ,[REMARK])
+                                                        OUTPUT INSERTED.*
+                                                        VALUES(
+                                                        @ACCOUNT
+                                                        ,@PASSWORD
+                                                        ,@NICKNAME
+                                                        ,@GENDER
+                                                        ,@COMPANYNAME
+                                                        ,@ADDRESS
+                                                        ,@REMARK
+                                                        ); ";
             const string mappingSqlText = @"INSERT INTO [DBO].[UserInfo_AccountType_Mapping] VALUES(@USERINFO_ID,@ACCOUNT_TYPE)";
             #endregion
-
+            #region transactionSqlText
+            //            const string transactionSqlText = @"DECLARE @USERINFO_TEMP TABLE(
+            //	                                                [ID] BIGINT,
+            //	                                                [ACCOUNT] NVARCHAR(50) NOT NULL,
+            //	                                                [PASSWORD] NVARCHAR(50) NOT NULL,
+            //	                                                [NICKNAME] NVARCHAR(30) NULL,
+            //	                                                [GENDER] BIT NULL,
+            //	                                                [COMPANYNAME] NVARCHAR(50) NULL,
+            //	                                                [ADDRESS] NVARCHAR(100) NULL,
+            //	                                                [REMARK] NVARCHAR(100) NULL)
+            //                                                DECLARE @USERINFO_ID BIGINT;
+            //	                                                BEGIN TRAN
+            //		                                                BEGIN TRY
+            //			                                                INSERT INTO [dbo].[UserInfo]
+            //			                                                ([ACCOUNT]
+            //			                                                   ,[PASSWORD]
+            //			                                                   ,[NICKNAME]
+            //			                                                   ,[GENDER]
+            //			                                                   ,[COMPANYNAME]
+            //			                                                   ,[ADDRESS]
+            //			                                                   ,[REMARK])
+            //			                                                 OUTPUT INSERTED.* INTO @USERINFO_TEMP 
+            //			                                                 VALUES(
+            //			                                                 @ACCOUNT
+            //                                                            ,@PASSWORD
+            //                                                            ,@NICKNAME
+            //                                                            ,@GENDER
+            //                                                            ,@COMPANYNAME
+            //                                                            ,@ADDRESS
+            //                                                            ,@REMARK);
+            //			                                                 PRINT @USERINFO_ID;
+            //			                                                 SELECT  @USERINFO_ID =ID  FROM @USERINFO_TEMP
+            //			                                                 PRINT @USERINFO_ID;
+            //			                                                 INSERT INTO [DBO].[UserInfo_AccountType_Mapping] VALUES                                                                    (@USERINFO_ID,@ACCOUNT_TYPE)
+            //			                                                 COMMIT
+            //			                                                 SELECT * FROM @USERINFO_TEMP ;
+            //		                                                END TRY
+            //		                                                BEGIN CATCH
+            //			                                                THROW
+            //                                                            ROLLBACK
+            //			                                                RETURN 
+            //		                                                END CATCH";
+            #endregion
+            #region proc_transaction
+            const string insertProc = "PROC_INSERTUSERINFO";
+            #endregion
+            #endregion
+            #region USE DONET TRANSACTION
             using (var conn = SqlServerDB.GetSqlConnection())
             {
                 conn.Open();
@@ -113,6 +162,26 @@ namespace LoginDemo.DAL.UserAccount
                     trans.Rollback();
                 }
             }
+            #endregion
+
+            #region USE SQL TRANSACTION
+
+            //using (var conn = SqlServerDB.GetSqlConnection())
+            //{
+            //    var re = conn.Query<UserInfo>(insertProc, new
+            //    {
+            //        Account_Type = userInfo.AccountType,
+            //        ACCOUNT = userInfo.Account,
+            //        PASSWORD = userInfo.Password,
+            //        NICKNAME = userInfo.NickName,
+            //        GENDER = userInfo.Gender,
+            //        COMPANYNAME = userInfo.CompanyName,
+            //        ADDRESS = userInfo.Address,
+            //        REMARK = userInfo.Remark
+            //    }, null, false, null, CommandType.StoredProcedure);
+            //    retUser = re.FirstOrDefault();
+            //}
+            #endregion
             return retUser;
         }
 

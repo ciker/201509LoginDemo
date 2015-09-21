@@ -29,6 +29,7 @@ namespace LoginDemo.Web.Areas.UserInfo.Controllers
         // GET: /UserInfo/UserInfo/
         public ActionResult Index(UserInfoQueryParameter userInfoQueryParameter)
         {
+            userInfoQueryParameter.IsPage = true;
             var data = UserAccountBll.Query(userInfoQueryParameter);
             return View(data);
         }

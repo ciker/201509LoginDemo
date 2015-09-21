@@ -92,7 +92,7 @@ namespace LoginDemo.BLL.UserAccount
                 response.Message = "UserPWD can't be empty";
                 return response;
             }
-
+            //userInfo.AccountType = userInfo.Account.IsMobile() ? 1 : userInfo.Account.IsEmail() ? 2 : 0;
             if (userInfo.Account.IsMobile())
             {
                 userInfo.AccountType = 1;
