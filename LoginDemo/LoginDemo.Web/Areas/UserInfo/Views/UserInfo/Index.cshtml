@@ -44,14 +44,14 @@
         <div class="pager">
             <nav>
                 <ul class="pagination">
-                    @if (Model.Body.Pages > 0)
+                    @if (Model.Body.Pages > 0 && Model.Body.Pages > 3)
                     {
 
-                        for (var i = 1; i <= Model.Body.Pages; i++)
+                        for (var i = 1; i <= 3; i++)
                         {
                             <li><a href="/UserInfo/UserInfo/Index?pageIndex=@i">@(i)</a></li>
                         }
-
+                        <li><a href="/Users/User/UserList?">...</a></li>
                     }
                 </ul>
             </nav>
