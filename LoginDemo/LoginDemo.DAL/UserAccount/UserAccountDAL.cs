@@ -19,6 +19,7 @@ namespace LoginDemo.DAL.UserAccount
         {
             var dataList = new Lazy<Pager<UserInfo>>();
             var sqlText = new StringBuilder();
+            var pageSqlText = new StringBuilder();
             sqlText.Append(@"SELECT 
 		                     U.ID
 		                    ,U.ACCOUNT
@@ -27,10 +28,9 @@ namespace LoginDemo.DAL.UserAccount
 		                    ,U.GENDER
 		                    ,U.COMPANYNAME
 		                    ,U.ADDRESS
-		                    ,U.REMARK
-		
+		                    ,U.REMARK		
 		                    FROM USERINFO AS U
-			                    INNER JOIN USERINFO_ACCOUNTTYPE_MAPPING AS UM
+			                    LEFT JOIN USERINFO_ACCOUNTTYPE_MAPPING AS UM
 			                    ON U.ID = UM.USERINFO_ID
                                 WHERE 1 = 1  
 		                    ");
@@ -45,15 +45,19 @@ namespace LoginDemo.DAL.UserAccount
             {
                 sqlText.Append(" SELECT  COUNT(1) AS Total ,CEILING((COUNT(1)+0.0)/")
                                 .Append(para.Take.ToString())
-                                .Append(") AS Pages FROM USERINFO WHERE 1 =1  ")
+                                .Append(") AS Pages FROM USERINFO  WITH(INDEX(PK_USER_USERID))   WHERE 1 =1  ")
                                 .Append(conditions + ";");
+                //sqlText.Append(pageSqlText);
             }
             using (var conn = SqlServerDB.GetSqlConnection())
             {
+                //var data = conn.Query<UserInfo>(sqlText.ToString(), string.IsNullOrWhiteSpace(conditions) ? null : para);
                 var grid = conn.QueryMultiple(sqlText.ToString(), para);
+                //dataList.Value.Items = data.ToArray();
                 dataList.Value.Items = grid.Read<UserInfo>().ToArray();
                 if (para.IsPage)
                 {
+                    //var pageInfo = conn.Query(pageSqlText.ToString(), string.IsNullOrWhiteSpace(conditions) ? null : para).FirstOrDefault();
                     var pageInfo = grid.Read().FirstOrDefault();
                     if (pageInfo == null) return dataList.Value;
                     dataList.Value.Total = (int)pageInfo.Total;
@@ -136,7 +140,7 @@ namespace LoginDemo.DAL.UserAccount
             //		                                                END CATCH";
             #endregion
             #region proc_transaction
-            const string insertProc = "PROC_INSERTUSERINFO";
+            //const string insertProc = "PROC_INSERTUSERINFO";
             #endregion
             #endregion
             #region USE DONET TRANSACTION
@@ -146,7 +150,6 @@ namespace LoginDemo.DAL.UserAccount
                 var trans = conn.BeginTransaction();
                 try
                 {
-
                     var re = conn.Query<UserInfo>(sqlText, userInfo, trans);
                     retUser = re.FirstOrDefault();
                     if (retUser != null)
@@ -165,7 +168,6 @@ namespace LoginDemo.DAL.UserAccount
             #endregion
 
             #region USE SQL TRANSACTION
-
             //using (var conn = SqlServerDB.GetSqlConnection())
             //{
             //    var re = conn.Query<UserInfo>(insertProc, new

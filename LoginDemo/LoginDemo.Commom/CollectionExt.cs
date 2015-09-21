@@ -20,7 +20,11 @@ namespace LoginDemo.Commom
 
         public static void Each<T>(this IEnumerable<T> t, Action<T> action)
         {
-            Parallel.ForEach(t, action);
+            //Parallel.ForEach(t, action);
+            foreach (var obj in t)
+            {
+                action(obj);
+            }
         }
     }
 }

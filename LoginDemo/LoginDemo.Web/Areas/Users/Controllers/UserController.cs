@@ -24,6 +24,7 @@ namespace LoginDemo.Web.Areas.Users.Controllers
         [HttpGet]
         public ActionResult UserList(UserQueryParameter para)
         {
+            para.IsPage = true;
             var data = _iUserBll.GetUserListbyParameter(para);
             return View(data);
         }
