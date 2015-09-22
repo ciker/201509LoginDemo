@@ -39,3 +39,17 @@ GO
 
 
 
+//*
+SQLQuery1.sql - (local)\SQL2014.UserDB (sa (52)) 中缺少索引的详细信息
+查询处理器估计采用以下索引可以将查询开销减少 99.0457%。
+*/
+
+/*
+USE [UserDB]
+GO
+CREATE NONCLUSTERED INDEX NONCLUSTERED_UserInfoID_IncludeACCOUNT
+ON [dbo].[UserInfoAccount] ([UserInfoID])
+INCLUDE ([ACCOUNT])
+GO
+*/
+
