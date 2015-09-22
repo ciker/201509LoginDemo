@@ -114,6 +114,7 @@ namespace LoginDemo.Commom
         /// 是否记录日志,该设置仅用于排查redis运行时出现的问题,如redis工作正常,请关闭该项
         /// </summary>
         [ConfigurationProperty("RecordeLog", IsRequired = false, DefaultValue = false)]
+        
         public bool RecordeLog
         {
             get
