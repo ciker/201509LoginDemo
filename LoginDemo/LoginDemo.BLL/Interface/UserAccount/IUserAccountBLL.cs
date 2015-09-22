@@ -5,7 +5,7 @@ using LoginDemo.Entity.UserAccount.QueryParameter;
 
 namespace LoginDemo.BLL.Interface
 {
-    public interface IUserAccountBLL
+    public interface IUserAccountBLL : IDependency
     {
         ReturnResponse<UserInfo> Login(UserInfoAndAccount user);
 

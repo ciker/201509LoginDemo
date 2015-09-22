@@ -61,6 +61,7 @@
     <Compile Include="CollectionExt.cs" />
     <Compile Include="EnumUtil.cs" />
     <Compile Include="FastProperty.cs" />
+    <Compile Include="IDependency.cs" />
     <Compile Include="PageExAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CacheManager.cs" />

@@ -1,10 +1,11 @@
 ﻿using LoginDemo.Entity;
+using LoginDemo.Commom;
 using LoginDemo.Entity.UserAccount;
 using LoginDemo.Entity.UserAccount.QueryParameter;
 
 namespace LoginDemo.DAL.Interface
 {
-    public interface IUserAccountDAL
+    public interface IUserAccountDAL : IDependency
     {
         Pager<UserInfoAndAccount> Query(UserInfoQueryParameter para);
 

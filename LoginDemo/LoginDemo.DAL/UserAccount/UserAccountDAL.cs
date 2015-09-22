@@ -113,10 +113,10 @@ namespace LoginDemo.DAL
                     retUser = re.FirstOrDefault();
                     if (retUser != null)
                     {
-                        foreach (var acc in userInfo.Accounts)
+                        foreach (var account in userInfo.Accounts)
                         {
                             conn.Execute(mappingSqlText,
-                                new { USERINFOID = retUser.Id, ACCOUNTTYPE = userInfo.AccountType, ACCOUNT = acc }, trans);
+                                new { USERINFOID = retUser.Id, ACCOUNTTYPE = userInfo.AccountType, ACCOUNT = account }, trans);
                         }
 
                         trans.Commit();
@@ -197,63 +197,7 @@ namespace LoginDemo.DAL
 
         public UserInfo Update(UserInfoAndAccount userInfo)
         {
-            UserInfo retUser = null;
-
-            #region sql
-
-            #region sqlText
-
-            var sqlText = userInfo.GenerateSingleTableSqlByOperate(SqlOperate.Update);
-            //sqlText += "WHERE [ID]=@ID";
-            //            const string sqlText = @" UPDATE [dbo].[UserInfo]
-            //                                       SET  [PASSWORD] = @PASSWORD
-            //                                          ,[NICKNAME] = @NICKNAME
-            //                                          ,[GENDER] = @GENDER
-            //                                          ,[COMPANYNAME] = @COMPANYNAME
-            //                                          ,[ADDRESS] = @ADDRESS
-            //                                          ,[REMARK] = @REMARK
-            //                                     WHERE [ID]=@ID
-            //); ";
-            const string mappingSqlText = @"INSERT INTO [DBO].[USERINFOACCOUNT] 
-                                                                    VALUES(NEXT VALUE FOR UserDBSequence
-                                                                            ,@USERINFOID
-                                                                            ,@ACCOUNTTYPE
-                                                                            ,@ACCOUNT)";
-
-            #endregion
-
-            #endregion
-
-            #region USE DONET TRANSACTION
-
-            using (var conn = SqlServerDB.GetSqlConnection())
-            {
-                conn.Open();
-                var trans = conn.BeginTransaction();
-                try
-                {
-                    var re = conn.Query<UserInfo>(sqlText, userInfo, trans);
-                    retUser = re.FirstOrDefault();
-                    if (retUser != null)
-                    {
-                        foreach (var acc in userInfo.Accounts)
-                        {
-                            conn.Execute(mappingSqlText,
-                                new { USERINFOID = retUser.Id, ACCOUNTTYPE = userInfo.AccountType, ACCOUNT = acc }, trans);
-                        }
-
-                        trans.Commit();
-                    }
-                }
-                catch (Exception)
-                {
-                    trans.Rollback();
-                }
-            }
-
-            #endregion
-
-            return retUser;
+            throw new NotImplementedException();
         }
 
         public bool Delete(UserInfoAndAccount userInfo)

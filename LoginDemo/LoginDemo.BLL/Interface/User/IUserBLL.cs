@@ -6,7 +6,7 @@ using LoginDemo.Entity;
 
 namespace LoginDemo.BLL.Interface
 {
-    public interface IUserBLL
+    public interface IUserBLL : IDependency
     {
         /// <summary>
         /// regist 

@@ -1,8 +1,9 @@
-﻿using LoginDemo.Entity;
+﻿using LoginDemo.Commom;
+using LoginDemo.Entity;
 
 namespace LoginDemo.DAL.Interface
 {
-    public interface IUserDAL
+    public interface IUserDAL : IDependency
     {
         Pager<User> QueryUsersByParameter(UserQueryParameter para);
 
