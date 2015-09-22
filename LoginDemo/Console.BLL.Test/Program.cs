@@ -318,13 +318,13 @@ namespace Login.BLL.Test
 
         private static void UserInfoParallelTest()
         {
-            CodeTimer.Time("Register Parallel", 100000, 15, UserInfoRegister);
+            //CodeTimer.Time("UserInfoRegister Parallel", 100000, 15, UserInfoRegister);
 
 
-            CodeTimer.Time("Register Parallel", 100000, 15, UserInfoLogin);
+            //CodeTimer.Time("UserInfoLogin Parallel", 100000, 15, UserInfoLogin);
             //try
             //{
-            CodeTimer.Time("SelectUserInfoList Parallel", 100000, 15, SelectUserInfoList);
+            CodeTimer.Time("SelectUserInfoList Parallel", 10000, 15, SelectUserInfoList);
             //}
             //catch (AggregateException ex)
             //{

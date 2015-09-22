@@ -29,7 +29,7 @@ namespace LoginDemo.DAL.UserAccount
 		                    ,U.REMARK		
 		                    FROM USERINFO AS U
 			                    INNER JOIN USERINFOACCOUNT AS UM
-			                    ON U.ID = UM.USERINFO_ID
+			                    ON U.ID = UM.USERINFOID
                                 WHERE 1 = 1  
 		                    ");
             var conditions = string.Empty.GenerateCondition(para);
@@ -49,14 +49,12 @@ namespace LoginDemo.DAL.UserAccount
             }
             using (var conn = SqlServerDB.GetSqlConnection())
             {
-                //var data = conn.Query<UserInfo>(sqlText.ToString(), string.IsNullOrWhiteSpace(conditions) ? null : para);
                 using (var grid = conn.QueryMultiple(sqlText.ToString(), para))
                 {
                     //dataList.Value.Items = data.ToArray();
                     dataList.Value.Items = grid.Read<UserInfo>().ToArray();
                     if (para.IsPage)
                     {
-                        //var pageInfo = conn.Query(pageSqlText.ToString(), string.IsNullOrWhiteSpace(conditions) ? null : para).FirstOrDefault();
                         var pageInfo = grid.Read().FirstOrDefault();
                         if (pageInfo == null) return dataList.Value;
                         dataList.Value.Total = (int)pageInfo.Total;
@@ -101,6 +99,34 @@ namespace LoginDemo.DAL.UserAccount
                                                                             ,@ACCOUNTTYPE
                                                                             ,@ACCOUNT)";
             #endregion
+          
+            #endregion
+
+            #region USE DONET TRANSACTION
+            using (var conn = SqlServerDB.GetSqlConnection())
+            {
+                conn.Open();
+                var trans = conn.BeginTransaction();
+                try
+                {
+                    var re = conn.Query<UserInfo>(sqlText, userInfo, trans);
+                    retUser = re.FirstOrDefault();
+                    if (retUser != null)
+                    {
+                        conn.Execute(mappingSqlText,
+                            new { USERINFOID = retUser.Id, ACCOUNTTYPE = userInfo.AccountType, ACCOUNT = userInfo.Account }, trans);
+
+                        trans.Commit();
+                    }
+                }
+                catch (Exception)
+                {
+                    trans.Rollback();
+                }
+            }
+            #endregion
+
+            #region USE SQL TRANSACTION
             #region transactionSqlText
             //            const string transactionSqlText = @"DECLARE @USERINFO_TEMP TABLE(
             //	                                                [ID] BIGINT,
@@ -147,32 +173,6 @@ namespace LoginDemo.DAL.UserAccount
             #region proc_transaction
             //const string insertProc = "PROC_INSERTUSERINFO";
             #endregion
-            #endregion
-            #region USE DONET TRANSACTION
-            using (var conn = SqlServerDB.GetSqlConnection())
-            {
-                conn.Open();
-                var trans = conn.BeginTransaction();
-                try
-                {
-                    var re = conn.Query<UserInfo>(sqlText, userInfo, trans);
-                    retUser = re.FirstOrDefault();
-                    if (retUser != null)
-                    {
-                        conn.Execute(mappingSqlText,
-                            new { USERINFOID = retUser.Id, ACCOUNTTYPE = userInfo.AccountType, ACCOUNT = userInfo.Account }, trans);
-
-                        trans.Commit();
-                    }
-                }
-                catch (Exception)
-                {
-                    trans.Rollback();
-                }
-            }
-            #endregion
-
-            #region USE SQL TRANSACTION
             //using (var conn = SqlServerDB.GetSqlConnection())
             //{
             //    var re = conn.Query<UserInfo>(insertProc, new
