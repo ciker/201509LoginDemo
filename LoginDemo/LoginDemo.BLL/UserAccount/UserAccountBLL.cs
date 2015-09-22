@@ -1,13 +1,13 @@
 ﻿#region Using
 using System.Linq;
-using LoginDemo.BLL.Interface.UserAccount;
-using LoginDemo.DAL.Interface.UserAccount;
+using LoginDemo.BLL.Interface;
+using LoginDemo.DAL.Interface;
 using LoginDemo.Commom;
 using LoginDemo.Entity;
 using LoginDemo.Entity.UserAccount;
 using LoginDemo.Entity.UserAccount.QueryParameter;
 #endregion
-namespace LoginDemo.BLL.UserAccount
+namespace LoginDemo.BLL
 {
     public class UserAccountBLL : IUserAccountBLL
     {

@@ -4,11 +4,11 @@ using System.Text;
 using LoginDemo.Entity.UserAccount.QueryParameter;
 using Dapper;
 using LoginDemo.Commom;
-using LoginDemo.DAL.Interface.UserAccount;
+using LoginDemo.DAL.Interface;
 using LoginDemo.Entity;
 using LoginDemo.Entity.UserAccount;
 
-namespace LoginDemo.DAL.UserAccount
+namespace LoginDemo.DAL
 {
     public class UserAccountDAL : IUserAccountDAL
     {

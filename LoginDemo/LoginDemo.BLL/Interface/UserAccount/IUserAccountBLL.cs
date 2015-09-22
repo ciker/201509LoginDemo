@@ -3,7 +3,7 @@ using LoginDemo.Entity;
 using LoginDemo.Entity.UserAccount;
 using LoginDemo.Entity.UserAccount.QueryParameter;
 
-namespace LoginDemo.BLL.Interface.UserAccount
+namespace LoginDemo.BLL.Interface
 {
     public interface IUserAccountBLL
     {

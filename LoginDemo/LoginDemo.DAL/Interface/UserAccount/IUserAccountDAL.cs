@@ -2,7 +2,7 @@
 using LoginDemo.Entity.UserAccount;
 using LoginDemo.Entity.UserAccount.QueryParameter;
 
-namespace LoginDemo.DAL.Interface.UserAccount
+namespace LoginDemo.DAL.Interface
 {
     public interface IUserAccountDAL
     {

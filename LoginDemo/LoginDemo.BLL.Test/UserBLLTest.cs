@@ -1,8 +1,6 @@
 ﻿using System;
-using LoginDemo.BLL.UserAccount;
 using LoginDemo.Commom;
 using LoginDemo.DAL;
-using LoginDemo.DAL.UserAccount;
 using LoginDemo.Entity;
 using LoginDemo.Entity.UserAccount;
 using LoginDemo.Entity.UserAccount.QueryParameter;

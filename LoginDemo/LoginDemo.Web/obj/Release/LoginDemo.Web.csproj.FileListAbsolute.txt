@@ -91,6 +91,7 @@ D:\201509LoginDemo\LoginDemo\LoginDemo.Web\bin\LoginDemo.Web.dll.config
 D:\201509LoginDemo\LoginDemo\LoginDemo.Web\bin\LoginDemo.Web.dll
 D:\201509LoginDemo\LoginDemo\LoginDemo.Web\bin\LoginDemo.Web.pdb
 D:\201509LoginDemo\LoginDemo\LoginDemo.Web\bin\Antlr3.Runtime.dll
+D:\201509LoginDemo\LoginDemo\LoginDemo.Web\bin\Autofac.Configuration.dll
 D:\201509LoginDemo\LoginDemo\LoginDemo.Web\bin\Autofac.dll
 D:\201509LoginDemo\LoginDemo\LoginDemo.Web\bin\Autofac.Integration.Mvc.dll
 D:\201509LoginDemo\LoginDemo\LoginDemo.Web\bin\EntityFramework.dll
@@ -131,6 +132,7 @@ D:\201509LoginDemo\LoginDemo\LoginDemo.Web\bin\LoginDemo.BLL.pdb
 D:\201509LoginDemo\LoginDemo\LoginDemo.Web\bin\LoginDemo.Commom.pdb
 D:\201509LoginDemo\LoginDemo\LoginDemo.Web\bin\LoginDemo.Entity.pdb
 D:\201509LoginDemo\LoginDemo\LoginDemo.Web\bin\Autofac.xml
+D:\201509LoginDemo\LoginDemo\LoginDemo.Web\bin\Autofac.Configuration.xml
 D:\201509LoginDemo\LoginDemo\LoginDemo.Web\bin\Autofac.Integration.Mvc.xml
 D:\201509LoginDemo\LoginDemo\LoginDemo.Web\bin\System.Web.Helpers.xml
 D:\201509LoginDemo\LoginDemo\LoginDemo.Web\bin\System.Web.Mvc.xml
