@@ -203,15 +203,17 @@ namespace LoginDemo.DAL
 
             #region sqlText
 
-            const string sqlText = @" UPDATE [dbo].[UserInfo]
-                                       SET  [PASSWORD] = @PASSWORD
-                                          ,[NICKNAME] = @NICKNAME
-                                          ,[GENDER] = @GENDER
-                                          ,[COMPANYNAME] = @COMPANYNAME
-                                          ,[ADDRESS] = @ADDRESS
-                                          ,[REMARK] = @REMARK
-                                     WHERE [ID]=@ID
-                                                        ); ";
+            var sqlText = userInfo.GenerateSingleTableSqlByOperate(SqlOperate.Update);
+            //sqlText += "WHERE [ID]=@ID";
+            //            const string sqlText = @" UPDATE [dbo].[UserInfo]
+            //                                       SET  [PASSWORD] = @PASSWORD
+            //                                          ,[NICKNAME] = @NICKNAME
+            //                                          ,[GENDER] = @GENDER
+            //                                          ,[COMPANYNAME] = @COMPANYNAME
+            //                                          ,[ADDRESS] = @ADDRESS
+            //                                          ,[REMARK] = @REMARK
+            //                                     WHERE [ID]=@ID
+            //); ";
             const string mappingSqlText = @"INSERT INTO [DBO].[USERINFOACCOUNT] 
                                                                     VALUES(NEXT VALUE FOR UserDBSequence
                                                                             ,@USERINFOID

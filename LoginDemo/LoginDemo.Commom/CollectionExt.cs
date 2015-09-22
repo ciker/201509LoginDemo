@@ -117,7 +117,8 @@ namespace LoginDemo.Commom
                 {
                     sqlText.Append(property.Name).Append("=@").Append(property.Name).Append(",");
                 });
-                sqlText.Replace(',','', sqlText.Length - 1, 1);//remove the last character 
+                sqlText.Replace(",", "", sqlText.Length - 1, 1);//remove the last character 
+                sqlText.Append(" WHERE [ID]=@ID ");
             }
             if (sqlOperate == SqlOperate.Delete)
             {
