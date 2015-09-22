@@ -55,7 +55,7 @@ namespace LoginDemo.BLL.Test
         {
             _userAccountBll.Register(new UserInfoAndAccount()
             {
-                Account = "UserInfo_Account_Test1",
+                DefaultAccount = "UserInfo_Account_Test1",
                 Password = "UserInfo_Account_Test1",
                 CompanyName = "company 1",
                 Address = "address 1"
@@ -67,7 +67,7 @@ namespace LoginDemo.BLL.Test
         {
             _userAccountBll.Login(new UserInfoAndAccount()
             {
-                Account = "UserInfo_Account_Test1",
+                DefaultAccount = "UserInfo_Account_Test1",
                 Password = "UserInfo_Account_Test1"
             });
         }

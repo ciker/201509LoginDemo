@@ -26,10 +26,10 @@ namespace LoginDemo.BLL
         {
             var response = new ReturnResponse<UserInfo>();
 
-            userInfo.AccountType = userInfo.Account.GetAccountType();
+            userInfo.AccountType = userInfo.DefaultAccount.GetAccountType();
             var para = new UserInfoQueryParameter()
             {
-                Account = userInfo.Account,
+                Account = userInfo.DefaultAccount,
                 //Password = userInfo.Password.Md5Compute32(),
                 UserAccountType = userInfo.AccountType,
                 Skip = 0,
@@ -67,7 +67,7 @@ namespace LoginDemo.BLL
         public ReturnResponse<UserInfo> Register(UserInfoAndAccount userInfo)
         {
             var response = new ReturnResponse<UserInfo>();
-            if (string.IsNullOrWhiteSpace(userInfo.Account))
+            if (string.IsNullOrWhiteSpace(userInfo.DefaultAccount))
             {
                 response.Body = null;
                 response.ResponseCode = 100;
@@ -83,10 +83,10 @@ namespace LoginDemo.BLL
             }
             //userInfo.AccountType = userInfo.Account.IsMobile() ? 1 : userInfo.Account.IsEmail() ? 2 : 0;
 
-            userInfo.AccountType = userInfo.Account.GetAccountType();
+            userInfo.AccountType = userInfo.DefaultAccount.GetAccountType();
             userInfo.Password = userInfo.Password.Md5Compute32();
 
-            var usersRes = Query(new UserInfoQueryParameter() { Account = userInfo.Account, Skip = 0, Take = 1, IsPage = false });
+            var usersRes = Query(new UserInfoQueryParameter() { Account = userInfo.DefaultAccount, Skip = 0, Take = 1, IsPage = false });
 
             if (usersRes.ResponseCode == 1 && usersRes.Body.Items.Any())
             {
@@ -111,11 +111,11 @@ namespace LoginDemo.BLL
             return response;
         }
 
-        public ReturnResponse<Pager<UserInfo>> Query(UserInfoQueryParameter parameter)
+        public ReturnResponse<Pager<UserInfoAndAccount>> Query(UserInfoQueryParameter parameter)
         {
             parameter.Skip = parameter.PageIndex - 1;
             parameter.Take = parameter.PageSize;
-            return new ReturnResponse<Pager<UserInfo>>
+            return new ReturnResponse<Pager<UserInfoAndAccount>>
             {
                 Body = _userAccountDal.Query(parameter),
                 ResponseCode = 1,

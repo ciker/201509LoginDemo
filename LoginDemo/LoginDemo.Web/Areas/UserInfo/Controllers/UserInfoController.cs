@@ -64,7 +64,7 @@ namespace LoginDemo.Web.Areas.UserInfo.Controllers
         [HttpPost]
         public ActionResult Login(string Account, string Password)
         {
-            var res = UserAccountBll.Login(new Entity.UserAccount.UserInfoAndAccount() { Account = Account, Password = Password });
+            var res = UserAccountBll.Login(new Entity.UserAccount.UserInfoAndAccount() { DefaultAccount = Account, Password = Password });
             return res.IsSuccess ? AlertSuccessJsonResult("", "Login success") : AlertErrorJsonResult("", res.Message);
         }
 

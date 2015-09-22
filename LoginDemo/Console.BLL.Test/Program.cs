@@ -367,7 +367,7 @@ namespace Login.BLL.Test
             var num = Guid.NewGuid().ToString();
             var userInfo = new UserInfoAndAccount()
             {
-                Account = "1_Unit_Test" + num,
+                DefaultAccount = "1_Unit_Test" + num,
                 Password = ("1_Unit_Test" + num),
                 CompanyName = "东方航空集团航空公司",
                 Address = "上海市长宁区绥宁路388号"

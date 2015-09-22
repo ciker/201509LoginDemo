@@ -13,14 +13,14 @@ namespace LoginDemo.DAL
     public class UserAccountDAL : IUserAccountDAL
     {
 
-        public Pager<UserInfo> Query(UserInfoQueryParameter para)
+        public Pager<UserInfoAndAccount> Query(UserInfoQueryParameter para)
         {
-            var dataList = new Lazy<Pager<UserInfo>>();
+            var dataList = new Lazy<Pager<UserInfoAndAccount>>();
             var sqlText = new StringBuilder();
             //var pageSqlText = new StringBuilder();
             sqlText.Append(@"SELECT 
 		                     U.ID
-		                    ,UM.ACCOUNT
+		                    ,UM.ACCOUNT as DefaultAccount
                             ,U.PASSWORD
 		                    ,U.NICKNAME
 		                    ,U.GENDER
@@ -52,7 +52,7 @@ namespace LoginDemo.DAL
                 using (var grid = conn.QueryMultiple(sqlText.ToString(), para))
                 {
                     //dataList.Value.Items = data.ToArray();
-                    dataList.Value.Items = grid.Read<UserInfo>().ToArray();
+                    dataList.Value.Items = grid.Read<UserInfoAndAccount>().ToArray();
                     if (para.IsPage)
                     {
                         var pageInfo = grid.Read().FirstOrDefault();
@@ -99,7 +99,7 @@ namespace LoginDemo.DAL
                                                                             ,@ACCOUNTTYPE
                                                                             ,@ACCOUNT)";
             #endregion
-          
+
             #endregion
 
             #region USE DONET TRANSACTION
@@ -113,8 +113,11 @@ namespace LoginDemo.DAL
                     retUser = re.FirstOrDefault();
                     if (retUser != null)
                     {
-                        conn.Execute(mappingSqlText,
-                            new { USERINFOID = retUser.Id, ACCOUNTTYPE = userInfo.AccountType, ACCOUNT = userInfo.Account }, trans);
+                        foreach (var acc in userInfo.Accounts)
+                        {
+                            conn.Execute(mappingSqlText,
+                                new { USERINFOID = retUser.Id, ACCOUNTTYPE = userInfo.AccountType, ACCOUNT = acc }, trans);
+                        }
 
                         trans.Commit();
                     }

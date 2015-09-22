@@ -6,7 +6,7 @@ namespace LoginDemo.DAL.Interface
 {
     public interface IUserAccountDAL
     {
-        Pager<UserInfo> Query(UserInfoQueryParameter para);
+        Pager<UserInfoAndAccount> Query(UserInfoQueryParameter para);
 
         UserInfo Save(UserInfoAndAccount userInfo);
 

@@ -11,7 +11,7 @@ namespace LoginDemo.BLL.Interface
 
         ReturnResponse<UserInfo> Register(UserInfoAndAccount user);
 
-        ReturnResponse<Pager<UserInfo>> Query(UserInfoQueryParameter parameter);
+        ReturnResponse<Pager<UserInfoAndAccount>> Query(UserInfoQueryParameter parameter);
 
     }
 }
