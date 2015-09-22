@@ -32,7 +32,7 @@ namespace LoginDemo.DAL
 			                    ON U.ID = UM.USERINFOID
                                 WHERE 1 = 1  
 		                    ");
-            var conditions = string.Empty.GenerateCondition(para);
+            var conditions = para.GenerateByOperate(GenerateOperate.Condition); //string.Empty.GenerateCondition(para);
             sqlText.Append(conditions);
             sqlText.Append(" ORDER BY Id DESC  OFFSET  ");
             sqlText.Append(((para.Skip) * para.Take).ToString());
@@ -197,7 +197,61 @@ namespace LoginDemo.DAL
 
         public UserInfo Update(UserInfoAndAccount userInfo)
         {
-            throw new NotImplementedException();
+            UserInfo retUser = null;
+
+            #region sql
+
+            #region sqlText
+
+            const string sqlText = @" UPDATE [dbo].[UserInfo]
+                                       SET  [PASSWORD] = @PASSWORD
+                                          ,[NICKNAME] = @NICKNAME
+                                          ,[GENDER] = @GENDER
+                                          ,[COMPANYNAME] = @COMPANYNAME
+                                          ,[ADDRESS] = @ADDRESS
+                                          ,[REMARK] = @REMARK
+                                     WHERE [ID]=@ID
+                                                        ); ";
+            const string mappingSqlText = @"INSERT INTO [DBO].[USERINFOACCOUNT] 
+                                                                    VALUES(NEXT VALUE FOR UserDBSequence
+                                                                            ,@USERINFOID
+                                                                            ,@ACCOUNTTYPE
+                                                                            ,@ACCOUNT)";
+
+            #endregion
+
+            #endregion
+
+            #region USE DONET TRANSACTION
+
+            using (var conn = SqlServerDB.GetSqlConnection())
+            {
+                conn.Open();
+                var trans = conn.BeginTransaction();
+                try
+                {
+                    var re = conn.Query<UserInfo>(sqlText, userInfo, trans);
+                    retUser = re.FirstOrDefault();
+                    if (retUser != null)
+                    {
+                        foreach (var acc in userInfo.Accounts)
+                        {
+                            conn.Execute(mappingSqlText,
+                                new { USERINFOID = retUser.Id, ACCOUNTTYPE = userInfo.AccountType, ACCOUNT = acc }, trans);
+                        }
+
+                        trans.Commit();
+                    }
+                }
+                catch (Exception)
+                {
+                    trans.Rollback();
+                }
+            }
+
+            #endregion
+
+            return retUser;
         }
 
         public bool Delete(UserInfoAndAccount userInfo)

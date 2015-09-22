@@ -208,6 +208,8 @@ namespace LoginDemo.Commom
             return conditions.ToString();
         }
 
+
+
         /// <summary>
         /// regular mobile number
         /// </summary>

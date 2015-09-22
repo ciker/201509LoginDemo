@@ -5,6 +5,7 @@ namespace LoginDemo.Entity
     {
         private int _pageindex = 1;
         private int _pagesize = 10;
+        private int _take = 10;
         [IgnoreField]
         public int PageIndex
         {
@@ -35,7 +36,17 @@ namespace LoginDemo.Entity
         public int Skip { get; set; }
 
         [IgnoreField]
-        public int Take { get; set; }
+        public int Take
+        {
+            get
+            {
+                return _take;
+            }
+            set
+            {
+                _take = value;
+            }
+        }
         public string SearchKeyWord { get; set; }
     }
 }

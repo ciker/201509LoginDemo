@@ -59,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CollectionExt.cs" />
+    <Compile Include="EnumUtil.cs" />
     <Compile Include="FastProperty.cs" />
     <Compile Include="PageExAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -28,7 +28,7 @@ namespace LoginDemo.DAL
                   ,[Email]
                   ,[CreateDateTime]   
                   ,[Mobile] FROM [USER]  WHERE 1 = 1  ");
-            var conditions = string.Empty.GenerateCondition(para);
+            var conditions = para.GenerateByOperate(GenerateOperate.Condition); //string.Empty.GenerateCondition(para);
             sqlText.Append(conditions);
             sqlText.Append(" ORDER BY Id DESC  OFFSET  ");
             sqlText.Append(((para.Skip) * para.Take).ToString());
@@ -97,12 +97,12 @@ namespace LoginDemo.DAL
 
         public User Update(User user)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         public bool Delete(User user)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
     }
 }

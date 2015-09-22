@@ -67,7 +67,7 @@ namespace LoginDemo.BLL
         public ReturnResponse<UserInfo> Register(UserInfoAndAccount userInfo)
         {
             var response = new ReturnResponse<UserInfo>();
-            if (string.IsNullOrWhiteSpace(userInfo.DefaultAccount))
+            if (string.IsNullOrWhiteSpace(userInfo.Accounts.FirstOrDefault()))
             {
                 response.Body = null;
                 response.ResponseCode = 100;
@@ -81,12 +81,8 @@ namespace LoginDemo.BLL
                 response.Message = "UserPWD can't be empty";
                 return response;
             }
-            //userInfo.AccountType = userInfo.Account.IsMobile() ? 1 : userInfo.Account.IsEmail() ? 2 : 0;
 
-            userInfo.AccountType = userInfo.DefaultAccount.GetAccountType();
-            userInfo.Password = userInfo.Password.Md5Compute32();
-
-            var usersRes = Query(new UserInfoQueryParameter() { Account = userInfo.DefaultAccount, Skip = 0, Take = 1, IsPage = false });
+            var usersRes = Query(new UserInfoQueryParameter() { Account = userInfo.Accounts.FirstOrDefault(), Skip = 0, Take = 1, IsPage = false });
 
             if (usersRes.ResponseCode == 1 && usersRes.Body.Items.Any())
             {
@@ -95,6 +91,9 @@ namespace LoginDemo.BLL
                 response.Message = "UserName was exist";
                 return response;
             }
+            userInfo.AccountType = userInfo.Accounts.FirstOrDefault().GetAccountType();
+            userInfo.Password = userInfo.Password.Md5Compute32();
+
             var res = _userAccountDal.Save(userInfo); //_IContainer.Resolve<IUserDAL>().Save(user);
             if (res != null && res.Id > 0)
             {
@@ -113,8 +112,6 @@ namespace LoginDemo.BLL
 
         public ReturnResponse<Pager<UserInfoAndAccount>> Query(UserInfoQueryParameter parameter)
         {
-            parameter.Skip = parameter.PageIndex - 1;
-            parameter.Take = parameter.PageSize;
             return new ReturnResponse<Pager<UserInfoAndAccount>>
             {
                 Body = _userAccountDal.Query(parameter),
