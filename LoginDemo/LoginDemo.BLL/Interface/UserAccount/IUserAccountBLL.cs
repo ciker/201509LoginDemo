@@ -7,9 +7,9 @@ namespace LoginDemo.BLL.Interface.UserAccount
 {
     public interface IUserAccountBLL
     {
-        ReturnResponse<UserInfo> Login(UserInfo user);
+        ReturnResponse<UserInfo> Login(UserInfoAndAccount user);
 
-        ReturnResponse<UserInfo> Register(UserInfo user);
+        ReturnResponse<UserInfo> Register(UserInfoAndAccount user);
 
         ReturnResponse<Pager<UserInfo>> Query(UserInfoQueryParameter parameter);
 

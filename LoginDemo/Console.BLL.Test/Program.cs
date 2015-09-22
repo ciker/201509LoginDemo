@@ -45,8 +45,8 @@ namespace Login.BLL.Test
             #endregion
 
 
-            UserParallelTest();// register parallel test 
-            //UserInfoParallelTest();
+            //UserParallelTest();// register parallel test 
+            UserInfoParallelTest();
             read();
 
             //Msg();
@@ -103,7 +103,7 @@ namespace Login.BLL.Test
             //CodeTimer.Time("GenerateCondition Parallel", 1000000, 15, GenerateCondition);
             //CodeTimer.Time("SelectUserList Parallel", 1000000, 15, SelectUserList);
 
-            CodeTimer.Time("SelectUserList Parallel", 1000, 15, SelectUserList);
+            CodeTimer.Time("SelectUserList Parallel", 100000, 15, SelectUserList);
             #endregion
 
             #region TimeDelegate
@@ -318,13 +318,13 @@ namespace Login.BLL.Test
 
         private static void UserInfoParallelTest()
         {
-            //CodeTimer.Time("Register Parallel", 1000000, 15, UserInfoRegister);
+            CodeTimer.Time("Register Parallel", 100000, 15, UserInfoRegister);
 
 
-            //CodeTimer.Time("Register Parallel", 1000000, 15, UserInfoLogin);
+            CodeTimer.Time("Register Parallel", 100000, 15, UserInfoLogin);
             //try
             //{
-            CodeTimer.Time("SelectUserInfoList Parallel", 100, 15, SelectUserInfoList);
+            CodeTimer.Time("SelectUserInfoList Parallel", 100000, 15, SelectUserInfoList);
             //}
             //catch (AggregateException ex)
             //{
@@ -343,12 +343,12 @@ namespace Login.BLL.Test
         }
         private static void SelectUserList()
         {
-            UserBll.GetUserListbyParameter(new UserQueryParameter() { PageIndex = 1, PageSize = 10, IsPage = true });
+            UserBll.GetUserListbyParameter(new UserQueryParameter() { PageIndex = 1, PageSize = 10 });
         }
 
         private static void SelectUserInfoList()
         {
-            UserinfoBll.Query(new UserInfoQueryParameter() { PageIndex = 1, PageSize = 10, IsPage = true });
+            UserinfoBll.Query(new UserInfoQueryParameter() { PageIndex = 1, PageSize = 10 });
         }
         private static void Register()
         {
@@ -366,8 +366,8 @@ namespace Login.BLL.Test
 
         private static void UserInfoRegister()
         {
-            var num = Guid.NewGuid().ToString();// GenerareRandomString();//  new Random().Next();// Guid.NewGuid().ToString();////DateTime.Now.ToString("ddHHmmssfffff");//new Random().Next(0, int.MaxValue);//CodeTimer.GetCurrentThreadTimes();
-            var userInfo = new UserInfo()
+            var num = Guid.NewGuid().ToString();
+            var userInfo = new UserInfoAndAccount()
             {
                 Account = "1_Unit_Test" + num,
                 Password = ("1_Unit_Test" + num),
@@ -394,8 +394,8 @@ namespace Login.BLL.Test
         {
             UserBll.Login(new User()
           {
-              UserName = "1_Unit_Test31983c30-66c5-4210-8695-61ae1eb25f9f",
-              UserPWD = "1_Unit_Test31983c30-66c5-4210-8695-61ae1eb25f9f"
+              UserName = "1_Unit_Test1afb9c02-076c-4c67-b06a-a68fac88e030",
+              UserPWD = "1_Unit_Test1afb9c02-076c-4c67-b06a-a68fac88e030"
               //UserName = "1_Unit_Test" + num,
               //UserPWD = ("1_Unit_Test" + num),
           });

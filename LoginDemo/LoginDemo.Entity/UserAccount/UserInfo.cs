@@ -7,12 +7,12 @@ namespace LoginDemo.Entity.UserAccount
         /// <summary>
         /// ID
         /// </summary>
-        public long ID { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// account
         /// </summary>
-        public string Account { get; set; }
+        //public string Account { get; set; }
 
         /// <summary>
         /// password 
@@ -27,7 +27,7 @@ namespace LoginDemo.Entity.UserAccount
         /// <summary>
         /// Gender
         /// </summary>
-        public bool Gender { get; set; }
+        public int? Gender { get; set; }
 
         /// <summary>
         /// company name 
@@ -44,14 +44,6 @@ namespace LoginDemo.Entity.UserAccount
         /// </summary>
         public string Remark { get; set; }
 
-        /// <summary>
-        /// account type ,not include into UserInfo table 
-        /// the field of UserAccountTypeMapping
-        /// mean   1：mobile 2：emial 0：username
-        /// </summary>
-
-        [IgnoreField]
-        public int AccountType { get; set; }
 
     }
 }

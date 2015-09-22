@@ -44,7 +44,7 @@ namespace LoginDemo.Web.Areas.UserInfo.Controllers
 
         [HttpPost]
         [ValidateInput(false)]
-        public ActionResult Register(Entity.UserAccount.UserInfo userInfo)
+        public ActionResult Register(Entity.UserAccount.UserInfoAndAccount userInfo)
         {
             var response = UserAccountBll.Register(userInfo);
             return response.IsSuccess ? AlertSuccessJsonResult(response, "register success")
@@ -64,7 +64,7 @@ namespace LoginDemo.Web.Areas.UserInfo.Controllers
         [HttpPost]
         public ActionResult Login(string Account, string Password)
         {
-            var res = UserAccountBll.Login(new Entity.UserAccount.UserInfo() { Account = Account, Password = Password });
+            var res = UserAccountBll.Login(new Entity.UserAccount.UserInfoAndAccount() { Account = Account, Password = Password });
             return res.IsSuccess ? AlertSuccessJsonResult("", "Login success") : AlertErrorJsonResult("", res.Message);
         }
 

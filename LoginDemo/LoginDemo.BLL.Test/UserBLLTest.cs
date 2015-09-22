@@ -55,7 +55,7 @@ namespace LoginDemo.BLL.Test
         [TestMethod]
         public void UserInfoRegister()
         {
-            _userAccountBll.Register(new UserInfo()
+            _userAccountBll.Register(new UserInfoAndAccount()
             {
                 Account = "UserInfo_Account_Test1",
                 Password = "UserInfo_Account_Test1",
@@ -67,7 +67,7 @@ namespace LoginDemo.BLL.Test
         [TestMethod]
         public void UserInfoLogin()
         {
-            _userAccountBll.Login(new UserInfo()
+            _userAccountBll.Login(new UserInfoAndAccount()
             {
                 Account = "UserInfo_Account_Test1",
                 Password = "UserInfo_Account_Test1"

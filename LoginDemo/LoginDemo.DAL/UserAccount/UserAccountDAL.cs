@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using LoginDemo.Entity.UserAccount.QueryParameter;
 using Dapper;
 using LoginDemo.Commom;
 using LoginDemo.DAL.Interface.UserAccount;
@@ -15,14 +13,14 @@ namespace LoginDemo.DAL.UserAccount
     public class UserAccountDAL : IUserAccountDAL
     {
 
-        public Pager<UserInfo> Query(Entity.UserAccount.QueryParameter.UserInfoQueryParameter para)
+        public Pager<UserInfo> Query(UserInfoQueryParameter para)
         {
             var dataList = new Lazy<Pager<UserInfo>>();
             var sqlText = new StringBuilder();
-            var pageSqlText = new StringBuilder();
+            //var pageSqlText = new StringBuilder();
             sqlText.Append(@"SELECT 
 		                     U.ID
-		                    ,U.ACCOUNT
+		                    ,UM.ACCOUNT
                             ,U.PASSWORD
 		                    ,U.NICKNAME
 		                    ,U.GENDER
@@ -30,7 +28,7 @@ namespace LoginDemo.DAL.UserAccount
 		                    ,U.ADDRESS
 		                    ,U.REMARK		
 		                    FROM USERINFO AS U
-			                    LEFT JOIN USERINFO_ACCOUNTTYPE_MAPPING AS UM
+			                    INNER JOIN USERINFOACCOUNT AS UM
 			                    ON U.ID = UM.USERINFO_ID
                                 WHERE 1 = 1  
 		                    ");
@@ -45,7 +43,7 @@ namespace LoginDemo.DAL.UserAccount
             {
                 sqlText.Append(" SELECT  COUNT(1) AS Total ,CEILING((COUNT(1)+0.0)/")
                                 .Append(para.Take.ToString())
-                                .Append(") AS Pages FROM USERINFO  WITH(INDEX(PK_USER_USERID))   WHERE 1 =1  ")
+                                .Append(") AS Pages FROM USERINFO    WHERE 1 =1  ")
                                 .Append(conditions + ";");
                 //sqlText.Append(pageSqlText);
             }
@@ -73,14 +71,15 @@ namespace LoginDemo.DAL.UserAccount
             return dataList.Value;
         }
 
-        public UserInfo Save(UserInfo userInfo)
+        public UserInfo Save(UserInfoAndAccount userInfo)
         {
             UserInfo retUser = null;
             #region sql
             #region sqlText
             const string sqlText = @" INSERT INTO [dbo].[UserInfo]
-            			                            ([ACCOUNT]
-            			                               ,[PASSWORD]
+          			                            (
+                                                        [ID]
+                                                        ,[PASSWORD]
             			                               ,[NICKNAME]
             			                               ,[GENDER]
             			                               ,[COMPANYNAME]
@@ -88,7 +87,7 @@ namespace LoginDemo.DAL.UserAccount
             			                               ,[REMARK])
                                                         OUTPUT INSERTED.*
                                                         VALUES(
-                                                        @ACCOUNT
+                                                        NEXT VALUE FOR UserDBSequence   
                                                         ,@PASSWORD
                                                         ,@NICKNAME
                                                         ,@GENDER
@@ -96,7 +95,11 @@ namespace LoginDemo.DAL.UserAccount
                                                         ,@ADDRESS
                                                         ,@REMARK
                                                         ); ";
-            const string mappingSqlText = @"INSERT INTO [DBO].[UserInfo_AccountType_Mapping] VALUES(@USERINFO_ID,@ACCOUNT_TYPE)";
+            const string mappingSqlText = @"INSERT INTO [DBO].[USERINFOACCOUNT] 
+                                                                    VALUES(NEXT VALUE FOR UserDBSequence
+                                                                            ,@USERINFOID
+                                                                            ,@ACCOUNTTYPE
+                                                                            ,@ACCOUNT)";
             #endregion
             #region transactionSqlText
             //            const string transactionSqlText = @"DECLARE @USERINFO_TEMP TABLE(
@@ -156,8 +159,8 @@ namespace LoginDemo.DAL.UserAccount
                     retUser = re.FirstOrDefault();
                     if (retUser != null)
                     {
-                        conn.Query(mappingSqlText,
-                            new { USERINFO_ID = retUser.ID, ACCOUNT_TYPE = userInfo.AccountType }, trans);
+                        conn.Execute(mappingSqlText,
+                            new { USERINFOID = retUser.Id, ACCOUNTTYPE = userInfo.AccountType, ACCOUNT = userInfo.Account }, trans);
 
                         trans.Commit();
                     }
@@ -189,12 +192,12 @@ namespace LoginDemo.DAL.UserAccount
             return retUser;
         }
 
-        public UserInfo Update(UserInfo userInfo)
+        public UserInfo Update(UserInfoAndAccount userInfo)
         {
             throw new NotImplementedException();
         }
 
-        public bool Delete(UserInfo userInfo)
+        public bool Delete(UserInfoAndAccount userInfo)
         {
             throw new NotImplementedException();
         }

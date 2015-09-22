@@ -8,10 +8,10 @@ namespace LoginDemo.DAL.Interface.UserAccount
     {
         Pager<UserInfo> Query(UserInfoQueryParameter para);
 
-        UserInfo Save(UserInfo userInfo);
+        UserInfo Save(UserInfoAndAccount userInfo);
 
-        UserInfo Update(UserInfo userInfo);
+        UserInfo Update(UserInfoAndAccount userInfo);
 
-        bool Delete(UserInfo userInfo);
+        bool Delete(UserInfoAndAccount userInfo);
     }
 }

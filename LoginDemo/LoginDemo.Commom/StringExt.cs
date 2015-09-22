@@ -215,7 +215,7 @@ namespace LoginDemo.Commom
         /// <returns></returns>
         public static bool IsMobile(this string str)
         {
-            Regex regex = new Regex(@"^[1][3-8]\d{9}$");
+            var regex = new Regex(@"^[1][3-8]\d{9}$");
             return regex.IsMatch(str);
         }
 
@@ -226,8 +226,19 @@ namespace LoginDemo.Commom
         /// <returns></returns>
         public static bool IsEmail(this string str)
         {
-            Regex regex = new Regex("^\\s*([A-Za-z0-9_-]+(\\.\\w+)*@(\\w+\\.)+\\w{2,5})\\s*$");
+            var regex = new Regex("^\\s*([A-Za-z0-9_-]+(\\.\\w+)*@(\\w+\\.)+\\w{2,5})\\s*$");
             return regex.IsMatch(str);
+        }
+
+        public static bool IsQQ(this string str)
+        {
+            var regex = new Regex(@"^\d{5,10}$");
+            return regex.IsMatch(str);
+        }
+
+        public static int GetAccountType(this string str)
+        {
+            return str.IsMobile() ? 1 : (str.IsEmail() ? 2 : (str.IsQQ() ? 3 : 0));
         }
     }
 }

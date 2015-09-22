@@ -9,7 +9,7 @@ namespace LoginDemo.Entity.UserAccount.QueryParameter
 
         public string Password { get; set; }
 
-        public int? UserAccount_Type { get; set; }
+        public int? UserAccountType { get; set; }
 
         [IgnoreField]
         public bool IsPage { get; set; }

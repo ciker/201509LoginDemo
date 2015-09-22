@@ -22,27 +22,16 @@ namespace LoginDemo.BLL.UserAccount
             _userAccountDal = userAccountDal;
         }
         #endregion
-        public ReturnResponse<UserInfo> Login(UserInfo userInfo)
+        public ReturnResponse<UserInfo> Login(UserInfoAndAccount userInfo)
         {
             var response = new ReturnResponse<UserInfo>();
 
-            if (userInfo.Account.IsMobile())
-            {
-                userInfo.AccountType = 1;
-            }
-            else if (userInfo.Account.IsEmail())
-            {
-                userInfo.AccountType = 2;
-            }
-            else
-            {
-                userInfo.AccountType = 0;
-            }
+            userInfo.AccountType = userInfo.Account.GetAccountType();
             var para = new UserInfoQueryParameter()
             {
                 Account = userInfo.Account,
                 //Password = userInfo.Password.Md5Compute32(),
-                UserAccount_Type = userInfo.AccountType,
+                UserAccountType = userInfo.AccountType,
                 Skip = 0,
                 Take = 1,
                 IsPage = false
@@ -75,7 +64,7 @@ namespace LoginDemo.BLL.UserAccount
             return response;
         }
 
-        public ReturnResponse<UserInfo> Register(UserInfo userInfo)
+        public ReturnResponse<UserInfo> Register(UserInfoAndAccount userInfo)
         {
             var response = new ReturnResponse<UserInfo>();
             if (string.IsNullOrWhiteSpace(userInfo.Account))
@@ -93,18 +82,8 @@ namespace LoginDemo.BLL.UserAccount
                 return response;
             }
             //userInfo.AccountType = userInfo.Account.IsMobile() ? 1 : userInfo.Account.IsEmail() ? 2 : 0;
-            if (userInfo.Account.IsMobile())
-            {
-                userInfo.AccountType = 1;
-            }
-            else if (userInfo.Account.IsEmail())
-            {
-                userInfo.AccountType = 2;
-            }
-            else
-            {
-                userInfo.AccountType = 0;
-            }
+
+            userInfo.AccountType = userInfo.Account.GetAccountType();
             userInfo.Password = userInfo.Password.Md5Compute32();
 
             var usersRes = Query(new UserInfoQueryParameter() { Account = userInfo.Account, Skip = 0, Take = 1, IsPage = false });
@@ -117,7 +96,7 @@ namespace LoginDemo.BLL.UserAccount
                 return response;
             }
             var res = _userAccountDal.Save(userInfo); //_IContainer.Resolve<IUserDAL>().Save(user);
-            if (res != null && res.ID > 0)
+            if (res != null && res.Id > 0)
             {
                 response.Body = res;
                 response.ResponseCode = 1;
