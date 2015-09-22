@@ -52,20 +52,22 @@ namespace LoginDemo.DAL.UserAccount
             using (var conn = SqlServerDB.GetSqlConnection())
             {
                 //var data = conn.Query<UserInfo>(sqlText.ToString(), string.IsNullOrWhiteSpace(conditions) ? null : para);
-                var grid = conn.QueryMultiple(sqlText.ToString(), para);
-                //dataList.Value.Items = data.ToArray();
-                dataList.Value.Items = grid.Read<UserInfo>().ToArray();
-                if (para.IsPage)
+                using (var grid = conn.QueryMultiple(sqlText.ToString(), para))
                 {
-                    //var pageInfo = conn.Query(pageSqlText.ToString(), string.IsNullOrWhiteSpace(conditions) ? null : para).FirstOrDefault();
-                    var pageInfo = grid.Read().FirstOrDefault();
-                    if (pageInfo == null) return dataList.Value;
-                    dataList.Value.Total = (int)pageInfo.Total;
-                    dataList.Value.Pages = (int)pageInfo.Pages;
-                }
-                else
-                {
-                    return dataList.Value;
+                    //dataList.Value.Items = data.ToArray();
+                    dataList.Value.Items = grid.Read<UserInfo>().ToArray();
+                    if (para.IsPage)
+                    {
+                        //var pageInfo = conn.Query(pageSqlText.ToString(), string.IsNullOrWhiteSpace(conditions) ? null : para).FirstOrDefault();
+                        var pageInfo = grid.Read().FirstOrDefault();
+                        if (pageInfo == null) return dataList.Value;
+                        dataList.Value.Total = (int)pageInfo.Total;
+                        dataList.Value.Pages = (int)pageInfo.Pages;
+                    }
+                    else
+                    {
+                        return dataList.Value;
+                    }
                 }
             }
             return dataList.Value;

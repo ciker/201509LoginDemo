@@ -45,12 +45,12 @@ namespace Login.BLL.Test
             #endregion
 
 
-            UserInfoParallelTest();
+            UserParallelTest();// register parallel test 
+            //UserInfoParallelTest();
             read();
 
             //Msg();
             //asynctest();
-            //UserParallelTest();// register parallel test 
         }
 
         #region Test
@@ -78,7 +78,7 @@ namespace Login.BLL.Test
             //});
             //1081ms  100
             #endregion
-            CodeTimer.Time("Register Parallel", 1000000, 15, Register);
+            //CodeTimer.Time("Register Parallel", 1000000, 15, Register);
             #endregion
 
             #region login
@@ -92,7 +92,7 @@ namespace Login.BLL.Test
             //    }).Start();
             //});
             //1400ms  100
-            CodeTimer.Time("login Parallel", 1000000, 15, Login);
+            //CodeTimer.Time("login Parallel", 1000000, 15, Login);
 
             //CodeTimer.Time("RandomNum", 100, 15, RandomNum);
 
@@ -103,7 +103,7 @@ namespace Login.BLL.Test
             //CodeTimer.Time("GenerateCondition Parallel", 1000000, 15, GenerateCondition);
             //CodeTimer.Time("SelectUserList Parallel", 1000000, 15, SelectUserList);
 
-            CodeTimer.Time("SelectUserList Parallel", 1000000, 15, SelectUserList);
+            CodeTimer.Time("SelectUserList Parallel", 1000, 15, SelectUserList);
             #endregion
 
             #region TimeDelegate
@@ -322,14 +322,14 @@ namespace Login.BLL.Test
 
 
             //CodeTimer.Time("Register Parallel", 1000000, 15, UserInfoLogin);
-            try
-            {
-                CodeTimer.Time("SelectUserInfoList Parallel", 100, 15, SelectUserInfoList);
-            }
-            catch (AggregateException ex)
-            {
-                throw ex;
-            }
+            //try
+            //{
+            CodeTimer.Time("SelectUserInfoList Parallel", 100, 15, SelectUserInfoList);
+            //}
+            //catch (AggregateException ex)
+            //{
+            //    throw ex;
+            //}
         }
 
 
@@ -343,7 +343,7 @@ namespace Login.BLL.Test
         }
         private static void SelectUserList()
         {
-            UserBll.GetUserListbyParameter(new UserQueryParameter() { PageIndex = 1, PageSize = 10 });
+            UserBll.GetUserListbyParameter(new UserQueryParameter() { PageIndex = 1, PageSize = 10, IsPage = true });
         }
 
         private static void SelectUserInfoList()
