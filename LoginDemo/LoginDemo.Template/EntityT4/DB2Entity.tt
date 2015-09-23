@@ -1,0 +1,229 @@
+﻿<#@ template debug="true" hostspecific="false" language="C#" #>
+<#@ output extension=".cs" #>
+<#@ assembly name="System" #>
+<#@ assembly name="System.Data" #>
+<#@ assembly name="System.Xml" #>
+<#@ import namespace="System" #>
+<#@ import namespace="System.Xml" #>
+<#@ import namespace="System.Data" #>
+<#@ import namespace="System.Data.SqlClient" #>
+
+/* ****************************************************************************************
+ * Copyright ：©2015 JangoCheng
+ * Function  ： DTO (Data Model)
+ * Structure ：
+ * Author    ：(程正国)JangoCheng
+ * CreateDate：<#= DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") #> 
+ * History   ：
+ * ****************************************************************************************
+ * Modified *******************************************************************************             
+ * Author    ：
+ * Date      ：
+ * Remark    ：
+ * ****************************************************************************************/
+<# 
+    ModelManager modelManager = new ModelManager();
+    string tableName = "UserInfo";
+    DataTable table= modelManager.GetTableSchema(tableName);
+
+#>
+
+using System;
+namespace LoginDemo.Entity
+{
+
+/// <summary>
+/// <#= tableName #>
+/// </summary>
+[Serializable]
+public class <#= tableName #>
+{
+    #region 属性
+    <#
+    foreach(DataRow row in table.Rows)
+    {
+    #>
+        /// <summary>
+        /// <#=row["ColumnName"]#> 
+        /// </summary>
+        public <#= modelManager.TransFromSqlType(row["DataType"].ToString(),row["IsNullable"].ToString())#>  <#=row["ColumnName"]#>{ get; set; }
+
+    <#}
+    #>
+    #endregion
+}
+}
+
+
+
+
+<#+
+     public class ModelManager
+     {
+         /// <summary>
+         /// 数据库连接字符串
+         /// </summary>
+         private const string CONNECTION_STRING= @"Data Source=.\SQL2014;Initial Catalog=userDB;Persist Security Info=True;user ID=sa;Password=123456";
+         /// <summary>
+         /// 用户信息表名
+         /// </summary>
+         private const string PERSONINFO_TABLE_NAME = "UserInfo";
+         /// <summary>
+         /// 根据表名查询表结构信息
+         /// SQL Server 2005写法
+         /// </summary>
+         private const string SELECT_SCHEMA_BY_TABLE_NAMEs = @"SELECT
+                                                             d.name AS TableName,
+                                                             a.colorder AS ColumnID,
+                                                             a.name AS ColumnName,
+                                                             b.name AS DataType,
+                                                             g.[value] AS Description,
+                                                             CASE WHEN a.isnullable = 0 THEN 'false'
+                                                                 ELSE 'true'
+                                                             END AS IsNullable
+                                                             FROM syscolumns a left join systypes b
+                                                             on a.xtype=b.xusertype
+                                                             inner join sysobjects d
+                                                             on a.id=d.id and d.xtype='U' and d.name<>'dtproperties'
+                                                             left join sys.extended_properties g
+                                                             on a.id=g.major_id AND a.colid = g.minor_id
+                                                             WHERE d.[name] ='{0}'
+                                                             order by a.id,a.colorder";
+ 
+ 
+         /// <summary>
+         /// 根据表名查询表结构信息
+         /// SQL Server 2000写法
+         /// </summary>
+         private const string SELECT_SCHEMA_BY_TABLE_NAME = @"SELECT (
+                                                             case when a.colorder=1 then d.name else '' end) N'表名',
+                                                             a.colorder N'字段序号',a.name N'ColumnName',
+                                                             (case when COLUMNPROPERTY( a.id,a.name,'IsIdentity')=1 then '√'else '' end) N'标识',
+                                                             (case when (SELECT count(*) FROM sysobjects
+                                                             WHERE (name in (SELECT name FROM sysindexes
+                                                             WHERE (id = a.id) AND (indid in
+                                                             (SELECT indid FROM sysindexkeys
+                                                             WHERE (id = a.id) AND (colid in
+                                                             (SELECT colid FROM syscolumns
+                                                             WHERE (id = a.id) AND (name = a.name))))))) AND
+                                                             (xtype = 'PK'))>0 then '√' else '' end) N'主键',b.name N'DataType',a.length N'占用字节数',
+                                                             COLUMNPROPERTY(a.id,a.name,'PRECISION') as N'长度',isnull(COLUMNPROPERTY(a.id,a.name,'Scale'),0) as N'小数位数',
+                                                             (case when a.isnullable=1 then '√'else '' end) N'IsNullable',
+                                                             isnull(e.text,'') N'默认值',isnull(g.[value],'') AS N'Description'
+                                                             --into ##tx
+                                                             FROM syscolumns a left join systypes b on a.xtype=b.xusertype
+                                                             inner join sysobjects d on a.id=d.id and d.xtype='U' and d.name<>'dtproperties'
+                                                             left join syscomments e on a.cdefault=e.id
+                                                             left join sysproperties g on a.id=g.id AND a.colid = g.smallid
+                                                             where d.name='{0}'
+                                                             order by object_name(a.id),a.colorder";
+ 
+         /// <summary>
+         /// 获得数据连接
+         /// </summary>
+         /// <returns></returns>
+         private SqlConnection GetConnection()
+         {
+             return new SqlConnection(CONNECTION_STRING);
+         }
+
+         /// <summary>
+         /// 释放连接
+         /// </summary>
+         /// <param name="con"></param>
+         private void ReleaseConnection(SqlConnection con)
+         {
+             if (con != null)
+             {
+                 if (con.State == ConnectionState.Open)
+                 {
+                     con.Close();
+                 }
+             }
+         }
+ 
+         /// <summary>
+         /// 
+         /// </summary>
+         /// <param name="tableName"></param>
+         public DataTable GetTableSchema(string tableName)
+         {
+             DataTable dt;
+             using (SqlConnection con = GetConnection())
+             {
+                 con.Open();
+ 
+                 SqlCommand cmd = con.CreateCommand();
+                 cmd.CommandText = string.Format(SELECT_SCHEMA_BY_TABLE_NAMEs,tableName);
+                 cmd.CommandType = CommandType.Text;
+ 
+                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                 DataSet ds = new DataSet(); 
+                 adapter.Fill(ds);
+                 dt = ds.Tables[0];
+             }
+ 
+             return dt;
+         }
+         /// <summary>
+         /// 
+         /// </summary>
+         public void Generate()
+         {
+             DataTable table = GetTableSchema(PERSONINFO_TABLE_NAME);
+ 
+             if (table != null && table.Rows.Count > 0)
+             {
+                 foreach (DataRow row in table.Rows)
+                 {
+                     Console.WriteLine("public class {0}", row["TableName"]);
+                     Console.WriteLine("public {0} {1}", TransFromSqlType(row["DataType"].ToString(),row["IsNullable"].ToString()), row["ColumnName"]);
+                 }
+             }
+         }
+         /// <summary>
+         /// SQL
+         /// </summary>
+         /// <param name="type"></param>
+         /// <returns></returns>
+         public string TransFromSqlType(string type,string isNull)
+         {
+             string typeStr="";
+             switch (type)        //数据库的数据类型转换为对应的C#的数据类型，不是很完整
+             {
+                 case "datetime":
+                 case "smalldatetime":
+                     typeStr=isNull=="true"? "?":"";
+                     return "DateTime"+typeStr;
+                     break;
+                 case "int":
+                 case "smallint":
+                     typeStr=isNull=="true"? "?":"";
+                     return "int"+typeStr;
+                     break;
+                 case "bit":
+                     typeStr=isNull=="true"? "?":"";
+                     return "bool"+typeStr;
+                     break;
+                 case "float":
+                     typeStr=isNull=="true"? "?":"";
+                     return "double"+typeStr;
+                     break;
+                 case "decimal":
+                 case "money":
+                 case "smallmoney":
+                 case "numeric":
+                     typeStr=isNull=="true"? "?":"";
+                     return "decimal"+typeStr;
+                     break;
+                 case "uniqueidentifier":
+                     typeStr=isNull=="true"? "?":"";
+                     return "Guid"+typeStr;
+                     break;
+                 default:
+                     return "string"+typeStr;
+                     break;
+             }
+         }
+     }
+ #>

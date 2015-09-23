@@ -12,3 +12,16 @@ D:\LoginDemo\MyLoginDemo\LoginDemo\LoginDemo.Commom\bin\Release\ServiceStack.Tex
 D:\LoginDemo\MyLoginDemo\LoginDemo\LoginDemo.Commom\obj\Release\LoginDemo.Commom.dll
 D:\LoginDemo\MyLoginDemo\LoginDemo\LoginDemo.Commom\obj\Release\LoginDemo.Commom.pdb
 D:\LoginDemo\MyLoginDemo\LoginDemo\LoginDemo.Commom\obj\Release\LoginDemo.Commom.csprojResolveAssemblyReference.cache
+D:\201509LoginDemo\LoginDemo\LoginDemo.Commom\bin\Release\LoginDemo.Commom.dll
+D:\201509LoginDemo\LoginDemo\LoginDemo.Commom\bin\Release\LoginDemo.Commom.pdb
+D:\201509LoginDemo\LoginDemo\LoginDemo.Commom\bin\Release\Newtonsoft.Json.dll
+D:\201509LoginDemo\LoginDemo\LoginDemo.Commom\bin\Release\ServiceStack.Common.dll
+D:\201509LoginDemo\LoginDemo\LoginDemo.Commom\bin\Release\ServiceStack.Interfaces.dll
+D:\201509LoginDemo\LoginDemo\LoginDemo.Commom\bin\Release\ServiceStack.Redis.dll
+D:\201509LoginDemo\LoginDemo\LoginDemo.Commom\bin\Release\ServiceStack.Text.dll
+D:\201509LoginDemo\LoginDemo\LoginDemo.Commom\bin\Release\Newtonsoft.Json.xml
+D:\201509LoginDemo\LoginDemo\LoginDemo.Commom\bin\Release\ServiceStack.Common.xml
+D:\201509LoginDemo\LoginDemo\LoginDemo.Commom\bin\Release\ServiceStack.Redis.xml
+D:\201509LoginDemo\LoginDemo\LoginDemo.Commom\bin\Release\ServiceStack.Text.xml
+D:\201509LoginDemo\LoginDemo\LoginDemo.Commom\obj\Release\LoginDemo.Commom.dll
+D:\201509LoginDemo\LoginDemo\LoginDemo.Commom\obj\Release\LoginDemo.Commom.pdb

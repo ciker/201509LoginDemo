@@ -27,8 +27,8 @@ namespace LoginDemo.Web
             //{
             //    assembly.
             //});
-            var currentDomin = AppDomain.CurrentDomain;
-            currentDomin.AssemblyResolve += CurrentDominOnAssemblyResolve;
+            //var currentDomin = AppDomain.CurrentDomain;
+            //currentDomin.AssemblyResolve += CurrentDominOnAssemblyResolve;
 
             #region builder container
 
