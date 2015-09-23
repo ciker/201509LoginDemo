@@ -50,10 +50,14 @@
     <Compile Include="BaseDB.cs" />
     <Compile Include="IDataBase.cs" />
     <Compile Include="Interface\UserAccount\IUserAccountDAL.cs" />
+    <Compile Include="Interface\UserAccount\IUserInfoAccountDAL.cs" />
+    <Compile Include="Interface\UserAccount\IUserInfoDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlServerDB.cs" />
     <Compile Include="Interface\User\IUserDAL.cs" />
     <Compile Include="UserAccount\UserAccountDAL.cs" />
+    <Compile Include="UserAccount\UserInfoAccountDAL.cs" />
+    <Compile Include="UserAccount\UserInfoDAL.cs" />
     <Compile Include="User\UserDAL.cs" />
   </ItemGroup>
   <ItemGroup>
