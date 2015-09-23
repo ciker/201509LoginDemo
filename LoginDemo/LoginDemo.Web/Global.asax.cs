@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Linq;
-using System.Reflection;
 //using System.Reflection;
 using System.Web;
 using System.Web.Mvc;
@@ -57,13 +56,6 @@ namespace LoginDemo.Web
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             #endregion
         }
-
-        private Assembly CurrentDominOnAssemblyResolve(object sender, ResolveEventArgs args)
-        {
-            var strFielName = args.Name.Split(',')[0];
-            return Assembly.LoadFile(string.Format(AppDomain.CurrentDomain.BaseDirectory + @"{0}.dll", strFielName));
-        }
-
 
     }
 }

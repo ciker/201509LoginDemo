@@ -1,4 +1,0 @@
-D:\201509LoginDemo\LoginDemo\LoginDemo.Template\bin\Release\LoginDemo.Template.dll
-D:\201509LoginDemo\LoginDemo\LoginDemo.Template\bin\Release\LoginDemo.Template.pdb
-D:\201509LoginDemo\LoginDemo\LoginDemo.Template\obj\Release\LoginDemo.Template.dll
-D:\201509LoginDemo\LoginDemo\LoginDemo.Template\obj\Release\LoginDemo.Template.pdb

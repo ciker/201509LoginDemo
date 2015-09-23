@@ -3,7 +3,7 @@
 @{
     Layout = "~/Views/Shared/_ArealayoutView.cshtml";
 }
-@model ReturnResponse<Pager<LoginDemo.Entity.UserAccount.UserInfoAndAccount>>
+@model ReturnResponse<Pager<LoginDemo.ViewModels.UserInfo.UserInfoViewModels>>
 
 @section content{
     <div style="float:right">
@@ -26,7 +26,7 @@
                         foreach (var item in Model.Body.Items)
                         {
                             <tr>
-                                <td> @item.DefaultAccount</td>
+                                <td> @item.Account</td>
                                 <td>@item.CompanyName</td>
                                 <td>@item.Address</td>
                             </tr>

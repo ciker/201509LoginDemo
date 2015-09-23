@@ -1,4 +1,5 @@
-﻿namespace LoginDemo.BLL
+﻿ // ReSharper disable once CheckNamespace
+namespace LoginDemo.BLL
 {
     #region Using
     using Interface;
@@ -9,6 +10,7 @@
     using System.Linq;
     using System.Threading.Tasks;
     #endregion
+    // ReSharper disable once InconsistentNaming
     public class UserBLL : IUserBLL
     {
         #region properties
@@ -138,7 +140,7 @@
                         if (res.IsSuccess && res.Body.Items.Any())
                         {
                             response.Body = res.Body.Items.FirstOrDefault();
-                            if (response.Body.DataStatus == 1)
+                            if (response.Body != null && response.Body.DataStatus == 1)
                             {
                                 response.ResponseCode = 403;
                                 response.Message = "user has been forbidden";

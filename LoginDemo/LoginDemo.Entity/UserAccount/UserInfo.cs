@@ -1,5 +1,4 @@
-﻿using LoginDemo.Commom;
-
+﻿
 namespace LoginDemo.Entity.UserAccount
 {
     public class UserInfo : BaseEntity

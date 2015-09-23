@@ -12,8 +12,10 @@ using System.Transactions;
 using LoginDemo.Entity.UserAccount;
 
 #endregion
+// ReSharper disable once CheckNamespace
 namespace LoginDemo.BLL
 {
+    // ReSharper disable once InconsistentNaming
     public class UserAccountBLL : IUserAccountBLL
     {
         #region properties
@@ -113,7 +115,7 @@ namespace LoginDemo.BLL
                     }); //_IContainer.Resolve<IUserDAL>().Save(user);
                     if (resUserInfo.Id > 0)
                     {
-                        var account = _userInfoAccountDal.Save(new UserInfoAccount()
+                        _userInfoAccountDal.Save(new UserInfoAccount()
                         {
                             UserInfoID = resUserInfo.Id,
                             Account = userInfo.Account,

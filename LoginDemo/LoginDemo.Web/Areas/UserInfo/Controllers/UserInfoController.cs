@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using LoginDemo.BLL.Interface;
 using LoginDemo.Entity.UserAccount.QueryParameter;
 using LoginDemo.ViewModels.UserInfo;
@@ -63,9 +60,9 @@ namespace LoginDemo.Web.Areas.UserInfo.Controllers
 
 
         [HttpPost]
-        public ActionResult Login(string Account, string Password)
+        public ActionResult Login(string account, string password)
         {
-            var res = UserAccountBll.Login(new UserInfoViewModels() { Account = Account, Password = Password });
+            var res = UserAccountBll.Login(new UserInfoViewModels() { Account = account, Password = password });
             return res.IsSuccess ? AlertSuccessJsonResult("", "Login success") : AlertErrorJsonResult("", res.Message);
         }
 

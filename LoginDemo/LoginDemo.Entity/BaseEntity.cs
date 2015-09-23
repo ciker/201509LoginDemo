@@ -3,6 +3,7 @@ using System;
 
 namespace LoginDemo.Entity
 {
+    // ReSharper disable once InconsistentNaming
     public interface BaseEntity
     {
          bool? IsDelete { get; set; }

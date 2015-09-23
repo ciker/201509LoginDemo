@@ -2,7 +2,6 @@
 using LoginDemo.Commom;
 using LoginDemo.DAL;
 using LoginDemo.Entity;
-using LoginDemo.Entity.UserAccount;
 using LoginDemo.Entity.UserAccount.QueryParameter;
 using LoginDemo.ViewModels.UserInfo;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -10,6 +9,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace LoginDemo.BLL.Test
 {
     [TestClass]
+    // ReSharper disable once InconsistentNaming
     public class UserBLLTest
     {
         private readonly UserBLL _userBll = new UserBLL(new UserDAL());
