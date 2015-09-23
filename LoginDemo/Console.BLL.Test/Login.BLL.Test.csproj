@@ -36,7 +36,14 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web.Extensions" />
@@ -53,6 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LoginDemo.BLL\LoginDemo.BLL.csproj">
@@ -70,6 +78,10 @@
     <ProjectReference Include="..\LoginDemo.Entity\LoginDemo.Entity.csproj">
       <Project>{d59dd07d-ca41-48c0-b525-5d52749c058b}</Project>
       <Name>LoginDemo.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LoginDemo.ViewModels\LoginDemo.ViewModels.csproj">
+      <Project>{BB55FC9B-F676-44FA-977F-E973881AB7FC}</Project>
+      <Name>LoginDemo.ViewModels</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

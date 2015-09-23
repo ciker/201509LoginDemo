@@ -45,5 +45,17 @@ namespace LoginDemo.Entity.UserAccount
         public string Remark { get; set; }
 
 
+
+        public bool? IsDelete { get; set; }
+
+
+        public int? DataStatus { get; set; }
+
+
+        public System.DateTime? CreateDateTime { get; set; }
+
+
+        public System.DateTime? UpdateDateTime { get; set; }
+
     }
 }

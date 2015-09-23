@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data.Entity;
 
 namespace LoginDemo.Entity
 {
-    public class User : BaseEntity
+    public class User : BaseEntity // DbContext,
     {
         /// <summary>
         /// Id
@@ -34,5 +31,13 @@ namespace LoginDemo.Entity
         public string Mobile { get; set; }
 
 
+
+        public bool? IsDelete { get; set; }
+
+        public int? DataStatus { get; set; }
+
+        public DateTime? CreateDateTime { get; set; }
+
+        public DateTime? UpdateDateTime { get; set; }
     }
 }

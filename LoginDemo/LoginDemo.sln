@@ -30,6 +30,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Login.BLL.Test", "Console.B
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoginDemo.Design", "LoginDemo.Design\LoginDemo.Design.csproj", "{A61E10F7-3D8F-4259-8351-47EEEEB43454}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoginDemo.Template", "LoginDemo.Template\LoginDemo.Template.csproj", "{2F44E5DF-8560-4CBE-BC92-41EA68338489}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoginDemo.ViewModels", "LoginDemo.ViewModels\LoginDemo.ViewModels.csproj", "{BB55FC9B-F676-44FA-977F-E973881AB7FC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -80,6 +84,14 @@ Global
 		{A61E10F7-3D8F-4259-8351-47EEEEB43454}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A61E10F7-3D8F-4259-8351-47EEEEB43454}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A61E10F7-3D8F-4259-8351-47EEEEB43454}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F44E5DF-8560-4CBE-BC92-41EA68338489}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F44E5DF-8560-4CBE-BC92-41EA68338489}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F44E5DF-8560-4CBE-BC92-41EA68338489}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F44E5DF-8560-4CBE-BC92-41EA68338489}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB55FC9B-F676-44FA-977F-E973881AB7FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB55FC9B-F676-44FA-977F-E973881AB7FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB55FC9B-F676-44FA-977F-E973881AB7FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB55FC9B-F676-44FA-977F-E973881AB7FC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

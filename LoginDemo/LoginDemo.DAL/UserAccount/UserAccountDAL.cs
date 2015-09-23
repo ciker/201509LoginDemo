@@ -13,9 +13,9 @@ namespace LoginDemo.DAL
     public class UserAccountDAL : IUserAccountDAL
     {
 
-        public Pager<UserInfoAndAccount> Query(UserInfoQueryParameter para)
+        public Pager<UserInfoAccount> Query(UserInfoQueryParameter para)
         {
-            var dataList = new Lazy<Pager<UserInfoAndAccount>>();
+            var dataList = new Lazy<Pager<UserInfoAccount>>();
             var sqlText = new StringBuilder();
             //var pageSqlText = new StringBuilder();
             sqlText.Append(@"SELECT 
@@ -52,7 +52,7 @@ namespace LoginDemo.DAL
                 using (var grid = conn.QueryMultiple(sqlText.ToString(), para))
                 {
                     //dataList.Value.Items = data.ToArray();
-                    dataList.Value.Items = grid.Read<UserInfoAndAccount>().ToArray();
+                    dataList.Value.Items = grid.Read<UserInfoAccount>().ToArray();
                     if (para.IsPage)
                     {
                         var pageInfo = grid.Read().FirstOrDefault();
@@ -69,7 +69,7 @@ namespace LoginDemo.DAL
             return dataList.Value;
         }
 
-        public UserInfo Save(UserInfoAndAccount userInfo)
+        public UserInfo Save(UserInfoAccount userInfo)
         {
             UserInfo retUser = null;
             #region sql
@@ -111,16 +111,16 @@ namespace LoginDemo.DAL
                 {
                     var re = conn.Query<UserInfo>(sqlText, userInfo, trans);
                     retUser = re.FirstOrDefault();
-                    if (retUser != null)
-                    {
-                        foreach (var account in userInfo.Accounts)
-                        {
-                            conn.Execute(mappingSqlText,
-                                new { USERINFOID = retUser.Id, ACCOUNTTYPE = userInfo.AccountType, ACCOUNT = account }, trans);
-                        }
+                    //if (retUser != null)
+                    //{
+                    //    foreach (var account in userInfo.Accounts)
+                    //    {
+                    //        conn.Execute(mappingSqlText,
+                    //            new { USERINFOID = retUser.Id, ACCOUNTTYPE = userInfo.AccountType, ACCOUNT = account }, trans);
+                    //    }
 
-                        trans.Commit();
-                    }
+                    trans.Commit();
+                    //}
                 }
                 catch (Exception)
                 {
@@ -195,12 +195,12 @@ namespace LoginDemo.DAL
             return retUser;
         }
 
-        public UserInfo Update(UserInfoAndAccount userInfo)
+        public UserInfo Update(UserInfoAccount userInfo)
         {
             throw new NotImplementedException();
         }
 
-        public bool Delete(UserInfoAndAccount userInfo)
+        public bool Delete(UserInfoAccount userInfo)
         {
             throw new NotImplementedException();
         }

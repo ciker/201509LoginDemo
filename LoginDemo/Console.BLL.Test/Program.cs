@@ -10,6 +10,7 @@ using LoginDemo.Entity;
 using LoginDemo.Entity.UserAccount;
 using LoginDemo.Entity.UserAccount.QueryParameter;
 using System.Linq;
+using LoginDemo.ViewModels.UserInfo;
 using Console = System.Console;
 
 namespace Login.BLL.Test
@@ -18,7 +19,7 @@ namespace Login.BLL.Test
     {
         #region properties
         private static readonly UserBLL UserBll = new UserBLL(new UserDAL());
-        private static readonly UserAccountBLL UserinfoBll = new UserAccountBLL(new UserAccountDAL());
+        private static readonly UserAccountBLL UserinfoBll = new UserAccountBLL(new UserInfoDAL(), new UserInfoAccountDAL());
         private const int ParallelNum = 8000;//parallel num
         private const int ParallelMaxThreadNum = 180;//parallel max thread num
         private const int NormalMaxThreadNum = 185;//normal max thread num 
@@ -372,9 +373,9 @@ namespace Login.BLL.Test
         private static void UserInfoRegister()
         {
             var num = Guid.NewGuid().ToString();
-            var userInfo = new UserInfoAndAccount()
+            var userInfo = new UserInfoViewModels()
             {
-                DefaultAccount = "1_Unit_Test" + num,
+                Account = "1_Unit_Test" + num,
                 Password = ("1_Unit_Test" + num),
                 CompanyName = "东方航空集团航空公司",
                 Address = "上海市长宁区绥宁路388号"

@@ -4,6 +4,7 @@ using LoginDemo.DAL;
 using LoginDemo.Entity;
 using LoginDemo.Entity.UserAccount;
 using LoginDemo.Entity.UserAccount.QueryParameter;
+using LoginDemo.ViewModels.UserInfo;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace LoginDemo.BLL.Test
@@ -12,7 +13,7 @@ namespace LoginDemo.BLL.Test
     public class UserBLLTest
     {
         private readonly UserBLL _userBll = new UserBLL(new UserDAL());
-        private readonly UserAccountBLL _userAccountBll = new UserAccountBLL(new UserAccountDAL());
+        private readonly UserAccountBLL _userAccountBll = new UserAccountBLL(new UserInfoDAL(), new UserInfoAccountDAL());
         #region UserTest
         [TestMethod]
         public void UserRegister()
@@ -53,9 +54,9 @@ namespace LoginDemo.BLL.Test
         [TestMethod]
         public void UserInfoRegister()
         {
-            _userAccountBll.Register(new UserInfoAndAccount()
+            _userAccountBll.Register(new UserInfoViewModels()
             {
-                DefaultAccount = "UserInfo_Account_Test1",
+                Account = "UserInfo_Account_Test1",
                 Password = "UserInfo_Account_Test1",
                 CompanyName = "company 1",
                 Address = "address 1"
@@ -65,9 +66,9 @@ namespace LoginDemo.BLL.Test
         [TestMethod]
         public void UserInfoLogin()
         {
-            _userAccountBll.Login(new UserInfoAndAccount()
+            _userAccountBll.Login(new UserInfoViewModels()
             {
-                DefaultAccount = "UserInfo_Account_Test1",
+                Account = "UserInfo_Account_Test1",
                 Password = "UserInfo_Account_Test1"
             });
         }

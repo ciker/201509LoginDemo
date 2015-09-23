@@ -7,12 +7,12 @@ namespace LoginDemo.DAL.Interface
 {
     public interface IUserAccountDAL : IDependency
     {
-        Pager<UserInfoAndAccount> Query(UserInfoQueryParameter para);
+        Pager<UserInfoAccount> Query(UserInfoQueryParameter para);
 
-        UserInfo Save(UserInfoAndAccount userInfo);
+        UserInfo Save(UserInfoAccount userInfo);
 
-        UserInfo Update(UserInfoAndAccount userInfo);
+        UserInfo Update(UserInfoAccount userInfo);
 
-        bool Delete(UserInfoAndAccount userInfo);
+        bool Delete(UserInfoAccount userInfo);
     }
 }

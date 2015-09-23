@@ -3,14 +3,14 @@ using System;
 
 namespace LoginDemo.Entity
 {
-    public class BaseEntity
+    public interface BaseEntity
     {
-        public bool? IsDelete { get; set; }
-        public int? DataStatus { get; set; }
+         bool? IsDelete { get; set; }
+         int? DataStatus { get; set; }
 
-        public DateTime? CreateDateTime { get; set; }
+         DateTime? CreateDateTime { get; set; }
 
-        public DateTime? UpdateDateTime { get; set; }
+         DateTime? UpdateDateTime { get; set; }
     }
 
 

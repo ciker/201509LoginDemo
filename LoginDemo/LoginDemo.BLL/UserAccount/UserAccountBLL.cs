@@ -1,11 +1,16 @@
 ﻿#region Using
+
+using System.Collections.Generic;
 using System.Linq;
 using LoginDemo.BLL.Interface;
 using LoginDemo.DAL.Interface;
 using LoginDemo.Commom;
 using LoginDemo.Entity;
-using LoginDemo.Entity.UserAccount;
 using LoginDemo.Entity.UserAccount.QueryParameter;
+using LoginDemo.ViewModels.UserInfo;
+using System.Transactions;
+using LoginDemo.Entity.UserAccount;
+
 #endregion
 namespace LoginDemo.BLL
 {
@@ -13,23 +18,23 @@ namespace LoginDemo.BLL
     {
         #region properties
 
-        private readonly IUserAccountDAL _userAccountDal;
+        private readonly IUserInfoDAL _userInfoDal;
+        private readonly IUserInfoAccountDAL _userInfoAccountDal;
         #endregion
 
         #region constructor
-        public UserAccountBLL(IUserAccountDAL userAccountDal)
+        public UserAccountBLL(IUserInfoDAL userInfoDal, IUserInfoAccountDAL userInfoAccountDal)
         {
-            _userAccountDal = userAccountDal;
+            _userInfoDal = userInfoDal;
+            _userInfoAccountDal = userInfoAccountDal;
         }
         #endregion
-        public ReturnResponse<UserInfo> Login(UserInfoAndAccount userInfo)
+        public ReturnResponse<UserInfoViewModels> Login(UserInfoViewModels userInfo)
         {
-            var response = new ReturnResponse<UserInfo>();
-
-            userInfo.AccountType = userInfo.DefaultAccount.GetAccountType();
+            var response = new ReturnResponse<UserInfoViewModels>();
             var para = new UserInfoQueryParameter()
             {
-                Account = userInfo.DefaultAccount,
+                Account = userInfo.Account,
                 //Password = userInfo.Password.Md5Compute32(),
                 UserAccountType = userInfo.AccountType,
                 Skip = 0,
@@ -64,10 +69,10 @@ namespace LoginDemo.BLL
             return response;
         }
 
-        public ReturnResponse<UserInfo> Register(UserInfoAndAccount userInfo)
+        public ReturnResponse<UserInfoViewModels> Register(UserInfoViewModels userInfo)
         {
-            var response = new ReturnResponse<UserInfo>();
-            if (string.IsNullOrWhiteSpace(userInfo.Accounts.FirstOrDefault()))
+            var response = new ReturnResponse<UserInfoViewModels>();
+            if (string.IsNullOrWhiteSpace(userInfo.Account))
             {
                 response.Body = null;
                 response.ResponseCode = 100;
@@ -82,39 +87,99 @@ namespace LoginDemo.BLL
                 return response;
             }
 
-            var usersRes = Query(new UserInfoQueryParameter() { Account = userInfo.Accounts.FirstOrDefault(), Skip = 0, Take = 1, IsPage = false });
+            var usersRes = Query(new UserInfoQueryParameter() { Account = userInfo.Account, Skip = 0, Take = 1, IsPage = false });
 
             if (usersRes.ResponseCode == 1 && usersRes.Body.Items.Any())
             {
-                response.Body = new UserInfo();
+                response.Body = new UserInfoViewModels();
                 response.ResponseCode = 400;
                 response.Message = "UserName was exist";
                 return response;
             }
-            userInfo.AccountType = userInfo.Accounts.FirstOrDefault().GetAccountType();
             userInfo.Password = userInfo.Password.Md5Compute32();
 
-            var res = _userAccountDal.Save(userInfo); //_IContainer.Resolve<IUserDAL>().Save(user);
-            if (res != null && res.Id > 0)
+            using (var trans = new TransactionScope())
             {
-                response.Body = res;
+                try
+                {
+                    var resUserInfo = _userInfoDal.Save(new UserInfo()
+                    {
+                        Password = userInfo.Password,
+                        Address = userInfo.Address,
+                        CompanyName = userInfo.CompanyName,
+                        NickName = userInfo.NickName,
+                        Gender = userInfo.Gender,
+                        Remark = userInfo.Remark
+                    }); //_IContainer.Resolve<IUserDAL>().Save(user);
+                    if (resUserInfo.Id > 0)
+                    {
+                        var account = _userInfoAccountDal.Save(new UserInfoAccount()
+                        {
+                            UserInfoID = resUserInfo.Id,
+                            Account = userInfo.Account,
+                            UserAccountType = userInfo.AccountType
+                        });
+                        userInfo.Id = resUserInfo.Id;
+                        trans.Complete();
+
+                    }
+                }
+                finally
+                {
+                    trans.Dispose();
+                }
+            }
+            if (userInfo.Id > 0)
+            {
+                response.Body = userInfo;
                 response.ResponseCode = 1;
                 response.Message = "regist success";
             }
             else
             {
-                response.Body = res;
+                response.Body = userInfo;
                 response.ResponseCode = -1;
                 response.Message = " Insert failed";
             }
             return response;
         }
 
-        public ReturnResponse<Pager<UserInfoAndAccount>> Query(UserInfoQueryParameter parameter)
+        public ReturnResponse<Pager<UserInfoViewModels>> Query(UserInfoQueryParameter parameter)
         {
-            return new ReturnResponse<Pager<UserInfoAndAccount>>
+            var userInfoAccount = _userInfoAccountDal.Query(parameter);
+            var list = new List<UserInfoViewModels>();
+            var pagers = new Pager<UserInfoViewModels>();
+            if (userInfoAccount.Items.Any())
             {
-                Body = _userAccountDal.Query(parameter),
+                userInfoAccount.Items.Each(account =>
+                {
+                    var userInfoRes = _userInfoDal.Query(new UserInfoQueryParameter() { ID = account.UserInfoID });
+                    var userInfo = userInfoRes.Items.FirstOrDefault();
+                    if (userInfo != null)
+                        list.Add(new UserInfoViewModels()
+                        {
+                            Account = account.Account,
+                            Password = userInfo.Password,
+                            CompanyName = userInfo.CompanyName,
+                            Address = userInfo.Address,
+                            Gender = userInfo.Gender,
+                            NickName = userInfo.NickName,
+                            Id = userInfo.Id
+                        });
+                    pagers.Total = userInfoRes.Total;
+                    pagers.Pages = userInfoRes.Pages;
+                });
+                pagers.Items = list.ToArray();
+                return new ReturnResponse<Pager<UserInfoViewModels>>
+                {
+                    Body = pagers,
+                    ResponseCode = 1,
+                    Message = "Success"
+                };
+            }
+            return new ReturnResponse<Pager<UserInfoViewModels>>
+            {
+                Body = pagers,
                 ResponseCode = 1,
                 Message = "Success"
             };

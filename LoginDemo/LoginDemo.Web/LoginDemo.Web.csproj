@@ -218,7 +218,9 @@
     <Content Include="Scripts\user\login.js" />
     <Content Include="Scripts\user\register.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -272,6 +274,10 @@
     <ProjectReference Include="..\LoginDemo.Entity\LoginDemo.Entity.csproj">
       <Project>{d59dd07d-ca41-48c0-b525-5d52749c058b}</Project>
       <Name>LoginDemo.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LoginDemo.ViewModels\LoginDemo.ViewModels.csproj">
+      <Project>{bb55fc9b-f676-44fa-977f-e973881ab7fc}</Project>
+      <Name>LoginDemo.ViewModels</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

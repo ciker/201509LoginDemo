@@ -2,16 +2,17 @@
 using LoginDemo.Entity;
 using LoginDemo.Entity.UserAccount;
 using LoginDemo.Entity.UserAccount.QueryParameter;
+using LoginDemo.ViewModels.UserInfo;
 
 namespace LoginDemo.BLL.Interface
 {
     public interface IUserAccountBLL : IDependency
     {
-        ReturnResponse<UserInfo> Login(UserInfoAndAccount user);
+        ReturnResponse<UserInfoViewModels> Login(UserInfoViewModels user);
 
-        ReturnResponse<UserInfo> Register(UserInfoAndAccount user);
+        ReturnResponse<UserInfoViewModels> Register(UserInfoViewModels user);
 
-        ReturnResponse<Pager<UserInfoAndAccount>> Query(UserInfoQueryParameter parameter);
+        ReturnResponse<Pager<UserInfoViewModels>> Query(UserInfoQueryParameter parameter);
 
     }
 }
