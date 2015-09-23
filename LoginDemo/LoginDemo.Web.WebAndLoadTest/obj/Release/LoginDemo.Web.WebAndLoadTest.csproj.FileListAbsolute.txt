@@ -4,9 +4,3 @@ D:\LoginDemo\MyLoginDemo\LoginDemo\LoginDemo.Web.WebAndLoadTest\bin\Release\Logi
 D:\LoginDemo\MyLoginDemo\LoginDemo\LoginDemo.Web.WebAndLoadTest\obj\Release\LoginDemo.Web.WebAndLoadTest.csprojResolveAssemblyReference.cache
 D:\LoginDemo\MyLoginDemo\LoginDemo\LoginDemo.Web.WebAndLoadTest\obj\Release\LoginDemo.Web.WebAndLoadTest.dll
 D:\LoginDemo\MyLoginDemo\LoginDemo\LoginDemo.Web.WebAndLoadTest\obj\Release\LoginDemo.Web.WebAndLoadTest.pdb
-D:\201509LoginDemo\LoginDemo\LoginDemo.Web.WebAndLoadTest\bin\Release\WebTest2.webtest
-D:\201509LoginDemo\LoginDemo\LoginDemo.Web.WebAndLoadTest\bin\Release\LoginDemo.Web.WebAndLoadTest.dll
-D:\201509LoginDemo\LoginDemo\LoginDemo.Web.WebAndLoadTest\bin\Release\LoginDemo.Web.WebAndLoadTest.pdb
-D:\201509LoginDemo\LoginDemo\LoginDemo.Web.WebAndLoadTest\obj\Release\LoginDemo.Web.WebAndLoadTest.csprojResolveAssemblyReference.cache
-D:\201509LoginDemo\LoginDemo\LoginDemo.Web.WebAndLoadTest\obj\Release\LoginDemo.Web.WebAndLoadTest.dll
-D:\201509LoginDemo\LoginDemo\LoginDemo.Web.WebAndLoadTest\obj\Release\LoginDemo.Web.WebAndLoadTest.pdb
