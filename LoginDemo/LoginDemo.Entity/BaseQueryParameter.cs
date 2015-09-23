@@ -33,7 +33,7 @@ namespace LoginDemo.Entity
         }
 
         [IgnoreField]
-        public int Skip { get; set; }
+        public int Skip { get { return PageIndex - 1; } }
 
         [IgnoreField]
         public int Take

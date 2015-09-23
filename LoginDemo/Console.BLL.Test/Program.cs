@@ -19,7 +19,7 @@ namespace Login.BLL.Test
     {
         #region properties
         private static readonly UserBLL UserBll = new UserBLL(new UserDAL());
-        private static readonly UserAccountBLL UserinfoBll = new UserAccountBLL(new UserInfoDAL(), new UserInfoAccountDAL());
+        private static readonly UserAccountBLL UserinfoBll =new UserAccountBLL(new UserInfoDAL(), new UserInfoAccountDAL());
         private const int ParallelNum = 8000;//parallel num
         private const int ParallelMaxThreadNum = 180;//parallel max thread num
         private const int NormalMaxThreadNum = 185;//normal max thread num 

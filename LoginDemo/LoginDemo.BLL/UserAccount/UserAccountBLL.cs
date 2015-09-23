@@ -25,6 +25,14 @@ namespace LoginDemo.BLL
         #endregion
 
         #region constructor
+        /// <summary>
+        /// 存在多个构造函数时，antofac将会以参数最多的作为注入构造函数
+        /// </summary>
+        /// <param name="userInfoDal"></param>
+        public UserAccountBLL(IUserInfoDAL userInfoDal)
+        {
+            _userInfoDal = userInfoDal;
+        }
         public UserAccountBLL(IUserInfoDAL userInfoDal, IUserInfoAccountDAL userInfoAccountDal)
         {
             _userInfoDal = userInfoDal;
@@ -38,8 +46,7 @@ namespace LoginDemo.BLL
             {
                 Account = userInfo.Account,
                 //Password = userInfo.Password.Md5Compute32(),
-                UserAccountType = userInfo.AccountType,
-                Skip = 0,
+                AccountType = userInfo.Account.GetAccountType(),
                 Take = 1,
                 IsPage = false
             };
@@ -89,7 +96,7 @@ namespace LoginDemo.BLL
                 return response;
             }
 
-            var usersRes = Query(new UserInfoQueryParameter() { Account = userInfo.Account, Skip = 0, Take = 1, IsPage = false });
+            var usersRes = Query(new UserInfoQueryParameter() { Account = userInfo.Account,  Take = 1, IsPage = false });
 
             if (usersRes.ResponseCode == 1 && usersRes.Body.Items.Any())
             {
@@ -119,7 +126,7 @@ namespace LoginDemo.BLL
                         {
                             UserInfoID = resUserInfo.Id,
                             Account = userInfo.Account,
-                            UserAccountType = userInfo.AccountType
+                            AccountType = userInfo.AccountType
                         });
                         userInfo.Id = resUserInfo.Id;
                         trans.Complete();
@@ -161,6 +168,7 @@ namespace LoginDemo.BLL
                         list.Add(new UserInfoViewModels()
                         {
                             Account = account.Account,
+                            AccountType = account.Account.GetAccountType(),
                             Password = userInfo.Password,
                             CompanyName = userInfo.CompanyName,
                             Address = userInfo.Address,
@@ -168,9 +176,10 @@ namespace LoginDemo.BLL
                             NickName = userInfo.NickName,
                             Id = userInfo.Id
                         });
-                    pagers.Total = userInfoRes.Total;
-                    pagers.Pages = userInfoRes.Pages;
                 });
+
+                pagers.Total = userInfoAccount.Total;
+                pagers.Pages = userInfoAccount.Pages;
                 pagers.Items = list.ToArray();
                 return new ReturnResponse<Pager<UserInfoViewModels>>
                 {
@@ -182,8 +191,8 @@ namespace LoginDemo.BLL
             return new ReturnResponse<Pager<UserInfoViewModels>>
             {
                 Body = pagers,
-                ResponseCode = 1,
-                Message = "Success"
+                ResponseCode = 400,
+                Message = "Not exist"
             };
         }
     }

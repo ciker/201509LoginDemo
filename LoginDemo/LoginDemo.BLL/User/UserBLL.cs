@@ -1,4 +1,4 @@
-﻿ // ReSharper disable once CheckNamespace
+﻿// ReSharper disable once CheckNamespace
 namespace LoginDemo.BLL
 {
     #region Using
@@ -71,7 +71,7 @@ namespace LoginDemo.BLL
             }
             user.UserPWD = user.UserPWD.Md5Compute32();
 
-            var usersRes = GetUserListbyParameter(new UserQueryParameter() { UserName = user.UserName, Skip = 0, Take = 1, IsPage = false });
+            var usersRes = GetUserListbyParameter(new UserQueryParameter() { UserName = user.UserName, Take = 1, IsPage = false });
 
             if (usersRes.IsSuccess && usersRes.Body.Items.Any())
             {
@@ -104,7 +104,7 @@ namespace LoginDemo.BLL
         public ReturnResponse<User> Login(User user)
         {
             var response = new ReturnResponse<User>();
-            var para = new UserQueryParameter() { UserName = user.UserName, UserPWD = user.UserPWD.Md5Compute32(), Skip = 0, Take = 1, IsPage = false };
+            var para = new UserQueryParameter() { UserName = user.UserName, UserPWD = user.UserPWD.Md5Compute32(), Take = 1, IsPage = false };
             var res = GetUserListbyParameter(para);
             if (res.IsSuccess && res.Body.Items.Any())
             {
@@ -164,7 +164,6 @@ namespace LoginDemo.BLL
 
         public ReturnResponse<Pager<User>> GetUserListbyParameter(UserQueryParameter para)
         {
-            para.Skip = para.PageIndex - 1;
             para.Take = para.PageSize;
             return new ReturnResponse<Pager<User>>
             {

@@ -12,7 +12,7 @@ namespace LoginDemo.ViewModels.UserInfo
         [StringLength(100, ErrorMessage = "{0} 必须至少包含 {2} 个字符。", MinimumLength = 6)]
         public string Account { get; set; }
 
-        public int AccountType { get { return Account.GetAccountType(); } }
+        public int AccountType { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
