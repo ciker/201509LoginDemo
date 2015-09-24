@@ -29,7 +29,7 @@ namespace LoginDemo.Web
             //var currentDomin = AppDomain.CurrentDomain;
             //currentDomin.AssemblyResolve += CurrentDominOnAssemblyResolve;
 
-            //autofac文档：属性注入
+            #region ==autofac文档：属性注入==
 
             //    AutoFac文档
             //    目录
@@ -63,17 +63,18 @@ namespace LoginDemo.Web
 
             //    1
             //    builder.WithProperty("propertyName", propertyValue)。
+            #endregion
             #region builder container
 
             var assemblies = AppDomain.CurrentDomain.GetAssemblies();
             builder.RegisterControllers(assemblies.ToArray());
-            
+
             builder.RegisterAssemblyTypes(assemblies).Where(t => baseType.IsAssignableFrom(t) && t != baseType)
                 .AsImplementedInterfaces().InstancePerLifetimeScope();
 
             //function 2
-            builder.RegisterAssemblyTypes(AppDomain.CurrentDomain.GetAssemblies()).Where(t => t.Name.EndsWith("BLL")).AsImplementedInterfaces();
-            builder.RegisterAssemblyTypes(AppDomain.CurrentDomain.GetAssemblies()).Where(t => t.Name.EndsWith("DAL")).AsImplementedInterfaces();
+            //builder.RegisterAssemblyTypes(AppDomain.CurrentDomain.GetAssemblies()).Where(t => t.Name.EndsWith("BLL")).AsImplementedInterfaces();
+            //builder.RegisterAssemblyTypes(AppDomain.CurrentDomain.GetAssemblies()).Where(t => t.Name.EndsWith("DAL")).AsImplementedInterfaces();
 
             //function 3
             //builder.RegisterModule(new ConfigurationSettingsReader("autofac"));
