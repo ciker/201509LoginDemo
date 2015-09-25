@@ -79,6 +79,8 @@ namespace LoginDemo.Web
             //function 3
             //builder.RegisterModule(new ConfigurationSettingsReader("autofac"));
 
+            //builder.RegisterFilterProvider();//filter中属性注入 非全局filter的注入
+            //builder.RegisterType<CustomerAttribute>().SingleInstance();//全局filter注入，filter中使用使用构造函数方式
 
             var container = builder.Build();
 
