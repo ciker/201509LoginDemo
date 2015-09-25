@@ -50,7 +50,8 @@ FROM    ( SELECT    [UserName] ,
                     [Source]
           FROM      [TestRows2Columns]
         ) p PIVOT
-( SUM([Source]) FOR [Subject] IN ( [数学],[英语],[语文] ) ) AS pvt
+--( SUM([Source]) FOR [Subject] IN ( [数学],[英语],[语文] ) ) AS pvt
+( count([Source]) FOR [Subject] IN ( [数学],[英语],[语文] ) ) AS pvt
 ORDER BY pvt.[UserName];
 GO
 
@@ -65,3 +66,16 @@ SELECT * FROM (
 ORDER BY pvt.[UserName]'
 PRINT (@sql_str)
 EXEC (@sql_str)
+
+
+--PIVOT 行转列
+SELECT * FROM (
+
+	SELECT A.NAME,A.ID AS [DID] FROM SYSCOLUMNS A INNER JOIN SYSOBJECTS B ON A.ID= B.ID AND B.XTYPE='U' AND B.[NAME] = 'USER'
+	) P 
+PIVOT(
+	--MAX([DID]) FOR [NAME] IN ([Id],[Email],[Mobile],[UserName],[UserPWD],[DataStatus],[CreateDateTime],[UpdateDateTime])) AS PVT
+	SUM([DID]) FOR [NAME] IN ([Id],[Email],[Mobile],[UserName],[UserPWD],[DataStatus],[CreateDateTime],[UpdateDateTime])) AS PVT
+
+--UNPIVOT 将与 PIVOT 执行几乎完全相反的操作，将列转换为行
+
