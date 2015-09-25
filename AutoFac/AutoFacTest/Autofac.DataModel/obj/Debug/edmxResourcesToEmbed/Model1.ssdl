@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="VehicleCheckDBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="VehicleCheckDBModelStoreContainer">
+    <EntitySet Name="Sys_Roles" EntityType="VehicleCheckDBModel.Store.Sys_Roles" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Sys_User" EntityType="VehicleCheckDBModel.Store.Sys_User" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Sys_User_Roles" EntityType="VehicleCheckDBModel.Store.Sys_User_Roles" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="Sys_Roles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="RoleName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="RoleDesc" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreateDate" Type="smalldatetime" />
+    <Property Name="Status" Type="smallint" />
+  </EntityType>
+  <EntityType Name="Sys_User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="UserTrueName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Password" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="CreateDate" Type="smalldatetime" Nullable="false" />
+    <Property Name="Code" Type="varchar" MaxLength="6" />
+    <Property Name="PreIpAddress" Type="varchar" MaxLength="16" />
+    <Property Name="PreDate" Type="smalldatetime" />
+    <Property Name="LastIpAddress" Type="varchar" MaxLength="16" />
+    <Property Name="LastDate" Type="smalldatetime" />
+    <Property Name="Status" Type="smallint" />
+  </EntityType>
+  <EntityType Name="Sys_User_Roles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="RoleId" Type="int" Nullable="false" />
+  </EntityType>
+</Schema>

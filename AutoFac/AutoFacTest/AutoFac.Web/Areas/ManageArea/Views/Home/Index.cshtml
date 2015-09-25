@@ -1,0 +1,109 @@
+﻿   
+<h2>
+    <a href="/ManageArea/home/edituser">添加User</a><br/>
+    <a href="/ManageArea/home/FilteResult">Autofac filter过滤器</a>
+</h2>
+ <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>UserName</th>
+                <th>RoleId</th>
+                <th>UserTrueName</th>
+                <th>Password</th>
+            </tr>
+        </thead>
+        <tbody data-bind="foreach:users" >
+            <tr>
+                <td data-bind="text: Id"></td>
+                <td data-bind="text: UserName"></td>
+                <td data-bind="foreach:$data.Roles">
+                    <label data-bind="text:RoleName"></label>
+                </td>
+                <td data-bind="text: UserTrueName"></td>
+                <td data-bind="text: Password"></td>
+                <td data-bind="text: CreateDate"></td>
+                <td>
+                 <a href="javascript:" data-bind="click:$root.edit">修改</a>
+                    
+                </td>
+            </tr>
+        </tbody>
+    </table>
+ @section Script {
+     <script>
+        ////首先使用构造创建一个ViewModel
+        // var Product = function(data) {
+        //     this.Id = ko.observable(data.Id);
+        //     this.UserName = ko.observable(data.UserName);
+        //     this.Roles = ko.observable(data.Roles);
+        //     this.UserTrueName = ko.observable(data.UserTrueName);
+        //     this.Password = ko.observable(data.Password);
+        //     this.CreateDate = ko.observable(data.CreateDate);
+        // };
+
+        // //由于是从服务端返回json数据，待会服务端返回Products集合的时候，可以构建一个key为name和category的json格式。
+        // //而foreach需要绑定的是集合，我们还需要创建一个View Model，该View Model有一个集合属性。
+        // var RealVM = function (products) {
+        //     var self = this;
+        //     var productsArr = [];
+        //     for (var i = 0; i < products.length; i++) {
+        //         var product = new Product(products[i]);
+        //         productsArr.push(product);
+        //     }
+        //     this.products = ko.observableArray(productsArr);
+        //     //删除
+        //     self.remove = function(stu) {
+        //         //$.ajax({
+        //         //    url: "/Home/Del/" + stu.Num,
+        //         //    type: "post",
+        //         //    dataType: "json",
+        //         //    success: function (json) {
+        //         //        alert(json.type);
+        //         //        self.students.remove(stu);
+        //         //    }
+        //         //})
+        //     };
+        //     //编辑
+        //     self.edit = function (user) {
+
+        //         alert(user.Id);
+        //         window.location.href = '/Home/edit/' + user.Id;
+        //     };
+        // };
+        // //接着，向服务端发送异步请求，返回的Prduct集合作为RealVM构造函数的实参。
+
+        // $.getJSON('/home/UserList', function(data) {
+        //     var vm = new RealVM(data);
+        //     ko.applyBindings(vm);
+        // });
+         
+         function ViewModel(data) {
+             var self = this;
+             self.users = ko.observableArray(data);//添加动态监视数组对象
+             //删除
+             self.remove = function (stu) {
+                 $.ajax({
+                     url: "/Home/Del/" + stu.Num,
+                     type: "post",
+                     dataType: "json",
+                     success: function (json) {
+                         alert(json.type);
+                         self.students.remove(stu);
+                     }
+                 })
+             }
+             //编辑
+             self.edit = function (user) {
+                 window.location.href = '/ManageArea/Home/edituser/' + user.Id;
+             };
+             //self.Count = ko.computed(function () {
+             //    return self.students().length;
+             //});
+         }
+         $.getJSON('/ManageArea/home/UserList', function (data) {
+              var vm = new ViewModel(data);
+              ko.applyBindings(vm);
+          });
+     </script>
+ }

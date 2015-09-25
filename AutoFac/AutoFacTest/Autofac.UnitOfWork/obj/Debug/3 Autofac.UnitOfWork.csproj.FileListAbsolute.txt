@@ -1,0 +1,11 @@
+D:\AutoFac\AutoFacTest\Autofac.UnitOfWork\bin\Debug\Autofac.UnitOfWork.dll
+D:\AutoFac\AutoFacTest\Autofac.UnitOfWork\bin\Debug\Autofac.UnitOfWork.pdb
+D:\AutoFac\AutoFacTest\Autofac.UnitOfWork\bin\Debug\EntityFramework.dll
+D:\AutoFac\AutoFacTest\Autofac.UnitOfWork\bin\Debug\EntityFramework.SqlServer.dll
+D:\AutoFac\AutoFacTest\Autofac.UnitOfWork\bin\Debug\EntityFramework.xml
+D:\AutoFac\AutoFacTest\Autofac.UnitOfWork\bin\Debug\EntityFramework.SqlServer.xml
+D:\AutoFac\AutoFacTest\Autofac.UnitOfWork\bin\Debug\zh-Hans\EntityFramework.resources.dll
+D:\AutoFac\AutoFacTest\Autofac.UnitOfWork\bin\Debug\zh-Hans\EntityFramework.SqlServer.resources.dll
+D:\AutoFac\AutoFacTest\Autofac.UnitOfWork\obj\Debug\3 Autofac.UnitOfWork.csprojResolveAssemblyReference.cache
+D:\AutoFac\AutoFacTest\Autofac.UnitOfWork\obj\Debug\Autofac.UnitOfWork.dll
+D:\AutoFac\AutoFacTest\Autofac.UnitOfWork\obj\Debug\Autofac.UnitOfWork.pdb

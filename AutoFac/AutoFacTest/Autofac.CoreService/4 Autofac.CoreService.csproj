@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9422094C-B7B5-4B85-84E4-B55F382E4219}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Autofac.CoreService</RootNamespace>
+    <AssemblyName>Autofac.CoreService</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Impl\RoleManage.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IRoleManage.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IUserManage.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Impl\UserManage.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Autofac.DataModel\1 Autofac.DataModel.csproj">
+      <Project>{49B813C2-FEAB-4874-AAA3-CA15749430C1}</Project>
+      <Name>1 Autofac.DataModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Autofac.Repository\2 Autofac.Repository.csproj">
+      <Project>{661c8dc7-e299-4395-94ac-922a60d4aeb3}</Project>
+      <Name>2 Autofac.Repository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Autofac.UnitOfWork\3 Autofac.UnitOfWork.csproj">
+      <Project>{547d18a1-011e-4bca-9765-70ee23e75b19}</Project>
+      <Name>3 Autofac.UnitOfWork</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Autofac.ViewModel\7 Autofac.ViewModel.csproj">
+      <Project>{869696DD-731C-4549-8B62-AA0D66D0832C}</Project>
+      <Name>7 Autofac.ViewModel</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

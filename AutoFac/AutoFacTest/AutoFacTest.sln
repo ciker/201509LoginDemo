@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1 Autofac.DataModel", "Autofac.DataModel\1 Autofac.DataModel.csproj", "{49B813C2-FEAB-4874-AAA3-CA15749430C1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "6 AutoFac.Web", "AutoFac.Web\6 AutoFac.Web.csproj", "{D51289BD-C342-4EDE-94B2-A7DC3DE87558}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3 Autofac.UnitOfWork", "Autofac.UnitOfWork\3 Autofac.UnitOfWork.csproj", "{547D18A1-011E-4BCA-9765-70EE23E75B19}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2 Autofac.Repository", "Autofac.Repository\2 Autofac.Repository.csproj", "{661C8DC7-E299-4395-94AC-922A60D4AEB3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "4 Autofac.CoreService", "Autofac.CoreService\4 Autofac.CoreService.csproj", "{9422094C-B7B5-4B85-84E4-B55F382E4219}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "7 Autofac.ViewModel", "Autofac.ViewModel\7 Autofac.ViewModel.csproj", "{869696DD-731C-4549-8B62-AA0D66D0832C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "5 Autofac.Controllers", "Autofac.Controllers\5 Autofac.Controllers.csproj", "{670D4242-67AB-40E6-A455-FA24F92A35B5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{49B813C2-FEAB-4874-AAA3-CA15749430C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49B813C2-FEAB-4874-AAA3-CA15749430C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49B813C2-FEAB-4874-AAA3-CA15749430C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49B813C2-FEAB-4874-AAA3-CA15749430C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D51289BD-C342-4EDE-94B2-A7DC3DE87558}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D51289BD-C342-4EDE-94B2-A7DC3DE87558}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D51289BD-C342-4EDE-94B2-A7DC3DE87558}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D51289BD-C342-4EDE-94B2-A7DC3DE87558}.Release|Any CPU.Build.0 = Release|Any CPU
+		{547D18A1-011E-4BCA-9765-70EE23E75B19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{547D18A1-011E-4BCA-9765-70EE23E75B19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{547D18A1-011E-4BCA-9765-70EE23E75B19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{547D18A1-011E-4BCA-9765-70EE23E75B19}.Release|Any CPU.Build.0 = Release|Any CPU
+		{661C8DC7-E299-4395-94AC-922A60D4AEB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{661C8DC7-E299-4395-94AC-922A60D4AEB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{661C8DC7-E299-4395-94AC-922A60D4AEB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{661C8DC7-E299-4395-94AC-922A60D4AEB3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9422094C-B7B5-4B85-84E4-B55F382E4219}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9422094C-B7B5-4B85-84E4-B55F382E4219}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9422094C-B7B5-4B85-84E4-B55F382E4219}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9422094C-B7B5-4B85-84E4-B55F382E4219}.Release|Any CPU.Build.0 = Release|Any CPU
+		{869696DD-731C-4549-8B62-AA0D66D0832C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{869696DD-731C-4549-8B62-AA0D66D0832C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{869696DD-731C-4549-8B62-AA0D66D0832C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{869696DD-731C-4549-8B62-AA0D66D0832C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{670D4242-67AB-40E6-A455-FA24F92A35B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{670D4242-67AB-40E6-A455-FA24F92A35B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{670D4242-67AB-40E6-A455-FA24F92A35B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{670D4242-67AB-40E6-A455-FA24F92A35B5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,16 @@
+D:\AutoFac\AutoFacTest\Autofac.CoreService\bin\Debug\Autofac.CoreService.dll
+D:\AutoFac\AutoFacTest\Autofac.CoreService\bin\Debug\Autofac.CoreService.pdb
+D:\AutoFac\AutoFacTest\Autofac.CoreService\bin\Debug\Autofac.DataModel.dll
+D:\AutoFac\AutoFacTest\Autofac.CoreService\bin\Debug\Autofac.Repository.dll
+D:\AutoFac\AutoFacTest\Autofac.CoreService\bin\Debug\Autofac.UnitOfWork.dll
+D:\AutoFac\AutoFacTest\Autofac.CoreService\bin\Debug\Autofac.ViewModel.dll
+D:\AutoFac\AutoFacTest\Autofac.CoreService\bin\Debug\EntityFramework.dll
+D:\AutoFac\AutoFacTest\Autofac.CoreService\bin\Debug\Autofac.DataModel.pdb
+D:\AutoFac\AutoFacTest\Autofac.CoreService\bin\Debug\Autofac.Repository.pdb
+D:\AutoFac\AutoFacTest\Autofac.CoreService\bin\Debug\Autofac.UnitOfWork.pdb
+D:\AutoFac\AutoFacTest\Autofac.CoreService\bin\Debug\Autofac.ViewModel.pdb
+D:\AutoFac\AutoFacTest\Autofac.CoreService\bin\Debug\EntityFramework.xml
+D:\AutoFac\AutoFacTest\Autofac.CoreService\bin\Debug\zh-Hans\EntityFramework.resources.dll
+D:\AutoFac\AutoFacTest\Autofac.CoreService\obj\Debug\4 Autofac.CoreService.csprojResolveAssemblyReference.cache
+D:\AutoFac\AutoFacTest\Autofac.CoreService\obj\Debug\Autofac.CoreService.dll
+D:\AutoFac\AutoFacTest\Autofac.CoreService\obj\Debug\Autofac.CoreService.pdb

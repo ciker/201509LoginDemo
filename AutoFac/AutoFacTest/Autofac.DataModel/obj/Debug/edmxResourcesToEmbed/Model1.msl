@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="VehicleCheckDBModelStoreContainer" CdmEntityContainer="VehicleCheckDBEntities">
+    <EntitySetMapping Name="Sys_Roles">
+      <EntityTypeMapping TypeName="VehicleCheckDBModel.Sys_Roles">
+        <MappingFragment StoreEntitySet="Sys_Roles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+          <ScalarProperty Name="RoleDesc" ColumnName="RoleDesc" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sys_User">
+      <EntityTypeMapping TypeName="VehicleCheckDBModel.Sys_User">
+        <MappingFragment StoreEntitySet="Sys_User">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserTrueName" ColumnName="UserTrueName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="PreIpAddress" ColumnName="PreIpAddress" />
+          <ScalarProperty Name="PreDate" ColumnName="PreDate" />
+          <ScalarProperty Name="LastIpAddress" ColumnName="LastIpAddress" />
+          <ScalarProperty Name="LastDate" ColumnName="LastDate" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sys_User_Roles">
+      <EntityTypeMapping TypeName="VehicleCheckDBModel.Sys_User_Roles">
+        <MappingFragment StoreEntitySet="Sys_User_Roles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

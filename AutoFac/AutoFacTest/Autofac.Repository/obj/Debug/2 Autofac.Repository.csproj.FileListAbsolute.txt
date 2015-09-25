@@ -1,0 +1,13 @@
+D:\AutoFac\AutoFacTest\Autofac.Repository\bin\Debug\Autofac.Repository.dll
+D:\AutoFac\AutoFacTest\Autofac.Repository\bin\Debug\Autofac.Repository.pdb
+D:\AutoFac\AutoFacTest\Autofac.Repository\bin\Debug\Autofac.DataModel.dll
+D:\AutoFac\AutoFacTest\Autofac.Repository\bin\Debug\EntityFramework.dll
+D:\AutoFac\AutoFacTest\Autofac.Repository\bin\Debug\EntityFramework.SqlServer.dll
+D:\AutoFac\AutoFacTest\Autofac.Repository\bin\Debug\Autofac.DataModel.pdb
+D:\AutoFac\AutoFacTest\Autofac.Repository\bin\Debug\EntityFramework.xml
+D:\AutoFac\AutoFacTest\Autofac.Repository\bin\Debug\EntityFramework.SqlServer.xml
+D:\AutoFac\AutoFacTest\Autofac.Repository\bin\Debug\zh-Hans\EntityFramework.resources.dll
+D:\AutoFac\AutoFacTest\Autofac.Repository\bin\Debug\zh-Hans\EntityFramework.SqlServer.resources.dll
+D:\AutoFac\AutoFacTest\Autofac.Repository\obj\Debug\2 Autofac.Repository.csprojResolveAssemblyReference.cache
+D:\AutoFac\AutoFacTest\Autofac.Repository\obj\Debug\Autofac.Repository.dll
+D:\AutoFac\AutoFacTest\Autofac.Repository\obj\Debug\Autofac.Repository.pdb

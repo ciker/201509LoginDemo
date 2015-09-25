@@ -1,0 +1,26 @@
+D:\AutoFac\AutoFacTest\Autofac.Controllers\bin\Debug\Autofac.Controllers.dll
+D:\AutoFac\AutoFacTest\Autofac.Controllers\bin\Debug\Autofac.Controllers.pdb
+D:\AutoFac\AutoFacTest\Autofac.Controllers\bin\Debug\Autofac.CoreService.dll
+D:\AutoFac\AutoFacTest\Autofac.Controllers\bin\Debug\Autofac.DataModel.dll
+D:\AutoFac\AutoFacTest\Autofac.Controllers\bin\Debug\Autofac.ViewModel.dll
+D:\AutoFac\AutoFacTest\Autofac.Controllers\bin\Debug\Newtonsoft.Json.dll
+D:\AutoFac\AutoFacTest\Autofac.Controllers\bin\Debug\System.Web.Http.dll
+D:\AutoFac\AutoFacTest\Autofac.Controllers\bin\Debug\Autofac.Repository.dll
+D:\AutoFac\AutoFacTest\Autofac.Controllers\bin\Debug\Autofac.UnitOfWork.dll
+D:\AutoFac\AutoFacTest\Autofac.Controllers\bin\Debug\EntityFramework.dll
+D:\AutoFac\AutoFacTest\Autofac.Controllers\bin\Debug\System.Net.Http.Formatting.dll
+D:\AutoFac\AutoFacTest\Autofac.Controllers\bin\Debug\Autofac.CoreService.pdb
+D:\AutoFac\AutoFacTest\Autofac.Controllers\bin\Debug\Autofac.DataModel.pdb
+D:\AutoFac\AutoFacTest\Autofac.Controllers\bin\Debug\Autofac.ViewModel.pdb
+D:\AutoFac\AutoFacTest\Autofac.Controllers\bin\Debug\Newtonsoft.Json.xml
+D:\AutoFac\AutoFacTest\Autofac.Controllers\bin\Debug\System.Web.Http.xml
+D:\AutoFac\AutoFacTest\Autofac.Controllers\bin\Debug\Autofac.Repository.pdb
+D:\AutoFac\AutoFacTest\Autofac.Controllers\bin\Debug\Autofac.UnitOfWork.pdb
+D:\AutoFac\AutoFacTest\Autofac.Controllers\bin\Debug\EntityFramework.xml
+D:\AutoFac\AutoFacTest\Autofac.Controllers\bin\Debug\System.Net.Http.Formatting.xml
+D:\AutoFac\AutoFacTest\Autofac.Controllers\bin\Debug\zh-Hans\System.Web.Http.resources.dll
+D:\AutoFac\AutoFacTest\Autofac.Controllers\bin\Debug\zh-Hans\EntityFramework.resources.dll
+D:\AutoFac\AutoFacTest\Autofac.Controllers\bin\Debug\zh-Hans\System.Net.Http.Formatting.resources.dll
+D:\AutoFac\AutoFacTest\Autofac.Controllers\obj\Debug\5 Autofac.Controllers.csprojResolveAssemblyReference.cache
+D:\AutoFac\AutoFacTest\Autofac.Controllers\obj\Debug\Autofac.Controllers.dll
+D:\AutoFac\AutoFacTest\Autofac.Controllers\obj\Debug\Autofac.Controllers.pdb

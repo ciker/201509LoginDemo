@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="VehicleCheckDBModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="VehicleCheckDBEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="Sys_Roles" EntityType="VehicleCheckDBModel.Sys_Roles" />
+    <EntitySet Name="Sys_User" EntityType="VehicleCheckDBModel.Sys_User" />
+    <EntitySet Name="Sys_User_Roles" EntityType="VehicleCheckDBModel.Sys_User_Roles" />
+  </EntityContainer>
+  <EntityType Name="Sys_Roles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="RoleName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="RoleDesc" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="CreateDate" Type="DateTime" Precision="0" />
+    <Property Name="Status" Type="Int16" />
+  </EntityType>
+  <EntityType Name="Sys_User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="UserTrueName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Code" Type="String" MaxLength="6" Unicode="false" FixedLength="false" />
+    <Property Name="PreIpAddress" Type="String" MaxLength="16" Unicode="false" FixedLength="false" />
+    <Property Name="PreDate" Type="DateTime" Precision="0" />
+    <Property Name="LastIpAddress" Type="String" MaxLength="16" Unicode="false" FixedLength="false" />
+    <Property Name="LastDate" Type="DateTime" Precision="0" />
+    <Property Name="Status" Type="Int16" />
+  </EntityType>
+  <EntityType Name="Sys_User_Roles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="RoleId" Type="Int32" Nullable="false" />
+  </EntityType>
+</Schema>

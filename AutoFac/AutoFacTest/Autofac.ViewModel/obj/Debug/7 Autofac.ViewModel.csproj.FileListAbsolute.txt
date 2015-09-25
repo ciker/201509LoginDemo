@@ -1,0 +1,5 @@
+D:\AutoFac\AutoFacTest\Autofac.ViewModel\bin\Debug\Autofac.ViewModel.dll
+D:\AutoFac\AutoFacTest\Autofac.ViewModel\bin\Debug\Autofac.ViewModel.pdb
+D:\AutoFac\AutoFacTest\Autofac.ViewModel\obj\Debug\7 Autofac.ViewModel.csprojResolveAssemblyReference.cache
+D:\AutoFac\AutoFacTest\Autofac.ViewModel\obj\Debug\Autofac.ViewModel.dll
+D:\AutoFac\AutoFacTest\Autofac.ViewModel\obj\Debug\Autofac.ViewModel.pdb

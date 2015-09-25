@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="VehicleCheckDBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="VehicleCheckDBModelStoreContainer">
+          <EntitySet Name="Sys_Roles" EntityType="VehicleCheckDBModel.Store.Sys_Roles" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Sys_User" EntityType="VehicleCheckDBModel.Store.Sys_User" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Sys_User_Roles" EntityType="VehicleCheckDBModel.Store.Sys_User_Roles" store:Type="Tables" Schema="dbo" />
+        </EntityContainer>
+        <EntityType Name="Sys_Roles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="RoleName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="RoleDesc" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreateDate" Type="smalldatetime" />
+          <Property Name="Status" Type="smallint" />
+        </EntityType>
+        <EntityType Name="Sys_User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="UserTrueName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Password" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="CreateDate" Type="smalldatetime" Nullable="false" />
+          <Property Name="Code" Type="varchar" MaxLength="6" />
+          <Property Name="PreIpAddress" Type="varchar" MaxLength="16" />
+          <Property Name="PreDate" Type="smalldatetime" />
+          <Property Name="LastIpAddress" Type="varchar" MaxLength="16" />
+          <Property Name="LastDate" Type="smalldatetime" />
+          <Property Name="Status" Type="smallint" />
+        </EntityType>
+        <EntityType Name="Sys_User_Roles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="RoleId" Type="int" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="VehicleCheckDBModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="VehicleCheckDBEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Sys_Roles" EntityType="VehicleCheckDBModel.Sys_Roles" />
+          <EntitySet Name="Sys_User" EntityType="VehicleCheckDBModel.Sys_User" />
+          <EntitySet Name="Sys_User_Roles" EntityType="VehicleCheckDBModel.Sys_User_Roles" />
+        </EntityContainer>
+        <EntityType Name="Sys_Roles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="RoleDesc" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="CreateDate" Type="DateTime" Precision="0" />
+          <Property Name="Status" Type="Int16" />
+        </EntityType>
+        <EntityType Name="Sys_User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="UserTrueName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Code" Type="String" MaxLength="6" Unicode="false" FixedLength="false" />
+          <Property Name="PreIpAddress" Type="String" MaxLength="16" Unicode="false" FixedLength="false" />
+          <Property Name="PreDate" Type="DateTime" Precision="0" />
+          <Property Name="LastIpAddress" Type="String" MaxLength="16" Unicode="false" FixedLength="false" />
+          <Property Name="LastDate" Type="DateTime" Precision="0" />
+          <Property Name="Status" Type="Int16" />
+        </EntityType>
+        <EntityType Name="Sys_User_Roles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="RoleId" Type="Int32" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="VehicleCheckDBModelStoreContainer" CdmEntityContainer="VehicleCheckDBEntities">
+          <EntitySetMapping Name="Sys_Roles">
+            <EntityTypeMapping TypeName="VehicleCheckDBModel.Sys_Roles">
+              <MappingFragment StoreEntitySet="Sys_Roles">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+                <ScalarProperty Name="RoleDesc" ColumnName="RoleDesc" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sys_User">
+            <EntityTypeMapping TypeName="VehicleCheckDBModel.Sys_User">
+              <MappingFragment StoreEntitySet="Sys_User">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserTrueName" ColumnName="UserTrueName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="PreIpAddress" ColumnName="PreIpAddress" />
+                <ScalarProperty Name="PreDate" ColumnName="PreDate" />
+                <ScalarProperty Name="LastIpAddress" ColumnName="LastIpAddress" />
+                <ScalarProperty Name="LastDate" ColumnName="LastDate" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sys_User_Roles">
+            <EntityTypeMapping TypeName="VehicleCheckDBModel.Sys_User_Roles">
+              <MappingFragment StoreEntitySet="Sys_User_Roles">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

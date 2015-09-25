@@ -1,0 +1,90 @@
+﻿<style>
+    .form-control{width: 200px}
+</style>
+
+<form class="form-horizontal" role="form" method="POST" action="/ManageArea/home/SaveUser">
+    <input name="id" type="hidden" data-bind='value:Id' />
+    <div class="form-group">
+        <label for="" class="col-sm-2 control-label">UserName</label>
+        <div class="col-sm-10">
+            <input class="form-control" id="UserName" name="UserName" placeholder="UserName" data-bind='value: UserName'>
+        </div>
+
+    </div>
+    <div class="form-group">
+        <label for="" class="col-sm-2 control-label">Password</label>
+        <div class="col-sm-10">
+            <input type="password" class="form-control" id="Password" name="Password" placeholder="Password" data-bind='value: Password'>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="" class="col-sm-2 control-label">UserTrueName</label>
+        <div class="col-sm-10">
+            <input class="form-control" id="UserTrueName" name="UserTrueName" data-bind='value: UserTrueName' placeholder="UserTrueName">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="" class="col-sm-2 control-label">Role</label>
+        <div class="col-sm-10">
+            @if (ViewBag.roles != null)
+            {
+                foreach (var item in ViewBag.roles)
+                {
+                    <input type="checkbox" class="form-control" name="Role" placeholder="Role" value="@item.Id" />@item.RoleName
+                }
+            }
+
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-default" data-bind="click:Register">Submit</button>
+        </div>
+    </div>
+
+</form>
+@section Script {
+    <script>
+        var data = @MvcHtmlString.Create(ViewBag.user)
+        function ViewModel(){
+            var self = this;
+            self.Id = ko.observable(data.Id);
+                
+            self.UserName = ko.observable(data.UserName).extend({
+                required: { params: true, message: "请输入UserName" },
+            });
+
+            self.Password = ko.observable().extend({
+                minLength: 2,
+                maxLength: { params: 30, message: "密码名称最大长度为30个字符" },
+                required: {
+                    params: true,
+                    message: "请输入Password",
+                }
+            });
+
+
+            self.UserTrueName = ko.observable(data.UserTrueName).extend({
+                required: {
+                    params: true,
+                    message: "请输入UserTrueName"
+                }
+            });
+
+            self.Register = function() {
+                self.errors = ko.validation.group(self);
+                if (self.isValid()) {
+                    return true;
+                } else {
+                    self.errors.showAllMessages();
+                }
+            };
+        }
+        $(document).ready(function(){
+            var vm=new ViewModel();
+            ko.applyBindings(vm);
+        })
+    </script>
+}
