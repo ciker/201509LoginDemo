@@ -3,7 +3,7 @@ using System.Data.Entity;
 
 namespace LoginDemo.Entity
 {
-    public class User : BaseEntity // DbContext,
+    public class User : BaseEntity//, DbContext
     {
         /// <summary>
         /// Id
