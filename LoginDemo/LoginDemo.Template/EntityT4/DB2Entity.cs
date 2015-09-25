@@ -4,7 +4,7 @@
  * Function  ： DTO (Data Model)
  * Structure ：
  * Author    ：(程正国)JangoCheng
- * CreateDate：2015-09-23 10:09:36 
+ * CreateDate：2015-09-25 15:24:19 
  * History   ：
  * ****************************************************************************************
  * Modified *******************************************************************************             
@@ -27,7 +27,7 @@ namespace LoginDemo.Entity
         /// <summary>
         /// ID 
         /// </summary>
-        public string ID { get; set; }
+        public long ID { get; set; }
 
         /// <summary>
         /// PASSWORD 

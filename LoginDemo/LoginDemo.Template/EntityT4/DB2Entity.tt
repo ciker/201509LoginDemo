@@ -220,6 +220,10 @@ public class <#= tableName #>
                      typeStr=isNull=="true"? "?":"";
                      return "Guid"+typeStr;
                      break;
+                case "bigint":
+                    typeStr=isNull=="true"? "?":"";
+                     return "long"+typeStr;
+                    break;
                  default:
                      return "string"+typeStr;
                      break;
