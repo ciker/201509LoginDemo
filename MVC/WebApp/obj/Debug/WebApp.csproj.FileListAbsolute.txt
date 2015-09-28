@@ -1,0 +1,10 @@
+D:\201509LoginDemo\MVC\WebApp\bin\WebApp.dll.config
+D:\201509LoginDemo\MVC\WebApp\bin\WebApp.dll
+D:\201509LoginDemo\MVC\WebApp\bin\WebApp.pdb
+D:\201509LoginDemo\MVC\WebApp\bin\Mvc.dll
+D:\201509LoginDemo\MVC\WebApp\bin\UrlRouting.dll
+D:\201509LoginDemo\MVC\WebApp\bin\Mvc.pdb
+D:\201509LoginDemo\MVC\WebApp\bin\UrlRouting.pdb
+D:\201509LoginDemo\MVC\WebApp\obj\Debug\WebApp.csprojResolveAssemblyReference.cache
+D:\201509LoginDemo\MVC\WebApp\obj\Debug\WebApp.dll
+D:\201509LoginDemo\MVC\WebApp\obj\Debug\WebApp.pdb
