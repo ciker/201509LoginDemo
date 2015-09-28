@@ -4,3 +4,6 @@ D:\EmitDemo\EmitDemo\EmitDemo.Console\bin\Debug\EmitDemo.Console.pdb
 D:\EmitDemo\EmitDemo\EmitDemo.Console\obj\Debug\EmitDemo.Console.csprojResolveAssemblyReference.cache
 D:\EmitDemo\EmitDemo\EmitDemo.Console\obj\Debug\EmitDemo.Console.exe
 D:\EmitDemo\EmitDemo\EmitDemo.Console\obj\Debug\EmitDemo.Console.pdb
+D:\201509LoginDemo\EmitDemo\EmitDemo\EmitDemo.Console\bin\Debug\EmitDemo.Console.exe.config
+D:\201509LoginDemo\EmitDemo\EmitDemo\EmitDemo.Console\obj\Debug\EmitDemo.Console.exe
+D:\201509LoginDemo\EmitDemo\EmitDemo\EmitDemo.Console\obj\Debug\EmitDemo.Console.pdb

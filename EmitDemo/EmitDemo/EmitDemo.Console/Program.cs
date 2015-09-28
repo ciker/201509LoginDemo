@@ -98,6 +98,9 @@ namespace EmitDemo.Console
             {
 
                 //:TODO need  to judge the type of the value
+
+
+
                 ilGenerator.Emit(OpCodes.Ldloc_0);
                 //ilGenerator.Emit(OpCodes.Ldc_I4, 0x463);
                 ilGenerator.Emit(OpCodes.Ldc_I4, 1123);
