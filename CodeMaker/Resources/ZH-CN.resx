@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="qingxuanzelujing" xml:space="preserve">
+    <value>请选择数据库文件的放存路径：</value>
+  </data>
+  <data name="Upgrade" xml:space="preserve">
+    <value>已经超过6天的试用期，请在“系统登录”处升级</value>
+  </data>
+  <data name="caozuotishi" xml:space="preserve">
+    <value>操作提示</value>
+  </data>
+  <data name="lianjieshujuyuan" xml:space="preserve">
+    <value>连接数据源</value>
+  </data>
+  <data name="lujingbucunzai" xml:space="preserve">
+    <value>路径不存在</value>
+  </data>
+  <data name="jishuboke" xml:space="preserve">
+    <value>技术博客</value>
+  </data>
+  <data name="houqushujuyuan" xml:space="preserve">
+    <value>获取数据源</value>
+  </data>
+  <data name="ceshishibai" xml:space="preserve">
+    <value>测试失败</value>
+  </data>
+  <data name="shengchengxiangmu" xml:space="preserve">
+    <value>生成项目</value>
+  </data>
+  <data name="shujuku" xml:space="preserve">
+    <value>数据库</value>
+  </data>
+  <data name="LatestVersion" xml:space="preserve">
+    <value>当前不是最新版本，请下载并安装最新版本</value>
+  </data>
+  <data name="shiyongshuoming" xml:space="preserve">
+    <value>使用说明</value>
+  </data>
+  <data name="biaomeiyouzhujian" xml:space="preserve">
+    <value>{0}({1}) 表没有主键</value>
+  </data>
+  <data name="baocunchenggong" xml:space="preserve">
+    <value>保存成功</value>
+  </data>
+  <data name="jiejuefangan" xml:space="preserve">
+    <value>解决方案生成成功，并将自动关闭系统。请更新DAL层的Model1.edmx文件</value>
+  </data>
+  <data name="wenjianbucunzai" xml:space="preserve">
+    <value>文件不存在</value>
+  </data>
+  <data name="wodegongzuotai" xml:space="preserve">
+    <value>我的工作台</value>
+  </data>
+  <data name="AwayTrialPeriod" xml:space="preserve">
+    <value>距离试用期还有{0}天</value>
+  </data>
+  <data name="dakai" xml:space="preserve">
+    <value>打开</value>
+  </data>
+  <data name="nihao" xml:space="preserve">
+    <value>您好，当前版本是V {0}</value>
+  </data>
+  <data name="ruyouyiwen" xml:space="preserve">
+    <value>如有疑问，请发邮件到 ben@langben.com</value>
+  </data>
+  <data name="yanzhengmabunengweikong" xml:space="preserve">
+    <value>验证码不能为空</value>
+  </data>
+  <data name="shengchengdao" xml:space="preserve">
+    <value>您确定将项目生成到 "{0}"吗?</value>
+  </data>
+  <data name="shitu" xml:space="preserve">
+    <value>视图</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>狼奔代码生成器</value>
+  </data>
+  <data name="youxiangbunengweikong" xml:space="preserve">
+    <value>邮箱不能为空</value>
+  </data>
+  <data name="CheckNetwork" xml:space="preserve">
+    <value>请检查你当前的网络是否畅通，稍后再试</value>
+  </data>
+  <data name="guanfangwangzhan" xml:space="preserve">
+    <value>官方网站</value>
+  </data>
+  <data name="xitongdenglu" xml:space="preserve">
+    <value>系统登录</value>
+  </data>
+  <data name="mingmingkongjian" xml:space="preserve">
+    <value>命名空间</value>
+  </data>
+  <data name="shengchengweizhi" xml:space="preserve">
+    <value>生成位置</value>
+  </data>
+  <data name="shujuyuan" xml:space="preserve">
+    <value>数据源({0})</value>
+  </data>
+  <data name="jiaoliuluntan" xml:space="preserve">
+    <value>权限管理系统</value>
+  </data>
+  <data name="qinghedui" xml:space="preserve">
+    <value>邮箱或者验证码不正确，请核对后再试</value>
+  </data>
+  <data name="xitongshezhi" xml:space="preserve">
+    <value>系统设置</value>
+  </data>
+  <data name="jihuochenggong" xml:space="preserve">
+    <value>激活成功!</value>
+  </data>
+  <data name="shujuyuancunfanglujing" xml:space="preserve">
+    <value>数据源存放路径</value>
+  </data>
+  <data name="tuichu" xml:space="preserve">
+    <value>退出</value>
+  </data>
+  <data name="zhidingshengchengweizhi" xml:space="preserve">
+    <value>您可以在“系统设置”中指定生成位置</value>
+  </data>
+  <data name="ceshichenggong" xml:space="preserve">
+    <value>测试成功</value>
+  </data>
+  <data name="biao" xml:space="preserve">
+    <value>表</value>
+  </data>
+  <data name="shuaxinxiangmu" xml:space="preserve">
+    <value>刷新项目</value>
+  </data>
+</root>

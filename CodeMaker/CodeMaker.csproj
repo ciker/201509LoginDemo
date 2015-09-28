@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <!--Project was exported from assembly: D:\langben6.1狼奔代码生成器\langben6.1\CodeMaker.exe-->
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{108BC39D-09EF-43CE-AC2C-0591E980C2F7}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AssemblyName>CodeMaker</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+    <ApplicationVersion>1.0.0.0</ApplicationVersion>
+    <FileAlignment>512</FileAlignment>
+    <RootNamespace>CodeMaker</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="DataBuilder">
+      <HintPath>lib\DataBuilder.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="MagicLocalLibrary">
+      <HintPath>lib\MagicLocalLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="DataAccess">
+      <HintPath>lib\DataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Management" />
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>lib\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseClass.cs" />
+    <Compile Include="AddSolution.cs" />
+    <Compile Include="BaseMain.cs" />
+    <Compile Include="EncryptAndDecrypte.cs" />
+    <Compile Include="Form1.cs" />
+    <Compile Include="FrmData.cs" />
+    <Compile Include="FrmLogin.cs" />
+    <Compile Include="FrmStart.cs" />
+    <Compile Include="FrmSystemSet.cs" />
+    <Compile Include="FrmTree.cs" />
+    <Compile Include="BaseBusiness.cs" />
+    <Compile Include="RefIdName.cs" />
+    <Compile Include="View.cs" />
+    <Compile Include="DataFactory.cs" />
+    <Compile Include="DataOfPowerDesigner.cs" />
+    <Compile Include="DataType.cs" />
+    <Compile Include="DataOfSQLSerser2005.cs" />
+    <Compile Include="AnalyticPDM.cs" />
+    <Compile Include="BLL.cs" />
+    <Compile Include="Common.cs" />
+    <Compile Include="Controllers.cs" />
+    <Compile Include="Create.cs" />
+    <Compile Include="Details.cs" />
+    <Compile Include="Edit.cs" />
+    <Compile Include="Index.cs" />
+    <Compile Include="IBLL.cs" />
+    <Compile Include="Models.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Repository.cs" />
+    <Compile Include="Table.cs" />
+    <Compile Include="RoundFormPainter.cs" />
+    <Compile Include="Wcf.cs" />
+    <Compile Include="Workflow.cs" />
+    <Compile Include="Resources\EN_US.cs" />
+    <Compile Include="Resources\ZH_CN.cs" />
+    <Compile Include="ServiceReference1\SysException.cs" />
+    <Compile Include="ServiceReference1\IVersion.cs" />
+    <Compile Include="ServiceReference1\IVersionChannel.cs" />
+    <Compile Include="ServiceReference1\VersionClient.cs" />
+    <Compile Include="Properties\Resources.cs" />
+    <Compile Include="Properties\Settings.cs" />
+    <Compile Include="AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="BaseMain.resx" />
+    <EmbeddedResource Include="Form1.resx" />
+    <EmbeddedResource Include="FrmData.resx" />
+    <EmbeddedResource Include="FrmLogin.resx" />
+    <EmbeddedResource Include="FrmStart.resx" />
+    <EmbeddedResource Include="FrmSystemSet.resx" />
+    <EmbeddedResource Include="FrmTree.resx" />
+    <EmbeddedResource Include="Properties\Resources.resx" />
+    <EmbeddedResource Include="Resources\EN-US.resx" />
+    <EmbeddedResource Include="Resources\ZH-CN.resx" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
