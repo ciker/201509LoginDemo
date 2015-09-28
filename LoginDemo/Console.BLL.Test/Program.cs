@@ -10,6 +10,7 @@ using LoginDemo.Entity;
 using LoginDemo.Entity.UserAccount;
 using LoginDemo.Entity.UserAccount.QueryParameter;
 using System.Linq;
+using System.Net.Http;
 using LoginDemo.ViewModels.UserInfo;
 using Console = System.Console;
 
@@ -19,7 +20,7 @@ namespace Login.BLL.Test
     {
         #region properties
         private static readonly UserBLL UserBll = new UserBLL(new UserDAL());
-        private static readonly UserAccountBLL UserinfoBll =new UserAccountBLL(new UserInfoDAL(), new UserInfoAccountDAL());
+        private static readonly UserAccountBLL UserinfoBll = new UserAccountBLL(new UserInfoDAL(), new UserInfoAccountDAL());
         private const int ParallelNum = 8000;//parallel num
         private const int ParallelMaxThreadNum = 180;//parallel max thread num
         private const int NormalMaxThreadNum = 185;//normal max thread num 
@@ -44,12 +45,15 @@ namespace Login.BLL.Test
             //////aTimer.Enabled = true;
             #endregion
 
-            var currentDomain = AppDomain.CurrentDomain;
-            var assemblies = currentDomain.GetAssemblies();
-            foreach (var assembly in assemblies)
-            {
-                Write(assembly.ToString());
-            }
+            var st = getCnblogsContent();
+            Write(st.Result);
+
+            //var currentDomain = AppDomain.CurrentDomain;
+            //var assemblies = currentDomain.GetAssemblies();
+            //foreach (var assembly in assemblies)
+            //{
+            //    Write(assembly.ToString());
+            //}
 
             //UserParallelTest();// register parallel test 
             //UserInfoParallelTest();
@@ -474,6 +478,13 @@ namespace Login.BLL.Test
                 str += chars[seed];
             }
             return str;
+        }
+
+        private static Task<string> getCnblogsContent()
+        {
+            HttpClient httpClient = new HttpClient();
+            Write("let's begin get content");
+            return httpClient.GetStringAsync("http://www.cnblogs.com");
         }
         #endregion
     }

@@ -18,3 +18,4 @@ D:\LoginDemo\MyLoginDemo\LoginDemo\LoginDemo.DAL.Test\bin\Release\ServiceStack.C
 D:\LoginDemo\MyLoginDemo\LoginDemo\LoginDemo.DAL.Test\obj\Release\LoginDemo.DAL.Test.csprojResolveAssemblyReference.cache
 D:\LoginDemo\MyLoginDemo\LoginDemo\LoginDemo.DAL.Test\obj\Release\LoginDemo.DAL.Test.dll
 D:\LoginDemo\MyLoginDemo\LoginDemo\LoginDemo.DAL.Test\obj\Release\LoginDemo.DAL.Test.pdb
+D:\201509LoginDemo\LoginDemo\LoginDemo.DAL.Test\obj\Release\LoginDemo.DAL.Test.csprojResolveAssemblyReference.cache
