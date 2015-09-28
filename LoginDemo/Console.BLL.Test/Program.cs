@@ -480,11 +480,13 @@ namespace Login.BLL.Test
             return str;
         }
 
-        private static Task<string> getCnblogsContent()
+        static async Task<string> getCnblogsContent()
         {
             HttpClient httpClient = new HttpClient();
+            var strTask = httpClient.GetStringAsync("http://www.baidu.com");
             Write("let's begin get content");
-            return httpClient.GetStringAsync("http://www.cnblogs.com");
+            var str = await strTask;
+            return str;
         }
         #endregion
     }
