@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <style type="text/css">
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        html {
+            background-color: #eee;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .div_top {
+            text-align: right;
+            padding: 8px;
+            padding-right: 25px;
+            background-color: #D7D4D4;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+            .div_top a, .div_top span {
+                color: #be7a7a;
+            }
+
+        span.red {
+            color: red;
+        }
+
+        span.VeriMess, span.ShowVeriMess {
+            font-size: 11px;
+            color: red;
+        }
+    </style>
+</head>
+<body>    
+    @Scripts.Render("~/bundles/ValidateAndAjax")  
+    <div>
+        <div class="div_top">
+            <a class="login" href="/UserManage/Login">登录</a><span> | </span>
+            <a class="regis" href="/UserManage/Regis">注册</a><span> | </span>
+            <a class="resetpass" href="/UserManage/ResetPass">重置密码</a>
+        </div>
+        @RenderBody()
+    </div>
+</body>
+</html>
+
+<script type="text/javascript">
+    //显示验证提示
+    function verimess(obj) {
+        if (!$(obj).val()) {
+            $(obj).parent().prev().find("span.VeriMess").removeClass("VeriMess").addClass("ShowVeriMess");
+        }
+        else {
+            $(obj).parent().prev().find("span.ShowVeriMess").removeClass("ShowVeriMess").addClass("VeriMess");
+        }
+    }
+</script>

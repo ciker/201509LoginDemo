@@ -1,0 +1,14 @@
+﻿@model List<string>
+
+<style type="text/css">
+   
+</style>
+@if (null != Model)
+{
+    foreach (var item in Model)
+    {
+        <div style="padding-top:10px">
+            <div>@Html.Raw(item)</div>
+        </div>
+    }
+}

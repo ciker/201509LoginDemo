@@ -1,0 +1,150 @@
+﻿html {
+    background-color: #eee;
+}
+
+.blog_head_operation {
+    /*margin-bottom: 10px;*/
+    background-color: #D7D4D4;
+    padding: 8px;
+    font-size: 14px;
+}
+
+    .blog_head_operation .userOperation {
+        float: right;
+        margin-right: 10px;
+        padding-top: 5px;
+    }
+
+body > div.blog_head_operation > a {
+    margin-left: 15px;
+    color: #b57979;
+}
+
+.blog_body {
+    margin-top: 50px;
+    width: 100%;
+	margin-left:5px;
+	margin-right:5px;
+}
+
+    .blog_body .blog_body_8 {
+        /*width: 80%;*/
+        /*float: left;*/
+    }
+
+        .blog_body .blog_body_8 .blog_List {
+            margin-left: 20px;
+            margin-right: 30px;
+            overflow: hidden;
+        }
+
+            .blog_body .blog_body_8 .blog_List .div_lastnext {
+                text-align: right;
+                margin: 10px;
+            }
+
+.redNum {
+    text-align: right;
+    margin-top: 5px;
+}
+
+.blog_body .blog_body_2 {
+    /*width: 20%;*/
+    /*float: left;*/
+    box-sizing: border-box;
+    padding-right: 25px;
+}
+    /*border: 1px dotted #c6bebe;*/
+    .blog_body .blog_body_2 .blog_users {
+        padding: 10px;
+        padding-top: 6px;
+        border: 1px dotted #c6bebe;
+        margin-top: 10px;
+    }
+
+        .blog_body .blog_body_2 .blog_users .a_blog_user {
+            color: #b57979;
+            margin-top: 6px;
+            display: block;
+        }
+
+.divlogo {
+    margin-left: 30px;
+}
+
+    .divlogo .a_logo {
+        color: #b57979;
+    }
+
+.text_soso {
+    background: #fff url('/Imgs/search_24px_1172758_easyicon.net.png') no-repeat;
+    text-indent: 24px;
+    height: 27px;
+    border: 1px solid #c6bebe;
+    float: left;
+    outline: 0px solid #c6bebe;
+    width: 80%;
+}
+
+.but_soso {
+    height: 27px;
+    width: 20%;
+    outline: none;
+    background-color: #D7D4D4;
+    border: 0px solid #ffffff;
+    color: #b57979;
+    font-size: 14px;
+    font-weight: 800;
+}
+
+    .but_soso:hover {
+        background-color: #e1d7d7;
+        border: 0px solid #ffffff;
+    }
+
+    .but_soso:active {
+        background-color: #beb7b7;
+        border: 0px solid #ffffff;
+    }
+
+
+.div_soso_n {
+    background-color: #D7D4D4;
+    padding: 3px;
+    width: 100%;
+}
+
+.div_logo {
+    float: left;
+}
+
+.span_logoname {
+    font-size: 16px;
+    font-weight: 700;
+    color: #b57979;
+    padding-left: 15px;
+}
+
+.footer a {
+    color: #484444;
+}
+
+    .footer a:hover {
+        color: red;
+    }
+
+.footer div {
+    margin-top: 3px;
+}
+
+.footer {
+    text-align: center;
+    width: 100%;
+    float: left;
+    margin-top: 60px;
+    padding: 10px;
+}
+
+.TrafficStatistics {
+    display: none;
+}

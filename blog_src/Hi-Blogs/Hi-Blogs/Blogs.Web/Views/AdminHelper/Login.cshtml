@@ -1,0 +1,43 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+    <style type="text/css">
+        .kuan {
+            border: 1px dashed #eee6e6;
+            margin: 3px;
+            margin-bottom: 20px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div class="kuan">
+            @using (Ajax.BeginForm(new AjaxOptions()
+                        {
+                            Url = Url.RouteUrl("ControllerAction", new { controller = "AdminHelper", action = "Login" }),
+                            OnSuccess = "OnSuccess",
+                            OnFailure = "OnFailure",
+                            HttpMethod = "Post"
+                        }))
+            {
+                <input type="text" name="pass" />
+                <input type="submit" value="login" />
+            }
+        </div>
+    </div>
+    <script type="text/javascript">
+        function OnSuccess()
+        { };
+        function OnFailure()
+        { };       
+    </script>
+</body>
+</html>

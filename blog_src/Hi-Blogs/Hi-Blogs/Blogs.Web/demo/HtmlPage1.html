@@ -1,0 +1,110 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+</head>
+<body>
+
+
+    <input type="text" class="inp_Pro" onclick="selectHot()" />
+    <span class="html_Pro"></span>省
+    <input type="text" class="inp_City" />
+    <span class="html_City"></span>市
+    <input type="text" class="inp_Area" />
+    <span class="html_Area"></span>区/县
+
+    <br />
+    <input type="text" class="" />省<input type="text" />市<input type="text" />区/县
+    <br />
+    <input type="text" class="" />省<input type="text" />市<input type="text" />区/县
+
+
+    <style type="text/css">
+        .clearfix:after {
+            content: ' ';
+            display: table;
+            clear: both;
+        }
+
+        .clearfix {
+            *zoom: 1;
+        }
+
+
+        .hot_div {
+            border: 1px solid #ddd;
+            background: #eee;
+            z-index: 99998;
+            width: 250px;
+            padding-bottom: 10px;
+            /*height: 180px;*/
+        }
+
+            .hot_div .title {
+                background: rgb(82, 101, 145);
+                color: #FFF;
+            }
+
+            .hot_div ul {
+                margin: 0;
+                padding: 0;
+            }
+
+            .hot_div li {
+                float: left;
+                padding: 3px;
+                text-align: center;
+                display: list-item;
+                /* border: 0 none;
+                margin: 0;
+                padding: 0;*/
+                list-style: none;
+            }
+    </style>
+    <script src="../Scripts/jquery-1.8.2.min.js"></script>
+    <script src="areaData.js"></script>
+    <script type="text/javascript">
+
+        function selectHot() {
+            $(".hot_div").remove();
+            var html_Pro = "";
+            html_Pro = "<div class='hot_div clearfix' style='position:absolute;left:" + $(".inp_Pro")[0].offsetLeft + "px;top:" + ($(".inp_Pro")[0].offsetTop + $(this)[0].offsetHeight) + "px;'><div class='title'>省</div><ul>";
+            provinceList.forEach(function (obj, index) {
+                html_Pro += "<li onclick='selectHotProvince(this, \"" + index + "\");'><a href='#'>" + obj.name + "</a></li>";
+            });
+            html_Pro += "</ul></div>";
+            $(".html_Pro").html(html_Pro);
+        }
+
+        function selectHotProvince(obj, index) {
+            $(".hot_div").remove();
+            $(".inp_Pro").val($(obj).find("a").html());
+            var html_City = "<div class='hot_div clearfix' style='position:absolute;left:" + $(".inp_City")[0].offsetLeft + "px;top:" + ($(".inp_City")[0].offsetTop + $(this)[0].offsetHeight) + "px;'><div class='title'>市</div><ul>";
+            provinceList[index].cityList.forEach(function (obj, findex) {
+                html_City += "<li onclick='selectHotCity(this, \"" + index + "\", \"" + findex + "\");'><a href='#'>" + obj.name + "</a></li>";
+            });
+            html_City += "</ul></div>";
+            if (provinceList[index].cityList.length > 0)
+                $(".html_City").html(html_City);
+        }
+
+        function selectHotCity(obj, pindex, index) {
+            $(".hot_div").remove();
+            $(".inp_City").val($(obj).find("a").html());
+            var html_Area = "<div class='hot_div clearfix' style='position:absolute;left:" + $(".inp_Area")[0].offsetLeft + "px;top:" + ($(".inp_Area")[0].offsetTop + $(this)[0].offsetHeight) + "px;'><div class='title'>区/县</div><ul>";
+            provinceList[pindex].cityList[index].areaList.forEach(function (obj, index) {
+                html_Area += "<li onclick='selectHotAreathis(this, \"" + index + "\");'><a href='#'>" + obj + "</a></li>";
+            });
+            html_Area += "</ul></div>";
+            if (provinceList[pindex].cityList[index].areaList.length)
+                $(".html_Area").html(html_Area);
+        }
+
+        function selectHotAreathis(obj, idnex) {
+            $(".hot_div").remove();
+            $(".inp_Area").val($(obj).find("a").html());
+        }
+    </script>
+</body>
+</html>

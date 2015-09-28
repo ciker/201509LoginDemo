@@ -1,0 +1,209 @@
+﻿<!DOCTYPE html>
+
+@{
+
+}
+
+<html>
+@*用户后台页面*@
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    <style type="text/css">
+        body {
+            background-color: #eee;
+        }
+
+        .div_head {
+            background-color: #D7D4D4;
+            padding: 8px;
+            font-size: 14px;
+        }
+
+        .div_body_2 {
+            float: left;
+            width: 20%;
+            border-right: 1px dashed #D7D4D4;
+            box-sizing: border-box;
+            padding: 8px;
+            padding-left: 10px;
+        }
+
+        .div_body_8 {
+            float: right;
+            width: 80%;
+            /*border: 1px dashed #f3ebeb;*/
+            box-sizing: border-box;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .userOperation {
+            float: right;
+            margin-right: 10px;
+            padding-top: 5px;
+        }
+
+        .divtitle {
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .divtitle_chi {
+            padding: 4px;
+        }
+
+        .body_head {
+            padding: 5px;
+            padding-left: 30px;
+            border: 1px dashed #eee;
+            background-color: #e0d6d6;
+            margin-bottom: 8px;
+        }
+
+            .body_head a {
+                color: #b57979;
+                font-size: 16px;
+                /*font-weight: 700;*/
+            }
+    </style>
+    @RenderSection("RenStyle", required: false)
+</head>
+<body>
+    @Scripts.Render("~/bundles/jquery")
+    @*<script src="~/Scripts/jquery-1.8.2.min.js"></script>
+        <script src="~/Scripts/blog/jquery.BlogCommon.js"></script>*@
+
+    <div>
+        @*头部*@
+        <div class="div_head clearfix">
+            <div style="float:left">
+                <a class="a_logo" href="/">
+                    <span style="font-size: 16px; font-weight: 700; color: #b57979; padding-left: 15px">嗨-博客</span>
+                    <img src="~/Imgs/bubble_message_hi_24px_1189254_easyicon.net.png" />
+                </a>
+            </div>
+            <div class="userOperation">
+                @*这里使用ajax异步加载  不然因为缓存信息   大家显示的  都是 同一个人的登录信息*@
+            </div>
+        </div>
+        @*正文*@
+        <div class="div_body clearfix">
+
+            <div class="div_body_2">
+                @RenderSection("bloy_2", false)
+            </div>
+            <div class="div_body_8">
+                <div class="body_head" style="">
+                    <a class="body_head_article" href="/Admin/Edit">文章</a>
+                    <a class="body_head_setup_pc" href="/Admin/ConfigurePC">DIY设置(PC端)</a>
+                    <a class="body_head_setup_m" href="/Admin/ConfigureMobile">DIY设置(移动端)</a>
+                </div>
+                @RenderBody()
+            </div>
+        </div>
+        @*尾部*@
+        <div class="div_footer" style="display:block"></div>
+    </div>
+
+    <script type="text/javascript">
+        $(function () {
+            $.post("@Url.RouteUrl("ControllerAction", new { controller = "Home", action = "BlogHead" })", "", function (obj) {
+                $(".userOperation").html(obj);
+            });
+        });
+
+        //新增类型
+        function addnewtype(obj) {
+            var strhtml = "<div class='newtype'><input type='text' class='text_newtype' onblur='newtype_onblur(this);'/></div>";
+            var chi = $(obj).parents(".divtitle_chi");
+            if (chi.find(".newtype").length <= 0) {
+                chi.append(strhtml).find(".text_newtype").focus();
+            }
+        }
+        //未分类
+        function nottype(obj) {
+
+        }
+
+        function newtype_onblur(obj) {
+            var value = $(obj).val();
+            if (!value) {
+                $(obj).parents(".newtype").remove();
+                return;
+            }
+            $.post("@Url.RouteUrl("ControllerAction", new { controller = "Admin", action = "NewAddType" })",
+                { "newtypename": value }, function (data) {
+                    if (ShowAjaxResult(data)) {
+
+                    }
+                });
+            var newhtml = "<a>" + value + "</a>";
+            $(obj).parents(".newtype").removeClass("newtype").addClass("divtitle_chi").html(newhtml);
+        }
+
+        //修改 文章 类型
+        function edittype(obj) {
+            $(obj).parents(".divtitle_chi").find(".text_newtype").unbind("blur");
+            if (!$(obj).next().hasClass("newtype")) {
+                var value = $(obj).next().html().trim();//取得 文章类型 名称
+                var typeid = $(obj).find(".hid_typeid").val();  //取得 文章类型id  onblur='edittype_onblur(this);'
+                var strhtml = "<div style='float:left' class='newtype'><input type='text' class='text_newtype' value='" + value + "' keyvalue='" + value + "' keyid='" + typeid + "' /></div>";
+                $(obj).next().css("display", "none"); // 隐藏原来显示的文章类型
+                $(obj).after(strhtml).next().find(".text_newtype").focus().bind("blur", function () {
+                    edittype_onblur($(obj).parents(".divtitle_chi").find(".text_newtype"));
+                });  //把 修改的文本元素添加 并获得焦点
+            }
+            else {
+                edittype_onblur($(obj).after(strhtml).next().find(".text_newtype"));
+            }
+        }
+        //鼠标移到目标的上方
+        function editover(obj) {
+            $(obj).parents(".divtitle_chi").find(".text_newtype").unbind("blur");
+            //$(".testmess").html("unbind");
+        }
+        //鼠标在目标的上方移动
+        function editmove(obj) {
+            $(obj).parents(".divtitle_chi").find(".text_newtype").unbind("blur");
+        }
+        //鼠标移出目标的上方
+        function editout(obj) {
+            //$(".testmess").html("bind");
+            $(obj).parents(".divtitle_chi").find(".text_newtype").unbind("blur");
+            $(obj).parents(".divtitle_chi").find(".text_newtype").bind("blur", function () {
+                // $(".testmess").html("bind");
+                edittype_onblur($(obj).parents(".divtitle_chi").find(".text_newtype"));
+            });
+        }
+
+        function edittype_onblur(obj) {
+            var value = $(obj).val().trim(); //新的文章类型
+            var typeid = $(obj).attr("keyid").trim();//类型ID
+            var oldvalue = $(obj).attr("keyvalue").trim();//旧的文章类型
+            if (!value || !typeid || value == oldvalue) { //1.如果值为空 2.如果类型id为空 3.如果没有修改 则直接返回
+                $(obj).parents(".newtype").next().css("display", "");
+                $(obj).parents(".newtype").remove();
+                return;
+            }
+            $.post("@Url.RouteUrl("ControllerAction", new { controller = "Admin", action = "EditType" })",
+            { "typename": value, "typeid": typeid }, function (data) {
+                if (ShowAjaxResult(data)) {
+                    $(obj).parents(".newtype").next().remove();
+                    var newhtml = "<a>" + value + "</a>";
+                    var newtype = $(obj).parents(".newtype")
+                    newtype.after(newhtml);
+                    newtype.remove();
+                }
+                else {
+                    $(obj).parents(".newtype").next().css("display", "");
+                    $(obj).parents(".newtype").remove();
+                }
+            });
+        }
+    </script>
+</body>
+</html>

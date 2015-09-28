@@ -1,0 +1,3 @@
+﻿1.此文件夹里面的类 主要用作数据验证。 
+  如：BlogUsersSetMet 中的 UserName不可为空    UserMail不可空和必须是邮箱格式
+  在tt文件生成的类中  [MetadataType(typeof(BlogUsersSetMet))] 绑定

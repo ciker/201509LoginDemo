@@ -1,0 +1,140 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    <style type="text/css">
+        .text_soso {
+            background: #fff url('/Imgs/search_24px_1172758_easyicon.net.png') no-repeat;
+            text-indent: 25px;
+            height: 27px;
+            border: 1px solid #c6bebe;
+            float: left;
+            outline: 0px solid #c6bebe;
+            width: 80%;
+        }
+
+        .but_soso {
+            height: 27px;
+            width: 20%;
+            outline: none;
+            background-color: #D7D4D4;
+            border: 0px solid #ffffff;
+            color: #b57979;
+            font-size: 14px;
+            font-weight: 800;
+        }
+
+            .but_soso:hover {
+                background-color: #e1d7d7;
+                border: 0px solid #ffffff;
+            }
+
+            .but_soso:active {
+                background-color: #beb7b7;
+                border: 0px solid #ffffff;
+            }
+
+
+        .div_soso_n {
+            background-color: #D7D4D4;
+            padding: 3px;
+            width: 50%;
+            margin: 5px auto;
+            margin-top: 15px;
+        }
+
+        .blog_head_operation {
+            margin-bottom: 10px;
+            background-color: #D7D4D4;
+            padding: 8px;
+            font-size: 14px;
+        }
+
+            .blog_head_operation .a_logo {
+                margin-left: 15px;
+                color: #b57979;
+            }
+
+            .blog_head_operation .userOperation {
+                float: right;
+                margin-right: 30px;
+            }
+    </style>
+</head>
+<body>
+    @Scripts.Render("~/bundles/jquery") 
+
+    <div class="blog_head_operation">
+        <a class="a_logo" href="/">
+            嗨！博客
+            <img src="~/Imgs/bubble_message_hi_16px_1189254_easyicon.net.png" />
+        </a>
+        <div class="userOperation">
+        </div>
+    </div>
+    <div class="divhead">
+        <div class="div_soso clearfix">
+            <div class="div_soso_n">
+                <input type="text" class="text_soso" onkeyup="sosokeyup()" />
+                <input class="but_soso" onclick="sosoclick()" type="button" value="搜索" title="hi-blog" />
+            </div>
+            <div style="text-align:center">
+                <a href="javascript:void(0)" onclick="last()">上一页</a>
+                <a href="javascript:void(0)" onclick="next()">下一页</a>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix">
+        <div class="divbody_8">
+            @RenderBody()
+        </div>
+        <div class="divbody_2">
+
+        </div>
+    </div>
+</body>
+</html>
+@*<script src="~/Scripts/blog/jquery.BlogCommon.js"></script>*@
+<script type="text/javascript">
+    //上一条
+    function last() {
+        var p = $.getUrlVar("p");
+        if (p) {
+            debugger;
+            p = parseInt(p);
+            if (p > 1) p--;
+            else {
+                return;
+            }
+            var url = window.location.href.substring(0, window.location.href.indexOf('?'));
+            url += "?key=" + $(".text_soso").val();
+            url += "&p=" + p;
+            location.href = url;
+        }
+    }
+    //下一条
+    function next() {
+        var p = $.getUrlVar("p");
+        if (p) {
+            p = parseInt(p);
+            p++;
+            var url = window.location.href.substring(0, window.location.href.indexOf('?'));
+            url += "?key=" + $(".text_soso").val();
+            url += "&p=" + p;
+            location.href = url;
+        }
+    }
+
+    $(function () {
+        $(".text_soso").val(decodeURIComponent($.getUrlVar("key")));
+
+        $.post("@Url.RouteUrl("ControllerAction", new { controller = "Home", action = "BlogHead" })", "", function (obj) {
+            $(".userOperation").html(obj);
+        });
+    });
+
+</script>
+

@@ -1,0 +1,109 @@
+﻿@model Dictionary<string, object>
+@{
+    ViewBag.Title = "标签";
+
+    BlogUsersSet user = ((BlogUsersSet)Model[Constant.blogUser]);
+    BlogUsersSet sessionuser = (BlogUsersSet)Model[Constant.SessionUser];
+    ViewBag.Keywords = "标签";
+    ViewBag.Description = "标签";
+
+    var total = (int)Model["total"];
+
+}
+@*<link href="~/Content/blogs/default/GetTagBlogsCSS.css" rel="stylesheet" />*@
+<style></style>
+@if (null != Model && Model.Keys.Contains("tag"))
+{
+    <h3>文章标签: @Model["tag"].ToString()</h3>
+}
+
+@if (null != Model && Model.Keys.Contains("blog"))
+{
+    if (total > 1)
+    {
+        <div class="divPageNum">
+            <a class="a_total">共<span class="span_total">@(total)</span>页</a>  <a>第<span class="span_pageindex"></span>页</a>
+            <a href="javascript:void()" onclick="last()">上一页</a>
+            <a href="javascript:void()" onclick="next()">下一页</a>
+        </div>
+    }
+
+    <div class="divtemptop"></div>
+    var list = (List<Blogs>)Model["blog"];
+    foreach (var blog in list)
+    {
+        int con_length = blog.BlogContent.Length > 300 ? 300 : blog.BlogContent.Length;
+        <a href="~/@(user.UserName)/@(blog.Id).html">@blog.BlogTitle</a><br />
+        <div class="blogpro_list">
+            @Html.Raw(blog.BlogContent.Substring(0, con_length))...
+            @*<div style="text-align: right; margin-top: 5px; ">
+                    <a>@(blog.BlogCreateTime) 阅读()</a>
+                </div>*@
+            <div class="divRedNum">
+                <span>@(user.UserNickname ?? user.UserName)</span>
+                <span>@(blog.BlogCreateTime) </span>
+                <span>阅读(@blog.BlogReadNum)</span>
+                <span>评论(@blog.BlogCommentNum)</span>
+                @if (sessionuser != null && user.Id == sessionuser.Id)//如果是当前用户
+                {
+                    <a class="" href="/Admin/Release/@blog.Id">编辑</a>
+                }
+                else
+                {
+                    <a class="" href="/Admin/Release/">编辑</a>
+                }
+            </div>
+        </div>
+    }
+
+    if (total > 1)
+    {
+        <div class="divPageNum">
+            <a class="a_total">共<span class="span_total">@(total)</span>页</a>  <a>第<span class="span_pageindex"></span>页</a>
+            <a href="javascript:void()" onclick="last()">上一页</a>
+            <a href="javascript:void()" onclick="next()">下一页</a>
+        </div>
+    }
+}
+
+<script type="text/javascript">
+    $(function () {
+        $(".span_pageindex").html(getPageIndex());
+    });
+    function next() {
+        var href = location.href;
+
+        var pageindex = getPageIndex() + 1;
+
+        //如果当前页码大于总页码
+        if (pageindex > getTotal()) {
+            return false;
+        }
+
+        location.href = href.substring(0, href.lastIndexOf('/') + 1) + pageindex + ".html";
+    }
+
+    function last() {
+        var href = location.href;
+        var pageindex = getPageIndex();
+        --pageindex;
+
+        //如果当前页码小于等于 0
+        if (pageindex <= 0) {
+            return false;
+        }
+
+        location.href = href.substring(0, href.lastIndexOf('/') + 1) + pageindex + ".html";
+    }
+
+    //当前页码
+    function getPageIndex() {
+        var href = location.href;
+        var pageIndex = href.substring(href.lastIndexOf('/') + 1, href.lastIndexOf('.'));
+        return parseInt(pageIndex);
+    }
+    //总页码
+    function getTotal() {
+        return parseInt($(".span_total").html());
+    }
+</script>

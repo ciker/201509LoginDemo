@@ -1,0 +1,106 @@
+﻿@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_UserManage.cshtml";
+}
+@model BlogUsersSet
+
+<style type="text/css">
+    .logo {
+        /*background-color: #0094ff;*/
+        margin: 50px auto;
+        margin-bottom: 10px;
+        width: 250px;
+        text-align: center;
+    }
+
+    .div_body {
+        background-color: #faf7f7;
+        margin: 0px auto;
+        margin-top: 0px;
+        width: 250px;
+        padding: 30px;
+        border-color: #808080;
+    }
+
+        .div_body div {
+            margin: 5px auto;
+            width: 200px;
+        }
+
+    .txt_username, .txt_pass {
+        width: 200px;
+        height: 20px;
+    }
+
+    .button {
+        width: 75px;
+        height: 25px;
+    }
+
+    .div_top .login {
+        color: #8e5555;
+        font-weight: 600;
+    }
+</style>
+
+@{
+    ViewBag.Title = "登录";
+}
+<div class="logo">
+    <a href="/">
+        <span style="color:#be7a7a;font-size:30px">嗨 博客</span>
+        <img src="~/Imgs/bubble_message_hi_64px_1189254_easyicon.net.png" />
+    </a>
+</div>
+@*Url.RouteUrl("ControllerAction", new { controller = "UserManage", action = "Login" }*@
+<div class="div_body">
+    @using (Ajax.BeginForm(new AjaxOptions()
+                        {
+                            Url = Url.Content(Request.Url.ToString()),
+                            OnSuccess = "OnSuccess",
+                            OnFailure = "OnFailure",
+                            HttpMethod = "Post"
+                        }))
+    {
+        <div style="">
+            用户名：
+            <span class="red">*</span>
+            <span class="VeriMess">@Html.ValidationMessageFor(t => t.UserName)</span>
+        </div>
+        <div>
+            @Html.TextBoxFor(t => t.UserName, new { @class = "txt_username" })
+        </div>
+        <div>
+            密码：
+            <span class="red">*</span>
+            <span class="VeriMess">@Html.ValidationMessageFor(t => t.UserPass)</span>
+        </div>
+        <div>@Html.PasswordFor(t => t.UserPass, new { @class = "txt_pass" })</div>
+        <div style="margin-top:10px">
+            <div>
+                <input class="checked" name="ischeck" id="ischeck" style="" type="checkbox" checked="checked" />自动登录
+            </div>
+        </div>
+        <div style="margin-top:10px">
+            <input class="button" style="margin-right: 5px" type="submit" value="登录" />
+            <span class="VeriMess alertMesg"></span>
+        </div>
+    }
+    <div style="margin-top:10px">
+        <a style="font-size:11px" href="/UserManage/Regis">立即注册</a><span>  </span>
+        <a style="font-size:11px" href="/UserManage/ResetPass">忘记密码？</a>
+    </div>
+</div>
+@*<script src="~/Scripts/blog/jquery.BlogCommon.js"></script>*@
+<script type="text/javascript">
+    function OnSuccess(obj) {
+        if (ShowAjaxResult(obj, ".alertMesg")) {
+
+        }
+    }
+    function OnFailure(obj) {
+        if (ShowAjaxResult(obj)) {
+
+        }
+    }
+</script>

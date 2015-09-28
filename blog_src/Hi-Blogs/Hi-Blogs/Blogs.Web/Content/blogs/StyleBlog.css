@@ -1,0 +1,66 @@
+﻿html {
+    color: #484444;
+    background-color: #eee;
+}
+
+* {
+    /*padding: 0px;*/ /*这里会影响百度编辑器的 序列*/
+    margin: 0px;
+    box-sizing: border-box; /*设置元素边框为 内容 + padding + 边框的宽度（不包括margin）;
+    [如果默认不设置此属性的话 那么宽度仅仅只是 元素里面的内容宽度] */
+}
+
+.div_zf {
+    margin: 10px auto;
+    margin-bottom: 30px;
+    color: #ff6a00;
+}
+
+    .div_zf a {
+        color: #14f20b;
+    }
+
+/*清除浮动*/
+.clearfix:after {
+    content: ' ';
+    display: table;
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1; /*兼容IE低版本*/
+}
+
+body {
+    /*font-family: Verdana,Arial,Helvetica,sans-serif;*/
+    font-family: "Segoe UI",Segoe,Tahoma,Arial,Verdana,sans-serif;
+}
+
+    body a:hover {
+        color: #00438a;
+        text-decoration: underline;
+    }
+
+    body a {
+        color: #258fb8;
+        text-decoration: none;
+        line-height: inherit;
+        font-weight: inherit;
+    }
+
+div.blogpro_list {
+    border-bottom: 1px dotted #ccc;
+    padding-bottom: 10px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+
+.alertMess {
+    color: red;
+    font-size: 11px;
+}
+
+.a_logo img {
+    vertical-align: bottom;
+}

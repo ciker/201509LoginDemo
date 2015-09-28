@@ -1,0 +1,56 @@
+﻿@{
+    @model Dictionary<string, object>
+    List<BlogTypes> blogtype = new List<BlogTypes>();
+    List<BlogTags> blogTag = new List<BlogTags>();
+    if (null != Model && Model.Keys.Contains("blogType"))
+    {
+        blogtype = (List<BlogTypes>)Model["blogType"];
+    }
+    if (null != Model && Model.Keys.Contains("blogTag"))
+    {
+        blogTag = (List<BlogTags>)Model["blogTag"];
+    }
+}
+
+
+<div class="divtitle">操作</div>
+<div class="divtitle_chi">
+    <a href="@Url.RouteUrl("ControllerAction", new { controller = "Admin", action = "Release" })">
+        <span style="font-weight:500;color:#ce7575">
+            发表文章
+        </span>
+    </a>
+</div>
+@*文章分类*@
+<div class="divtitle show_type" style="margin-top:8px">文章分类</div>
+<div class="divtitle_chi">
+    <img src="~/Imgs/edit_16px_1172422_easyicon.net%20(1).png" />
+    <a href="javascript:void(0);" onclick="addnewtype(this);">
+        <span style="font-weight:500;color:#ce7575">[新增分类]</span>
+    </a>
+    <span class="testmess"></span>
+</div>
+
+<div class="divtitle_chi">
+    <img src="~/Imgs/edit_16px_1172422_easyicon.net%20(1).png" />
+    <a href="/Admin/Edit/0" onclick="nottype(this);">
+        <span style="font-weight:500;color:#ce7575">[未分类]</span>
+    </a>
+    <span class="testmess"></span>
+</div>
+
+@*循环加载所有文章分类*@
+<div class="showtypeList">
+    @foreach (var type in blogtype)
+    {
+        <div class="divtitle_chi clearfix">
+            <a style="float:left" href="javascript:void(0)" onmouseout="editout(this);" onmousemove="editmove(this);" onmouseover="editover(this);" onclick="edittype(this);">
+                <img src="~/Imgs/edit_16px_1172422_easyicon.net%20(1).png" />
+                <input class="hid_typeid" type="hidden" value="@type.Id" />
+            </a>
+            <a class="typeurl" href="@Url.RouteUrl("ControllerAction", new { controller = "Admin", action = "Edit", id = type.Id })">
+                @type.TypeName
+            </a>
+        </div>
+    }
+</div>

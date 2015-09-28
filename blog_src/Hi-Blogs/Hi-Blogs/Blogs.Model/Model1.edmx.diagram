@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d65842ed48bd4c4998a98a7f5a1a34cd" Name="Diagram1" >
+        <EntityTypeShape EntityType="Model1.BlogCommentSet" Width="1.5" PointX="5.25" PointY="7.375" />
+        <EntityTypeShape EntityType="Model1.Blogs" Width="1.5" PointX="3" PointY="9.25" />
+        <EntityTypeShape EntityType="Model1.BlogTags" Width="1.5" PointX="8.25" PointY="7.875" />
+        <EntityTypeShape EntityType="Model1.BlogTypes" Width="1.5" PointX="8.25" PointY="3.875" />
+        <EntityTypeShape EntityType="Model1.BlogUsersSet" Width="1.5" PointX="0.75" PointY="5" />
+        <AssociationConnector Association="Model1.FK_BlogsBlogComment" />
+        <AssociationConnector Association="Model1.FK_BlogUsersBlogComment" />
+        <AssociationConnector Association="Model1.FK_UsersBlogs" />
+        <AssociationConnector Association="Model1.FK_UsersBlogTags" />
+        <AssociationConnector Association="Model1.FK_UsersBlogTypes" />
+        <AssociationConnector Association="Model1.BlogsBlogTag" />
+        <AssociationConnector Association="Model1.BlogsBlogType" />
+        <EntityTypeShape EntityType="Model1.UserInfo" Width="1.5" PointX="3.125" PointY="3.25" />
+        <AssociationConnector Association="Model1.BlogUsersSetUserInfo" />
+        <EntityTypeShape EntityType="Model1.BlogReadInfo" Width="1.5" PointX="0.5" PointY="10.375" />
+        <AssociationConnector Association="Model1.BlogsBlogReadInfo" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

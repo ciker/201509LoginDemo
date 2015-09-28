@@ -1,0 +1,398 @@
+﻿@model   Dictionary<string, object>
+
+@{
+    Blogs blog = ((Blogs)Model["blog"]);
+    ViewBag.Title = blog.BlogTitle;
+    ViewBag.Keywords = blog.BlogTitle;
+
+    var Description = string.Empty;
+    if (blog.BlogContent != null)
+    {
+        Description = blog.BlogContent.Length >= 100 ? blog.BlogContent.Substring(0, 100) : blog.BlogContent;
+    }
+    ViewBag.Description = Description;
+    if (Model.Keys.Contains("blogConText") && Model["blogConText"] != null && !string.IsNullOrEmpty(Model["blogConText"].ToString()))
+    {
+        ViewBag.Description = Model["blogConText"];
+    }
+
+    List<BlogTypes> types = (List<BlogTypes>)Model["contentBlogType"];
+    List<BlogTags> tags = (List<BlogTags>)Model["contentBlogTag"];
+    BlogUsersSet user = ((BlogUsersSet)Model[Constant.blogUser]);
+
+    var SessionUserName = string.Empty;
+    var SessionUser = (BlogUsersSet)Model["SessionUser"];
+    if (null != SessionUser)
+    {
+        SessionUserName = string.IsNullOrEmpty(SessionUser.UserNickname) ? SessionUser.UserName : SessionUser.UserNickname;
+    }
+
+    var blogNext = (Blogs)Model["blogNext"];
+    var blogLast = (Blogs)Model["blogLast"];
+
+    var blogName = user.UserName;
+}
+@section RenStyle{
+    <style type="text/css">
+        /*楼层评论区*/
+        .commentItem {
+            padding: 5px;
+            border: 1px solid #97969B;
+            /*border-width:1px 0 0;*/
+            margin-bottom: 8px;
+        }
+        /*评论提交成功显示取*/
+        .New_commentItem {
+            padding: 5px;
+            border: 1px solid #97969B;
+            margin-bottom: 8px;
+        }
+        /*初始隐藏 （内嵌 评论文本框和提交按钮 区域）*/
+        .reply {
+            display: none;
+        }
+
+        .acti_reply {
+            display: block;
+        }
+
+        /*所有评论区域*/
+        .allComment {
+            margin-top: 10px;
+            margin-bottom: 30px;
+        }
+        /*评论加载区域*/
+        .LoadComment {
+            margin-bottom: 20px;
+        }
+        /*加载所有评论按钮*/
+        .div_nextcomment {
+            text-align: center;
+            /*display: none;*/
+        }
+        /*评论区显示的用户名*/
+        .text_CommentUser {
+            margin: 5px;
+            margin-left: 0px;
+        }
+
+            .text_CommentUser span {
+                color: #b57979;
+            }
+
+        /*评论内容输入框*/
+        .div_comment_texttare .comment_content {
+            width: 400px;
+            height: 200px;
+        }
+        /*文章标题下的分类和标签区域*/
+        .div_typeandtag {
+            font-size: 13px;
+        }
+
+            .div_typeandtag .div_typeList {
+                text-align: right;
+            }
+
+                .div_typeandtag .div_typeList .span_typeList {
+                    float: left;
+                }
+
+                .div_typeandtag .div_typeList .a_type {
+                    color: #97969B;
+                }
+
+            .div_typeandtag .div_tagList {
+                margin-top: 10px;
+            }
+
+                .div_typeandtag .div_tagList .a_tag {
+                    display: inline-block;
+                    padding: 4px 10px;
+                    line-height: 100%;
+                    margin-right: 10px;
+                    border: solid 1px #e4dddd;
+                    color: #fff;
+                    background-color: #808080;
+                    border-radius: 10px;
+                }
+        /*标题*/
+        .div_title {
+            text-align: center;
+        }
+
+        .span_comOk {
+            color: red;
+        }
+
+        .divcommentSpan {
+            margin-bottom: 5px;
+        }
+    </style>
+}
+
+@*用户博客*@
+<script src="~/Plug/ueditor/third-party/SyntaxHighlighter/shCore.js"></script>
+<link href="~/Plug/ueditor/third-party/SyntaxHighlighter/shCoreDefault.css" rel="stylesheet" />
+
+<script type="text/javascript">
+    $(function () {
+        SyntaxHighlighter.highlight();
+    });
+</script>
+
+@*处理百度编辑器 table显示问题*@
+<style type="text/css">
+    body > div.blog_body.clearfix > div.blog_body_8 > div > div.div_BlogContent > table > tbody > tr.ue-table-interlace-color-single.firstRow > th {
+        padding: 5px;
+        background-color: #0094ff;
+        border: 1px dashed #e4dddd;
+    }
+
+    body > div.blog_body.clearfix > div.blog_body_8 > div > div.div_BlogContent > table > tbody > tr > td {
+        padding: 5px;
+        border: 1px dashed #e4dddd;
+    }
+
+    body > div.blog_body.clearfix > div.blog_body_8 > div > div.div_BlogContent > table {
+        border-collapse: collapse;
+    }
+
+        body > div.blog_body.clearfix > div.blog_body_8 > div > div.div_BlogContent > table > tbody > tr:nth-child(odd) {
+            background-color: #e8edf1;
+        }
+</style>
+
+
+<div class="div_title">
+    <h1 class="blog_title">
+        @*文章标题*@
+        <a href="" class="a_title"> @(blog.BlogTitle)</a>
+    </h1>
+</div>
+@*文章标题下的分类和标签区域*@
+<div class="div_typeandtag">
+    @*当前文章所属分类列表*@
+    <div class="div_typeList">
+        <span class="span_typeList">
+            @if (null != types && types.Count > 0)
+            {
+                <text>分类：</text>
+                foreach (var item in types)
+                {
+                    <a class="a_type" href="~/@(blogName)/GetTypeBlogs/@(item.Id)/1.html">@item.TypeName</a>
+                }
+            }
+        </span>
+        <span>
+            @blog.BlogCreateTime
+        </span>
+        <span>
+            阅读(@blog.BlogReadNum)
+        </span>
+        <span>评论(@blog.BlogCommentNum)</span>
+        <span>
+            @*<a href="@Url.RouteUrl("ControllerAction", new { controller = "Admin", action = "Release", id = blog.Id })">编辑</a>*@
+            @if (SessionUser != null && user.Id == SessionUser.Id)//如果是当前用户
+            {
+                <a class="" href="/Admin/Release/@blog.Id">编辑</a>
+            }
+            else
+            {
+                <a class="" href="/Admin/Release/">编辑</a>
+            }
+        </span>
+    </div>
+    @*当前文章所属标签列表*@
+    <div class="div_tagList">
+        @if (null != tags && tags.Count > 0)
+        {
+            foreach (var item in tags)
+            {
+                <a class="a_tag" href="~/@(blogName)/GetTagBlogs/@(item.Id)/1.html">@item.TagName</a>
+            }
+        }
+    </div>
+</div>
+@*正文内容*@
+<div class="div_BlogContent">
+    @Html.Raw(blog.BlogContent)
+</div>
+
+@*@if (null != blogLast)
+{
+    <div class="div_last">
+        上一篇：
+        <a href="~/@blogName/@(blogLast.Id).html">@blogLast.BlogTitle</a>
+    </div>
+}
+@if (null != blogNext)
+{
+    <div class="div_next">
+        下一篇：
+        <a href="~/@blogName/@(blogNext.Id).html">@blogNext.BlogTitle</a>
+    </div>
+}*@
+
+<div class="allComment">
+    <div class="divcommentSpan">
+        <span>发表评论:</span>
+    </div>
+    @*评论列表*@
+    <div class="LoadComment">
+
+    </div>
+
+    <div class="div_nextcomment">
+        <a href="javascript:void()" onclick="loadComment()">加载评论...</a>
+    </div>
+    <a name="CommentUserName"></a>
+    <div class="text_CommentUser">用 户 名:<span>@(SessionUserName)</span></div>
+    <div class="CommentArea">
+        <div class="div_comment_texttare">
+            <textarea class="comment_content" name="comment_content"></textarea>
+        </div>
+        <div>
+            <input type="button" class="butsub_messg" id="butsub_messg" onclick="ick_subMessg(this)" value="提交评论" />
+            <span class="alertMess" style="color:red;font-size:11px"></span>
+        </div>
+    </div>
+</div>
+
+@*<script src="~/Scripts/jquery-1.8.2.js"></script>*@
+@*<script src="~/Scripts/blog/jquery.BlogCommon.js"></script>*@
+<script type="text/javascript">
+
+    var pageIndex = 0;
+    var blogID;
+
+    //页面加载完成时
+    $(function () {
+        var href = location.href;
+        //blogID = href.substring(href.lastIndexOf('/') + 1, href.lastIndexOf('.'));
+        blogID = @(ViewBag.blogid);
+        pageIndex++;
+        var objJson = { "blogID": blogID, "pageIndex": pageIndex };
+        $.post("/Comment/LoadComment", objJson, function (data) {
+            $(".LoadComment").html(data);
+
+            var ii = 0;
+            $(".spanLayer").each(function (obj) {
+                ii++;
+                $(this).html(ii);
+            });
+
+            if (ii >= 30) {
+                $(".div_nextcomment").css("display", "").find("a").html("加载评论");
+            }
+            else {
+                $(".div_nextcomment").css("display", "none");
+            }
+        });
+
+    });
+
+    //（点击显示剩余评论）累加评论内容
+    function loadComment() {
+        pageIndex++;
+        var objJson = { "blogID": blogID, "pageIndex": pageIndex };
+        $.post("/Comment/LoadComment", objJson, function (data) {
+
+            if ($(data).filter(".commentItem").length < 30) {
+                $(".div_nextcomment").html("全部评论加载完成~");
+            }
+
+            $(".LoadComment").append(data);
+
+            var ii = 0;
+            $(".spanLayer").each(function (obj) {
+                ii++;
+                $(this).html(ii);
+            });
+        });
+    }
+
+
+    ///===========LoadComment.cshtml 的 js=============
+    var mhref = location.href;
+    //var BlogId = mhref.substring(mhref.lastIndexOf("/") + 1, mhref.length - 5);
+    //点击提交评论
+    function ick_subMessg(objBut) {
+        var CommentID, ReplyUser;
+        //如果是 累计回复
+        if ($(objBut).hasClass("but_reply")) {
+            CommentID = $(objBut).closest(".commentItem").find(".spanCommentID").html();
+            ReplyUser = $(objBut).closest(".commentItem").find(".ReplyUser").html();
+        }
+        else {
+            CommentID = "-1";
+            ReplyUser = "-1";
+        }
+        //var UserId = 1;
+        var alertMess = $(objBut).closest(".CommentArea").find(".alertMess");
+        alertMess.html("");
+        var Content = $(objBut).closest(".CommentArea").find(".comment_content");
+        if (!Content.val()) {
+            //alert("请输入内容再提交~");  //alertMess
+            alertMess.html("请输入内容再提交~");
+            return;
+        }
+        else if (Content.val().length >= 1000) {
+            alertMess.html("您输入的内容过多~");
+            return;
+        }
+
+
+        //提交评论（发表评论）
+        var obj = { "BlogId": blogID, "Content": Content.val(), "CommentID": CommentID, "ReplyUser": ReplyUser };
+        $.post("/Comment/WriteContent", obj,
+            function (mesg) {
+                if (mesg.State == "0") {
+                    // alert("请先登录<a>马上登录</a>");
+                    if (confirm("您还未登录，是否马上登录")) {
+                        location.href = "/UserManage/Login";
+                    }
+                    return;
+                }
+                else if (ShowAjaxResult(mesg)) {
+                    if (mesg.State == "1") {
+                        var str = "<div class='New_commentItem'><span class='span_comOk'>发表成功：</span>" + Content.val() + "</div>";
+                        //$(objBut).parents(".text_CommentUser").prev().after(str);
+                        var ro = $(objBut).closest(".commentItem");
+                        if (ro.length) {
+                            ro.append(str);
+                        }
+                        else {
+                            $(".text_CommentUser").prev().after(str);
+                        }
+                        Content.val("");
+                        $(objBut).closest(".allComment").find(".acti_reply").removeClass("acti_reply").addClass("reply");
+                        //$("#Content").val("");
+                    }
+                }
+                else {
+                    alertMess.html("评论失败~");
+                }
+                //alert("发表成功~");
+            }, "json");
+    }
+
+    //累计楼 评论（点击回复超链接）
+    function ClickReply(obj) {
+        //$(obj).parents(".allComment").find(".acti_reply").removeClass("acti_reply").addClass("reply");  // .nextAll(".reply").removeClass("reply").addClass("acti_reply");
+        var comment = $(obj).nextAll(".reply").removeClass("reply").addClass("acti_reply").find(".comment_content");
+        comment.focus();//获得焦点
+
+        comment.blur(function () {
+            comment.closest(".CommentArea").removeClass("acti_reply").addClass("reply");
+        });
+        comment.closest(".CommentArea").find(".but_reply").hover(function () {
+            comment.unbind("blur");
+        }, function () {
+            comment.blur(function () {
+                comment.closest(".CommentArea").removeClass("acti_reply").addClass("reply");
+            });
+        });
+    }
+    //=================================
+</script>

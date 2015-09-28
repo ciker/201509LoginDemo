@@ -1,0 +1,46 @@
+﻿<#@ template language="C#" debug="false" hostspecific="true"#>
+<#@ include file="EF.Utility.CS.ttinclude"#>
+<#@ output extension=".cs"#>
+ 
+ <#
+
+CodeGenerationTools code = new CodeGenerationTools(this);
+MetadataLoader loader = new MetadataLoader(this);
+CodeRegion region = new CodeRegion(this, 1);
+MetadataTools ef = new MetadataTools(this);
+
+string inputFile = @"..\Blogs.Model\Model1.edmx";
+
+EdmItemCollection ItemCollection = loader.CreateEdmItemCollection(inputFile);
+string namespaceName = code.VsNamespaceSuggestion();
+
+EntityFrameworkTemplateFileManager fileManager = EntityFrameworkTemplateFileManager.Create(this);
+
+#>
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+
+namespace Blogs.BLL
+{
+<#
+    var i =0;
+// Emit Entity Types
+    foreach (EntityType entity in ItemCollection.GetItems<EntityType>().OrderBy(e => e.Name))
+    { i++;
+    //fileManager.StartNewFile(entity.Name + "RepositoryExt.cs");
+    //BeginNamespace(namespaceName, code);
+    
+#>
+    #region <#=i.ToString("00") #>  <#=entity.Name#>BLL
+	public partial class <#=entity.Name#>BLL : BaseBLL<Blogs.ModelDB.<#=entity.Name#>>
+    {        
+        public Blogs.DAL.<#=entity.Name#>DAL My_<#=entity.Name#>DAL = new DAL.<#=entity.Name#>DAL();         
+    }
+    #endregion
+
+<#}#>
+}

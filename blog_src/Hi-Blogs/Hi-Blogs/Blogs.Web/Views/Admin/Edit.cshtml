@@ -1,0 +1,106 @@
+﻿@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+    @model Dictionary<string, object>
+    var list = Model["blogs"] as List<BlogsDTO>;
+}
+
+<style type="text/css">
+    .div_content {
+        margin-top: 30px;
+        margin-left: 10px;
+    }
+
+    .tbList {
+        width: 100%;
+    }
+
+        .tbList td {
+            line-height: 28px;
+        }
+
+            .tbList td:nth-child(1) {
+                width: 60%;
+            }
+
+            .tbList td:nth-child(2) {
+                width: 10%;
+            }
+
+            .tbList td:nth-child(3) {
+                width: 10%;
+            }
+
+    .AlertMess {
+        color: red;
+        font-size: 11px;
+        text-align: center;
+    }
+
+    tr {
+        background-color: #faf0f0;
+    }
+
+        tr.Alt {
+            background-color: #e6e0e0;
+        }
+
+    th {
+        text-align: left;
+        padding-bottom: 4px;
+        padding-top: 4px;
+    }
+
+    .body_head a.body_head_article {
+        color: #99714F;
+        font-weight: 600;
+    }
+</style>
+
+@section bloy_2{
+    @{Html.RenderPartial("OperationPartial");}
+}
+
+<div class="AlertMess"></div>
+<div class="div_content">
+    <table class="tbList">
+        <tr class="Alt">
+            <th>标题</th>
+            <th>操作</th>
+            <th>操作</th>
+        </tr>
+        @{bool isd = true;}
+        @foreach (var item in list)
+        {
+            isd = !isd;
+        <tr class="@(isd ? "Alt" : "")">
+            <td>@item.BlogTitle</td>
+            <td>
+                <a href="@Url.RouteUrl("ControllerAction", new { controller = "Admin", action = "Release", id = item.Id })">编辑</a>
+            </td>
+            <td>
+                <a href="javasctipt:void(0);" onclick="del(this)">删除</a>
+                <input type="hidden" value="@item.Id" />
+            </td>
+        </tr>
+        }
+    </table>
+</div>
+@*<script src="~/Scripts/jquery-1.8.2.js"></script>*@
+<script type="text/javascript">
+    function del(obj) {
+        $(".AlertMess").html("");
+        if (confirm("确定要删除吗？")) {
+            $.post("@Url.RouteUrl("ControllerAction", new { controller = "Admin", action = "Del"})/" + $(obj).next().val(), null, function (data) {
+                if (data == "True") {
+                    $(obj).parents("tr").remove();
+                    $(".AlertMess").html("删除成功~~");
+                }
+                else {
+                    alert(data);
+                }
+            });
+        }
+    }
+
+</script>

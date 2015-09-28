@@ -1,0 +1,196 @@
+﻿@model   Dictionary<string, object>
+@{
+    ViewBag.Title = "Hi-Blog";
+
+    Layout = null;
+    BlogUsersSet sessionuser = (BlogUsersSet)Model["SessionUser"];
+    var total = (int)Model["total"];
+}<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="keywords" content="好记吗,嗨-博客,hi blog,blog.haojima">
+    <meta name="description" content="嗨-博客，是一个ASP.NET MVC版本的开源博客。我们每个猿都有一个搭建自己独立博客的梦，因此这个博客就是诞生了。我们可以随心所欲定制自己的样式效果，并提供给了javascript脚本权限。在这个多终端的时代，我们将会提供各终端浏览器的兼容显示和各种客户端的阅读与离线下载。">
+     
+
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    @*<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">*@
+    <link href="~/Content/blogs/default/IndexCSS.css" rel="stylesheet" />
+    <style></style>
+</head>
+<body>
+    @Scripts.Render("~/bundles/jquery")
+
+    <!-- 可选的Bootstrap主题文件（一般不用引入） -->
+    @*<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">*@
+
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    @*<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>*@
+
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    @*<script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>*@
+
+
+    <div class="blog_head_operation clearfix">
+        <div class="div_logo">
+            <a class="a_logo" href="/">
+                <span class="span_logoname">嗨-博客</span>
+                <img src="~/Imgs/bubble_message_hi_24px_1189254_easyicon.net.png" />
+            </a>
+        </div>
+        <div class="userOperation">
+            @*这里使用ajax异步加载  不然因为缓存信息   大家显示的  都是 同一个人的登录信息*@
+        </div>
+        @*<div style="clear: both"></div>*@
+    </div>
+
+    <div class="divlogo">
+        <h1></h1>
+    </div>
+
+    <div class="blog_body row">
+        @*blog_body_8*@
+        <div class="blog_body_b col-md-9 col-xs-12">
+            <div class="blog_List">
+                @if (Model.Keys.Contains("blog"))
+                {
+                    var list = (List<Blogs>)Model["blog"];
+
+                    <div class="div_lastnext">
+                        <a class="a_total">共<span class="span_total">@(total)</span>页</a>
+                        <a>第<span class="span_pageindex">1</span>页</a>
+                        <a href="javascript:void()" onclick="last()">上一页</a>
+                        <a href="javascript:void()" onclick="next()">下一页</a>
+                    </div>
+
+                    foreach (var blog in list)
+                    {
+                        int con_length = blog.BlogContent.Length > 300 ? 300 : blog.BlogContent.Length;
+                        //标题
+                        <a href="~/@(blog.BlogUsersSet.UserName)/@(blog.Id).html">@blog.BlogTitle</a>
+                        //文章列表
+                        <div class="blogpro_list">
+                            @Html.Raw(blog.BlogContent.Substring(0, con_length))...
+                            <div class="redNum">
+                                <a href="/@blog.BlogUsersSet.UserName">@(blog.BlogUsersSet.UserNickname)</a>
+                                <span>@(blog.BlogCreateTime) </span>
+                                <a class="read_a" href="/@blog.BlogUsersSet.UserName/@(blog.Id).html">阅读(@blog.BlogReadNum)</a>
+                                <a class="comment_a" href="/@blog.BlogUsersSet.UserName/@(blog.Id).html#CommentUserName">评论(@blog.BlogCommentNum)</a>
+                            </div>
+                        </div>
+                    }
+
+                    <div class="div_lastnext">
+                        <a class="a_total">共<span class="span_total">@(total)</span>页</a>
+                        <a>第<span class="span_pageindex">1</span>页</a>
+                        <a href="javascript:void()" onclick="last()">上一页</a>
+                        <a href="javascript:void()" onclick="next()">下一页</a>
+                    </div>
+                }
+            </div>
+        </div>
+        @* blog_body_2 col-md-8*@
+        <div class="blog_body_e col-md-3 col-xs-12">
+            <div class="div_soso clearfix">
+                <div class="div_soso_n">
+                    <input type="text" class="text_soso" onkeyup="sosokeyup();" />
+                    <input class="but_soso" type="button" onclick="sosoclick();" value="搜索" title="hi-blog" />
+                </div>
+            </div>
+
+            <div class="blog_users">
+                <div>
+                    <h2>博客用户</h2>
+                    @if (Model.Keys.Contains("users"))
+                    {
+                        var list = (List<BlogUsersSet>)Model["users"];
+                        foreach (var type in list)
+                        {
+                            <a class="a_blog_user" href="~/@(type.UserName)" target="_blank">@(string.IsNullOrEmpty(type.UserNickname) ? type.UserName : type.UserNickname)</a>
+                        }
+                    }
+                </div>
+                <div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div><a href="~/UserBlog/FriendlyLink">友情链接</a></div>
+        <div>
+            QQ群：<a class="footer_qq" href="http://shang.qq.com/wpa/qunwpa?idkey=a00a53fb072bf37115b35e27cb74779f91b5bb0eb519a9fc32e4b215daa1b7d6" target="_blank">469075305</a>
+        </div>
+        <div>
+            邮箱：<a class="footer_mail" href="mailto:system@haojima.net">system@haojima.net</a>
+        </div>
+        <div>
+        </div>
+        <div>
+            <a href="http://www.miitbeian.gov.cn/" target="_blank">皖ICP备15006929号</a>
+            <span>Copyright© 2015  <a href="~/">嗨-博客</a>  保留所有权利</span>
+        </div>
+    </div>
+
+    <div class="TrafficStatistics">
+        @*流量统计*@
+        <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://"); document.write(unescape("%3Cspan id='cnzz_stat_icon_1256091712'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1256091712' type='text/javascript'%3E%3C/script%3E"));</script>
+    </div>
+</body>
+</html>
+@*<script src="~/Scripts/jquery-1.8.2.js"></script>*@
+<script type="text/javascript">
+    $(function () {
+        $.post("@Url.RouteUrl("ControllerAction", new { controller = "Home", action = "BlogHead" })", "", function (obj) {
+            $(".userOperation").html(obj);
+        });
+        $(".span_pageindex").html(getPageIndex());
+    });
+    //下一页
+    function next() {
+        var href = location.href;
+
+        if (href.split("/").length <= 5) {
+            location.href = "http://" + location.host + "/home/index/2";
+            return;
+        }
+
+        var pageindex = getPageIndex() + 1;
+
+        //如果当前页码大于总页码
+        if (pageindex > getTotal()) {
+            return false;
+        }
+
+
+        location.href = href.substring(0, href.lastIndexOf('/') + 1) + pageindex;
+    }
+    //上一页
+    function last() {
+        var href = location.href;
+        var pageindex = getPageIndex();
+        --pageindex;
+
+        //如果当前页码小于等于 0
+        if (pageindex <= 0) {
+            return false;
+        }
+
+        location.href = href.substring(0, href.lastIndexOf('/') + 1) + pageindex;
+    }
+
+    //当前页码
+    function getPageIndex() {
+        var href = location.href;
+        var pageIndex = href.substring(href.lastIndexOf('/') + 1);
+        return parseInt(pageIndex).toString() == "NaN" ? 1 : parseInt(pageIndex);
+    }
+    //总页码
+    function getTotal() {
+        return parseInt($(".span_total").html());
+    }
+
+</script>

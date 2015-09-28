@@ -1,0 +1,108 @@
+﻿@{
+    ViewBag.Title = "EmailValidation";
+    Layout = "~/Views/Shared/_UserManage.cshtml";
+}
+@model BlogUsersSet
+
+
+<style type="text/css">
+    .logo {
+        /*background-color: #0094ff;*/
+        margin: 50px auto;
+        margin-bottom: 10px;
+        width: 250px;
+        text-align: center;
+    }
+
+    .div_body {
+        background-color: #faf7f7;
+        margin: 200px auto;
+        margin-top: 0px;
+        width: 250px;
+        padding: 30px;
+        border-color: #808080;
+    }
+
+        .div_body div {
+            margin: 5px auto;
+            width: 200px;
+        }
+
+    .txt_user, .txt_pass, .txt_mail, .txt_Nickname {
+        width: 200px;
+        height: 20px;
+    }
+
+    .button {
+        width: 75px;
+        height: 25px;
+    }
+
+    .alertMess {
+        color: red;
+        font-size: 11px;
+    }
+</style>
+@{
+    ViewBag.Title = "绑定邮箱";
+}
+<div class="logo">
+    <a href="/">
+        <span style="color:#be7a7a;font-size:30px">嗨 博客</span>
+        <img src="~/Imgs/bubble_message_hi_64px_1189254_easyicon.net.png" />
+    </a>
+</div>
+@using (Ajax.BeginForm(new AjaxOptions()
+{
+    Url = Url.RouteUrl("ControllerAction", new { controller = "UserManage", action = "EmailValidation" }),
+    OnSuccess = "OnSuccess"
+}))
+{
+    <div class="div_body" id="div1">
+        <div>
+            邮箱：
+            <span class="red">*</span>
+            <span class="VeriMess">@Html.ValidationMessageFor(t => t.UserMail)</span>
+        </div>
+        <div>
+            @Html.TextBoxFor(t => t.UserMail, new { @class = "txt_mail" })
+            @*<input type="text" class="txt_mail" />*@
+        </div>
+        <div style="margin-top:15px">
+            <input class="button" type="submit" value="重置邮箱" />
+            <span class="alertMess"></span>
+        </div>
+    </div>
+
+    @*<div class="div_body" id="div2" style="display:none">
+            <div>验证码：</div>
+            <div><input type="text" class="validationNum" /></div>
+            <div style="margin-top:15px">
+                <input class="button" type="button" value="激活帐号" onclick="clickEmailValidation()" />
+            </div>
+        </div>*@
+}
+
+
+@*<script src="~/Scripts/jquery-1.8.2.js"></script>*@
+@*<script src="~/Scripts/blog/jquery.BlogCommon.js"></script>*@
+<script type="text/javascript">
+
+    function OnSuccess(obj) {
+        if (ShowAjaxResult(obj, ".alertMess")) {
+
+        }
+    }
+
+    //function clickEmailValidation() {
+    //    var mail = $(".txt_mail").val();
+    //    var validationNum = $(".validationNum").val();
+    //    var dataJson = { "mail": mail, "validationNum": validationNum };
+    //    $.post("/UserManage/EmailValidation", dataJson, function (data) {
+    //        if (ShowAjaxResult(data)) {
+    //            $("#div1").hide();
+    //            $("#div2").show();
+    //        }
+    //    }, "json");
+    //}
+</script>

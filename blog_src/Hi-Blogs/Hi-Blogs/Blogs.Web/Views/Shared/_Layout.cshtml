@@ -1,0 +1,190 @@
+﻿@model Dictionary<string, object>
+@{
+    BlogUsersSet user = ((BlogUsersSet)Model[Constant.blogUser]);
+    BlogUsersSet sessionuser = (BlogUsersSet)Model[Constant.SessionUser];
+    //Blogs blog = ((Blogs)Model["blog"]);
+    var blogName = user.UserName;
+    //==========================================
+    //==   默认为 UserBlog 博客显示 的模版    ==
+    //==========================================
+    //var blogUserName =
+
+
+    //=========== begin 自定义html
+    var pathside = string.Empty; var pathfirst = string.Empty; var pathtail = string.Empty;
+
+    if (BLLSession.UserInfoSessioin != null && BLLSession.UserInfoSessioin.UserInfo.IsShowCSS == true)
+    {
+        pathside = FileHelper.defaultpath + @"\MyConfigure\" + BLLSession.UserInfoSessioin.UserName + @"\conf_side.txt";
+        pathfirst = FileHelper.defaultpath + @"\MyConfigure\" + BLLSession.UserInfoSessioin.UserName + @"\conf_first.txt";
+        pathtail = FileHelper.defaultpath + @"\MyConfigure\" + BLLSession.UserInfoSessioin.UserName + @"\conf_tail.txt";
+    }
+    else if (user != null)
+    {
+        pathside = FileHelper.defaultpath + @"MyConfigure\" + user.UserName + @"\conf_side.txt";
+        pathfirst = FileHelper.defaultpath + @"MyConfigure\" + user.UserName + @"\conf_first.txt";
+        pathtail = FileHelper.defaultpath + @"MyConfigure\" + user.UserName + @"\conf_tail.txt";
+    }
+    ViewBag.mysidehtml = FileHelper.GetFile(pathside, "");//侧边
+    ViewBag.myfirsthtml = FileHelper.GetFile(pathfirst, "");//页首
+    ViewBag.mytailhtml = FileHelper.GetFile(pathtail, "");//页尾
+    //=========== end 自定义html
+
+    //================是否禁用默认主题
+    bool IsDisCSS = true;
+    if ((BLLSession.UserInfoSessioin == null && (user.UserInfo.IsDisCSS != true)) ||
+        (BLLSession.UserInfoSessioin != null && (((BLLSession.UserInfoSessioin.UserInfo.IsShowCSS != true || BLLSession.UserInfoSessioin.UserInfo.IsDisCSS != true) && BLLSession.UserInfoSessioin.Id != user.Id) || user.UserInfo.IsDisCSS != true))
+        )
+    {
+        IsDisCSS = false;
+    }
+    //================
+
+}<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="keywords" content="好记吗,嗨-博客,hi blog,haojima,@ViewBag.Keywords">
+    <meta name="description" content="@ViewBag.description">
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/blogs/StyleBlog.css" rel="stylesheet" />
+    @if (!IsDisCSS)
+    {
+        <link href="~/MyConfigure/system_default/conf.css" rel="stylesheet" />
+    }
+    <style></style>
+    @RenderSection("RenStyle", required: false)
+
+    @if (BLLSession.UserInfoSessioin != null && BLLSession.UserInfoSessioin.UserInfo.IsShowCSS == true)
+    {
+        <link href="~/MyConfigure/@BLLSession.UserInfoSessioin.UserName/conf.css" rel="stylesheet" />
+    }
+    else if (FileHelper.isFile(FileHelper.defaultpath + @"MyConfigure\" + blogName + @"\conf.css"))
+    {
+        <link href="~/MyConfigure/@blogName/conf.css" rel="stylesheet" />
+    }
+</head>
+<body>
+    @Scripts.Render("~/bundles/jquery")
+    <div>
+        @Html.Raw(ViewBag.myfirsthtml)
+    </div>
+    <div class="blog_head">
+        @*头*@
+        <div class="blog_head_operation clearfix">
+            <a class="a_logo" href="/">
+                嗨-博客
+                <img src="~/Imgs/bubble_message_hi_16px_1189254_easyicon.net.png" />
+            </a>
+            <div class="userOperation">
+            </div>
+        </div>
+        @*用户主信息*@
+        <div class="blog_head_user">
+            <span class="bolg_username"><a href="/@(user.UserName)">@(user.UserNickname)</a></span>
+            <span class="blog_usercode">@user.UserName</span>
+        </div>
+
+    </div>
+    <div class="blog_body clearfix">
+        @*左右八二分*@
+        <div class="blog_body_8">
+            <div class="blog_info_render">
+                @RenderBody()
+            </div>
+        </div>
+
+        <div class="blog_body_2">
+            <div>
+                @Html.Raw(ViewBag.mysidehtml)
+            </div>
+            @*搜索框*@
+            <div class="div_soso clearfix">
+                <div class="div_soso_n">
+                    <input type="text" class="text_soso" onkeyup="sosokeyup('@user.UserName');" />
+                    <input class="but_soso" type="button" onclick="sosoclick('@user.UserName');" value="搜索" title="hi-blog" />
+                </div>
+            </div>
+            <div class="blog_info_bind">
+                <div class="blog_type">
+                    @if (Model.Keys.Contains(Constant.userBlogType))
+                    {
+                        var list = (List<BlogTypes>)Model[Constant.userBlogType];
+                        if (list.Count > 0)
+                        {
+                            <h2>文章分类</h2>
+                        }
+                        foreach (var type in list)
+                        {
+                            <a href="~/@(user.UserName)/GetTypeBlogs/@(type.Id)/1.html">@type.TypeName</a>
+                        }
+                    }
+                </div>
+                <div class="blog_tag">
+                    @if (Model.Keys.Contains(Constant.userBlogTag))
+                    {
+                        var list = (List<BlogTags>)Model[Constant.userBlogTag];
+                        if (list.Count > 0)
+                        {
+                            <h2>标签</h2>
+                        }
+                        foreach (var tag in list)
+                        {
+                            <a href="~/@(user.UserName)/GetTagBlogs/@(tag.Id)/1.html">@tag.TagName</a>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    @*底部*@
+    <div class="blog_bottom"></div>
+
+    <div class="footer">
+        <div><a href="~/UserBlog/FriendlyLink">友情链接</a></div>
+        <div>
+            QQ群：<a class="footer_qq" href="http://shang.qq.com/wpa/qunwpa?idkey=a00a53fb072bf37115b35e27cb74779f91b5bb0eb519a9fc32e4b215daa1b7d6" target="_blank">469075305</a>
+        </div>
+        <div>
+            邮箱：<a class="footer_mail" href="mailto:system@haojima.net">system@haojima.net</a>
+        </div>
+        <div>
+        </div>
+        <div>
+            <a href="http://www.miitbeian.gov.cn/" target="_blank">皖ICP备15006929号</a>
+            <span>Copyright© 2015  <a href="~/">嗨-博客</a>  保留所有权利</span>
+        </div>
+    </div>
+    <div>
+        @Html.Raw(ViewBag.mytailhtml)
+    </div>
+    <div class="TrafficStatistics">
+        @*流量统计*@
+        <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://"); document.write(unescape("%3Cspan id='cnzz_stat_icon_1256091712'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1256091712' type='text/javascript'%3E%3C/script%3E"));</script>
+    </div>
+    @*<script src="~/Scripts/jquery-1.8.2.js"></script>*@
+    @*<script src="~/Scripts/blog/jquery.BlogCommon.js"></script>*@
+    <script type="text/javascript">
+        $(function () {
+            $.post("@Url.RouteUrl("ControllerAction", new { controller = "Home", action = "BlogHead" })", "", function (obj) {
+                $(".userOperation").html(obj);
+            });
+        });
+    </script>
+</body>
+</html>
+
+@if (!IsDisCSS)
+{
+    <script src="http://cdn.bootcss.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="~/MyConfigure/system_default/conf.js"></script>
+}
+@if (BLLSession.UserInfoSessioin != null && BLLSession.UserInfoSessioin.UserInfo.IsShowCSS == true)
+{
+    <script src="~/MyConfigure/@BLLSession.UserInfoSessioin.UserName/conf.js"></script>
+}
+else if (FileHelper.isFile(FileHelper.defaultpath + @"MyConfigure\" + blogName + @"\conf.js"))
+{
+    <script src="~/MyConfigure/@blogName/conf.js"></script>
+}

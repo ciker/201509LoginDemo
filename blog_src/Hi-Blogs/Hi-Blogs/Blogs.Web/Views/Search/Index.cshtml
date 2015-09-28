@@ -1,0 +1,74 @@
+﻿@model List<SearchResult>
+@{
+    ViewBag.Title = "搜索";
+    Layout = "~/Views/Shared/_Search.cshtml";
+}
+<style type="text/css">
+    .div_left {
+        float: left;
+        width: 50%;
+        padding: 10px;
+        padding-left: 30px;
+    }
+
+    .div_right {
+        float: right;
+        width: 50%;
+        list-style: none;
+        padding: 10px;
+        padding-right: 30px;
+    }
+
+        .p_content, .div_right p {
+            font-size: 13px;
+        }
+
+            .p_content strong, .div_right p strong {
+                color: red;
+                font-weight: normal;
+            }
+
+    cite {
+        color: #008000;
+    }
+</style>
+
+<div class="clearfix">
+    <div class="div_left">
+        <span>站内搜索结果</span>
+        <div class="div_left_con">
+            正在加载...
+        </div>
+    </div>
+    <div class="div_right">
+        <span>Bing搜索结果</span>
+        <div class="div_right_con">
+            正在加载...
+        </div>
+    </div>
+</div>
+@*<script src="~/Scripts/jquery-1.8.2.js"></script>*@
+@*<script src="~/Scripts/blog/jquery.BlogCommon.js"></script>*@
+<script type="text/javascript">
+
+
+    $(function () {
+        var href = window.location.href;
+        var p = href.slice(href.indexOf('?'));
+        var url = "@Url.RouteUrl("ControllerAction", new { controller = "Search", action = "ShowLuceneResult" })";
+        url += href.indexOf('?') > 0 ? p : "";
+        $.get(url, null, function (data) {
+            $(".div_left_con").html(data);
+        });
+    });
+
+    $(function () {
+        var href = window.location.href;
+        var p = href.slice(href.indexOf('?'));
+        var url = "@Url.RouteUrl("ControllerAction", new { controller = "Search", action = "ShowBingResult" })";
+        url += href.indexOf('?') > 0 ? p : "";
+        $.get(url, null, function (data) {
+            $(".div_right_con").html(data);
+        });
+    });
+</script>

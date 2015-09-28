@@ -1,0 +1,19 @@
+﻿@model List<SearchResult>
+
+@if (null != Model)
+{
+    foreach (var item in Model)
+    {
+        <div style="padding-top:10px">
+            <div>
+                <h2>
+                    <a href="@item.url" target="_blank">@Html.Raw(item.title)</a>
+                </h2>
+            </div>
+            <div style="padding-top:5px">
+                <p class="p_content">@Html.Raw(item.content)</p>
+                <cite>@Request.Url.Host@item.url</cite><span></span>
+            </div>
+        </div>
+    }
+}

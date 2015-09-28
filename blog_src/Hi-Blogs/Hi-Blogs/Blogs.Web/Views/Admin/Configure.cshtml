@@ -1,0 +1,177 @@
+﻿@{
+    ViewBag.Title = "Configure";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+
+@section bloy_2{
+    @{Html.RenderPartial("OperationPartial");}
+}
+
+@if (ViewBag.TerminalType == "PC")
+{
+    <style type="text/css">
+        .body_head a.body_head_setup_pc {
+            color: #99714F;
+            font-weight: 600;
+        }
+    </style>
+}
+else
+{
+    <style type="text/css">
+        .body_head a.body_head_setup_m {
+            color: #99714F;
+            font-weight: 600;
+        }
+    </style>
+}
+
+<style type="text/css">
+    .div_configure {
+        padding-left: 10px;
+        padding-bottom: 30px;
+    }
+
+        .div_configure textarea {
+            height: 176px;
+            width: 647px;
+        }
+
+    .alertMess {
+        color: red;
+        font-size: 11px;
+        padding-left: 8px;
+    }
+
+    .diy_explain {
+        color: #b57979;
+    }
+
+    .div_save {
+        /*padding-left: 5px;*/
+        margin-top: 5px;
+    }
+
+        .div_save input {
+            height: 30px;
+            width: 80px;
+        }
+
+    textarea.conf_css, textarea.conf_side_html, textarea.conf_js, .conf_first_html, .conf_tail_html {
+        margin-top: 5px;
+    }
+</style>
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+@{
+    HtmlString htmlstyle = new HtmlString("<style></style>");
+    HtmlString htmlscript = new HtmlString("<script></script>");
+}
+@using (Ajax.BeginForm(new AjaxOptions()
+{
+    Url = Url.RouteUrl("ControllerAction", new { controller = "Admin", action = "Configure" }),
+    OnSuccess = "OnSuccess",
+    OnFailure = "OnFailure",
+    OnBegin = "OnBegin",
+    HttpMethod = "Post"
+}))
+{
+    <div class="div_configure">
+        <input type="hidden" name="TerminalType" value="@ViewBag.TerminalType" />
+        <div class="civ_diy">
+            <div class="diy_explain">
+                <span>自定义CSS代码</span>
+                <span class="alertMess">(注意：这里是直接写css样式，不需要带 @htmlstyle.ToString() 标签)</span>
+            </div>
+            <textarea class="conf_css" name="conf_css">@ViewBag.confcss</textarea>
+        </div>
+        <div class="civ_diy">
+            <div class="diy_explain">
+                自定义侧边栏HTMl代码
+            </div>
+            <textarea class="conf_side_html" name="conf_side_html">@ViewBag.confsidehtml</textarea>
+        </div>
+        <div class="civ_diy">
+            <div class="diy_explain">
+                自定义页首HTMl代码
+            </div>
+            <textarea class="conf_first_html" name="conf_first_html">@ViewBag.conffirsthtml</textarea>
+        </div>
+        <div class="civ_diy">
+            <div class="diy_explain">
+                自定义页尾HTMl代码
+            </div>
+            <textarea class="conf_tail_html" name="conf_tail_html">@ViewBag.conftailhtml</textarea>
+        </div>
+        <div class="civ_diy">
+            <div class="diy_explain">
+                自定义javascript脚本代码
+                <span class="alertMess">(注意：这里是直接写javascript脚本，不需要带 @htmlscript.ToString() 标签)</span>
+            </div>
+            <textarea class="conf_js" name="conf_js">@ViewBag.confjs</textarea>
+        </div>
+        <div class="civ_diy">
+            <div class="diy_explain">
+                <span style="padding-left:10px">
+                    <input class="IsDisCSS" name="IsDisCSS" type="checkbox" />禁用默认主题样式
+                </span>
+                <span style="padding-left:10px">
+                    <input class="IsShowCSS" name="IsShowCSS" type="checkbox" />在其他博友页面启用自定义主题样式
+                </span>
+            </div>
+        </div>
+        <div class="div_save">
+            <input type="submit" value="保存" /><span class="alertMess"></span>
+        </div>
+    </div>
+}
+@*<script src="~/Scripts/jquery-1.8.2.js"></script>*@
+<script type="text/javascript">
+    function OnSuccess(obj) {
+        $(".alertMess").html(obj);
+    }
+
+    function OnBegin() {
+        var isCssMax = $(".conf_css").val().length >= 40000;
+        var isSideHtmlMax = $(".conf_side_html").val().length >= 40000;
+        var isFirstHtmlMax = $(".conf_first_html").val().length >= 40000;
+        var isTailHtmlMax = $(".conf_tail_html").val().length >= 40000;
+        var isJsMax = $(".conf_js").val().length >= 40000;
+        if (isCssMax) {
+            $(".alertMess").html("Css内容填写过多");
+            return false;
+        }
+        if (isSideHtmlMax) {
+            $(".alertMess").html("侧边栏Html内容填写过多");
+            return false;
+        }
+        if (isFirstHtmlMax) {
+            $(".alertMess").html("页首Html内容填写过多");
+            return false;
+        }
+        if (isTailHtmlMax) {
+            $(".alertMess").html("页尾Html内容填写过多");
+            return false;
+        }
+        if (isJsMax) {
+            $(".alertMess").html("Js内容填写过多");
+            return false;
+        }
+    }
+
+    function OnFailure() {
+    }
+
+    $(function () {
+        @{
+             if (ViewBag.IsShowCSS != null && ViewBag.IsShowCSS)
+                 {
+                    <text>$(".IsShowCSS").attr("checked", true); </text>
+                 }
+                 if (ViewBag.IsDisCSS != null && ViewBag.IsDisCSS)
+                 {
+                    <text>$(".IsDisCSS").attr("checked", true); </text>
+                 }
+        }
+    });
+</script>

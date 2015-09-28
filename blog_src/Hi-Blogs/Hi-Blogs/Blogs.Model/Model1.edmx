@@ -1,0 +1,1051 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Model1.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="Model1StoreContainer">
+    <EntitySet Name="BlogCommentSet" EntityType="Model1.Store.BlogCommentSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Blogs" EntityType="Model1.Store.Blogs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="BlogTags" EntityType="Model1.Store.BlogTags" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="BlogTypes" EntityType="Model1.Store.BlogTypes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="BlogUsersSet" EntityType="Model1.Store.BlogUsersSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UserInfoSet" EntityType="Model1.Store.UserInfoSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="BlogReadInfoSet" EntityType="Model1.Store.BlogReadInfoSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="BlogsBlogTag" EntityType="Model1.Store.BlogsBlogTag" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="BlogsBlogType" EntityType="Model1.Store.BlogsBlogType" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_BlogsBlogComment" Association="Model1.Store.FK_BlogsBlogComment">
+      <End Role="Blogs" EntitySet="Blogs" />
+      <End Role="BlogCommentSet" EntitySet="BlogCommentSet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BlogUsersBlogComment" Association="Model1.Store.FK_BlogUsersBlogComment">
+      <End Role="BlogUsersSet" EntitySet="BlogUsersSet" />
+      <End Role="BlogCommentSet" EntitySet="BlogCommentSet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UsersBlogs" Association="Model1.Store.FK_UsersBlogs">
+      <End Role="BlogUsersSet" EntitySet="BlogUsersSet" />
+      <End Role="Blogs" EntitySet="Blogs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UsersBlogTags" Association="Model1.Store.FK_UsersBlogTags">
+      <End Role="BlogUsersSet" EntitySet="BlogUsersSet" />
+      <End Role="BlogTags" EntitySet="BlogTags" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UsersBlogTypes" Association="Model1.Store.FK_UsersBlogTypes">
+      <End Role="BlogUsersSet" EntitySet="BlogUsersSet" />
+      <End Role="BlogTypes" EntitySet="BlogTypes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BlogsBlogTag_Blogs" Association="Model1.Store.FK_BlogsBlogTag_Blogs">
+      <End Role="Blogs" EntitySet="Blogs" />
+      <End Role="BlogsBlogTag" EntitySet="BlogsBlogTag" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BlogsBlogTag_BlogTags" Association="Model1.Store.FK_BlogsBlogTag_BlogTags">
+      <End Role="BlogTags" EntitySet="BlogTags" />
+      <End Role="BlogsBlogTag" EntitySet="BlogsBlogTag" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BlogsBlogType_Blogs" Association="Model1.Store.FK_BlogsBlogType_Blogs">
+      <End Role="Blogs" EntitySet="Blogs" />
+      <End Role="BlogsBlogType" EntitySet="BlogsBlogType" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BlogsBlogType_BlogTypes" Association="Model1.Store.FK_BlogsBlogType_BlogTypes">
+      <End Role="BlogTypes" EntitySet="BlogTypes" />
+      <End Role="BlogsBlogType" EntitySet="BlogsBlogType" />
+    </AssociationSet>
+    <AssociationSet Name="BlogUsersSetUserInfo" Association="Model1.Store.BlogUsersSetUserInfo">
+      <End Role="BlogUsersSet" EntitySet="BlogUsersSet" />
+      <End Role="UserInfo" EntitySet="UserInfoSet" />
+    </AssociationSet>
+    <AssociationSet Name="BlogsBlogReadInfo" Association="Model1.Store.BlogsBlogReadInfo">
+      <End Role="Blogs" EntitySet="Blogs" />
+      <End Role="BlogReadInfo" EntitySet="BlogReadInfoSet" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="BlogCommentSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CreateTime" Type="datetime" Nullable="true" />
+    <Property Name="UpTime" Type="datetime" Nullable="true" />
+    <Property Name="IsDel" Type="bit" Nullable="false" />
+    <Property Name="Content" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="CommentSort" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="CommentID" Type="int" Nullable="false" />
+    <Property Name="ContentLevy" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="BlogUsersId" Type="int" Nullable="false" />
+    <Property Name="BlogsId" Type="int" Nullable="false" />
+    <Property Name="IsInitial" Type="bit" Nullable="true" />
+    <Property Name="ReplyUserID" Type="int" Nullable="true" />
+    <Property Name="ReplyUserName" Type="nvarchar(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Blogs">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CreateTime" Type="datetime" Nullable="true" />
+    <Property Name="UpTime" Type="datetime" Nullable="true" />
+    <Property Name="IsDel" Type="bit" Nullable="false" />
+    <Property Name="BlogContent" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="BlogRemarks" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="BlogTitle" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="BlogUrl" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="IsForwarding" Type="bit" Nullable="true" />
+    <Property Name="BlogCreateTime" Type="datetime" Nullable="true" />
+    <Property Name="BlogUpTime" Type="datetime" Nullable="true" />
+    <Property Name="UsersId" Type="int" Nullable="false" />
+    <Property Name="BlogReadNum" Type="int" Nullable="true" />
+    <Property Name="BlogForUrl" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="IsShowHome" Type="bit" Nullable="true" />
+    <Property Name="IsShowMyHome" Type="bit" Nullable="true" />
+    <Property Name="BlogCommentNum" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="BlogTags">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TagName" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="TagRemarks" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="CreateTime" Type="datetime" Nullable="true" />
+    <Property Name="UpTime" Type="datetime" Nullable="true" />
+    <Property Name="IsDel" Type="bit" Nullable="false" />
+    <Property Name="UsersId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BlogTypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TypeName" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="TypeRemarks" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="CreateTime" Type="datetime" Nullable="true" />
+    <Property Name="UpTime" Type="datetime" Nullable="true" />
+    <Property Name="IsDel" Type="bit" Nullable="false" />
+    <Property Name="UsersId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BlogUsersSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CreateTime" Type="datetime" Nullable="true" />
+    <Property Name="UpTime" Type="datetime" Nullable="true" />
+    <Property Name="IsDel" Type="bit" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="UserPass" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="UserNickname" Type="nvarchar" Nullable="true" MaxLength="100" />
+    <Property Name="UserMail" Type="nvarchar" Nullable="true" MaxLength="100" />
+    <Property Name="IsLock" Type="bit" Nullable="false" />
+    <Property Name="UserImage" Type="nvarchar" Nullable="true" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="UserInfoSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Age" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Sex" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Hobby" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Profile" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="BlogLastUpTime" Type="datetime" Nullable="true" />
+    <Property Name="BlogUpNum" Type="int" Nullable="false" DefaultValue="0" />
+    <Property Name="IsDel" Type="bit" Nullable="false" />
+    <Property Name="CreateTime" Type="datetime" Nullable="true" />
+    <Property Name="UpTime" Type="datetime" Nullable="true" />
+    <Property Name="IsDisCSS" Type="bit" Nullable="true" />
+    <Property Name="IsShowCSS" Type="bit" Nullable="true" />
+    <Property Name="IsShowHTML" Type="bit" Nullable="true" />
+    <Property Name="IsShowJS" Type="bit" Nullable="true" />
+    <Property Name="IsShowMCSS" Type="bit" Nullable="true" />
+    <Property Name="IsDisMCSS" Type="bit" Nullable="true" />
+    <Property Name="BlogTheme" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="BlogUsersSet_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BlogReadInfoSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CreateTime" Type="datetime" Nullable="true" />
+    <Property Name="UpTime" Type="datetime" Nullable="true" />
+    <Property Name="IsDel" Type="bit" Nullable="false" />
+    <Property Name="MD5" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LastTime" Type="datetime" Nullable="false" />
+    <Property Name="BlogsId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BlogsBlogTag">
+    <Key>
+      <PropertyRef Name="Blogs_Id" />
+      <PropertyRef Name="BlogTags_Id" />
+    </Key>
+    <Property Name="Blogs_Id" Type="int" Nullable="false" />
+    <Property Name="BlogTags_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BlogsBlogType">
+    <Key>
+      <PropertyRef Name="Blogs_Id" />
+      <PropertyRef Name="BlogTypes_Id" />
+    </Key>
+    <Property Name="Blogs_Id" Type="int" Nullable="false" />
+    <Property Name="BlogTypes_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_BlogsBlogComment">
+    <End Role="Blogs" Type="Model1.Store.Blogs" Multiplicity="1" />
+    <End Role="BlogCommentSet" Type="Model1.Store.BlogCommentSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Blogs">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BlogCommentSet">
+        <PropertyRef Name="BlogsId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BlogUsersBlogComment">
+    <End Role="BlogUsersSet" Type="Model1.Store.BlogUsersSet" Multiplicity="1" />
+    <End Role="BlogCommentSet" Type="Model1.Store.BlogCommentSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BlogUsersSet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BlogCommentSet">
+        <PropertyRef Name="BlogUsersId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UsersBlogs">
+    <End Role="BlogUsersSet" Type="Model1.Store.BlogUsersSet" Multiplicity="1" />
+    <End Role="Blogs" Type="Model1.Store.Blogs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BlogUsersSet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Blogs">
+        <PropertyRef Name="UsersId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UsersBlogTags">
+    <End Role="BlogUsersSet" Type="Model1.Store.BlogUsersSet" Multiplicity="1" />
+    <End Role="BlogTags" Type="Model1.Store.BlogTags" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BlogUsersSet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BlogTags">
+        <PropertyRef Name="UsersId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UsersBlogTypes">
+    <End Role="BlogUsersSet" Type="Model1.Store.BlogUsersSet" Multiplicity="1" />
+    <End Role="BlogTypes" Type="Model1.Store.BlogTypes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BlogUsersSet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BlogTypes">
+        <PropertyRef Name="UsersId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="BlogUsersSetUserInfo">
+    <End Role="BlogUsersSet" Type="Model1.Store.BlogUsersSet" Multiplicity="1" />
+    <End Role="UserInfo" Type="Model1.Store.UserInfoSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BlogUsersSet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserInfo">
+        <PropertyRef Name="BlogUsersSet_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="BlogsBlogReadInfo">
+    <End Role="Blogs" Type="Model1.Store.Blogs" Multiplicity="1" />
+    <End Role="BlogReadInfo" Type="Model1.Store.BlogReadInfoSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Blogs">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BlogReadInfo">
+        <PropertyRef Name="BlogsId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BlogsBlogTag_Blogs">
+    <End Role="Blogs" Type="Model1.Store.Blogs" Multiplicity="1" />
+    <End Role="BlogsBlogTag" Type="Model1.Store.BlogsBlogTag" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Blogs">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BlogsBlogTag">
+        <PropertyRef Name="Blogs_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BlogsBlogTag_BlogTags">
+    <End Role="BlogsBlogTag" Type="Model1.Store.BlogsBlogTag" Multiplicity="*" />
+    <End Role="BlogTags" Type="Model1.Store.BlogTags" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="BlogTags">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BlogsBlogTag">
+        <PropertyRef Name="BlogTags_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BlogsBlogType_Blogs">
+    <End Role="Blogs" Type="Model1.Store.Blogs" Multiplicity="1" />
+    <End Role="BlogsBlogType" Type="Model1.Store.BlogsBlogType" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Blogs">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BlogsBlogType">
+        <PropertyRef Name="Blogs_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BlogsBlogType_BlogTypes">
+    <End Role="BlogsBlogType" Type="Model1.Store.BlogsBlogType" Multiplicity="*" />
+    <End Role="BlogTypes" Type="Model1.Store.BlogTypes" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="BlogTypes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BlogsBlogType">
+        <PropertyRef Name="BlogTypes_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Model1" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="Model1Container" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BlogCommentSet" EntityType="Model1.BlogCommentSet" />
+          <EntitySet Name="Blogs" EntityType="Model1.Blogs" />
+          <EntitySet Name="BlogTags" EntityType="Model1.BlogTags" />
+          <EntitySet Name="BlogTypes" EntityType="Model1.BlogTypes" />
+          <EntitySet Name="BlogUsersSet" EntityType="Model1.BlogUsersSet" />
+          <AssociationSet Name="FK_BlogsBlogComment" Association="Model1.FK_BlogsBlogComment">
+            <End Role="Blogs" EntitySet="Blogs" />
+            <End Role="BlogCommentSet" EntitySet="BlogCommentSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BlogUsersBlogComment" Association="Model1.FK_BlogUsersBlogComment">
+            <End Role="BlogUsersSet" EntitySet="BlogUsersSet" />
+            <End Role="BlogCommentSet" EntitySet="BlogCommentSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UsersBlogs" Association="Model1.FK_UsersBlogs">
+            <End Role="BlogUsersSet" EntitySet="BlogUsersSet" />
+            <End Role="Blogs" EntitySet="Blogs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UsersBlogTags" Association="Model1.FK_UsersBlogTags">
+            <End Role="BlogUsersSet" EntitySet="BlogUsersSet" />
+            <End Role="BlogTags" EntitySet="BlogTags" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UsersBlogTypes" Association="Model1.FK_UsersBlogTypes">
+            <End Role="BlogUsersSet" EntitySet="BlogUsersSet" />
+            <End Role="BlogTypes" EntitySet="BlogTypes" />
+          </AssociationSet>
+          <AssociationSet Name="BlogsBlogTag" Association="Model1.BlogsBlogTag">
+            <End Role="Blogs" EntitySet="Blogs" />
+            <End Role="BlogTags" EntitySet="BlogTags" />
+          </AssociationSet>
+          <AssociationSet Name="BlogsBlogType" Association="Model1.BlogsBlogType">
+            <End Role="Blogs" EntitySet="Blogs" />
+            <End Role="BlogTypes" EntitySet="BlogTypes" />
+          </AssociationSet>
+          <EntitySet Name="UserInfoSet" EntityType="Model1.UserInfo" />
+          <AssociationSet Name="BlogUsersSetUserInfo" Association="Model1.BlogUsersSetUserInfo">
+            <End Role="BlogUsersSet" EntitySet="BlogUsersSet" />
+            <End Role="UserInfo" EntitySet="UserInfoSet" />
+          </AssociationSet>
+          <EntitySet Name="BlogReadInfoSet" EntityType="Model1.BlogReadInfo" />
+          <AssociationSet Name="BlogsBlogReadInfo" Association="Model1.BlogsBlogReadInfo">
+            <End Role="Blogs" EntitySet="Blogs" />
+            <End Role="BlogReadInfo" EntitySet="BlogReadInfoSet" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="BlogCommentSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" >
+            <Documentation>
+              <Summary>主键ID</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="CreateTime" Type="DateTime" Precision="3" >
+            <Documentation>
+              <Summary>修改时间</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="UpTime" Type="DateTime" Precision="3" >
+            <Documentation>
+              <Summary>创建时间</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="IsDel" Type="Boolean" Nullable="false" >
+            <Documentation>
+              <Summary>是否不可用</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" >
+            <Documentation>
+              <Summary>评论内容</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="CommentSort" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" >
+            <Documentation>
+              <Summary>(弃用)</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="CommentID" Type="Int32" Nullable="false" />
+          <Property Name="ContentLevy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="BlogUsersId" Type="Int32" Nullable="false" >
+            <Documentation>
+              <Summary>博客用户ID</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="BlogsId" Type="Int32" Nullable="false" >
+            <Documentation>
+              <Summary>博客文章ID</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="IsInitial" Type="Boolean" />
+          <Property Name="ReplyUserID" Type="Int32" />
+          <Property Name="ReplyUserName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Blogs" Relationship="Model1.FK_BlogsBlogComment" FromRole="BlogCommentSet" ToRole="Blogs" />
+          <NavigationProperty Name="BlogUsersSet" Relationship="Model1.FK_BlogUsersBlogComment" FromRole="BlogCommentSet" ToRole="BlogUsersSet" />
+        </EntityType>
+        <EntityType Name="Blogs">
+          <Documentation>
+            <Summary>博客文章主表</Summary>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" >
+            <Documentation>
+              <Summary>主键ID</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="CreateTime" Type="DateTime" Precision="3" >
+            <Documentation>
+              <Summary>创建时间</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="UpTime" Type="DateTime" Precision="3" >
+            <Documentation>
+              <Summary>修改时间</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="IsDel" Type="Boolean" Nullable="false" >
+            <Documentation>
+              <Summary>是否不可用</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="BlogContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" >
+            <Documentation>
+              <Summary>文章内容</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="BlogRemarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="BlogTitle" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" >
+            <Documentation>
+              <Summary>文章标题</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="BlogUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" >
+            <Documentation>
+              <Summary>文章url</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="IsForwarding" Type="Boolean" >
+            <Documentation>
+              <Summary>是否是转发文章</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="BlogCreateTime" Type="DateTime" Precision="3" >
+            <Documentation>
+              <Summary>博客创建时间</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="BlogUpTime" Type="DateTime" Precision="3" >
+            <Documentation>
+              <Summary>博客修改时间</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="UsersId" Type="Int32" Nullable="false" >
+            <Documentation>
+              <Summary>用户ID（外键）</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="BlogReadNum" Type="Int32" >
+            <Documentation>
+              <Summary>文章阅读量</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="BlogForUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" >
+            <Documentation>
+              <Summary>转发原链接</Summary>
+            </Documentation>
+          </Property>
+          <NavigationProperty Name="BlogCommentSet" Relationship="Model1.FK_BlogsBlogComment" FromRole="Blogs" ToRole="BlogCommentSet" />
+          <NavigationProperty Name="BlogUsersSet" Relationship="Model1.FK_UsersBlogs" FromRole="Blogs" ToRole="BlogUsersSet" />
+          <NavigationProperty Name="BlogTags" Relationship="Model1.BlogsBlogTag" FromRole="Blogs" ToRole="BlogTags" />
+          <NavigationProperty Name="BlogTypes" Relationship="Model1.BlogsBlogType" FromRole="Blogs" ToRole="BlogTypes" />
+          <Property Name="IsShowHome" Type="Boolean" Nullable="true" >
+            <Documentation>
+              <Summary>是否显示在首页</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="IsShowMyHome" Type="Boolean" Nullable="true" >
+            <Documentation>
+              <Summary>是否显示在个人主页</Summary>
+            </Documentation>
+          </Property>
+          <NavigationProperty Name="BlogReadInfo" Relationship="Model1.BlogsBlogReadInfo" FromRole="Blogs" ToRole="BlogReadInfo" />
+          <Property Name="BlogCommentNum" Type="Int32" Nullable="true" >
+            <Documentation>
+              <Summary>此博客文章的评论数</Summary>
+            </Documentation>
+          </Property>
+        </EntityType>
+        <EntityType Name="BlogTags">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" >
+            <Documentation>
+              <Summary>主键ID</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="TagName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" >
+            <Documentation>
+              <Summary>tag标签名字</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="TagRemarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" >
+            <Documentation>
+              <Summary>创建时间</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="UpTime" Type="DateTime" Precision="3" >
+            <Documentation>
+              <Summary>修改时间</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="IsDel" Type="Boolean" Nullable="false" >
+            <Documentation>
+              <Summary>是否不可用</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="UsersId" Type="Int32" Nullable="false" >
+            <Documentation>
+              <Summary>用户ID</Summary>
+            </Documentation>
+          </Property>
+          <NavigationProperty Name="BlogUsersSet" Relationship="Model1.FK_UsersBlogTags" FromRole="BlogTags" ToRole="BlogUsersSet" />
+          <NavigationProperty Name="Blogs" Relationship="Model1.BlogsBlogTag" FromRole="BlogTags" ToRole="Blogs" />
+        </EntityType>
+        <EntityType Name="BlogTypes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" >
+            <Documentation>
+              <Summary>主键ID</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="TypeName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" >
+            <Documentation>
+              <Summary>类型名称</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="TypeRemarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" >
+            <Documentation>
+              <Summary>创建时间</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="UpTime" Type="DateTime" Precision="3" >
+            <Documentation>
+              <Summary>修改时间</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="IsDel" Type="Boolean" Nullable="false" >
+            <Documentation>
+              <Summary>是否不可用</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="UsersId" Type="Int32" Nullable="false" >
+            <Documentation>
+              <Summary>用户ID</Summary>
+            </Documentation>
+          </Property>
+          <NavigationProperty Name="BlogUsersSet" Relationship="Model1.FK_UsersBlogTypes" FromRole="BlogTypes" ToRole="BlogUsersSet" />
+          <NavigationProperty Name="Blogs" Relationship="Model1.BlogsBlogType" FromRole="BlogTypes" ToRole="Blogs" />
+        </EntityType>
+        <EntityType Name="BlogUsersSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" >
+            <Documentation>
+              <Summary>主键ID</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="CreateTime" Type="DateTime" Precision="3" >
+            <Documentation>
+              <Summary>创建时间</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="UpTime" Type="DateTime" Precision="3" >
+            <Documentation>
+              <Summary>修改时间</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="IsDel" Type="Boolean" Nullable="false" >
+            <Documentation>
+              <Summary>是否不可用</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" >
+            <Documentation>
+              <Summary>用户名</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="UserPass" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" >
+            <Documentation>
+              <Summary>密码</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="UserNickname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" >
+            <Documentation>
+              <Summary>别名昵称</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="UserMail" Type="String" MaxLength="100" FixedLength="false" Unicode="true" >
+            <Documentation>
+              <Summary>邮箱</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="IsLock" Type="Boolean" Nullable="false" >
+            <Documentation>
+              <Summary>是否锁定</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="UserImage" Type="String" MaxLength="100" FixedLength="false" Unicode="true" >
+            <Documentation>
+              <Summary>用户头像</Summary>
+            </Documentation>
+          </Property>
+          <NavigationProperty Name="BlogCommentSet" Relationship="Model1.FK_BlogUsersBlogComment" FromRole="BlogUsersSet" ToRole="BlogCommentSet" />
+          <NavigationProperty Name="Blogs" Relationship="Model1.FK_UsersBlogs" FromRole="BlogUsersSet" ToRole="Blogs" />
+          <NavigationProperty Name="BlogTags" Relationship="Model1.FK_UsersBlogTags" FromRole="BlogUsersSet" ToRole="BlogTags" />
+          <NavigationProperty Name="BlogTypes" Relationship="Model1.FK_UsersBlogTypes" FromRole="BlogUsersSet" ToRole="BlogTypes" />
+          <NavigationProperty Name="UserInfo" Relationship="Model1.BlogUsersSetUserInfo" FromRole="BlogUsersSet" ToRole="UserInfo" />
+        </EntityType>
+        <Association Name="FK_BlogsBlogComment">
+          <End Type="Model1.Blogs" Role="Blogs" Multiplicity="1" />
+          <End Type="Model1.BlogCommentSet" Role="BlogCommentSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Blogs">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BlogCommentSet">
+              <PropertyRef Name="BlogsId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BlogUsersBlogComment">
+          <End Type="Model1.BlogUsersSet" Role="BlogUsersSet" Multiplicity="1" />
+          <End Type="Model1.BlogCommentSet" Role="BlogCommentSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BlogUsersSet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BlogCommentSet">
+              <PropertyRef Name="BlogUsersId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UsersBlogs">
+          <End Type="Model1.BlogUsersSet" Role="BlogUsersSet" Multiplicity="1" />
+          <End Type="Model1.Blogs" Role="Blogs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BlogUsersSet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Blogs">
+              <PropertyRef Name="UsersId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UsersBlogTags">
+          <End Type="Model1.BlogUsersSet" Role="BlogUsersSet" Multiplicity="1" />
+          <End Type="Model1.BlogTags" Role="BlogTags" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BlogUsersSet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BlogTags">
+              <PropertyRef Name="UsersId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UsersBlogTypes">
+          <End Type="Model1.BlogUsersSet" Role="BlogUsersSet" Multiplicity="1" />
+          <End Type="Model1.BlogTypes" Role="BlogTypes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BlogUsersSet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BlogTypes">
+              <PropertyRef Name="UsersId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="BlogsBlogTag">
+          <End Type="Model1.Blogs" Role="Blogs" Multiplicity="*" />
+          <End Type="Model1.BlogTags" Role="BlogTags" Multiplicity="*" />
+        </Association>
+        <Association Name="BlogsBlogType">
+          <End Type="Model1.Blogs" Role="Blogs" Multiplicity="*" />
+          <End Type="Model1.BlogTypes" Role="BlogTypes" Multiplicity="*" />
+        </Association>
+        <EntityType Name="UserInfo">
+          <Documentation>
+            <Summary>用户详细信息</Summary>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" >
+            <Documentation>
+              <Summary>主键ID</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="Age" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" >
+            <Documentation>
+              <Summary>年龄</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="Sex" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" >
+            <Documentation>
+              <Summary>性别</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="Hobby" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" >
+            <Documentation>
+              <Summary>爱好</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="Profile" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" >
+            <Documentation>
+              <Summary>个人简介</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="BlogLastUpTime" Type="DateTime" Nullable="true" Precision="3" >
+            <Documentation>
+              <Summary>博客最后更新时间</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="BlogUpNum" Type="Int32" Nullable="false" DefaultValue="0" >
+            <Documentation>
+              <Summary>今日更新博客数量</Summary>
+            </Documentation>
+          </Property>
+          <NavigationProperty Name="BlogUsersSet" Relationship="Model1.BlogUsersSetUserInfo" FromRole="UserInfo" ToRole="BlogUsersSet" />
+          <Property Name="IsDel" Type="Boolean" Nullable="false" >
+            <Documentation>
+              <Summary>是否不可用</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="CreateTime" Type="DateTime" >
+            <Documentation>
+              <Summary>创建时间</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="UpTime" Type="DateTime" >
+            <Documentation>
+              <Summary>修改时间</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="IsDisCSS" Type="Boolean" >
+            <Documentation>
+              <Summary>是否禁用默认主题样式（PC）</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="IsShowCSS" Type="Boolean" >
+            <Documentation>
+              <Summary>是否在其他用户页面启用自定义主题样式（PC）</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="IsShowHTML" Type="Boolean" >
+            <Documentation>
+              <Summary>(弃用)</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="IsShowJS" Type="Boolean" >
+            <Documentation>
+              <Summary>（弃用）</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="IsShowMCSS" Type="Boolean" >
+            <Documentation>
+              <Summary>是否在其他用户页面启用自定义主题样式（移动端）</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="IsDisMCSS" Type="Boolean" >
+            <Documentation>
+              <Summary>是否禁用默认主题样式（移动端）</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="BlogTheme" Type="String" >
+            <Documentation>
+              <Summary>博客主题</Summary>
+            </Documentation>
+          </Property>
+        </EntityType>
+        <Association Name="BlogUsersSetUserInfo">
+          <End Type="Model1.BlogUsersSet" Role="BlogUsersSet" Multiplicity="1" />
+          <End Type="Model1.UserInfo" Role="UserInfo" Multiplicity="0..1" />
+        </Association>
+        <EntityType Name="BlogReadInfo">
+          <Documentation>
+            <Summary>博客阅读信息 主要用来统计阅读量</Summary>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" >
+            <Documentation>
+              <Summary>主键ID</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="CreateTime" Type="DateTime" Nullable="true" >
+            <Documentation>
+              <Summary>创建时间</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="UpTime" Type="DateTime" Nullable="true" >
+            <Documentation>
+              <Summary>修改时间</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="IsDel" Type="Boolean" Nullable="false" >
+            <Documentation>
+              <Summary>是否不可用</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="MD5" Type="String" Nullable="false" >
+            <Documentation>
+              <Summary>阅读客户端标识</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="LastTime" Type="DateTime" Nullable="false" >
+            <Documentation>
+              <Summary>阅读统计最后有效时间</Summary>
+            </Documentation>
+          </Property>
+          <NavigationProperty Name="Blogs" Relationship="Model1.BlogsBlogReadInfo" FromRole="BlogReadInfo" ToRole="Blogs" />
+          <Property Name="BlogsId" Type="Int32" Nullable="false" >
+            <Documentation>
+              <Summary>博客文章ID（外键）</Summary>
+            </Documentation>
+          </Property>
+        </EntityType>
+        <Association Name="BlogsBlogReadInfo">
+          <End Type="Model1.Blogs" Role="Blogs" Multiplicity="1" />
+          <End Type="Model1.BlogReadInfo" Role="BlogReadInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Blogs">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BlogReadInfo">
+              <PropertyRef Name="BlogsId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Model1StoreContainer" CdmEntityContainer="Model1Container">
+    <EntitySetMapping Name="BlogCommentSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.BlogCommentSet)">
+        <MappingFragment StoreEntitySet="BlogCommentSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="UpTime" ColumnName="UpTime" />
+          <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="CommentSort" ColumnName="CommentSort" />
+          <ScalarProperty Name="CommentID" ColumnName="CommentID" />
+          <ScalarProperty Name="ContentLevy" ColumnName="ContentLevy" />
+          <ScalarProperty Name="BlogUsersId" ColumnName="BlogUsersId" />
+          <ScalarProperty Name="BlogsId" ColumnName="BlogsId" />
+          <ScalarProperty Name="IsInitial" ColumnName="IsInitial" />
+          <ScalarProperty Name="ReplyUserID" ColumnName="ReplyUserID" />
+          <ScalarProperty Name="ReplyUserName" ColumnName="ReplyUserName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Blogs">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Blogs)">
+        <MappingFragment StoreEntitySet="Blogs">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="UpTime" ColumnName="UpTime" />
+          <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+          <ScalarProperty Name="BlogContent" ColumnName="BlogContent" />
+          <ScalarProperty Name="BlogRemarks" ColumnName="BlogRemarks" />
+          <ScalarProperty Name="BlogTitle" ColumnName="BlogTitle" />
+          <ScalarProperty Name="BlogUrl" ColumnName="BlogUrl" />
+          <ScalarProperty Name="IsForwarding" ColumnName="IsForwarding" />
+          <ScalarProperty Name="BlogCreateTime" ColumnName="BlogCreateTime" />
+          <ScalarProperty Name="BlogUpTime" ColumnName="BlogUpTime" />
+          <ScalarProperty Name="UsersId" ColumnName="UsersId" />
+          <ScalarProperty Name="BlogReadNum" ColumnName="BlogReadNum" />
+          <ScalarProperty Name="BlogForUrl" ColumnName="BlogForUrl" />
+          <ScalarProperty Name="IsShowHome" ColumnName="IsShowHome" />
+          <ScalarProperty Name="IsShowMyHome" ColumnName="IsShowMyHome" />
+          <ScalarProperty Name="BlogCommentNum" ColumnName="BlogCommentNum" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BlogTags">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.BlogTags)">
+        <MappingFragment StoreEntitySet="BlogTags">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TagName" ColumnName="TagName" />
+          <ScalarProperty Name="TagRemarks" ColumnName="TagRemarks" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="UpTime" ColumnName="UpTime" />
+          <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+          <ScalarProperty Name="UsersId" ColumnName="UsersId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BlogTypes">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.BlogTypes)">
+        <MappingFragment StoreEntitySet="BlogTypes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+          <ScalarProperty Name="TypeRemarks" ColumnName="TypeRemarks" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="UpTime" ColumnName="UpTime" />
+          <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+          <ScalarProperty Name="UsersId" ColumnName="UsersId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BlogUsersSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.BlogUsersSet)">
+        <MappingFragment StoreEntitySet="BlogUsersSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="UpTime" ColumnName="UpTime" />
+          <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserPass" ColumnName="UserPass" />
+          <ScalarProperty Name="UserNickname" ColumnName="UserNickname" />
+          <ScalarProperty Name="UserMail" ColumnName="UserMail" />
+          <ScalarProperty Name="IsLock" ColumnName="IsLock" />
+          <ScalarProperty Name="UserImage" ColumnName="UserImage" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserInfoSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.UserInfo)">
+        <MappingFragment StoreEntitySet="UserInfoSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
+          <ScalarProperty Name="Hobby" ColumnName="Hobby" />
+          <ScalarProperty Name="Profile" ColumnName="Profile" />
+          <ScalarProperty Name="BlogLastUpTime" ColumnName="BlogLastUpTime" />
+          <ScalarProperty Name="BlogUpNum" ColumnName="BlogUpNum" />
+          <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="UpTime" ColumnName="UpTime" />
+          <ScalarProperty Name="IsDisCSS" ColumnName="IsDisCSS" />
+          <ScalarProperty Name="IsShowCSS" ColumnName="IsShowCSS" />
+          <ScalarProperty Name="IsShowHTML" ColumnName="IsShowHTML" />
+          <ScalarProperty Name="IsShowJS" ColumnName="IsShowJS" />
+          <ScalarProperty Name="IsShowMCSS" ColumnName="IsShowMCSS" />
+          <ScalarProperty Name="IsDisMCSS" ColumnName="IsDisMCSS" />
+          <ScalarProperty Name="BlogTheme" ColumnName="BlogTheme" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BlogReadInfoSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.BlogReadInfo)">
+        <MappingFragment StoreEntitySet="BlogReadInfoSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="UpTime" ColumnName="UpTime" />
+          <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+          <ScalarProperty Name="MD5" ColumnName="MD5" />
+          <ScalarProperty Name="LastTime" ColumnName="LastTime" />
+          <ScalarProperty Name="BlogsId" ColumnName="BlogsId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="BlogsBlogTag" TypeName="Model1.BlogsBlogTag" StoreEntitySet="BlogsBlogTag">
+      <EndProperty Name="Blogs">
+        <ScalarProperty Name="Id" ColumnName="Blogs_Id" />
+      </EndProperty>
+      <EndProperty Name="BlogTags">
+        <ScalarProperty Name="Id" ColumnName="BlogTags_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="BlogsBlogType" TypeName="Model1.BlogsBlogType" StoreEntitySet="BlogsBlogType">
+      <EndProperty Name="Blogs">
+        <ScalarProperty Name="Id" ColumnName="Blogs_Id" />
+      </EndProperty>
+      <EndProperty Name="BlogTypes">
+        <ScalarProperty Name="Id" ColumnName="BlogTypes_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="BlogUsersSetUserInfo" TypeName="Model1.BlogUsersSetUserInfo" StoreEntitySet="UserInfoSet">
+      <EndProperty Name="BlogUsersSet">
+        <ScalarProperty Name="Id" ColumnName="BlogUsersSet_Id" />
+      </EndProperty>
+      <EndProperty Name="UserInfo">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

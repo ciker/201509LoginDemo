@@ -1,0 +1,396 @@
+﻿html {
+    color: #484444;
+    background-color: #FBF9F9;
+}
+
+* {
+    /*padding: 0px;*/ /*这里会影响百度编辑器的 序列*/
+    margin: 0px;
+    box-sizing: border-box; /*设置元素边框为 内容 + padding + 边框的宽度（不包括margin）;
+    [如果默认不设置此属性的话 那么宽度仅仅只是 元素里面的内容宽度] */
+}
+
+.div_zf {
+    margin: 10px auto;
+    margin-bottom: 30px;
+    color: #ff6a00;
+}
+
+    .div_zf a {
+        color: #14f20b;
+    }
+
+/*清除浮动*/
+.clearfix:after {
+    content: ' ';
+    display: table;
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1; /*兼容IE低版本*/
+}
+
+body {
+    /*font-family: Verdana,Arial,Helvetica,sans-serif;*/
+    font-family: "Segoe UI",Segoe,Tahoma,Arial,Verdana,sans-serif;
+}
+
+    body a:hover {
+        color: #00438a;
+        text-decoration: underline;
+    }
+
+    body a {
+        color: #258fb8;
+        text-decoration: none;
+        line-height: inherit;
+        font-weight: inherit;
+    }
+
+div.blogpro_list {
+    border-bottom: 1px dotted #ccc;
+    padding-bottom: 10px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+
+.alertMess {
+    color: red;
+    font-size: 11px;
+}
+
+.a_logo img {
+    vertical-align: bottom;
+}
+
+.blog_title {
+    font-size: 18px;
+    margin-bottom: 19px;
+}
+
+
+/*注释5FBDCE*/
+/*主标题*/
+.div_BlogContent h1, .addpostBody h1 {
+    /*margin: top right bottom left*/
+    margin: 15px auto 8px 0px; /*外边据*/
+    padding: 5px 8px; /*内边距*/
+    font-size: 18px; /*字体大小*/
+    /*border-radius: 5px;*/ /*圆角边框*/
+    background-color: #F5F5F4;
+    color: #AA7652;
+    border: 1px solid #d0cfcf;
+}
+/*副标题*/
+.div_BlogContent h2, .addpostBody h2 {
+    margin: 10px auto 4px 0px; /*外边据*/
+    padding: 3px 4px; /*内边距*/
+    font-size: 15px; /*字体大小*/
+    /*border-radius: 5px;*/ /*圆角边框*/
+    /*border: 1px solid #AA7652;*/
+    background-color: #F5F5F4;
+    color: #AA7652;
+    /*border: 1px solid #d3cfcf;*/
+    border-top: 1px dotted #c6bebe;
+}
+
+.div_BlogContent h3 {
+    color: #AA7652;
+    font-size: 16px;
+    font-weight: 500;
+    background: #F5F5F4;
+    padding: 2px;
+    /* padding-top: 2px; */
+    border-left: 5px solid;
+}
+
+.blog_head_operation {
+    margin-bottom: 10px;
+    background-color: #F9F9F9;
+    padding: 8px;
+    font-size: 14px;
+    border-bottom: 1px solid #E2E2E2;
+}
+
+    .blog_head_operation .a_logo {
+        margin-left: 5px;
+        color: #b57979;
+    }
+
+    .blog_head_operation .userOperation {
+        float: right;
+        margin-right: 10px;
+    }
+
+.blog_head .blog_head_user {
+    margin-left: 15px;
+    margin-top: 20px;
+}
+
+    .blog_head .blog_head_user .bolg_username {
+        font-size: 21px;
+        font-weight: bold;
+    }
+
+.blog_body {
+    margin-top: 10px;
+}
+
+    .blog_body .blog_body_8, .blog_body .blog_body_2 {
+        /*width: 80%;*/
+        /*float: left;*/
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+        .blog_body .blog_body_8 .blog_info_render {
+            /*margin-left: 4px;
+            margin-right: 4px;*/
+            overflow: hidden;
+        }
+
+    .blog_body .blog_body_2 {
+        /*width: 20%;*/
+        /*float: right;*/
+        /*padding-left: 15px;
+        padding-right: 15px;*/
+        /*padding-right: 25px;*/
+    }
+
+        .blog_body .blog_body_2 .div_soso_n {
+            float: left;
+            margin-right: 40px;
+            margin-bottom: 20px;
+        }
+
+/*.blog_body_2 .blog_info_bind {
+            margin-right: 10px;
+        }*/
+.blog_type {
+    float: left;
+    margin-left: 4px;
+}
+
+.blog_tag {
+    /*float: left;*/
+    margin-left: 4px;
+}
+
+.blog_type, .blog_tag {
+    border-top: 1px dotted #c6bebe;
+    padding: 4px;
+    /*padding-left: 8px;*/
+}
+
+.div_soso {
+    padding-left: 4px;
+}
+
+.blog_type a, .blog_tag a {
+    padding-top: 3px;
+    margin: 6px;
+    /*display: block;*/
+}
+
+.blog_tag {
+    margin-top: 5px;
+}
+
+.text_soso {
+    background: #fff url('/Imgs/search_24px_1172758_easyicon.net.png') no-repeat;
+    text-indent: 24px;
+    height: 27px;
+    border: 1px solid #c6bebe;
+    float: left;
+    outline: 0px solid #c6bebe;
+    width: 80%;
+}
+
+.but_soso {
+    height: 27px;
+    width: 20%;
+    outline: none;
+    background-color: #D7D4D4;
+    border: 0px solid #ffffff;
+    color: #b57979;
+    font-size: 14px;
+    font-weight: 800;
+}
+
+    .but_soso:hover {
+        background-color: #e1d7d7;
+        border: 0px solid #ffffff;
+    }
+
+    .but_soso:active {
+        background-color: #beb7b7;
+        border: 0px solid #ffffff;
+    }
+
+
+.div_soso_n {
+    background-color: #D7D4D4;
+    padding: 3px;
+    width: 100%;
+}
+
+.footer a {
+    color: #484444;
+}
+
+    .footer a:hover {
+        color: red;
+    }
+
+.footer div {
+    margin-top: 3px;
+}
+
+.footer {
+    text-align: center;
+    width: 100%;
+    float: left;
+    margin-top: 60px;
+    padding: 10px;
+}
+
+.TrafficStatistics {
+    display: none;
+}
+
+.blog_usercode {
+    display: none;
+}
+
+div.cnblogs_code, .imgOverflow, .div_BlogContent p.Output, .div_BlogContent p.Code {
+    border: 1px solid #ccc;
+    /*word-wrap: break-word;*/ /*溢出内容 自动换行*/
+    overflow: auto; /*自动出现滚动条*/
+    background-color: #f5f5f5;
+    padding: 5px;
+    margin: 5px 0;
+    color: #484444;
+}
+
+
+.divPageNum {
+    text-align: right;
+    margin-right: 10px;
+}
+
+.divtemptop {
+    margin: 10px;
+}
+
+.divRedNum {
+    text-align: right;
+    margin-top: 5px;
+}
+
+
+
+/*楼层评论区*/
+.commentItem {
+    padding: 5px;
+    border: 1px solid #97969B;
+    /*border-width:1px 0 0;*/
+    margin-bottom: 8px;
+}
+/*评论提交成功显示取*/
+.New_commentItem {
+    padding: 5px;
+    border: 1px solid #97969B;
+    margin-bottom: 8px;
+}
+/*初始隐藏 （内嵌 评论文本框和提交按钮 区域）*/
+.reply {
+    display: none;
+}
+
+.acti_reply {
+    display: block;
+}
+
+/*所有评论区域*/
+.allComment {
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+/*评论加载区域*/
+.LoadComment {
+    margin-bottom: 20px;
+}
+/*加载所有评论按钮*/
+.div_nextcomment {
+    text-align: center;
+    /*display: none;*/
+}
+/*评论区显示的用户名*/
+.text_CommentUser {
+    margin: 5px;
+    margin-left: 0px;
+}
+
+    .text_CommentUser span {
+        color: #b57979;
+    }
+
+/*评论内容输入框*/
+.div_comment_texttare .comment_content {
+    width: 400px;
+    height: 200px;
+}
+/*文章标题下的分类和标签区域*/
+.div_typeandtag {
+    font-size: 13px;
+}
+
+    .div_typeandtag .div_typeList {
+        text-align: right;
+    }
+
+        .div_typeandtag .div_typeList .span_typeList {
+            float: left;
+        }
+
+        .div_typeandtag .div_typeList .a_type {
+            color: #97969B;
+        }
+
+    .div_typeandtag .div_tagList {
+        margin-top: 10px;
+    }
+
+        .div_typeandtag .div_tagList .a_tag {
+            display: inline-block;
+            padding: 4px 10px;
+            line-height: 100%;
+            margin-right: 10px;
+            border: solid 1px #e4dddd;
+            color: #fff;
+            background-color: #808080;
+            border-radius: 10px;
+        }
+/*标题*/
+.div_title {
+    text-align: center;
+}
+
+.span_comOk {
+    color: red;
+}
+
+.divcommentSpan {
+    margin-bottom: 5px;
+}
+
+.div_BlogContent {
+    line-height: 1.4;
+}
+
+    .div_BlogContent p {
+        margin: 10px auto;
+        text-indent: 20px;
+    }

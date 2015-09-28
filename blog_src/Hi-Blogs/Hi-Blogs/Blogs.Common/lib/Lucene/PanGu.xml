@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PanGuSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.codeplex.com/pangusegment">
+  <DictionaryPath>..\Dictionaries</DictionaryPath>
+  <MatchOptions>
+    <ChineseNameIdentify>true</ChineseNameIdentify>
+    <FrequencyFirst>false</FrequencyFirst>
+    <MultiDimensionality>false</MultiDimensionality>
+    <FilterStopWords>true</FilterStopWords>
+    <IgnoreSpace>true</IgnoreSpace>
+    <ForceSingleWord>false</ForceSingleWord>
+    <TraditionalChineseEnabled>false</TraditionalChineseEnabled>
+    <OutputSimplifiedTraditional>false</OutputSimplifiedTraditional>
+  </MatchOptions>
+  <Parameters>
+    <UnknowRank>1</UnknowRank>
+    <BestRank>5</BestRank>
+    <SecRank>3</SecRank>
+    <ThirdRank>2</ThirdRank>
+    <SingleRank>1</SingleRank>
+    <NumericRank>1</NumericRank>
+    <EnglishRank>5</EnglishRank>
+    <SymbolRank>1</SymbolRank>
+    <SimplifiedTraditionalRank>1</SimplifiedTraditionalRank>
+    <Redundancy>0</Redundancy>
+  </Parameters>
+</PanGuSettings>

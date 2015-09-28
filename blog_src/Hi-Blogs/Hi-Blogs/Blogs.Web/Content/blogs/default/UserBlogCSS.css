@@ -1,0 +1,95 @@
+﻿
+/*楼层评论区*/
+.commentItem {
+    padding: 5px;
+    border: 1px solid #97969B;
+    /*border-width:1px 0 0;*/
+    margin-bottom: 8px;
+}
+/*评论提交成功显示取*/
+.New_commentItem {
+    padding: 5px;
+    border: 1px solid #97969B;
+    margin-bottom: 8px;
+}
+/*初始隐藏 （内嵌 评论文本框和提交按钮 区域）*/
+.reply {
+    display: none;
+}
+
+.acti_reply {
+    display: block;
+}
+
+/*所有评论区域*/
+.allComment {
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+/*评论加载区域*/
+.LoadComment {
+    margin-bottom: 20px;
+}
+/*加载所有评论按钮*/
+.div_nextcomment {
+    text-align: center;
+    /*display: none;*/
+}
+/*评论区显示的用户名*/
+.text_CommentUser {
+    margin: 5px;
+    margin-left: 0px;
+}
+
+    .text_CommentUser span {
+        color: #b57979;
+    }
+
+/*评论内容输入框*/
+.div_comment_texttare .comment_content {
+    width: 400px;
+    height: 200px;
+}
+/*文章标题下的分类和标签区域*/
+.div_typeandtag {
+    font-size: 13px;
+}
+
+    .div_typeandtag .div_typeList {
+        text-align: right;
+    }
+
+        .div_typeandtag .div_typeList .span_typeList {
+            float: left;
+        }
+
+        .div_typeandtag .div_typeList .a_type {
+            color: #97969B;
+        }
+
+    .div_typeandtag .div_tagList {
+        margin-top: 10px;
+    }
+
+        .div_typeandtag .div_tagList .a_tag {
+            display: inline-block;
+            padding: 4px 10px;
+            line-height: 100%;
+            margin-right: 10px;
+            border: solid 1px #e4dddd;
+            color: #fff;
+            background-color: #808080;
+            border-radius: 10px;
+        }
+/*标题*/
+.div_title {
+    text-align: center;
+}
+
+.span_comOk {
+    color: red;
+}
+
+.divcommentSpan {
+    margin-bottom: 5px;
+}

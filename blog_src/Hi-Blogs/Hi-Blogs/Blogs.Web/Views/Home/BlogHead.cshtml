@@ -1,0 +1,13 @@
+﻿@model BlogUsersSet
+@if (null != Model)
+{
+    <a href="/@Model.UserName">
+        @(string.IsNullOrEmpty(Model.UserNickname) ? Model.UserName : Model.UserNickname)
+        欢迎您~
+    </a> <span>|</span> <a href="javascript:void()" onclick="Cancellation()">注销</a> <span>|</span>
+}
+else
+{
+    <a href="/UserManage/Login">登录</a> <span>|</span> <a href="/UserManage/Regis">注册</a> <span>|</span>
+}
+<a href="~/Admin/Release">发布</a><span> | </span><a href="/UserBlog/Message">留言</a><span> | </span><a href="/UserBlog/BUG">BUG提交</a>

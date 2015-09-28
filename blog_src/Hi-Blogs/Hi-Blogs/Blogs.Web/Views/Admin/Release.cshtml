@@ -1,0 +1,302 @@
+﻿@{
+    @model Dictionary<string, object>
+    ViewBag.Title = "Release";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+
+
+    var blogtype = (List<BlogTypes>)Model["blogType"];
+    var blogTag = (List<BlogTags>)Model["blogTag"];
+    var blog = new Blogs();
+    if (null != Model["blog"])
+    {
+        blog = (Blogs)Model["blog"];
+    }
+}
+
+@section RenStyle{
+    <style type="text/css">
+        .div_release_content {
+            padding: 20px;
+            padding-top: 0px;
+        }
+
+        button {
+            width: 100px;
+            height: 30px;
+        }
+
+        .alertMess {
+            color: red;
+            font-size: 11px;
+        }
+
+        .div_typelist, .div_taglist, .div_options {
+            margin-top: 4px;
+            margin-bottom: 8px;
+            padding: 4px;
+            border: 1px dashed #808080;
+            font-size: 11px;
+        }
+
+        .div_detoptions {
+            margin-top: 8px;
+        }
+
+        .chk_a {
+            text-decoration: none;
+            color: #854a4a;
+        }
+
+        .title_font {
+            color: #000000;
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .txt_title {
+            padding: 3px;
+        }
+        .body_head a.body_head_article {
+            color: #ff0000;
+            font-weight: 600;
+        }
+    </style>
+}
+
+@section bloy_2{
+    @{Html.RenderPartial("OperationPartial");}
+}
+
+<script src="~/Plug/ueditor/ueditor.config.js"></script>
+<script src="~/Plug/ueditor/ueditor.all.min.js"></script>
+<!--建议手动加在语言，避免在ie下有时因为加载语言失败导致编辑器加载失败-->
+<!--这里加载的语言文件会覆盖你在配置项目里添加的语言类型，比如你在配置项目里配置的是英文，这里加载的中文，那最后就是中文-->
+<script src="~/Plug/ueditor/lang/zh-cn/zh-cn.js"></script>
+<div class="div_release_content" style="">
+    <div>
+        <div style="margin-bottom:3px;" class="title_font">标题：</div>
+        <div>
+            <input type="text" class="txt_title" style="width:100%" value="@blog.BlogTitle" />
+        </div>
+    </div>
+    <div style="margin-top:10px;">
+        <div style="margin-bottom:3px" class="title_font">内容：</div>
+        <script id="editor" type="text/plain" style="width: 100%; height: 400px;">
+        </script>
+    </div>
+    <div class="div_detoptions">
+        <span class="title_font">个人分类</span>
+        <div class="div_typelist">
+            @{
+                var tempbloglist = blog.BlogTypes.ToList().Select(t => t.TypeName);
+            }
+            @foreach (var type in blogtype)
+            {
+                if (tempbloglist.Contains(type.TypeName))
+                {
+                    <input type="checkbox" checked="checked" class="chk_type" key="@type.Id" value="@type.TypeName" />
+                    <a href="javascript:void()" class="chk_a" onclick="clik_che(this)">
+                        @type.TypeName
+                    </a>
+                }
+                else
+                {
+                    <input type="checkbox" class="chk_type" key="@type.Id" value="@type.TypeName" />
+                    <a href="javascript:void()" class="chk_a" onclick="clik_che(this)">
+                        @type.TypeName
+                    </a>
+                }
+            }
+        </div>
+        <span class="title_font">标签 </span> <span class="red" style="color:red;font-size:10px">(以逗号,分割)</span>
+        <div style="margin-top:3px">
+            @{
+                var temptaglist = blog.BlogTags.Select(t => t.TagName).ToList<string>();
+            }
+            <input type="text" style="width:100%;padding:2px" class="text_tag" value="@temptaglist.MyToString()" />
+        </div>
+        <div class="div_taglist">
+            @foreach (var tag in blogTag)
+            {
+                if (temptaglist.Contains(tag.TagName))
+                {
+                    <input type="checkbox" checked="checked" class="chk_tag" key="@tag.Id" value="@tag.TagName" onclick="clik_tag(this)" />
+                    <a href="javascript:void()" class="chk_a" onclick="clik_che(this)">@tag.TagName</a>
+                }
+                else
+                {
+                    <input type="checkbox" class="chk_tag" key="@tag.Id" value="@tag.TagName" onclick="clik_tag(this)" />
+                    <a href="javascript:void()" class="chk_a" onclick="clik_che(this)"> @tag.TagName</a>
+                }
+
+            }
+        </div>
+        <span>发布选项</span>
+        <div class="div_options">
+            @{
+                if (blog.IsShowHome == true)
+                {
+                    <input type="checkbox" checked="checked" class="isshowhome" /> <span>显示在 嗨-博客 首页</span>
+                }
+                else
+                {
+                    <input type="checkbox" class="isshowhome" /> <span>显示在 嗨-博客 首页</span>
+                }
+                if (blog.IsShowMyHome == true || blog.Id == 0)//blog.Id ==0 表示 是新增博客
+                {
+                    <input type="checkbox" class="isshowmyhome" checked="checked" /> <span>显示在 个人博客 首页</span>
+                }
+                else
+                {
+                    <input type="checkbox" class="isshowmyhome" /> <span>显示在 个人博客 首页</span>
+                }
+            }
+
+        </div>
+    </div>
+    <div style="margin-top:10px;margin-bottom:50px">
+        <button class="but_Release" onclick="getContent()">发布</button>
+        <span class="alertMess"></span>
+        <input type="hidden" class="hidden_data" value="@blog.BlogContent" />
+    </div>
+</div>
+
+@*<script src="~/Scripts/jquery-1.8.2.js"></script>
+    <script src="~/Scripts/blog/jquery.BlogCommon.js"></script>*@
+<script type="text/javascript">
+    //var ue = UE.getEditor('editor');
+    //获取编辑器里面的内容 并传入后台
+    function getContent() {
+        $(".alertMess").html("");
+        var content = UE.getEditor('editor').getContent();
+        var title = $(".txt_title").val();
+
+        //#region  数据验证
+        $(".alertMess").html("");
+        if (!title) {
+            $(".alertMess").html("您还没有填写标题");
+        }
+        else if (title.length >= 100) {
+            $(".alertMess").html("您填写标题过长");
+        }
+        else if (!content) {
+            $(".alertMess").html("您还没有填写内容");
+        }
+        else if (content.length <= 10) {
+            $(".alertMess").html("您填写内容过少");
+        }
+        else if (content.length >= 80000) {
+            $(".alertMess").html("您填写内容过多");
+        }
+        if ($(".alertMess").html()) {
+            return;
+        }
+        //#endregion
+
+        //选择的分类
+        var chk_type = "";
+        $(".chk_type:checked").each(function () {
+            chk_type += $(this).attr("key") + ",";
+        });
+
+        //选择的标签
+        var oldtag = "", newtag = "";
+        var text_taglist = $(".text_tag").val().split(/[,，]/);
+
+        var chk_taglsit = new Array();
+        $(".chk_tag").each(function () {
+            chk_taglsit[chk_taglsit.length] = $(this).val();
+        });
+
+        text_taglist.forEach(function (value, index) {
+            if ($.inArray(value, chk_taglsit) >= 0) {
+                oldtag += value + ",";
+            }
+            else {
+                newtag += value + ",";
+            }
+        });
+
+        //是否显示在主页
+        var isshowhome = $(".isshowhome").is(":checked");
+        //是否显示在个人主页
+        var isshowmyhome = $(".isshowmyhome").is(":checked");
+
+        var sp = window.location.href.split("/");
+        var blogid = sp[sp.length - 1];//如果blogid 不为空 就代表是 修改数据
+        if (blogid) {
+            $(".but_Release").val("保存修改");
+        }
+
+        var objJosn = {
+            "content": content,
+            "title": title,
+            "oldtag": oldtag,
+            "newtag": newtag,
+            "chk_type": chk_type,
+            "isshowhome": isshowhome,
+            "isshowmyhome": isshowmyhome,
+            "blogid": blogid
+        };
+
+        $.post("/Admin/Release", objJosn, function (data) {
+            if (ShowAjaxResult(data, ".alertMess")) {
+
+            }
+        }, "json");
+    }
+
+    function clik_che(obj) {
+        $(obj).prev(":checkbox").attr("checked", !$(obj).prev(":checkbox").is(":checked"));
+        if ($(obj).prev(":checkbox").hasClass("chk_tag")) //如果是tag标签    就联动
+            clik_tag($(obj).prev(":checkbox"));
+    }
+
+    var tool = new Array();
+    tool[tool.length] = "FullScreen";
+    tool[tool.length] = "Source";
+
+    //页面加载完成时
+    $(function () {
+        //http://www.cnblogs.com/treasurelife/p/3734104.html
+        var html = $(".hidden_data").val();
+        // 自定义的编辑器配置项,此处定义的配置项将覆盖editor_config.js中的同名配置
+        var editorOption = {
+            //这里可以选择自己需要的工具按钮名称,此处仅选择如下五个
+            //toolbars: [tool],
+            //focus时自动清空初始化时的内容
+            autoClearinitialContent: true,
+            //关闭elementPath
+            elementPathEnabled: true
+        };
+        var editor_a = new baidu.editor.ui.Editor(editorOption);
+        editor_a.render('editor');
+        editor_a.ready(function () {
+            editor_a.setContent(html,false);  //赋值给UEditor
+        });
+    });
+
+    //$(function () {
+    //    SyntaxHighlighter.highlight();
+    //});
+
+    //点击tag标签时
+    function clik_tag(obj) {
+        if ($(obj).is(":checked")) { //如果选中
+            var texttag = $(".text_tag");
+            if (texttag.val().length > 1 && texttag.val()[texttag.val().length - 1] != ",") {
+                texttag.val(texttag.val() + ",");
+            }
+            var text_tag = texttag.val() + $(obj).val();
+            texttag.val(text_tag + ",");
+        }
+        else { //如果取消选中
+            var text_taglist = $(".text_tag").val().split(/[,，]/);
+            $(".text_tag").val("");
+            text_taglist.forEach(function (value, index) {
+                if ($(obj).val() != value && value)
+                    $(".text_tag").val($(".text_tag").val() + value + ",");
+            });
+        }
+    }
+</script>

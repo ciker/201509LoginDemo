@@ -1,0 +1,106 @@
+﻿@{
+    ViewBag.Title = "后台Helper页";
+    Layout = null;
+}
+
+<style type="text/css">
+    .kuan {
+        border: 1px dashed #eee6e6;
+        margin: 3px;
+        margin-bottom: 20px;
+        padding: 10px;
+    }
+</style>
+
+<h2>后台Helper页</h2>
+<script src="~/Scripts/jquery-1.8.2.min.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+
+<div class="kuan message" style="color:red;font-size:19px;text-align:center;background-color:#efe3e3">
+</div>
+<div class="kuan">
+    @using (Ajax.BeginForm(new AjaxOptions()
+    {
+        Url = Url.RouteUrl("ControllerAction", new { controller = "AdminHelper", action = "ButOk" }),
+        OnSuccess = "OnSuccess",
+        OnFailure = "OnFailure",
+        OnBegin = "OnBegin"
+    }))
+    {
+        <text>cnblogs用户：</text>        <input id="user" name="user" type="text" value="zhaopei" />
+        <input type="submit" value="迁移cnblog" />
+        <input type="checkbox" checked="checked" value="true" name="iszf" id="iszf" /><text>是否为转发:</text>
+        <input type="checkbox" value="true" name="isshowhome" /><text>首页显示:</text>
+        <input type="checkbox" checked="checked" value="true" name="isshowmyhome" /><text>个人博客首页显示</text>
+    }
+</div>
+
+<div class="kuan">
+    <input type="button" value="重新获取缓存" onclick="getCahe()" />
+
+    @*<a href="/AdminHelper/testJumonyParser">test</a>*@
+</div>
+
+<div class="kuan">
+    <input type="button" value="重建搜索索引" onclick="getIndex()" />
+</div>
+
+<div class="kuan">
+    <input type="text" class="userid" />
+    <input type="text" class="key" />
+    <input type="button" value="搜索测试" onclick="showIndex()" />
+</div>
+
+<div class="kuan">
+    <div class="showsousuo"></div>
+</div>
+
+
+
+<script type="text/javascript">
+    function OnBegin(obj) {
+        $(this).attr("disabled", true);
+        $(".message").html("正在处理中...");
+    }
+
+    function OnSuccess(data) {
+        $(".message").html(data);
+        $(this).attr("disabled", false);
+    }
+    function OnFailure(obj) {
+
+    }
+
+
+    function getCahe() {
+        $(".message").html("正在处理中...");
+        $.post("@Url.RouteUrl("ControllerAction", new { controller = "AdminHelper", action = "getCahe" })",
+            function (data) {
+                $(".message").html(data);
+            });
+    }
+
+    function getIndex() {
+        $(".message").html("正在处理中...");
+        $.post("@Url.RouteUrl("ControllerAction", new { controller = "AdminHelper", action = "getIndex" })", null,
+           function (data) {              
+               $(".message").html(data);
+           });
+    }
+
+    function showIndex() {
+        var userid = $(".userid").val();
+        var key = $(".key").val();
+        $(".message").html("正在处理中...");
+        var url = "@Url.RouteUrl("ControllerAction", new { controller = "AdminHelper", action = "showIndex" })";
+        url = url + "?key=" + key + "&userid=" + userid;
+        $.post(url, null, function (data) {            
+            var strhtml = "";
+            for (var i = 0; i < data.length; i++) {
+                strhtml += data[i].content + "</br></br>";
+            }
+            $(".showsousuo").html(strhtml);
+            $(".message").html("ok");
+        }, "json");
+    }
+</script>

@@ -1,0 +1,152 @@
+﻿@model BlogUsersSet
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_UserManage.cshtml";
+}
+
+<style type="text/css">
+    .logo {
+        /*background-color: #0094ff;*/
+        margin: 50px auto;
+        margin-bottom: 10px;
+        width: 250px;
+        text-align: center;
+    }
+
+    .div_body {
+        background-color: #faf7f7;
+        margin: 0px auto;
+        margin-top: 0px;
+        width: 250px;
+        padding: 30px;
+        border-color: #808080;
+    }
+
+        .div_body div {
+            margin: 5px auto;
+            width: 200px;
+        }
+
+    .txt_username, .txt_pass {
+        width: 200px;
+        height: 20px;
+    }
+
+    .button {
+        width: 75px;
+        height: 25px;
+    }
+
+    .div_top .login {
+        color: #8e5555;
+        font-weight: 600;
+    }
+</style>
+@{
+    ViewBag.Title = "登录";
+}
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+
+<div class="logo">
+    <a href="/">
+        <span style="color:#be7a7a;font-size:30px">嗨 博客</span>
+        <img src="~/Imgs/bubble_message_hi_64px_1189254_easyicon.net.png" />
+    </a>
+</div>
+<div class="div_body">
+    @using (Ajax.BeginForm(
+    new AjaxOptions()
+    {
+        Url = Url.RouteUrl("ControllerAction", new { controller = "Demo", action = "mytest" }),
+        OnSuccess = "Success",
+        OnFailure = "OnFailure"
+    }))
+    {
+        <div>
+            用户名：@Html.ValidationMessageFor(t => t.UserName)
+        </div>
+        <div>
+            @Html.TextBoxFor(t => t.UserName)
+        </div>
+        <div>
+            密码：@Html.ValidationMessageFor(t => t.UserPass)
+        </div>
+        <div>
+            @Html.TextBoxFor(t => t.UserPass)
+        </div>
+        <div>
+            <input class="checked" style="" type="checkbox" checked="checked" />自动登录
+        </div>
+        <div>
+            <input type="submit" value="登录" />
+        </div>
+    }
+
+    <div style="margin-top:10px">
+        <a style="font-size:11px" href="/UserManage/Regis">立即注册</a><span>  </span>
+        <a style="font-size:11px" href="/UserManage/ResetPass">忘记密码？</a>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    function Success(obj) {
+        if (ShowAjaxResult(obj)) {
+
+        }
+    }
+    function OnFailure(obj) {
+        if (ShowAjaxResult(obj)) {
+
+        }
+    }
+</script>
+
+@*
+    <div class="div_body">
+    <div style="">
+    用户名：
+    <span class="red">*</span>
+    <span class="VeriMess">(必填项)</span>
+    </div>
+    <div>
+    @Html.TextBoxFor(t => t.UserName)
+    </div>
+    <div>
+    密码：
+    <span class="red">*</span>
+    <span class="VeriMess">(必填项)</span>
+    </div>
+    <div><input type="password" class="txt_pass" onblur="verimess(this)" /></div>
+    <div style="margin-top:10px">
+
+    </div>
+    <div style="margin-top:10px">
+    <input class="button" style="margin-right: 5px" type="button" value="登录" onclick="clickLogin()" />
+    </div>
+
+    </div>*@
+@*<script src="~/Scripts/jquery-1.8.2.js"></script>*@
+@*<script src="~/Scripts/blog/Blog.js"></script>*@
+@*<script src="~/Scripts/blog/jquery.BlogCommon.js"></script>*@
+@*<script type="text/javascript">
+        function clickLogin() {
+            var username = $(".txt_username").val();
+            var pass = $(".txt_pass").val();
+            var checked = $(".checked").is(":checked");
+
+            if (!username || !pass) {
+                alert("请填入必填项~");
+                return;
+            }
+
+            var objJson = { "username": username, "pass": pass, "checked": checked };
+
+            $.post("../UserManage/Login", objJson, function (data) {
+                if (ShowAjaxResult(data)) {
+                }
+            }, "json");
+        }
+    </script>*@
