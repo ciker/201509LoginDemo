@@ -11,6 +11,7 @@ using LoginDemo.Entity.UserAccount;
 using LoginDemo.Entity.UserAccount.QueryParameter;
 using System.Linq;
 using System.Net.Http;
+using System.Net.Mime;
 using LoginDemo.ViewModels.UserInfo;
 using Console = System.Console;
 
@@ -48,6 +49,8 @@ namespace Login.BLL.Test
             var st = getCnblogsContent();
             Write(st.Result);
 
+            Write(AppDomain.CurrentDomain.BaseDirectory.ToString());
+            Process.Start("explorer", "/select,", null, null, AppDomain.CurrentDomain.BaseDirectory + "LoginDemo.sln");
             //var currentDomain = AppDomain.CurrentDomain;
             //var assemblies = currentDomain.GetAssemblies();
             //foreach (var assembly in assemblies)
@@ -483,7 +486,7 @@ namespace Login.BLL.Test
         static async Task<string> getCnblogsContent()
         {
             HttpClient httpClient = new HttpClient();
-            var strTask = httpClient.GetStringAsync("http://www.baidu.com");
+            var strTask = httpClient.GetStringAsync("http://www.cnblogs.com");
             Write("let's begin get content");
             var str = await strTask;
             return str;
