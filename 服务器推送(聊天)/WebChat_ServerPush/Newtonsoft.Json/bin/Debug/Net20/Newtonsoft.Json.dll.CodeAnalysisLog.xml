@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="c:\program files (x86)\microsoft visual studio 10.0\team tools\static analysis tools\fxcop\Xml\CodeAnalysisReport.xsl"?>
+<FxCopReport Version="10.0">
+ <Targets>
+  <Target Name="D:\服务器推送(聊天)\WebChat_ServerPush\Newtonsoft.Json\bin\Debug\Net20\Newtonsoft.Json.dll">
+   <Modules>
+    <Module Name="newtonsoft.json.dll">
+     <Namespaces>
+      <Namespace Name="Newtonsoft.Json.Utilities.LinqBridge">
+       <Types>
+        <Type Name="Tuple`2" Kind="Struct" Accessibility="Assembly" ExternallyVisible="False">
+         <Members>
+          <Member Name="#ToString()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="False">
+           <Messages>
+            <Message Id="System.String.Format(System.String,System.Object,System.Object)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Active" Created="2013-03-30 12:44:03Z" FixCategory="NonBreaking">
+             <Issue Name="IFormatProviderAlternateString" Certainty="95" Level="Error" Path="D:\服务器推送(聊天)\WebChat_ServerPush\Newtonsoft.Json\Utilities" File="LinqBridge.cs" Line="2969">由于 'string.Format(string, object, object)' 的行为可能会因当前用户的区域设置不同而不同，请将 'Tuple&lt;TFirst, TSecond&gt;.ToString()' 中的此调用替换为对 'string.Format(IFormatProvider, string, params object[])' 的调用。如果要向用户显示 'string.Format(IFormatProvider, string, params object[])' 的结果，请指定 'CultureInfo.CurrentCulture' 作为“IFormatProvider”参数。或者，如果软件将存储和访问此结果(例如，当将此结果保留到磁盘或数据库中时)，则指定 'CultureInfo.InvariantCulture'。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+     </Namespaces>
+    </Module>
+   </Modules>
+  </Target>
+ </Targets>
+ <Rules>
+  <Rule TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305">
+   <Name>指定 IFormatProvider</Name>
+   <Description>如果存在一个采用 IFormatProvider 参数的重载，则应始终调用该重载，而不调用未采用该参数的重载。运行时中的某些方法可以将值与字符串表示形式相互进行转换，并采用一个字符串参数。该参数中包含一个或多个称为格式说明符的字符，用于指示如何对值进行转换。如果格式说明符的含义因区域性而异，则格式设置对象提供在字符串表示形式中使用的实际字符。如果排序和比较行为不得因区域性而改变，请指定 CultureInfo.InvariantCulture，否则，请指定 CultureInfo.CurrentCulture。</Description>
+   <Resolution Name="IFormatProviderAlternateString">由于 {0} 的行为可能会因当前用户的区域设置不同而不同，请将 {1} 中的此调用替换为对 {2} 的调用。如果要向用户显示 {2} 的结果，请指定 {3} 作为“IFormatProvider”参数。或者，如果软件将存储和访问此结果(例如，当将此结果保留到磁盘或数据库中时)，则指定 {4}。</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182190(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">Error</MessageLevel>
+   <File Name="globalizationrules.dll" Version="10.0.0.0" />
+  </Rule>
+ </Rules>
+ <Localized>
+  <String Key="Category">类别</String>
+  <String Key="Certainty">确定性</String>
+  <String Key="CollapseAll">全部折叠</String>
+  <String Key="CheckId">检查 ID</String>
+  <String Key="Error">错误</String>
+  <String Key="Errors">错误</String>
+  <String Key="ExpandAll">全部展开</String>
+  <String Key="Help">帮助</String>
+  <String Key="Line">行</String>
+  <String Key="Messages">消息</String>
+  <String Key="LocationNotStoredInPdb">[位置未存储在 Pdb 中]</String>
+  <String Key="Project">项目</String>
+  <String Key="Resolution">解析</String>
+  <String Key="Rule">规则</String>
+  <String Key="RuleFile">规则文件</String>
+  <String Key="RuleDescription">规则说明</String>
+  <String Key="Source">源</String>
+  <String Key="Status">状态</String>
+  <String Key="Target">目标</String>
+  <String Key="Warning">警告</String>
+  <String Key="Warnings">警告</String>
+  <String Key="ReportTitle">代码分析报告</String>
+ </Localized>
+</FxCopReport>
