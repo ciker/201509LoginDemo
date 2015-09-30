@@ -21,6 +21,13 @@ namespace EmitDemo.Console
 
             var uc = getUserInstance();
 
+            var s = 1.ToString("D7");
+            var s11 = 11.ToString("D7");
+            var s111 = 111.ToString("D7");
+            var s1111 = 1111.ToString("D7");
+            var s11111 = 11111.ToString("D7");
+            var s111111 = 111111.ToString("D7");
+
         }
 
         static User getUserInstance()
