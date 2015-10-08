@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="http://apps.bdimg.com/libs/underscore.js/1.7.0/underscore-min.js" type="text/javascript" charset="utf-8"></script>
+<script src="http://apps.bdimg.com/libs/backbone.js/1.1.2/backbone-min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+	</body>
+<script type="text/javascript">
+(function($){
+	Book = Backbone.Model.extend({
+		default: {
+			title:'default',
+		},
+		initialize: function(){
+			
+		},
+		
+	});
+	BookShelf = Backbone.Collection.extend({
+		model:Book,
+	});
+	var book1 = new Book({title:'book1'});
+	var book2 = new Book({title:'book2'});
+	var book3 = new Book({title:'book3'});
+	
+	var bookShelf = new BookShelf;
+//	add将model添加到collection
+	bookShelf.add(book1);
+	bookShelf.add(book2);
+	bookShelf.add(book3);
+//	remove将model移出collection
+	bookShelf.remove(book3);
+	bookShelf.each(function(book){
+		document.write(book.get('title')+'<br>');
+	});
+})(jQuery);
+//collection是模型的有序组合
+</script>
+</html>

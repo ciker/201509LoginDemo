@@ -1,0 +1,26 @@
+﻿
+基于jQuery的表单验证控件
+
+定制化验证插件，HTML结构依赖bootstrap表单结构
+
+需要引入的文件：
+	国际化：<script type="text/javascript" src="lang-zh_cn.js"></script>
+	验证：<script type="text/javascript" src="jquery.validate.form.js"></script>
+	
+初始化：
+	$('#myForm').validate()
+提交验证：
+	if($('#myForm').validate()){}
+说明：
+	在有需要验证的表单元素添加属性 required="required"
+	data-notnull="true": 不允许为空
+	data-number="true": 为数字
+	data-interger="true": 为整数
+	data-minlength="5": 最小字符
+	data-maxlength="100": 最大字符
+	data-mobile="true": 手机格式
+	data-url="true": 网址
+	data-postcode="true": 邮编
+	data-email="true": 邮箱
+	data-reg="": 自定义正则验证表达式
+	data-reg-msg="": 自定义正则验证失败提示

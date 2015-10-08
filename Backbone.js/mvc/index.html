@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MVC - 单页面</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+	<link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+	
+	<link type="text/css" rel="stylesheet" href="assets/css/common.css">
+	<link type="text/css" rel="stylesheet" href="assets/css/font-awesome.min.css">
+	<link type="text/css" rel="stylesheet" href="assets/css/plugins/plugins.min.css">
+</head>
+<body>
+	<div class="set-toppos">
+		<h3>31会议运营后台管理中心</h3>
+		<div class="right-btns">
+			<button type="button" class="btn btn-default">审核会议</button>
+			<button type="button" class="btn btn-default">新进会员</button>
+			<button type="button" class="btn btn-default">系统公告设置</button>
+			<button type="button" class="btn btn-default">网站首页</button>
+			<button type="button" class="btn btn-default">后台首页</button>
+			<button type="button" class="btn btn-default">我的31</button>
+			<button type="button" class="btn btn-default">退出登录</button>
+		</div>
+	</div>
+	<div class="set-leftpos">
+		<div class="dy-nav"></div>
+		<ul class="menu">
+			<li class="has-sub-menu"><span><i></i>用户会员管理</span>
+				<ul class="sub-menu">
+					<li data-url="#/form"><span>设置表单</span></li>
+					<li><span>设置来源</span></li>
+					<li data-url="#/user"><span>注册用户管理</span></li>
+					<li><span>呼叫任务分配</span></li>
+					<li><span>呼叫中心</span></li>
+					<li><span>资源中心</span></li>
+				</ul>
+			</li>
+			<li class="has-sub-menu"><span><i></i>EDM管理</span>
+				<ul class="sub-menu">
+					<li><span>EDM权限管理</span></li>
+					<li><span>EDM规则管理</span></li>
+					<li><span>EDM数据管理</span></li>
+					<li><span>EDM管理</span></li>
+					<li><span>审核EDM</span></li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+	
+	<div class="main-container">
+		<div class="center" id="MainCenter"></div>
+	</div>
+	
+	<div class="set-bottompos">
+		© 2015-2016 - 
+		<a href="http://www.31huiyi.com" target="_blank">31会议网</a>	 
+		- All Rights Reserved.	
+		<a href="" target="_blank">沪ICP备13009389号-4</a>
+	</div>
+	
+	<div class="popover align-top" style="display:none;">
+		arrow top
+	</div>
+	
+	<script src="assets/js/lib/require.js" data-main="assets/js/main"></script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="http://apps.bdimg.com/libs/underscore.js/1.7.0/underscore-min.js" type="text/javascript" charset="utf-8"></script>
+<script src="http://apps.bdimg.com/libs/backbone.js/1.1.2/backbone-min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<button id='check'>报到</button>
+		<ul id="world-list">
+			
+			
+		</ul>
+	</body>
+<script type="text/javascript">
+(function($){
+	World = Backbone.Model.extend({
+		//创建一个World对象，拥有name属性
+		name:null
+	});
+	
+	Worlds = Backbone.Collection.extend({
+		//World对象的集合
+		initialize:function(models,options){//在集合创建时被调用
+			//向集合中添加模型时触发add事件
+			this.bind("add",options.view.addOneWorld);
+		}
+	});
+	
+	AppView = Backbone.View.extend({
+		el: $("body"),//即使该元素仍未插入页面中去。 视图可以在任何时候渲染
+		initialize:function(){
+			//构造函数。实例化一个World集合类，并且以字典方式传入AppView的对象
+			this.worlds = new Worlds(null, {view : this})
+		},
+		events:{
+			"click #check": "checkin",//事件绑定，绑定DOM中id为check的元素
+		},
+		checkin: function(){
+			var world_name=prompt("请问，您是哪里人");//弹出对话框
+			if(world_name == "") world_name='未知';
+			var world = new World({name: world_name});
+			this.worlds.add(world);//这时触发了add事件，然后执行addOneWorld方法
+		},
+		addOneWorld: function(model){
+			$("#world-list").append("<li>这里是来自<b>"+model.get('name')+"</b>地方的问候：helloworld！</li>");
+		}
+	});
+	//实例化AppView
+	var appview=new AppView;
+})(jQuery);
+//可以看到，model代表一个数据模型，collection是模型的一个集合，而view
+//是用来处理页面以及简单的页面逻辑的。
+</script>
+</html>

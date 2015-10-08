@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="http://apps.bdimg.com/libs/underscore.js/1.7.0/underscore-min.js" type="text/javascript" charset="utf-8"></script>
+<script src="http://apps.bdimg.com/libs/backbone.js/1.1.2/backbone-min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+	</body>
+<script type="text/javascript">
+(function($){
+	Man = Backbone.Model.extend({
+		//定义一个url，调用sava方法时会post对象的所有属性到服务端
+		url:'/save/',
+		initialize: function(){//构造函数
+			document.write('Hey,you create me!<br>');
+			//绑定监听,如果name属性更改后就触发
+			this.bind("change:name",function(){
+				var name = this.get("name");
+				document.write("改变了name属性为："+name+'<br>');
+			});
+		},
+		defaults: {//默认值
+			name:'刘放',
+			age:'22'
+		},
+		//方法
+		aboutMe: function(){
+			return '我叫'+this.get('name')+';今年'+this.get('age')+'岁';
+		}
+	});
+	//取值
+	var man = new Man;
+	document.write(man.get('name')+'<br>');//刘放
+	//设置值
+	man.set({name:'田雨晴',age:'21'});
+	document.write(man.get('name')+'<br>');//田雨晴
+	document.write(man.aboutMe());//我叫田雨晴;今年21岁
+	man.save();//save后，会发送POST到模型对应的url，数据格式为：json{"name":"田雨晴","age":"21"}
+	//然后接着就是从服务器端获取数据使用方法fetch
+	//如果fetch中没有参数，服务端会发送get请求到model的url
+	man.fetch();//GET http://127.0.0.1:8020/save/ 404 (Not Found) 
+	//如果fetch中有参数，则会发送get请求到参数中的url
+	man.fetch({url:'/hehe/'});//GET http://127.0.0.1:8020/hehe/ 404 (Not Found) 
+})(jQuery);
+//model的实例差不多就讲完了。
+</script>
+</html>

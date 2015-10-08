@@ -1,0 +1,49 @@
+<h3>
+	<span>表单管理</span>
+	<button type="button" id="newFormBtn" class="btn btn-default pull-right"><i class="fa fa-plus"></i>新增表单</button>
+</h3>
+<div class="datatable-container" id="FormManageTable">
+	<table class="datatable"></table>
+	<div class="pfooter"></div>
+	<div class="clear"></div>
+</div>
+
+<!-- 对话框 -->
+<div class="dialog" id="newFormDialog">
+	<div class="dialog-content">
+		<header>
+			<span>新建表单</span>
+			<div class="pull-right" data-dismiss="true"><i class="fa fa-remove"></i></div>
+		</header>
+		<div class="dialog-body" style="padding:20px 20px 0">
+			<form id="newForm" class="form-horizontal" onsubmit="return false;">
+				<div class="form-group">
+					<div class="col-3 control-label"><span class="required">*</span>表单名称：</div>
+					<div class="col-9"><input type="text" required="required" data-notnull="true" class="form-control"></div>
+				</div>
+				<div class="form-group">
+					<div class="col-3 control-label">同步至：</div>
+					<div class="col-9" style="margin-top:7px">
+						<label><input type="checkbox" name="CallCenter">呼叫中心</label>
+						<span class="seperator"></span>
+						<label><input type="checkbox" name="CallCenter">CRM</label>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-3 control-label">关联会议ID：</div>
+					<div class="col-9"><input type="text" class="form-control"></div>
+				</div>
+			</form>
+		</div>
+		<footer>
+			<button type="button" id="saveNewFormBtn" class="btn btn-primary">保存</button>
+			<button type="button" class="btn btn-default" data-dismiss="true">取消</button>
+		</footer>
+	</div>
+</div>
+<div id="editFormDialog" class="dialog dialog-insert">
+	<div class="dialog-content"></div>
+</div>
+<div id="linkFormDialog" class="dialog dialog-insert">
+	<div class="dialog-content"></div>
+</div>

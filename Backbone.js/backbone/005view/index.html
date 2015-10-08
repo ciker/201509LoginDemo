@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="http://apps.bdimg.com/libs/underscore.js/1.7.0/underscore-min.js" type="text/javascript" charset="utf-8"></script>
+<script src="http://apps.bdimg.com/libs/backbone.js/1.1.2/backbone-min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="search_container">
+			
+		</div>
+		<script type="text/template" id="search_template">
+			<label><%=search_label%></label>
+			<input type="text" name="search_input" id="search_input" value="" />
+			<input type="button" name="search_button" id="search_button" value="Search" />
+		</script>
+	</body>
+<script type="text/javascript">
+//view是用来显示model中的数据到页面的，同时它也可用来监听DOM上的事件然后做出响应。
+(function($){
+	SearchView = Backbone.View.extend({
+		initialize: function(){
+			document.write("init a SearchView");// init a SearchView
+		},
+		render:function(){
+			var template = _.template($("#search_template").html(),{});
+			this.el.html(template);
+		}
+	});
+	var searchView = new SearchView({el:$("#search_container")});
+	searchView.render();
+})(jQuery);
+</script>
+</html>

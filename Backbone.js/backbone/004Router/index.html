@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="http://apps.bdimg.com/libs/underscore.js/1.7.0/underscore-min.js" type="text/javascript" charset="utf-8"></script>
+<script src="http://apps.bdimg.com/libs/backbone.js/1.1.2/backbone-min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<a href="#actions">test action</a>
+		<a href="#/post/123">post 123</a>
+		<a href="#/download/user/images/hey.gif">download gif</a>
+		<a href="#/dashboard/graph">Load Route/Action View</a>
+	</body>
+<script type="text/javascript">
+//router就是路由，用来控制url的
+(function($){
+	var AppRouter = Backbone.Router.extend({
+		routes: {
+			//通配符
+			"*actions": "defaultRoute",
+			"/post/id":	"getPost",//简单传参
+			"/download/*path": "downloadFile",
+			"/:route/:action":	"loadView",
+		},
+		defaultRoute: function(actions){
+			document.write(actions);//   /index.html#actions
+		},
+		getPost: function(id){
+			document.write(id);//   /index.html#/post/123
+		},
+		download: function(path){
+			document.write(path);// download/user/images/hey.gif
+		},
+		loadView: function(route,action){
+			document.write(route+"_"+action);// dashboard/graph
+		}
+	});
+	
+	var app_router = new AppRouter;
+	//路由设置完毕后，调用start开始分配路由
+	Backbone.history.start();
+})(jQuery);
+</script>
+</html>
