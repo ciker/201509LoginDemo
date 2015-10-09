@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <script src="app/lib/jquery-1.7.1.js"></script>
+    <script src="app/lib/underscore.js"></script>
+    <script src="app/lib/backbone.js"></script>
+    <script type="text/javascript">
+        var TestView = Backbone.View.extend({ //创建一个view，其实就是一个HTML的DOM节点
+            initialize: function () {
+                this.render();
+            },
+            render: function () {  // 渲染方法
+                this.$el.html('Hello World,this is the test view with Backbone');  //this.el就是HTML节点，通过jQuery的html方法填充内容
+                return this;
+            }
+        });
+        $(function () {
+            var test = new TestView({ el: $('#content') });// 以目标节点为el参数，创建一个view的实例，render函数将会被自动调用并将渲染结果填充到el中
+            //test.render(); // 如果没在 initialize 里调用 render 的话，就需要在这里调用一次
+        });
+    </script>
+</head>
+<body>
+    <div id="content"></div>
+</body>
+</html>
