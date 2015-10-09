@@ -34,7 +34,7 @@ define(
         'utils'
     ], function ($, MainView) {
         return MainView.extend({
-            url: 'Handler.ashx', //'http://www.cnblogs.com',//'http://www.logindemo.com/',
+            url: 'Handler.ashx?url=http://www.cnblogs.com',//'http://www.logindemo.com/',
             events: {
 
             },

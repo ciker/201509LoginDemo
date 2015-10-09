@@ -11,8 +11,8 @@ public class Handler : IHttpHandler
     public void ProcessRequest(HttpContext context)
     {
         context.Response.ContentType = "text/plain";
-
-        var webRequest = (HttpWebRequest)WebRequest.Create("http://www.cnblogs.com");
+        var url = context.Request["url"] ?? "http://www.cnblogs.com";
+        var webRequest = (HttpWebRequest)WebRequest.Create(url);
         var stream = webRequest.GetResponse().GetResponseStream();
         if (stream != null)
         {
