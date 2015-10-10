@@ -23,26 +23,48 @@
     <script type="text/javascript">
         var User = Backbone.Model.extend({
             name: null,
-            phone: null
-        });
-
-        var appView = Backbone.View.extend({
-            el: $("body"),
-            templete: _.templete('<span><%=name%>&nbsp;&nbsp;<%=phone%></span>'),
+            phone: null,
             initialize: function () {
-                _.bindAll(this, 'addUser');
-                this.name = $("#name");
-                this.phone = $("#phone");
-                this.list = $("#mainContent")
+                //this.validate(this);
             },
-            events: {
-                'add #addItem': 'addUser'
-            },
-            addUser: function () {
-                var model = new User({ name: this.name.val(), phone: this.phone.val() });
-                this.list.append(this.templete(model));
+            validate: function (attr) {
+                if (!attr.name || attr.name.length > 5) {
+                    //alert('name format is error');
+                    return false;
+                }
             }
         });
+        var UserList = Backbone.Collection.extend({
+            model: User,
+            initialize: function (opts) {
+                this.bind('add', opts.View.addUser);
+            }
+        });
+        var AppView = Backbone.View.extend({
+            el: $("body"),
+            templete: _.template('<li><%=name%>&nbsp;&nbsp;<%=phone%></li>'),
+            initialize: function () {
+                _.bindAll(this, 'addUser');
+                this.userList = new UserList({ View: this });
+                this.name = $("#name");
+                this.phone = $("#phone");
+                this.list = $("#mainContent");
+            },
+            events: {
+                'click #addItem': 'addItem'
+            },
+            addItem: function () {
+                var model = new User({ name: this.name.val(), phone: this.phone.val() });
+                this.userList.add(model);
+            },
+            addUser: function (model) {
+                console.log(model);
+                this.list.append(this.templete(model.toJSON()));
+            }
+
+        });
+
+        var appview = new AppView();
     </script>
 
 </body>
