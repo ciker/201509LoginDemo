@@ -1,0 +1,249 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <title></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <link rel="Stylesheet" type="text/css" href="res/style/main2.css" />
+  <link rel="Stylesheet" type="text/css" href="res/style/tuan.css" />
+  <style> .pro_list_rank { margin: 5px 0; padding-right: 22px; }
+    .figcaption span { text-align: center; }
+    .blog_item {}
+    .blog_item img { width: 48px; height; 48px; margin: 4px; padding: 1px; float: left; border: 1px solid #CCC;  }
+    
+    .blog_item .item_footer { color: #757575; font-size: 0.86em; }
+    a { color:  #005A94; }
+    .tab_hotel { border-left: 1px solid #2B97E2; }
+    .cont_wrap .content { background-color: White; padding: 5px 10px; }
+    img { max-width: 98%; }</style>
+</head>
+<body>
+  <div class="main-frame">
+    <div class="main-viewport" id="main-viewport">
+    </div>
+  </div>
+  <script type="text/template" id="index-template">
+  <header>
+    <b class="icon_home i_bef" id="js_home"></b>
+    <h1>
+      博客园</h1>
+
+    <i id="js_return" class="returnico"></i>
+  </header>
+  <section class="cont_wrap">
+    <div id="post"></div>
+    <ul class="pro_list" id="lstbox">
+    </ul>
+  </section>
+  <ul class="tab_search fix_bottom" id="sort">
+    <li class="tabcrt" attr="updated">时间</li>
+    <li class="tab_hotel" attr="diggs">推荐</li>
+    <li class="tab_hotel" attr="views">阅读</li>
+    <li class="tab_hotel" attr="comments">评论</li>
+  </ul>
+  </script>
+  <script type="text/template" id="item-template">
+  <li class="arr_r orderItem" data-id="<%=id %>" data-index = "<%=index %>">
+  <article class="blog_item">
+    <h3>
+      <a href="<%=link.href %>" target="_blank">
+        <%=title.value || '无题' %></a>
+    </h3>
+    <div class="author pro_list_rank">
+      <%if(author.avatar){ %>
+      <a href="<%=author.uri %>" target="_blank">
+        <img src="<%=author.avatar %>">
+      </a>
+      <%} %>
+      <%=summary.value %>
+    </div>
+    <div class="item_footer">
+      <a href="<%=author.uri %>" class="lightblue">Scut</a>
+      <%=published %>
+      <a href="<%=link.href %>" title="2013-08-21 15:21" class="gray">评论(<%=comments %>)</a>
+      <a href="<%=link.href %>" class="gray">阅读(<%=views %>)</a> <span class="price1">推荐(<%=diggs %>)</span></div>
+  </article>
+</li>
+</script>
+  <script type="text/template" id="detail-template">
+<section class="cont_wrap" >
+  <article class="content">
+          <h1>
+              <a href="#"><%=title.value %></a></h1>
+              <div style=" text-align: right; ">
+              <time pubdate="pubdate" value="2013-04-15"><%=published %></time><br /><span>阅读(<%=views %>)
+                  评论(<%=comments %>）</span>
+              </div>
+      <p><%=value %></p>
+  </article>
+</section>
+</script>
+  <script src="libs/jquery.js" type="text/javascript"></script>
+  <script src="libs/underscore.js" type="text/javascript"></script>
+  <script src="libs/backbone.js" type="text/javascript"></script>
+  <script type="text/javascript" src="libs/backbone.localStorage.js"></script>
+  <script type="text/javascript">
+    //博客模型
+    var PostModel = Backbone.Model.extend({
+
+    });
+
+    //模型集合
+    var PostList = Backbone.Collection.extend({
+      model: PostModel,
+      parse: function (data) {
+        // 'data' contains the raw JSON object
+        return (data && data.feed && data.feed.entry) || {}
+      },
+      setComparator: function (type) {
+        this.comparator = function (item) {
+          return Math.max(item.attributes[type]);
+        }
+      }
+    });
+
+    var Detail = Backbone.View.extend({
+      el: $('#main-viewport'),
+      template: _.template($('#index-template').html()),
+      detail: _.template($('#detail-template').html()),
+      initialize: function (app) {
+        this.app = app;
+        this.$el.html(this.template());
+        this.wrapper = $('#lstbox');
+        this.render();
+      },
+      render: function () {
+        var scope = this;
+        var id = this.app.id;
+
+        var param = { url: 'http://wcf.open.cnblogs.com/blog/post/body/' + id }
+
+        var model = this.app.model;
+
+        $.get('Handler.ashx', param, function (data) {
+          (typeof data === 'string') && (data = $.parseJSON(data));
+          if (data && data.string) {
+            //此处将content内容写入model
+            model.set('value', data.string.value);
+            scope.wrapper.html(scope.detail(model.toJSON()));
+          }
+        });
+
+      },
+      events: {
+        'click #js_return': function () {
+          this.app.forward('index')
+        }
+      }
+    });
+
+    var Index = Backbone.View.extend({
+      el: $('#main-viewport'),
+      template: _.template($('#index-template').html()),
+      itemTmpt: _.template($('#item-template').html()),
+
+      events: {
+        'click #sort': function (e) {
+          var el = $(e.target);
+          var type = el.attr('attr');
+          this.list.setComparator(type);
+          this.list.sort();
+        },
+        'click .orderItem': function (e) {
+          var el = $(e.currentTarget);
+          var index = el.attr('data-index');
+          var id = el.attr('data-id');
+          var model = this.list.models[index];
+          this.app.model = model;
+          this.app.id = id;
+
+
+          this.app.forward('detail');
+          //          var scope = this;
+          //          var param = { url: 'http://wcf.open.cnblogs.com/blog/post/body/' + id }
+          //          $.get('Handler.ashx', param, function (data) {
+          //            (typeof data === 'string') && (data = $.parseJSON(data));
+          //            if (data && data.string) {
+          //              //此处将content内容写入model
+          //              model.set('value', data.string.value);
+          //              var d = new Detail();
+          //              d.model = model;
+          //              d.render();
+          //            }
+          //          });
+          //          var s = '';
+        }
+      },
+      initialize: function (app) {
+        this.app = app;
+
+        //先生成框架html
+        this.$el.html(this.template());
+        this.post = this.$('#post');
+
+        var scope = this;
+        var curpage = 1;
+        var pageSize = 10;
+        this.list = new PostList();
+        this.list.url = 'Handler.ashx?url=http://wcf.open.cnblogs.com/blog/sitehome/paged/' + curpage + '/' + pageSize;
+        this.list.fetch({
+          success: function () {
+            scope.render();
+          }
+        });
+        this.wrapper = $('#lstbox');
+
+        this.listenTo(this.list, 'all', this.render);
+
+      },
+      render: function () {
+
+        var models = this.list.models;
+        var html = '';
+        for (var i = 0, len = models.length; i < len; i++) {
+          models[i].index = i;
+          html += this.itemTmpt(_.extend(models[i].toJSON(), { index: i }));
+        }
+        this.wrapper.html(html);
+        var s = '';
+      }
+    });
+
+    //    var index = new Index();
+    //    var detail
+
+    var App = Backbone.Router.extend({
+      routes: {
+        "": "index",    // #index
+        "index": "index",    // #index
+        "detail": "detail"    // #detail
+      },
+      index: function () {
+        var index = new Index(this.interface);
+
+      },
+      detail: function () {
+        var detail = new Detail(this.interface);
+
+      },
+      initialize: function () {
+
+      },
+      interface: {
+        forward: function (url) {
+          window.location.href = ('#' + url).replace(/^#+/, '#');
+        }
+
+      }
+
+
+    });
+
+    var app = new App();
+    Backbone.history.start();
+
+    var s = '';
+
+  </script>
+</body>
+</html>
