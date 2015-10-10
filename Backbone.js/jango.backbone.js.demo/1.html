@@ -4,8 +4,8 @@
     <meta charset="utf-8" />
     <title></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <!--<link rel="Stylesheet" type="text/css" href="res/style/main2.css" />
-    <link rel="Stylesheet" type="text/css" href="res/style/tuan.css" />-->
+    <link rel="Stylesheet" type="text/css" href="css/main2.css" />
+    <link rel="Stylesheet" type="text/css" href="css/tuan.css" />
     <style>
         .pro_list_rank {
             margin: 5px 0;
@@ -155,7 +155,7 @@
             render: function () {
                 var scope = this;
                 var id = this.app.id;
-
+                console.log(id);
                 var param = { url: 'http://wcf.open.cnblogs.com/blog/post/body/' + id }
 
                 var model = this.app.model;
@@ -163,8 +163,10 @@
                 $.get('Handler2.ashx', param, function (data) {
                     (typeof data === 'string') && (data = $.parseJSON(data));
                     if (data && data.string) {
+                        console.log(data);
                         //此处将content内容写入model
                         model.set('value', data.string.value);
+                        //scope.wrapper.html(scope.detail(model.toJSON()));
                         scope.wrapper.html(scope.detail(model.toJSON()));
                     }
                 });
@@ -172,7 +174,7 @@
             },
             events: {
                 'click #js_return': function () {
-                    this.app.forward('index')
+                    this.app.forward('index');
                 }
             }
         });
