@@ -7,6 +7,10 @@
     <link rel="Stylesheet" type="text/css" href="css/main2.css" />
     <link rel="Stylesheet" type="text/css" href="css/tuan.css" />
     <style>
+        .icon_bar {
+            display: none;
+        }
+
         .pro_list_rank {
             margin: 5px 0;
             padding-right: 22px;
@@ -59,12 +63,12 @@
     </div>
     <script type="text/template" id="index-template">
         <header>
-            <b class="icon_home i_bef" id="js_home"></b>
+            <b class="icon_home i_bef icon_bar" id="js_home"></b>
             <h1>
                 cnblogs
             </h1>
 
-            <i id="js_return" class="returnico"></i>
+            <i id="js_return" class="returnico icon_bar"></i>
         </header>
         <section class="cont_wrap">
             <div id="post"></div>
@@ -183,6 +187,7 @@
                         scope.wrapper.html(scope.detail(model.toJSON()));
                     }
                 });
+                this.$el.find('.icon_bar').show();
 
             },
             events: {
@@ -291,6 +296,7 @@
                     html += this.itemTmpt(_.extend(models[i].toJSON(), { index: i }));
                 }
                 this.wrapper.html(html);
+                this.$el.find('.icon_bar').hide();
                 var s = '';
             }
         });
