@@ -160,7 +160,7 @@
 
                 var model = this.app.model;
 
-                $.get('Handler.ashx', param, function (data) {
+                $.get('Handler2.ashx', param, function (data) {
                     (typeof data === 'string') && (data = $.parseJSON(data));
                     if (data && data.string) {
                         //此处将content内容写入model
@@ -223,7 +223,7 @@
 
                 var scope = this;
                 var curpage = 1;
-                var pageSize = 10;
+                var pageSize = 30;
                 this.list = new PostList();
                 this.list.url = 'Handler2.ashx?url=http://wcf.open.cnblogs.com/blog/sitehome/paged/' + curpage + '/' + pageSize;
                 this.list.fetch({
