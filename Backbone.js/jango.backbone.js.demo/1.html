@@ -61,7 +61,7 @@
         <header>
             <b class="icon_home i_bef" id="js_home"></b>
             <h1>
-                博客园
+                cnblogs
             </h1>
 
             <i id="js_return" class="returnico"></i>
@@ -70,11 +70,16 @@
             <div id="post"></div>
             <ul class="pro_list" id="lstbox"></ul>
         </section>
-        <ul class="tab_search fix_bottom" id="sort">
+        <!--<ul class="tab_search fix_bottom" id="sort">
             <li class="tabcrt" attr="updated">时间</li>
             <li class="tab_hotel" attr="diggs">推荐</li>
             <li class="tab_hotel" attr="views">阅读</li>
             <li class="tab_hotel" attr="comments">评论</li>
+        </ul>-->
+        <ul class="tab_search fix_bottom" id="cnblogsType">
+            <li class="tabcrt" attr="sitehome">首页</li>
+            <!--<li class="tab_hotel" attr="recommend">推荐</li>-->
+            <li class="tab_hotel" attr="48HoursTopViewPosts">阅读</li>
         </ul>
     </script>
     <script type="text/template" id="item-template">
@@ -82,6 +87,7 @@
             <article class="blog_item">
                 <h3>
                     <a href="<%=link.href %>" target="_blank">
+                        <!--<%=title.value || '无题' %>-->
                         <%=title.value || '无题' %>
                     </a>
                 </h3>
@@ -91,7 +97,7 @@
                         <img src="<%=author.avatar %>">
                     </a>
                     <%} %>
-                    <%=summary.value %>
+                    <!--<%=summary.value %>--> <%=summary.value %>
                 </div>
                 <div class="item_footer">
                     <a href="<%=author.uri %>" class="lightblue">Scut</a>
@@ -133,12 +139,19 @@
             model: PostModel,
             parse: function (data) {
                 // 'data' contains the raw JSON object
+                //return (data && data.entry) || {}
                 return (data && data.feed && data.feed.entry) || {}
             },
             setComparator: function (type) {
                 this.comparator = function (item) {
                     return Math.max(item.attributes[type]);
                 }
+            },
+            initialize: function () {
+                this.pageIndex = 1;
+                this.PageSize = 10;
+                this.url = 'Handler2.ashx?type=xml&url=http://wcf.open.cnblogs.com/blog/sitehome/paged/' + this.pageIndex + '/' + this.PageSize;
+
             }
         });
 
@@ -184,6 +197,12 @@
             template: _.template($('#index-template').html()),
             itemTmpt: _.template($('#item-template').html()),
 
+
+            switchTab: function (e) {
+                var selectedTab = e.target;
+                this.$el.find('li').removeClass('tabcrt');
+                $(selectedTab).addClass('tabcrt');
+            },
             events: {
                 'click #sort': function (e) {
                     var el = $(e.target);
@@ -191,11 +210,30 @@
                     this.list.setComparator(type);
                     this.list.sort();
                 },
+                'click #cnblogsType': function (e) {
+                    var scope = this;
+                    this.switchTab(e);
+                    var el = $(e.target);
+                    var type = el.attr('attr');
+                    if (type === "sitehome") {
+                        this.list.url = 'Handler2.ashx?type=xml&url=http://wcf.open.cnblogs.com/blog/sitehome/paged/' + this.list.pageIndex + '/' + this.list.PageSize;
+                    }
+                        //else if (type === "recommend") {
+                        //    this.list.url = 'Handler2.ashx?type=xml&url=http://wcf.open.cnblogs.com/blog/bloggers/recommend/' + this.list.pageIndex + '/' + this.list.PageSize;
+                        //}
+                    else if (type === "48HoursTopViewPosts") {
+                        this.list.url = 'Handler2.ashx?type=xml&url=http://wcf.open.cnblogs.com/blog/48HoursTopViewPosts/' + this.list.PageSize;
+                    }
+                    console.log(this.list.url);
+                    this.loadList();
+                },
                 'click .orderItem': function (e) {
                     var el = $(e.currentTarget);
                     var index = el.attr('data-index');
                     var id = el.attr('data-id');
                     var model = this.list.models[index];
+                    console.log(model);
+                    console.log(this.app);
                     this.app.model = model;
                     this.app.id = id;
 
@@ -219,27 +257,33 @@
             initialize: function (app) {
                 this.app = app;
 
+                console.log(app);
                 //先生成框架html
                 this.$el.html(this.template());
                 this.post = this.$('#post');
 
                 var scope = this;
-                var curpage = 1;
-                var pageSize = 30;
+                //var curpage = 1;
+                //var pageSize = 30;
                 this.list = new PostList();
-                this.list.url = 'Handler2.ashx?url=http://wcf.open.cnblogs.com/blog/sitehome/paged/' + curpage + '/' + pageSize;
-                this.list.fetch({
-                    success: function () {
-                        scope.render();
-                    }
-                });
+                //this.list.url = 'Handler2.ashx?url=http://wcf.open.cnblogs.com/blog/sitehome/paged/' + curpage + '/' + pageSize;
+                this.loadList();
                 this.wrapper = $('#lstbox');
 
                 //this.listenTo(this.list, 'all', this.render);
                 this.render();
             },
+            loadList: function () {
+                var scope = this;
+                this.list.fetch({
+                    success: function (ctx, resp) {
+                        console.log(ctx);
+                        console.log(resp);
+                        scope.render();
+                    }
+                });
+            },
             render: function () {
-
                 var models = this.list.models;
                 var html = '';
                 for (var i = 0, len = models.length; i < len; i++) {
@@ -259,6 +303,8 @@
                 "": "index",    // #index
                 "index": "index",    // #index
                 "detail": "detail"    // #detail
+                ,
+                'recommand': 'recommand'
             },
             index: function () {
                 var index = new Index(this.interface);
@@ -268,8 +314,11 @@
                 var detail = new Detail(this.interface);
 
             },
-            initialize: function () {
+            recommand: function () {
 
+            },
+            initialize: function () {
+                var router = this;
             },
             interface: {
                 forward: function (url) {
