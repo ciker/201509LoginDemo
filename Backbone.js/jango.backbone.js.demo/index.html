@@ -47,7 +47,7 @@
             });
             var AppView = Backbone.View.extend({
                 el: $('body'),
-                templete: _.template('<li><%=name %>&nbsp;&nbsp</li>'),
+                template: _.template('<li><%=name %>&nbsp;&nbsp</li>'),
                 initialize: function () {
                     //实例化集合，并传入AppView对象
                     _.bindAll(this, 'add');
@@ -59,22 +59,27 @@
                 addItem: function () {
                     var name = prompt('请输入姓名');
                     var c = new Contact({ name: name });
-                    c.save({
-                        success: function (resp, ctx) {
-
-                        },
-                        error: function (resp) {
-
-                        }
-                    });
                     this.contacts.add(c);
                 },
                 addOne: function (model) {
                     //$('#contact-list').append('<li>' + model.get('name') + '</li>');
                 },
                 add: function (model) {
+                    var scope = this;
                     var obj = model.toJSON();
-                    $('#contact-list').append(this.templete(obj));
+                    console.log(obj);
+                    var name = obj.name;
+                    model.save(null, {
+                        success: function (model, resp, options) {
+                            $('#contact-list').append(scope.template(resp));
+                        },
+                        error: function (model, response, options) {
+
+                        }
+                    });
+                    obj.name = name + " this name is from the client";
+                    console.log(obj);
+                    $('#contact-list').append(this.template(obj));
                 }
             });
             var app = new AppView();

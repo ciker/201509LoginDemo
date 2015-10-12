@@ -15,8 +15,10 @@ public class Handler3 : IHttpHandler
 
         JavaScriptSerializer seriliazer = new JavaScriptSerializer();
         var model = seriliazer.Deserialize<model>(strJson);
+        model.name += " this name is from the server ";
+        strJson = seriliazer.Serialize(model);
+        context.Response.Write(strJson);
 
-        context.Response.Write("Hello World");
     }
 
     public bool IsReusable
