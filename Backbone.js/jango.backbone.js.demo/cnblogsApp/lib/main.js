@@ -27,11 +27,10 @@ require.onError = function (err) {
 }
 
 //Backbone会把自己加到全局变量中
-require(['backbone', 'Router/AppRouter', 'views/IndexView'], function (Backbone, App, Index) {
+require(['backbone', 'Router/AppRouter'], function (Backbone, App) {
     //console.log(app);
     ////Backbone.history.start();  //开始监控url变化
-    var app = new App();
-    console.log(app);
+    new App();
     Backbone.history.start();
     console.log(Backbone.History.started);
     //var indexView = new Index();
