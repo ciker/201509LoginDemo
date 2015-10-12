@@ -26,6 +26,7 @@
         $(function () {
             var Contact = Backbone.Model.extend({
                 //创建一个contact对象，拥有name属性
+                url: 'Handler3.ashx',
                 name: null,
                 initialize: function () {
                     this.Validate(this.get('name'));
@@ -58,6 +59,14 @@
                 addItem: function () {
                     var name = prompt('请输入姓名');
                     var c = new Contact({ name: name });
+                    c.save({
+                        success: function (resp, ctx) {
+
+                        },
+                        error: function (resp) {
+
+                        }
+                    });
                     this.contacts.add(c);
                 },
                 addOne: function (model) {
