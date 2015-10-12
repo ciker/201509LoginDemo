@@ -5,7 +5,9 @@
     <title></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <link rel="Stylesheet" type="text/css" href="css/main2.css" />
-    <link rel="Stylesheet" type="text/css" href="css/tuan.css" />
+    <link rel="Stylesheet" type="text/css" href="css/tuan.css"/>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+
     <style>
         .icon_bar {
             display: none;
@@ -188,6 +190,7 @@
                     }
                 });
                 this.$el.find('.icon_bar').show();
+                this.$el.find('.tab_search ').hide();
 
             },
             events: {
@@ -297,6 +300,7 @@
                 }
                 this.wrapper.html(html);
                 this.$el.find('.icon_bar').hide();
+                this.$el.find('.tab_search ').show();
                 var s = '';
             }
         });
