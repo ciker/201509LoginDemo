@@ -1,0 +1,137 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="Stylesheet" type="text/css" href="css/main2.css" />
+    <link rel="Stylesheet" type="text/css" href="css/tuan.css" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+
+    <style>
+        .icon_bar {
+            display: none;
+        }
+
+        .pro_list_rank {
+            margin: 5px 0;
+            padding-right: 22px;
+        }
+
+        .figcaption span {
+            text-align: center;
+        }
+
+        .blog_item {
+        }
+
+            .blog_item img {
+                width: 48px;
+                height;
+                48px;
+                margin: 4px;
+                padding: 1px;
+                float: left;
+                border: 1px solid #CCC;
+            }
+
+            .blog_item .item_footer {
+                color: #757575;
+                font-size: 0.86em;
+            }
+
+        a {
+            color: #005A94;
+        }
+
+        .tab_hotel {
+            border-left: 1px solid #2B97E2;
+        }
+
+        .cont_wrap .content {
+            background-color: White;
+            padding: 5px 10px;
+        }
+
+        img {
+            max-width: 98%;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-frame">
+        <div class="main-viewport" id="main-viewport">
+        </div>
+    </div>
+    <script type="text/template" id="index-template">
+        <header>
+            <b class="icon_home i_bef icon_bar" id="js_home"></b>
+            <h1>
+                cnblogs
+            </h1>
+
+            <i id="js_return" class="returnico icon_bar"></i>
+        </header>
+        <section class="cont_wrap">
+            <div id="post"></div>
+            <ul class="pro_list" id="lstbox"></ul>
+        </section>
+        <!--<ul class="tab_search fix_bottom" id="sort">
+            <li class="tabcrt" attr="updated">时间</li>
+            <li class="tab_hotel" attr="diggs">推荐</li>
+            <li class="tab_hotel" attr="views">阅读</li>
+            <li class="tab_hotel" attr="comments">评论</li>
+        </ul>-->
+        <ul class="tab_search fix_bottom" id="cnblogsType">
+            <li class="tabcrt" attr="sitehome">首页</li>
+            <!--<li class="tab_hotel" attr="recommend">推荐</li>-->
+            <li class="tab_hotel" attr="48HoursTopViewPosts">阅读</li>
+        </ul>
+    </script>
+    <script type="text/template" id="item-template">
+        <li class="arr_r orderItem" data-id="<%=id %>" data-index="<%=index %>">
+            <article class="blog_item">
+                <h3>
+                    <a href="<%=link.href %>" target="_blank">
+                        <!--<%=title.value || '无题' %>-->
+                        <%=title.value || '无题' %>
+                    </a>
+                </h3>
+                <div class="author pro_list_rank">
+                    <%if(author.avatar){ %>
+                    <a href="<%=author.uri %>" target="_blank">
+                        <img src="<%=author.avatar %>">
+                    </a>
+                    <%} %>
+                    <!--<%=summary.value %>--> <%=summary.value %>
+                </div>
+                <div class="item_footer">
+                    <a href="<%=author.uri %>" class="lightblue">Scut</a>
+                    <%=published %>
+                    <a href="<%=link.href %>" title="2013-08-21 15:21" class="gray">评论(<%=comments %>)</a>
+                    <a href="<%=link.href %>" class="gray">阅读(<%=views %>)</a> <span class="price1">推荐(<%=diggs %>)</span>
+                </div>
+            </article>
+        </li>
+    </script>
+    <script type="text/template" id="detail-template">
+        <section class="cont_wrap">
+            <article class="content">
+                <h1>
+                    <a href="#"><%=title.value %></a>
+                </h1>
+                <div style=" text-align: right; ">
+                    <time pubdate="pubdate" value="2013-04-15"><%=published %></time><br /><span>
+                        阅读(<%=views %>)
+                        评论(<%=comments %>）
+                    </span>
+                </div>
+                <p><%=value %></p>
+            </article>
+        </section>
+    </script>
+
+
+    <script src="cnblogsApp/lib/require.js" data-main="cnblogsApp/lib/main"></script>
+</body>
+</html>
