@@ -82,6 +82,7 @@ define(
                 console.log(app);
                 //先生成框架html
                 this.$el.html(this.template());
+                this.$el.find('.mask').show();
                 this.post = this.$('#post');
 
                 var scope = this;
@@ -91,16 +92,16 @@ define(
                 //this.list.url = 'Handler2.ashx?url=http://wcf.open.cnblogs.com/blog/sitehome/paged/' + curpage + '/' + pageSize;
                 this.loadList();
                 this.wrapper = $('#lstbox');
-
                 //this.listenTo(this.list, 'all', this.render);
                 this.render();
+                this.hideMask();
             },
             loadList: function () {
                 var scope = this;
                 this.list.fetch({
                     success: function (ctx, resp) {
-                        console.log(ctx);
-                        console.log(resp);
+                        //console.log(ctx);
+                        //console.log(resp);
                         scope.render();
                     }
                 });
@@ -116,6 +117,10 @@ define(
                 this.$el.find('.icon_bar').hide();
                 this.$el.find('.tab_search ').show();
                 var s = '';
+            },
+            hideMask: function () {
+                //this.$el.find
+                $('.mask ').hide();
             }
         });
     })

@@ -18,7 +18,10 @@ define(
                     this.app = app;
                     this.$el.html(this.template());
                     this.wrapper = $('#lstbox');
+
+                    this.$el.find('.mask').show();
                     this.render();
+                    this.hideMask();
                 },
                 render: function () {
                     var scope = this;
@@ -39,7 +42,6 @@ define(
                         }
                     });
                     this.$el.find('.icon_bar').show();
-                    this.$el.find('.tab_search ').hide();
 
                 },
                 events: {
@@ -50,6 +52,9 @@ define(
                 },
                 js_home: function () {
                     this.app.forward('index');
+                },
+                hideMask: function () {
+                    this.$el.find('.mask ').hide();
                 }
             });
         })

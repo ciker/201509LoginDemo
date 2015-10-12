@@ -56,6 +56,31 @@
         img {
             max-width: 98%;
         }
+
+        .mask {
+            left: 0px;
+            top: 0px;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: #cccccc;
+            z-index: 1000;
+            opacity: 0.7;
+            -webkit-opacity: 0.7;
+            -moz-opacity: 0.7;
+        }
+
+        .mask-content {
+            margin: auto;
+            text-align: center;
+            height: 100px;
+            left: 0px;
+            top: 200px;
+            position: relative;
+            color: #ffffff;
+            font-size: 30px;
+            font-family: cursive;
+        }
     </style>
 </head>
 <body>
@@ -130,7 +155,9 @@
             </article>
         </section>
     </script>
-
+    <div class="mask">
+        <div class="mask-content"> Loading... </div>
+    </div>
 
     <script src="cnblogsApp/lib/require.js" data-main="cnblogsApp/lib/main"></script>
 </body>
