@@ -1,12 +1,13 @@
-﻿
-/**
+﻿/**
  * 
  * 
- * utils
+ *utils
  * 
  * 
+ * jango
  * 
-*/
+ * 
+**/
 !function () {
     var utils = {
         ajax: function (url, type, data, dataType, callback) {

@@ -1,12 +1,14 @@
 ﻿/**
- * 
+ *
  * 
  * DetailView
  * 
+ * 
  * jango
  * 
-*/
-
+ * 
+ * 
+ */
 define(
     ['underscore',
         'backbone'], function (_, Backbone) {

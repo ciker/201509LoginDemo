@@ -1,4 +1,17 @@
-﻿require.config({
+﻿/**
+ * 
+ * 
+ * main (require config)
+ * 
+ * 
+ * jango
+ * 
+ * 
+ * 
+ */
+
+
+require.config({
     baseUrl: 'cnblogsApp/',
     urlArgs: 'v=' + (new Date().getTime()),
     waitSeconds: 30,
