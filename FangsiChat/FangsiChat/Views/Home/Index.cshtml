@@ -1,0 +1,37 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>FangsiChat</title>
+    <link href="~/Content/Css/ChatCore.css" rel="stylesheet" />
+</head>
+<body>
+    <div> 
+        <p style="font-size:24px; font-weight:bolder; color:cornflowerblue;">MVC中使用SignalR打造酷炫实用的即时通讯功能</p>
+        <p style="font-size:18px; font-weight:bolder; ">作者：锋哥</p>
+        <p style="font-size:18px; font-weight:bolder; ">网址：http://www.fangsi.net</p>
+        <p style="font-size:18px; font-weight:bolder; ">欢迎加入放肆雷特QQ群：60199773</p>
+    </div>
+    <script type="text/javascript" src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery.signalR-2.2.0.min.js"></script>
+    <script src="~/signalr/hubs"></script>
+    <script src="~/Scripts/layer/layer.min.js"></script>
+    <script type="text/javascript">
+        //用户编号
+        var userid = "@Session["userid"]";
+        //用户名
+        var username = "@Session["username"]";
+        //所属部门
+        var deptname = "@Session["deptname"]";
+        //所属部门编号
+        var deptid = "@Session["deptid"]";
+    </script>
+    <script src="~/Scripts/ChatCore.js"></script>
+</body>
+</html>
