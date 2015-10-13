@@ -27,16 +27,20 @@
             var Contact = Backbone.Model.extend({
                 //创建一个contact对象，拥有name属性
                 url: 'Handler3.ashx',
-                name: null,
                 initialize: function () {
-                    this.Validate(this.get('name'));
+                    //this.Validate(this.get('name'));
                 },
-                Validate: function (name) {
-                    if (name === "") {
-                        alert("name is not null");
-                        return false;
+                validate: function (attrs, opts) {
+                    if (attrs.name.length <= 0) {
+                        return "name is not null";
+                        //return false;
                     }
                 }
+                //validation: {
+                //    name: {
+                //        required: true
+                //    }
+                //}
             });
             var ContackList = Backbone.Collection.extend({
                 model: Contact,
@@ -67,17 +71,22 @@
                 add: function (model) {
                     var scope = this;
                     var obj = model.toJSON();
-                    console.log(obj);
                     var name = obj.name;
+                    console.log(model);
+                    if (!model.isValid()) {
+                        debugger;
+                        alert(model.get('name') + " " + model.validationError);
+                        return false;
+                    }
+                    console.log(model.isNew());
                     model.save(null, {
                         success: function (model, resp, options) {
                             $('#contact-list').append(scope.template(resp));
                         },
                         error: function (model, response, options) {
-
                         }
                     });
-                    obj.name = name + " this name is from the client";
+                    obj.name = '<font style="color:yellowgreen">' + name + " this name is from the client</font>";
                     console.log(obj);
                     $('#contact-list').append(this.template(obj));
                 }
