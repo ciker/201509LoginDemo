@@ -14,6 +14,7 @@ public class Handler2 : IHttpHandler
 
     public void ProcessRequest(HttpContext context)
     {
+        var Ip = context.Request.GetIpAddress();
         context.Response.ContentType = "text/plain";
         string url = context.Request["url"] != null ? context.Request["url"].ToString() : "";
         string sException = null;
@@ -190,4 +191,20 @@ public class Handler2 : IHttpHandler
         }
     }
 
+}
+
+public static class HttpExtensions
+{
+    /// <summary>
+    /// 获取IP地址
+    /// </summary>
+    public static string GetIpAddress(this HttpRequest request)
+    {
+        string result = request.ServerVariables["HTTP_X_FORWARDED_FOR"];
+        if (result == null || (result != null && result.Length == 0))
+        {
+            result = request.ServerVariables["REMOTE_ADDR"];
+        }
+        return result;
+    }
 }
