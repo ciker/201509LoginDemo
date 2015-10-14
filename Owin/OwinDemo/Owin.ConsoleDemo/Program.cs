@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net.Http;
 using Microsoft.Owin.Hosting;
 
 namespace Owin.ConsoleDemo
@@ -11,10 +12,20 @@ namespace Owin.ConsoleDemo
             var startOpts = new StartOptions(url)
             {
             };
-            using (WebApp.Start<Startup>(startOpts))
+            //using (WebApp.Start<Startup>(startOpts))
+            //{
+            //    Console.WriteLine("Server run at " + url + " , press Enter to exit.");
+            //    Console.ReadLine();
+            //}
+            using (WebApp.Start<Startup>(url: url))
             {
-                Console.WriteLine("Server run at " + url + " , press Enter to exit.");
+                var client = new HttpClient();
+                var response = client.GetAsync(url + "api/HomeApi/1").Result;
+
+                Console.WriteLine(response);
+                Console.WriteLine(response.Content.ReadAsStringAsync().Result);
                 Console.ReadLine();
+
             }
         }
     }
