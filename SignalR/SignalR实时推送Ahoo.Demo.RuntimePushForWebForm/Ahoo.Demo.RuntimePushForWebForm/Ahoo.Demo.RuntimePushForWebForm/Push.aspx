@@ -29,6 +29,7 @@
                 $.connection.hub.start().done(function () {
                     console.log(chat);
                     chat.server.sendAllNotice(msg);
+                    chat.server.sendOthersNotice(msg);
                     //chat.server.SendAllNotice(msg);
                 });
 
