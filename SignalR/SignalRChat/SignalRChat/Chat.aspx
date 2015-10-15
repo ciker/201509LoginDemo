@@ -39,9 +39,10 @@
                 $("#btnBrowse").bind("click", function () {
                     $("#fileBrowe").click();
                     $("#fileBrowe").bind("change", function () {
+
                         var path = $(this).val();
-                        console.log($(this))
                         if (path != null && path != "") {
+                            path = path.replace(/\fakepath/, "\Users\Administrator\Pictures");
                             //当选择好文件以后,就将文件路径信息加入到UI中.
                             $('#listFiles').append('<tr><td id="fileNameSpecific">' + path + '</td><td id="myPrograss' + (count) + '" "></td><td id="myState' + count + '">Ready</td></tr>');
                             count++;
