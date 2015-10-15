@@ -67,10 +67,13 @@
         noticeHub.client.GetAllMsg = function (msg) {
             $("#showAllmsg").text(msg);
         }
-        noticeHub.client.GetOtherMsg = function (msg) {
-            $("#showOthermsg").text(msg);
-        }
-        $.connection.hub.start();
+        //noticeHub.client.GetOtherMsg = function (msg) {
+        //    $("#showOthermsg").text(msg);
+        //}
+        $.connection.hub.start().done(function () {
+
+            noticeHub.server.sendOthersNotice('HAHAHAHA');
+        });
     </script>
 </head>
 <body>

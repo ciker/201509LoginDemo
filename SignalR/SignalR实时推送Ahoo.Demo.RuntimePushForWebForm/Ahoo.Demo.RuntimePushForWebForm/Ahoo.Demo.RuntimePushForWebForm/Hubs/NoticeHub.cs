@@ -17,7 +17,7 @@ namespace Ahoo.Demo.RuntimePushForWebForm.Hubs
 
         public void SendOthersNotice(string Msg)
         {
-            Clients.Others.GetOtherMsg(Msg);
+            Clients.All.GetOtherMsg(Msg);
         }
 
     }
