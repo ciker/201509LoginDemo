@@ -1,0 +1,80 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>消息接收端</title>
+    <script src="Scripts/jquery-1.6.4.min.js" type="text/javascript"></script>
+    <script src="Scripts/jquery.signalR-1.1.4.min.js" type="text/javascript"></script>
+    <script src="/Signalr/Hubs"></script>
+    <script src="Scripts/artDialog4.1.7/jquery.artDialog.source.js?skin=default" type="text/javascript"></script>
+    <script>
+        artDialog.notice = function (options) {
+            var opt = options || {},
+        api, aConfig, hide, wrap, top,
+        duration = 800;
+
+            var config = {
+                id: 'Notice',
+                left: '100%',
+                top: '100%',
+                fixed: true,
+                drag: false,
+                resize: false,
+                follow: null,
+                lock: false,
+                init: function (here) {
+                    api = this;
+                    aConfig = api.config;
+                    wrap = api.DOM.wrap;
+                    top = parseInt(wrap[0].style.top);
+                    hide = top + wrap[0].offsetHeight;
+
+                    wrap.css('top', hide + 'px')
+                .animate({ top: top + 'px' }, duration, function () {
+                    opt.init && opt.init.call(api, here);
+                });
+                },
+                close: function (here) {
+                    wrap.animate({ top: hide + 'px' }, duration, function () {
+                        opt.close && opt.close.call(this, here);
+                        aConfig.close = $.noop;
+                        api.close();
+                    });
+
+                    return false;
+                }
+            };
+
+            for (var i in opt) {
+                if (config[i] === undefined) config[i] = opt[i];
+            };
+
+            return artDialog(config);
+        };
+
+        var pushHub = $.connection.pushHub;
+        var noticeHub = $.connection.noticeHub;
+        pushHub.client.notice = function (message) {
+            art.dialog.notice({
+                title: '我是服务器推送来的通知!',
+                width: 220, // 必须指定一个像素宽度值或者百分比，否则浏览器窗口改变可能导致artDialog收缩
+                content: message,
+                icon: 'face-smile',
+                time: 5
+            });
+        }
+
+        console.log(noticeHub);
+        noticeHub.client.GetAllMsg = function (msg) {
+            $("#showAllmsg").text(msg);
+        }
+        noticeHub.client.GetOtherMsg = function (msg) {
+            $("#showOthermsg").text(msg);
+        }
+        $.connection.hub.start();
+    </script>
+</head>
+<body>
+    <div id="showAllmsg"></div>
+    <div id="showOthermsg"></div>
+</body>
+</html>
