@@ -1,0 +1,56 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutView.cshtml";
+}
+
+<div ng-controller="userManageCtrl">
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Mobile</th>
+                <th>Operate</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="user in Users">
+                <td>{{user.ID}}</td>
+                <td>{{user.Name}}</td>
+                <td>{{user.Email}}</td>
+                <td>{{user.Mobile}}</td>
+                <td><a href="#" ng-click="edit(user)">Edit</a></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div ng-show="divUserModification">
+        <p>{{Operation}} User</p>
+        <table>
+            <tr>
+                <td>
+                    <input type="text" style="width:20px;" disabled="disabled" ng-model="ID" />
+                </td>
+
+
+                <td>
+                    <input type="text" style="width:94px;" ng-model="Name" />
+                </td>
+
+
+                <td>
+                    <input type="text" style="width:94px;" ng-model="Email" />
+                </td>
+
+
+                <td>
+                    <input type="text" style="width:94px;" ng-model="Mobile" />
+                </td>
+
+                <td colspan="2">
+                    <input type="button" value="Save" ng-click="saveUser()" />
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
