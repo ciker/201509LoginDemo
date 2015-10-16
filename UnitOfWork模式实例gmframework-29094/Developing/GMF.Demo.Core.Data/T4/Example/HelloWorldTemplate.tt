@@ -1,0 +1,36 @@
+﻿<#+
+// <copyright file="HelloWorldTemplate.tt" company="郭明锋@中国">
+//  Copyright © 郭明锋@中国. All Rights Reserved.
+// </copyright>
+
+public class HelloWorldTemplate : CSharpTemplate
+{
+    private string _className;
+
+    public HelloWorldTemplate(string className)
+    {
+        _className = className;
+    }
+
+	public override string TransformText()
+	{
+#>
+using System;
+
+namespace GMF.Demo.Core.Data.T4
+{
+    public class <#=_className #>
+    {
+        private string _word;
+
+        public <#=_className #>(string word)
+        {
+            _word = word;
+        }
+    }
+}
+<#+
+        return this.GenerationEnvironment.ToString();
+	}
+}
+#>

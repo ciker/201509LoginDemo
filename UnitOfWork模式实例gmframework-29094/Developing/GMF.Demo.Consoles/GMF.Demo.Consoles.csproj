@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9B91ECEF-3370-4604-8723-9BC955C10BFB}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GMF.Demo.Consoles</RootNamespace>
+    <AssemblyName>GMF.Demo.Consoles</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=4.4.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GMF.Component.Data\GMF.Component.Data.csproj">
+      <Project>{01D263C6-97D8-496F-9E95-CA338F597747}</Project>
+      <Name>GMF.Component.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GMF.Component.Tools\GMF.Component.Tools.csproj">
+      <Project>{A6DFE374-FD47-482A-B733-852C6D840D34}</Project>
+      <Name>GMF.Component.Tools</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GMF.Demo.Core.Data\GMF.Demo.Core.Data.csproj">
+      <Project>{761686f6-93a6-4313-94d5-29dc65492ec0}</Project>
+      <Name>GMF.Demo.Core.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GMF.Demo.Core.Models\GMF.Demo.Core.Models.csproj">
+      <Project>{cd4a2973-b3c1-4397-8855-a007428b760c}</Project>
+      <Name>GMF.Demo.Core.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GMF.Demo.Core\GMF.Demo.Core.csproj">
+      <Project>{b9fe21d8-fea9-4360-aaf4-b7e0417b5956}</Project>
+      <Name>GMF.Demo.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GMF.Demo.Site.Models\GMF.Demo.Site.Models.csproj">
+      <Project>{4bc52a24-a10e-4255-83d6-bdb028773122}</Project>
+      <Name>GMF.Demo.Site.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GMF.Demo.Site\GMF.Demo.Site.csproj">
+      <Project>{E2A9DD75-367E-4081-8B2B-F736154439B5}</Project>
+      <Name>GMF.Demo.Site</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="log4net.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

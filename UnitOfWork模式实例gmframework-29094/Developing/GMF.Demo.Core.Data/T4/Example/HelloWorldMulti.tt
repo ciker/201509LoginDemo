@@ -1,0 +1,24 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ include file="T4Toolbox.tt" #>
+<#@ include file="HelloWorldTemplate.tt" #>
+<#
+    string curPath = Path.GetDirectoryName(Host.TemplateFile);
+    string destPath = Path.Combine(curPath, "outPath");
+    if(!Directory.Exists(destPath))
+    {
+        Directory.CreateDirectory(destPath);
+    }
+    string[] classNames = new[]{"HelloWorld1", "HelloWorld2", "HelloWorld3"};
+    foreach(string className in classNames)
+    {
+        HelloWorldTemplate template = new HelloWorldTemplate(className);
+        string fileName = string.Format(@"{0}\{1}.cs", destPath, className);
+        template.Output.Encoding = Encoding.UTF8;
+        template.RenderToFile(fileName);
+    }
+ #>

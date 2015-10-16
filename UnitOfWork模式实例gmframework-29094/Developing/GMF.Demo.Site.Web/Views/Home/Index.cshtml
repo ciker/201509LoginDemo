@@ -1,0 +1,51 @@
+﻿@using Webdiyer.WebControls.Mvc;
+@using GMF.Component.Tools;
+@model PagedList<GMF.Demo.Site.Models.MemberView>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+@if (!User.Identity.IsAuthenticated)
+{
+    @Html.ActionLink("登录", "Login", "Account")
+}
+else
+{
+    <div>
+        用户 @User.Identity.Name 已登录
+        @Html.ActionLink("退出", "Logout", "Account")
+    </div>
+}
+<table>
+    <tr>
+        <th>UserName</th>
+        <th>NickName</th>
+        <th>Email</th>
+        <th>IsDeleted</th>
+        <th>AddDate</th>
+        <th>LoginLogCount</th>
+        <th>RoleNames</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>@Html.DisplayFor(modelItem => item.UserName)</td>
+        <td>@Html.DisplayFor(modelItem => item.NickName)</td>
+        <td>@Html.DisplayFor(modelItem => item.Email)</td>
+        <td>@Html.DisplayFor(modelItem => item.IsDeleted)</td>
+        <td>@Html.DisplayFor(modelItem => item.AddDate)</td>
+        <td style="text-align:center;">
+            @Html.DisplayFor(modelItem => item.LoginLogCount)
+        </td>
+        <td>@item.RoleNames.ExpandAndToString(",")</td>
+    </tr>
+}
+</table>
+@Html.Pager(Model, new PagerOptions
+{
+    PageIndexParameterName = "id"
+})
+<br />
+@DateTime.Now

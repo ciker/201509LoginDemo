@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>MvcPager3</id>
+    <version>1.5</version>
+    <title>MvcPager3</title>
+    <authors>Webdiyer</authors>
+    <owners>Webdiyer</owners>
+    <licenseUrl>http://mvcpager.codeplex.com/license</licenseUrl>
+    <projectUrl>http://mvcpager.codeplex.com/</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>ASP.NET MVC Paging Control for ASP.NET MVC 3.0</description>
+    <summary>ASP.NET MVC Paging Control for ASP.NET MVC 3.0</summary>
+    <releaseNotes />
+    <copyright />
+    <language />
+    <tags>MvcPager Paging Pagination</tags>
+  </metadata>
+</package>

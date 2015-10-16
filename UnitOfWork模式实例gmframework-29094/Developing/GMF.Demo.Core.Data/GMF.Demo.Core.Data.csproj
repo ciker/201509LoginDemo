@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{761686F6-93A6-4313-94D5-29DC65492EC0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GMF.Demo.Core.Data</RootNamespace>
+    <AssemblyName>GMF.Demo.Core.Data</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Configurations\Account\LoginLogConfiguration.generated.cs" />
+    <Compile Include="Configurations\Account\MemberConfiguration.generated.cs" />
+    <Compile Include="Configurations\Account\MemberExtendConfiguration.generated.cs" />
+    <Compile Include="Configurations\Account\LoginLogConfiguration.cs" />
+    <Compile Include="Configurations\Account\MemberAddressConfiguration.cs" />
+    <Compile Include="Configurations\Account\MemberExtendConfiguration.cs" />
+    <Compile Include="Configurations\Security\RoleConfiguration.cs" />
+    <Compile Include="Configurations\Security\RoleConfiguration.generated.cs" />
+    <Compile Include="Configurations\Systems\LogInfoConfiguration.generated.cs" />
+    <Compile Include="Initialize\DatabaseInitializer.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\Account\ILoginLogRepository.generated.cs" />
+    <Compile Include="Repositories\Account\IMemberExtendRepository.generated.cs" />
+    <Compile Include="Repositories\Account\IMemberRepository.generated.cs" />
+    <Compile Include="Repositories\Account\Impl\LoginLogRepository.generated.cs" />
+    <Compile Include="Repositories\Account\Impl\MemberExtendRepository.generated.cs" />
+    <Compile Include="Repositories\Account\Impl\MemberRepository.generated.cs" />
+    <Compile Include="Repositories\Security\Impl\RoleRepository.generated.cs" />
+    <Compile Include="Repositories\Security\IRoleRepository.generated.cs" />
+    <Compile Include="Repositories\Systems\ILogInfoRepository.generated.cs" />
+    <Compile Include="Repositories\Systems\Impl\LogInfoRepository.generated.cs" />
+    <Compile Include="T4\EntityCodeScript.cs">
+      <DependentUpon>EntityCodeScript.tt</DependentUpon>
+      <SubType>Code</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="T4\Example\HelloWorld.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HelloWorld.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T4\Example\HelloWorldMulti.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HelloWorldMulti.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T4\Example\outPath\HelloWorld1.cs" />
+    <Compile Include="T4\Example\outPath\HelloWorld2.cs" />
+    <Compile Include="T4\Example\outPath\HelloWorld3.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="T4\EntityCodeScript.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>EntityCodeScript.cs</LastGenOutput>
+      <LastOutputs>
+..\Configurations\Account\LoginLogConfiguration.generated.cs
+..\Configurations\Account\MemberConfiguration.generated.cs
+..\Configurations\Account\MemberExtendConfiguration.generated.cs
+..\Configurations\Security\RoleConfiguration.generated.cs
+..\Configurations\Systems\LogInfoConfiguration.generated.cs
+..\Repositories\Account\ILoginLogRepository.generated.cs
+..\Repositories\Account\IMemberExtendRepository.generated.cs
+..\Repositories\Account\IMemberRepository.generated.cs
+..\Repositories\Account\Impl\LoginLogRepository.generated.cs
+..\Repositories\Account\Impl\MemberExtendRepository.generated.cs
+..\Repositories\Account\Impl\MemberRepository.generated.cs
+..\Repositories\Security\Impl\RoleRepository.generated.cs
+..\Repositories\Security\IRoleRepository.generated.cs
+..\Repositories\Systems\ILogInfoRepository.generated.cs
+..\Repositories\Systems\Impl\LogInfoRepository.generated.cs
+.\EntityCodeScript.cs
+</LastOutputs>
+    </None>
+    <None Include="T4\Example\HelloWorld.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>HelloWorld.cs</LastGenOutput>
+    </None>
+    <None Include="T4\Example\HelloWorldMulti.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastOutputs>
+.\HelloWorldMulti.cs
+.\outPath\HelloWorld1.cs
+.\outPath\HelloWorld2.cs
+.\outPath\HelloWorld3.cs
+</LastOutputs>
+      <LastGenOutput>HelloWorldMulti.cs</LastGenOutput>
+    </None>
+    <None Include="T4\Example\HelloWorldTemplate.tt" />
+    <None Include="T4\Include\EntityConfigurationTemplate.ttinclude" />
+    <None Include="T4\Include\EntityRepositoryTemplate.ttinclude" />
+    <None Include="T4\Include\IEntityRepositoryTemplate.ttinclude" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GMF.Component.Data\GMF.Component.Data.csproj">
+      <Project>{01D263C6-97D8-496F-9E95-CA338F597747}</Project>
+      <Name>GMF.Component.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GMF.Component.Tools\GMF.Component.Tools.csproj">
+      <Project>{A6DFE374-FD47-482A-B733-852C6D840D34}</Project>
+      <Name>GMF.Component.Tools</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GMF.Demo.Core.Models\GMF.Demo.Core.Models.csproj">
+      <Project>{CD4A2973-B3C1-4397-8855-A007428B760C}</Project>
+      <Name>GMF.Demo.Core.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

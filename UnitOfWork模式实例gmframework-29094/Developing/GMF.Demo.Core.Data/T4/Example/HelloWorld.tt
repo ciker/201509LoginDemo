@@ -1,0 +1,20 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ output extension=".cs" #>
+using System;
+
+namespace GMF.Demo.Core.Data.T4
+{
+    public class HelloWorld
+    {
+        private string _word;
+
+        public HelloWorld(string word)
+        {
+            _word = word;
+        }
+    }
+}
