@@ -10,3 +10,14 @@ app.config(['$routeProvider', function ($routeProvider) {
             redirectto: '/Users'
         });
 }]);
+
+app.directive("mydctv",function() {
+    return function(scope, ele, attrs) {
+        ele.bind("mouseenter", function() {
+            ele.css("background", "yellow");
+        });
+        ele.bind("mouseleave", function () {
+            ele.css("background", "none");
+        });
+    }
+})
