@@ -44,6 +44,8 @@ namespace AngularJsDemo.Web.Controllers
         {
             var data = users;
             return Json(data, JsonRequestBehavior.AllowGet);
+
+            
         }
 
         public ActionResult EditUser(UserInfo userInfo)
