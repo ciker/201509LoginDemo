@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>高德地图官网定位demo</title>
+    <style>
+        #divMap {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 78%;
+            height: 100%;
+        }
+
+        #result {
+            right: 0;
+            top: 0;
+            position: absolute;
+            width: 22%;
+        }
+    </style>
+    <link rel="stylesheet" href="http://cache.amap.com/lbs/static/main.css" />
+    <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://webapi.amap.com/maps?v=1.3&key=919c8c5aa091ceecdefff06ae96373f6"></script>
+</head>
+<body>
+    <div id="divMap">
+
+    </div>
+    <div id="result"></div>
+    <script type="text/javascript">
+        var map = [];
+        //已知点坐标
+        var lnglatXY = [];
+        $(function () {
+            var url = 'AmapHandler.ashx';
+            $.get(url, null, function (res) {
+                var data = JSON.parse(res);
+                console.log(data);
+                map = new AMap.Map("divMap", {
+                    resizeEnable: true,
+                    center: [data.lng, data.lat], //地图中心点
+                    zoom: 13 //地图显示的缩放级别
+                });
+                lnglatXY = [data.lng, data.lat];
+                //加点
+                var marker = new AMap.Marker({
+                    map: map,
+                    position: lnglatXY
+                });
+
+                map.setFitView();
+                geocoder();
+            });
+
+
+        });
+
+        function geocoder() {
+            var MGeocoder;
+            //加载地理编码插件
+            AMap.service(["AMap.Geocoder"], function () {
+                MGeocoder = new AMap.Geocoder({
+                    radius: 1000,
+                    extensions: "all"
+                });
+                //逆地理编码
+                MGeocoder.getAddress(lnglatXY, function (status, result) {
+                    if (status === 'complete' && result.info === 'OK') {
+                        geocoder_CallBack(result);
+                    }
+                });
+            });
+        }
+        //鼠标划过显示相应点
+        var marker;
+        function onMouseOver(e) {
+            var coor = e.split(','),
+                    lnglat = [coor[0], coor[1]];
+
+            marker = new AMap.Marker({
+                map: map,
+                position: lnglat
+            });
+
+            map.setFitView();
+
+
+        }
+        //回调函数
+        function geocoder_CallBack(data) {
+            console.log(data);
+            var resultStr = "";
+            var poiinfo = "";
+            var address;
+
+            new AMap.InfoWindow({
+                content: data.regeocode.formattedAddress,
+                autoMove: true,
+                size: new AMap.Size(150, 0),
+                offset: { x: 0, y: -30 }
+            }).open(map, lnglatXY);
+
+
+            //返回地址描述
+            address = data.regeocode.formattedAddress;
+            //返回周边兴趣点信息
+            poiinfo += "<table style='width:300px;cursor:pointer;'>";
+            for (var j = 0; j < data.regeocode.pois.length; j++) {
+                var color = j % 2 === 0 ? '#fff' : '#eee';
+                poiinfo += "<tr onmouseover='onMouseOver(\"" + data.regeocode.pois[j].location.toString() +
+                           "\")' style='background-color:" + color + "; margin:0; padding:0;'><td>" +
+                            data.regeocode.pois[j].name + "</td><td>距离：" + data.regeocode.pois[j].distance + "米</td></tr>";
+            }
+            poiinfo += "</table>";
+            //返回结果拼接输出
+            resultStr = "<div style=\"padding:0px 0 4px 2px; border-bottom:1px solid #C1FFC1;\">" + "<b>地址</b>：" + address + "<hr/><b>周边兴趣点信息</b>：<br/>" + poiinfo + "</div>";
+            document.getElementById("result").innerHTML = resultStr;
+        }
+    </script>
+</body>
+</html>
