@@ -1,0 +1,66 @@
+﻿@model List<Domain.Account>
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="formContents">
+    <h4>Accounts</h4>
+    @if (@ViewBag.TotalRecords > 0)
+    {
+       
+        <table class="table table-striped  table-hover  table-bordered">
+            <caption></caption>
+            <thead>
+                <tr>
+                    <th style="width: 30px">Id</th>
+                    <th style="width: 250px">Name</th>
+                    <th style="width: 150px">Website</th>
+                    <th style="width: 150px">Phone</th>
+                    <th style="width: 150px">Email</th>
+                    <th style="width: 100px">Type</th>
+                    <th style="width: 100px">Status</th>
+                    <th style="width: 70px"></th>
+                </tr>
+            </thead>
+            @{ int index = 0; }
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td style="width: 30px">@item.Id</td>
+                    <td style="width: 250px">@item.Name</td>
+                    <td style="width: 150px">@item.Url</td>
+                    <td style="width: 150px">@item.Phone</td>
+                    <td style="width: 150px">@item.Email</td>
+                    <td style="width: 100px">@item.AccountType.ToString()</td>
+                    <td style="width: 100px">@item.AccountStatus.ToString()</td>
+                    <td style="width: 70px">
+                        @{
+                            @Html.ActionLink("View", "Edit", "Account")
+                        }
+                    </td>
+                </tr>
+        
+     
+            }
+
+        </table>
+    
+    }
+    else
+    {
+        <span id="spnNoRecordFound">No Record Found</span>
+        <br />
+        <br />
+    }
+    <p>
+    </p>
+</div>
+@section scripts
+{
+    <script language="javascript">
+        $(function () {
+
+        });
+    </script>
+
+}

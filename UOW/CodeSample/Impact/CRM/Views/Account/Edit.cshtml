@@ -1,0 +1,105 @@
+﻿@{
+    ViewBag.Title = "Edit";
+}
+@section head
+{
+    <link href="~/Content/ui.jqgrid.css" rel="stylesheet" />
+    <style type="text/css">
+        .ui-jqgrid .ui-jqgrid-view
+        {
+            font-family: verdana, ​ serif;
+        }
+
+        #accounts-list-div .ui-widget
+        {
+            font-family: verdana, ​ serif;
+            font-size: 1.1em;
+        }
+    </style>
+}
+
+<h4>Account Management</h4>
+<ul id="#myTab" class="nav nav-tabs">
+    <li class="active"><a href="#GeneralInformation" data-toggle="tab">General Information</a></li>
+    <li><a href="#Contacts" data-toggle="tab">Contacts</a></li>
+</ul>
+<div class="tab-content">
+    <div class="tab-pane active" id="GeneralInformation">
+        <h5 class="small">General Information Content</h5>
+        <div class="row-fluid">
+            <div class="span12">
+                <div id="accounts-list-div">
+                    <table id="accounts-list"></table>
+                    <div id="pager" style="text-align: center;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="tab-pane" id="Contacts">Will be implemented Later/ I skipped it for now.</div>
+</div>
+
+@section scripts
+{
+    <script src="~/Scripts/Library/i18n/grid.locale-en.js"></script>
+    <script src="~/Scripts/Library/jquery.jqGrid.min.js"></script>
+    <script language="javascript" type="text/javascript">
+
+        $(function () {
+
+            //#region Tab 
+
+            $('#myTab a').click(function (e) {
+                e.preventDefault();
+                $(this).tab('show');
+            });
+
+            //#endregion
+
+            //#region JqGrid
+
+            $("#accounts-list").jqGrid({
+                url: '/Account/GetAccounts',
+                datatype: 'json',
+                mtype: 'GET',
+                colNames: ['Id', 'Name', 'Web site', 'Phone', 'Email', 'Account Type', 'Account Status'],
+                colModel: [
+                    { name: 'Id', index: 'Id', hidden: true, align: 'left', sortable: false },
+                    { name: 'Name', index: 'Name', width: 150, align: 'left', sortable: false, editable: true },
+                    { name: 'Url', index: 'Url', width: 60, align: 'center', sortable: false, editable: true },
+                    { name: 'Phone', index: 'Phone', width: 85, align: 'right', sortable: false, editable: true },
+                    { name: 'Email', index: 'Email', width: 85, align: 'right', sortable: false, editable: true },
+                    { name: 'AccountType', index: 'AccountType', width: 180, align: 'left', sortable: false, editable: true, edittype: "select", editoptions: { value: "0:Lead;1:Customer" } },
+                    { name: 'AccountStatus', index: 'AccountStatus', width: 180, align: 'left', sortable: false, editable: true, edittype: "select", editoptions: { value: "0:Active;1:InActive" } }
+                ],
+                pager: jQuery('#pager'),
+                rowNum: 10,
+                rowList: [10, 20, 50],
+                sortname: 'Id',
+                sortorder: "asc",
+                width: 1035,
+                imgpath: '/Content/themes/base/images',
+                jsonReader: { repeatitems: false, id: "ID" },
+                loadComplete: function (data) {
+                    if (data != '' && data != null) {
+
+                    }
+                },
+                gridComplete: function () {
+
+                }
+
+            });
+            $("#accounts-list").jqGrid('navGrid', '#pager',
+{ search: false, refresh: false }, //options
+{ width: 400, height: 300, reloadAfterSubmit: true, url: '/Api/ManageAccount/EditAccount' }, // edit options
+{ width: 400, height: 300, reloadAfterSubmit: true, url: '/Api/ManageAccount/AddAccount' }, // add options
+{ reloadAfterSubmit: true, url: '/Api/ManageAccount/DeleteAccount' } // del options
+
+);
+
+            //#endregion
+
+        });
+    </script>
+
+}
