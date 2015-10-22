@@ -1,0 +1,20 @@
+<html>
+<head>
+	<title>Slimgotest_Slimgo</title>
+</head>
+<body>
+{{template "Test/header.html" .}}
+<br>
+Get data:<br>
+Hello,{{.Test}}
+<br>
+Std's name is {{.Std.nickname}},age is {{.Std.age}}.
+<br>
+<br>
+Template Func:<br>
+{{Test "hhh"}}<br>
+{{Date 1443492897 "Y-m-d H:i:s"}}<br>
+<br>
+{{template "Test/footer.html"}}
+</body>
+</html>
