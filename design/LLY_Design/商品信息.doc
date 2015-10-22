@@ -1,0 +1,635 @@
+Message-ID: <547338821.1051.1445508669509.JavaMail.WIN-M4ESVDKHK37$@WIN-M4ESVDKHK37>
+Subject: Exported From Confluence
+MIME-Version: 1.0
+Content-Type: multipart/related; 
+	boundary="----=_Part_1050_1575720818.1445508669509"
+
+------=_Part_1050_1575720818.1445508669509
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+Content-Location: file:///C:/exported.html
+
+<html xmlns:o=3D'urn:schemas-microsoft-com:office:office'
+      xmlns:w=3D'urn:schemas-microsoft-com:office:word'
+      xmlns:v=3D'urn:schemas-microsoft-com:vml'
+      xmlns=3D'urn:w3-org-ns:HTML'>
+<head>
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8=
+">
+    <title>=E5=95=86=E5=93=81=E4=BF=A1=E6=81=AF</title>
+    <!--[if gte mso 9]>
+    <xml>
+        <o:OfficeDocumentSettings>
+            <o:TargetScreenSize>1024x640</o:TargetScreenSize>
+            <o:PixelsPerInch>72</o:PixelsPerInch>
+            <o:AllowPNG/>
+        </o:OfficeDocumentSettings>
+        <w:WordDocument>
+            <w:View>Print</w:View>
+            <w:Zoom>90</w:Zoom>
+            <w:DoNotOptimizeForBrowser/>
+        </w:WordDocument>
+    </xml>
+    <![endif]-->
+    <style>
+                <!--
+        @page Section1 {
+            size: 8.5in 11.0in;
+            margin: 1.0in;
+            mso-header-margin: .5in;
+            mso-footer-margin: .5in;
+            mso-paper-source: 0;
+        }
+
+        td {
+            page-break-inside: avoid;
+        }
+
+        tr {
+            page-break-after: avoid;
+        }
+
+        div.Section1 {
+            page: Section1;
+        }
+
+        /* Confluence print stylesheet. Common to all themes for print medi=
+a */
+/* Full of !important until we improve batching for print CSS */
+
+@media print {
+    #main {
+        padding-bottom: 1em !important; /* The default padding of 6em is to=
+o much for printouts */
+    }
+
+    body {
+        font-family: Arial, Helvetica, FreeSans, sans-serif;
+        font-size: 10pt;
+        line-height: 1.2;
+    }
+
+    body, #full-height-container, #main, #page, #content, .has-personal-sid=
+ebar #content {
+        background: #fff !important;
+        color: #000 !important;
+        border: 0 !important;
+        width: 100% !important;
+        height: auto !important;
+        min-height: auto !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        display: block !important;
+    }
+
+    a, a:link, a:visited, a:focus, a:hover, a:active {
+        color: #000;
+    }
+
+    #content h1,
+    #content h2,
+    #content h3,
+    #content h4,
+    #content h5,
+    #content h6 {
+        font-family: Arial, Helvetica, FreeSans, sans-serif;
+        page-break-after: avoid;
+    }
+
+    pre {
+        font-family: Monaco, "Courier New", monospace;
+    }
+
+    #header,
+    .aui-header-inner,
+    #navigation,
+    #sidebar,
+    .sidebar,
+    #personal-info-sidebar,
+    .ia-fixed-sidebar,
+    .page-actions,
+    .navmenu,
+    .ajs-menu-bar,
+    .noprint,
+    .inline-control-link,
+    .inline-control-link a,
+    a.show-labels-editor,
+    .global-comment-actions,
+    .comment-actions,
+    .quick-comment-container,
+    #addcomment {
+        display: none !important;
+    }
+
+    .comment .date::before {
+        content: none !important; /* remove middot for print view */
+    }
+
+    h1.pagetitle img {
+        height: auto;
+        width: auto;
+    }
+
+    .print-only {
+        display: block;
+    }
+
+    #footer {
+        position: relative !important; /* CONF-17506 Place the footer at en=
+d of the content */
+        margin: 0;
+        padding: 0;
+        background: none;
+        clear: both;
+    }
+
+    #poweredby {
+        border-top: none;
+        background: none;
+    }
+
+    #poweredby li.print-only {
+        display: list-item;
+        font-style: italic;
+    }
+
+    #poweredby li.noprint {
+        display: none;
+    }
+
+    /* no width controls in print */
+    .wiki-content .table-wrap,
+    .wiki-content p,
+    .panel .codeContent,
+    .panel .codeContent pre,
+    .image-wrap {
+        overflow: visible !important;
+    }
+
+    /* TODO - should this work? */
+    #children-section,
+    #comments-section .comment,
+    #comments-section .comment .comment-body,
+    #comments-section .comment .comment-content,
+    #comments-section .comment p {
+        page-break-inside: avoid;
+    }
+
+    #page-children a {
+        text-decoration: none;
+    }
+
+    /**
+     hide twixies
+
+     the specificity here is a hack because print styles
+     are getting loaded before the base styles. */
+    #comments-section.pageSection .section-header,
+    #comments-section.pageSection .section-title,
+    #children-section.pageSection .section-header,
+    #children-section.pageSection .section-title,
+    .children-show-hide {
+        padding-left: 0;
+        margin-left: 0;
+    }
+
+    .children-show-hide.icon {
+        display: none;
+    }
+
+    /* personal sidebar */
+    .has-personal-sidebar #content {
+        margin-right: 0px;
+    }
+
+    .has-personal-sidebar #content .pageSection {
+        margin-right: 0px;
+    }
+}
+-->
+    </style>
+</head>
+<body>
+    <h1>=E5=95=86=E5=93=81=E4=BF=A1=E6=81=AF</h1>
+    <div class=3D"Section1">
+        <h1 id=3D"id-=E5=95=86=E5=93=81=E4=BF=A1=E6=81=AF-Products=E2=80=93=
+=E5=95=86=E5=93=81=E8=A1=A8">Products =E2=80=93 =E5=95=86=E5=93=81=E8=A1=A8=
+</h1>
+<div class=3D"table-wrap">
+<table class=3D"confluenceTable">
+<tbody>
+<tr>
+<th colspan=3D"1" class=3D"confluenceTh"><strong>=E5=88=97=E5=90=8D</strong=
+></th>
+<th colspan=3D"1" class=3D"confluenceTh"><strong>=E6=95=B0=E6=8D=AE=E7=B1=
+=BB=E5=9E=8B</strong></th>
+<th colspan=3D"1" class=3D"confluenceTh"><strong>=E5=8F=AF=E4=BB=A5=E4=B8=
+=BANULL</strong></th>
+<th colspan=3D"1" class=3D"confluenceTh"><strong>=E9=BB=98=E8=AE=A4=E5=80=
+=BC</strong></th>
+<th colspan=3D"1" class=3D"confluenceTh"><strong>=E8=AF=B4=E6=98=8E</strong=
+></th>
+</tr>
+<tr>
+<td class=3D"confluenceTd"><p align=3D"left">Id</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">bigint</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">=E5=90=A6</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">&nbsp;</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">ID</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd"><p align=3D"left">ProductCode</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">bigint</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">=E5=90=A6</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">&nbsp;</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">=E5=95=86=E5=93=81=E7=BC=96=E5=
+=8F=B7</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd"><p align=3D"left">ProductName</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">nvarchar(200)</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">=E5=90=A6</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">&nbsp;</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">=E5=95=86=E5=93=81=E5=90=8D=E7=
+=A7=B0</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd"><p align=3D"left">ProductSKU</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">nvarchar(200)</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">=E5=90=A6</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">&nbsp;</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">=E5=95=86=E5=93=81SKU</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd"><p align=3D"left">ProductDesc</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">nvarchar(200)</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">=E5=90=A6</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">&nbsp;</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">=E5=95=86=E5=93=81=E7=AE=80=E8=
+=BF=B0</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd"><p align=3D"left">ProductStatus&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">int</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">=E5=90=A6</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">&nbsp;</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">=E5=95=86=E5=93=81=E7=8A=B6=E6=
+=80=81</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd"><p align=3D"left">ProductType&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">int</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">=E5=90=A6</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">&nbsp;</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">=E5=95=86=E5=93=81=E7=B1=BB=E5=
+=88=AB</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd"><p align=3D"left">ProductCategory&nbsp;&nbsp;&nb=
+sp;&nbsp;&nbsp;</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">Int</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">=E5=90=A6</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">&nbsp;</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">=E5=95=86=E5=93=81=E5=88=86=E7=
+=B1=BB</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd"><p align=3D"left">SupplierCode&nbsp;&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">nvarchar(200)</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">=E6=98=AF</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">&nbsp;</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">=E4=BE=9B=E8=B4=A7=E5=95=86=E4=
+=BB=A3=E7=A0=81</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd"><p align=3D"left">SupplierName</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">nvarchar(200)</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">=E6=98=AF</p></td>
+<td class=3D"confluenceTd">&nbsp;</td>
+<td class=3D"confluenceTd"><p align=3D"left">=E4=BE=9B=E8=B4=A7=E5=95=86</p=
+></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd"><p align=3D"left">PurchaseCycle&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">decimal()&nbsp;&nbsp;&nbsp;&nb=
+sp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">=E6=98=AF</p></td>
+<td class=3D"confluenceTd">&nbsp;</td>
+<td class=3D"confluenceTd"><p align=3D"left">=E9=87=87=E8=B4=AD=E5=91=A8=E6=
+=9C=9F</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd"><p align=3D"left">OriginalPrice</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">decimal(10,2)</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">=E5=90=A6</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">&nbsp;</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">=E5=8E=9F=E4=BB=B7</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd"><p align=3D"left">PreferentialPrice&nbsp;&nbsp;&=
+nbsp;</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">decimal(10,2)</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">=E5=90=A6</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">&nbsp;</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">=E4=BC=98=E6=83=A0=E4=BB=B7</p=
+></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd"><p align=3D"left">Sequencing&nbsp;&nbsp;&nbsp;&n=
+bsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">int</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">=E5=90=A6</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">0</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">=E6=8E=92=E5=BA=8F=E5=80=BC</p=
+></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd"><p align=3D"left">IsLimitLaunchCycle</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">bit</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">=E5=90=A6</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">1</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">=E6=98=AF=E5=90=A6=E9=99=90=E5=
+=88=B6=E6=8A=95=E6=94=BE=E5=91=A8=E6=9C=9F</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd"><p align=3D"left">LaunchCycleBeginDate</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">date</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">=E6=98=AF</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">&nbsp;</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">=E6=8A=95=E6=94=BE=E5=91=A8=E6=
+=9C=9F=E5=BC=80=E5=A7=8B</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd"><p align=3D"left">LaunchCycleEndDate&nbsp;&nbsp;=
+</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">date</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">=E6=98=AF</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">&nbsp;</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">=E6=8A=95=E6=94=BE=E5=91=A8=E6=
+=9C=9F=E7=BB=93=E6=9D=9F</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd"><p align=3D"left">EachPurchaseVolume&nbsp;&nbsp;=
+</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">int</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">=E6=98=AF</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">&nbsp;</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">=E6=AF=8F=E4=BA=BA=E9=99=90=E8=
+=B4=AD</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd"><p align=3D"left">IsChoicestGoods</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">bit</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">=E5=90=A6</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">0</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">=E7=B2=BE=E5=93=81</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd"><p align=3D"left">ChoicestGoodsImgUrl&nbsp;</p><=
+/td>
+<td class=3D"confluenceTd"><p align=3D"left">nvarchar(200)</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">=E6=98=AF</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">&nbsp;</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">=E7=B2=BE=E5=93=81=E5=9B=BE=E7=
+=89=87</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd"><p align=3D"left">ProductImgUrl&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">nvarchar(200)</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">=E5=90=A6</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">&nbsp;</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">=E5=95=86=E5=93=81=E5=9B=BE=E7=
+=89=87</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd"><p align=3D"left">ProductSource</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">int</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">=E5=90=A6</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">&nbsp;</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">=E5=95=86=E5=93=81=E6=9D=A5=E6=
+=BA=90</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd"><p align=3D"left">SalesAreaId</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">bigint</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">=E5=90=A6</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">&nbsp;</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">=E9=94=80=E5=94=AE=E5=8C=BA=E5=
+=9F=9FID</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd"><p align=3D"left">PresellAndDeliveryTimeId</p></=
+td>
+<td class=3D"confluenceTd"><p align=3D"left">bigint</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">=E5=90=A6</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">&nbsp;</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">=E5=95=86=E5=93=81=E9=A2=84=E5=
+=94=AE=E5=8F=8A=E9=85=8D=E9=80=81=E6=88=AA=E6=AD=A2=E8=B5=B7=E5=A7=8B=E6=97=
+=B6=E9=97=B4Id</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd"><p align=3D"left">PresellCycle</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">int</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">=E5=90=A6</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">5</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">=E9=A2=84=E5=94=AE=E5=91=A8=E6=
+=9C=9F</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd"><p align=3D"left">JointProductsId</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">bigint</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">=E6=98=AF</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">&nbsp;</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">=E7=BB=84=E5=90=88=E5=95=86=E5=
+=93=81ID</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd"><p align=3D"left">ProductAttachImgUrl</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">nvarchar(200)</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">=E6=98=AF</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">&nbsp;</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">=E5=95=86=E5=93=81=E9=99=84=E5=
+=8A=A0=E5=9B=BE=E7=89=87</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd"><p align=3D"left">IsDeleted</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">bit</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">=E6=98=AF</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">0</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">=E6=98=AF=E5=90=A6=E5=B7=B2=E5=
+=88=A0=E9=99=A4</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd"><p align=3D"left">CreatedAt</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">datetime</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">=E5=90=A6</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">&nbsp;</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">=E5=88=9B=E5=BB=BA=E6=97=B6=E9=
+=97=B4</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd"><p align=3D"left">LastModifiedAt</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">datetime</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">=E5=90=A6</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">getdate()</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">=E6=9C=80=E5=90=8E=E6=9B=B4=E6=
+=96=B0=E6=97=B6=E9=97=B4</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd"><p align=3D"left">CreatedUserId</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">bigint</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">=E5=90=A6</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">&nbsp;</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">=E5=88=9B=E5=BB=BA=E4=BA=BA</p=
+></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd"><p align=3D"left">LastModifiedUserId</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">bigint</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">=E5=90=A6</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">&nbsp;</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">=E6=9C=80=E5=90=8E=E6=9B=B4=E6=
+=96=B0=E4=BA=BA</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>&nbsp;</p>
+<h1 id=3D"id-=E5=95=86=E5=93=81=E4=BF=A1=E6=81=AF-JointProducts=E2=80=93=E7=
+=BB=84=E5=90=88=E5=95=86=E5=93=81=E8=A1=A8">JointProducts =E2=80=93 =E7=BB=
+=84=E5=90=88=E5=95=86=E5=93=81=E8=A1=A8</h1>
+<div class=3D"table-wrap">
+<table class=3D"confluenceTable">
+<tbody>
+<tr>
+<th colspan=3D"1" class=3D"confluenceTh"><strong>=E5=88=97=E5=90=8D</strong=
+></th>
+<th colspan=3D"1" class=3D"confluenceTh"><strong>=E6=95=B0=E6=8D=AE=E7=B1=
+=BB=E5=9E=8B</strong></th>
+<th colspan=3D"1" class=3D"confluenceTh"><strong>=E5=8F=AF=E4=BB=A5=E4=B8=
+=BANULL</strong></th>
+<th colspan=3D"1" class=3D"confluenceTh"><strong>=E9=BB=98=E8=AE=A4=E5=80=
+=BC</strong></th>
+<th colspan=3D"1" class=3D"confluenceTh"><strong>=E8=AF=B4=E6=98=8E</strong=
+></th>
+</tr>
+<tr>
+<td class=3D"confluenceTd"><p align=3D"left">Id</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">bigint</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">=E5=90=A6</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">&nbsp;</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">ID</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd"><p align=3D"left">ProductsId</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">bitint</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">=E5=90=A6</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">&nbsp;</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">=E5=95=86=E5=93=81ID</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd"><p align=3D"left">ProductNum</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">int</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">=E5=90=A6</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">&nbsp;</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">=E6=89=80=E5=90=AB=E5=8D=95=E5=
+=93=81=E4=BB=BD=E6=95=B0</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd"><p align=3D"left">IsDeleted</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">bit</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">=E6=98=AF</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">&nbsp;0</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">=E6=98=AF=E5=90=A6=E5=B7=B2=E5=
+=88=A0=E9=99=A4</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>&nbsp;</p>
+<h1 id=3D"id-=E5=95=86=E5=93=81=E4=BF=A1=E6=81=AF-PresellAndDeliveryTime=E2=
+=80=93=E5=95=86=E5=93=81=E9=A2=84=E5=94=AE=E5=8F=8A=E9=85=8D=E9=80=81=E8=B5=
+=B7=E5=A7=8B=E6=97=B6=E9=97=B4">PresellAndDeliveryTime=E2=80=93=E5=95=86=E5=
+=93=81=E9=A2=84=E5=94=AE=E5=8F=8A=E9=85=8D=E9=80=81=E8=B5=B7=E5=A7=8B=E6=97=
+=B6=E9=97=B4</h1>
+<div class=3D"table-wrap">
+<table class=3D"confluenceTable">
+<tbody>
+<tr>
+<th colspan=3D"1" class=3D"confluenceTh"><strong>=E5=88=97=E5=90=8D</strong=
+></th>
+<th colspan=3D"1" class=3D"confluenceTh"><strong>=E6=95=B0=E6=8D=AE=E7=B1=
+=BB=E5=9E=8B</strong></th>
+<th colspan=3D"1" class=3D"confluenceTh"><strong>=E5=8F=AF=E4=BB=A5=E4=B8=
+=BANULL</strong></th>
+<th colspan=3D"1" class=3D"confluenceTh"><strong>=E9=BB=98=E8=AE=A4=E5=80=
+=BC</strong></th>
+<th colspan=3D"1" class=3D"confluenceTh"><strong>=E8=AF=B4=E6=98=8E</strong=
+></th>
+</tr>
+<tr>
+<td class=3D"confluenceTd"><p align=3D"left">Id</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">bigint</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">=E5=90=A6</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">&nbsp;</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">ID</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd"><p align=3D"left">ProductsId</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">bitint</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">=E5=90=A6</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">&nbsp;</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">=E5=95=86=E5=93=81ID</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd"><p align=3D"left">PresellBeginTime</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">time</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">=E5=90=A6</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">&nbsp;</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">=E9=A2=84=E5=94=AE=E5=BC=80=E5=
+=A7=8B=E6=97=B6=E9=97=B4</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd"><p align=3D"left">PresellEndTime</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">time</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">=E5=90=A6</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">&nbsp;</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">=E9=A2=84=E5=94=AE=E7=BB=93=E6=
+=9D=9F=E6=97=B6=E9=97=B4</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd"><p align=3D"left">DeliveryBeginTime</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">time</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">=E5=90=A6</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">&nbsp;</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">=E9=85=8D=E9=80=81=E5=BC=80=E5=
+=A7=8B=E6=97=B6=E9=97=B4</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd"><p align=3D"left">DeliveryEndTime</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">time</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">=E5=90=A6</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">&nbsp;</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">=E9=85=8D=E9=80=81=E7=BB=93=E6=
+=9D=9F=E6=97=B6=E9=97=B4</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd"><p align=3D"left">IsDeleted</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">bit</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">=E6=98=AF</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">0</p></td>
+<td class=3D"confluenceTd"><p align=3D"left">=E6=98=AF=E5=90=A6=E5=B7=B2=E5=
+=88=A0=E9=99=A4</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+    </div>
+</body>
+</html>
+------=_Part_1050_1575720818.1445508669509--
