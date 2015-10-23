@@ -2,11 +2,11 @@ package main
 
 import (
 	"github.com/jesusslim/slimgo"
-	"slimgotest/controller"
-	"slimgotest/controller/Admin"
-	_ "slimgotest/hook"
-	_ "slimgotest/model"
-	_ "slimgotest/task"
+	"slimgotest-master/controller"
+	"slimgotest-master/controller/Admin"
+	_ "slimgotest-master/hook"
+	_ "slimgotest-master/model"
+	_ "slimgotest-master/task"
 )
 
 func main() {
